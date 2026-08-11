@@ -5,7 +5,7 @@
  * Layout: Seções alternadas com diagonal cuts, hero assimétrico, cards com borda esquerda colorida
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, ChangeEvent, FormEvent } from "react";
 import {
   Menu,
   X,
@@ -90,12 +90,12 @@ export default function Home() {
     setMenuOpen(false);
   };
 
-  const handleFormChange = (e) => {
+  const handleFormChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const message = `Nome: ${formData.nome}%0AWhatsApp: ${formData.whatsapp}%0AE-mail: ${formData.email}%0AMensagem: ${formData.mensagem}`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
@@ -108,9 +108,8 @@ export default function Home() {
     <div className="min-h-screen bg-white font-['Nunito']">
       {/* ===== NAVBAR ===== */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+          }`}
       >
         <div className="container flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 flex-shrink-0">
@@ -140,40 +139,36 @@ export default function Home() {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`text-sm font-semibold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-110 relative pb-1 ${
-                  scrolled ? "text-slate-700 hover:text-blue-700" : "text-white hover:text-cyan-300"
-                } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-blue-700 after:to-cyan-500 after:transition-all after:duration-300 hover:after:w-full`}
+                className={`text-sm font-semibold uppercase tracking-wider transition-all duration-300 ease-in-out transform hover:scale-110 relative pb-1 ${scrolled ? "text-slate-700 hover:text-blue-700" : "text-white hover:text-cyan-300"
+                  } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-blue-700 after:to-cyan-500 after:transition-all after:duration-300 hover:after:w-full`}
               >
                 {item.label}
               </button>
             ))}
             <a
               href="/iss"
-              className={`text-sm font-semibold uppercase tracking-wider px-5 py-2 rounded-full transition-all duration-300 ${
-                scrolled
+              className={`text-sm font-semibold uppercase tracking-wider px-5 py-2 rounded-full transition-all duration-300 ${scrolled
                   ? "bg-blue-700 text-white hover:bg-blue-800"
                   : "bg-cyan-400/20 text-cyan-300 hover:bg-cyan-400/30 border border-cyan-400/50"
-              }`}
+                }`}
             >
               ISS Saneamento
             </a>
             <a
               href="/prev"
-              className={`text-sm font-semibold uppercase tracking-wider px-5 py-2 rounded-full transition-all duration-300 ${
-                scrolled
+              className={`text-sm font-semibold uppercase tracking-wider px-5 py-2 rounded-full transition-all duration-300 ${scrolled
                   ? "bg-blue-700 text-white hover:bg-blue-800"
                   : "bg-cyan-400/20 text-cyan-300 hover:bg-cyan-400/30 border border-cyan-400/50"
-              }`}
+                }`}
             >
               Previdenciário
             </a>
             <a
               href="/ctc"
-              className={`text-sm font-semibold uppercase tracking-wider px-5 py-2 rounded-full transition-all duration-300 ${
-                scrolled
+              className={`text-sm font-semibold uppercase tracking-wider px-5 py-2 rounded-full transition-all duration-300 ${scrolled
                   ? "bg-blue-700 text-white hover:bg-blue-800"
                   : "bg-cyan-400/20 text-cyan-300 hover:bg-cyan-400/30 border border-cyan-400/50"
-              }`}
+                }`}
             >
               CTC
             </a>
@@ -378,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* ===== EQUIPE ===== */}
-      <section
+      {/* <section
         id="equipe"
         ref={teamRef}
         className="py-20 px-4 relative overflow-hidden"
@@ -392,7 +387,7 @@ export default function Home() {
         }}
       >
 
-        {/* Diagonal top cut */}
+        //Diagonal top cut
         <div
           className="absolute top-0 left-0 right-0 h-24"
           style={{
@@ -407,7 +402,7 @@ export default function Home() {
           </h2>
 
           <div className="relative flex items-center justify-center gap-6 fade-in-up">
-            {/* Botão Anterior */}
+            //Botão Anterior
             <button
               onClick={() => setCurrentTeamIndex((prev) => (prev === 0 ? team.length - 1 : prev - 1))}
               className="absolute left-0 z-10 p-2 rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors shadow-lg"
@@ -415,11 +410,11 @@ export default function Home() {
               <ChevronLeft size={24} />
             </button>
 
-            {/* Carousel */}
+            //Carousel
             <div className="flex-1 flex justify-center">
               <div className="w-full max-w-sm">
                 <div className="relative group">
-                  {/* Card com efeito de profundidade */}
+                 //Card com efeito de profundidade
                   <div className="absolute -inset-1 bg-gradient-to-br from-cyan-500/50 to-blue-700/50 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition duration-500" />
                   <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-white/20">
                     <img
@@ -446,7 +441,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Botão Próximo */}
+            //Botão Próximo
             <button
               onClick={() => setCurrentTeamIndex((prev) => (prev === team.length - 1 ? 0 : prev + 1))}
               className="absolute right-0 z-10 p-2 rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors shadow-lg"
@@ -455,7 +450,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ===== CONTATO ===== */}
       <section
@@ -536,7 +531,7 @@ export default function Home() {
                 value={formData.mensagem}
                 onChange={handleFormChange}
                 required
-                rows="5"
+                rows={5}
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700 resize-none bg-white"
                 placeholder="Descreva sua necessidade..."
               />
