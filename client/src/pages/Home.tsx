@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 // CDN URLs
-const LOGO_NEW = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663380153869/DdpGSCuwtiJucNOQ.png";
+const LOGO_NEW = "/images/logo-sd.png";
 const WHATSAPP_NUMBER = "5544998109740";
 
 // Hook de animação ao scroll
@@ -253,7 +253,7 @@ export default function Home() {
         {/* Background image with overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: `url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663380153869/CSIKWBvQveAASmaf.jpg')` }}
+          style={{ backgroundImage: `url('/images/home-hero.jpg')` }}
         />
 
         {/* Diagonal bottom cut */}
@@ -321,7 +321,7 @@ export default function Home() {
             <div className="fade-in-up group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-blue-600">
               <div className="h-48 overflow-hidden bg-blue-100">
                 <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663380153869/YdYgaeGsBUAWMjBz.webp"
+                  src="/images/prev-hero.jpg"
                   alt="Direito Previdenciário"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -347,7 +347,7 @@ export default function Home() {
             <div className="fade-in-up group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-blue-600">
               <div className="h-48 overflow-hidden bg-cyan-100">
                 <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663380153869/kVnJTyxrYmyphdjo.png"
+                  src="/images/home-card-saneamento.jpg"
                   alt="Empresas de Saneamento"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />

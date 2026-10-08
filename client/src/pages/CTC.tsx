@@ -24,8 +24,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 
-const LOGO_NEW =
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663380153869/DdpGSCuwtiJucNOQ.png";
+const LOGO_NEW = "/images/logo-sd.png";
 const WHATSAPP_NUMBER = "5544998563465";
 const YOUTUBE_VIDEO_ID = "wfPLBr65oik";
 
@@ -860,7 +859,7 @@ export default function CTC() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("https://d2xsxph8kpxj0f.cloudfront.net/310519663380153869/f5EMxg8ZvQkkSQXTbCfTFB/CTC1_1731c647.webp")`,
+            backgroundImage: `url("/images/ctc-hero.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
