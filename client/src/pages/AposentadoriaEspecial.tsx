@@ -217,6 +217,8 @@ export default function AposentadoriaEspecial() {
         titulo="Aposentadoria especial: o que é analisado"
         descricao="O tempo especial depende das atividades, do agente e das provas de cada vínculo. Veja o que analisamos e o efeito da decisão do STF sobre a idade mínima."
         caminho="/aposentadoria-especial"
+        palavrasChave="aposentadoria especial, tempo especial, PPP, exposição a ruído, agente nocivo, EPI eficaz"
+        imagem="/images/og-tempo-especial.jpg"
         jsonLd={[
           faqJsonLd(PERGUNTAS),
           breadcrumbJsonLd([

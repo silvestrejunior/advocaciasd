@@ -11,9 +11,28 @@ type SeoProps = {
   tipo?: "website" | "article";
   /** Página que não deve ser indexada (ex.: rota inexistente). */
   noindex?: boolean;
+  /** Termos da página, entre 3 e 8, separados por vírgula. */
+  palavrasChave?: string;
+  /** Imagem de compartilhamento própria da página. */
+  imagem?: string;
   /** Dados estruturados (schema.org) específicos da página. */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
+
+/** Teto do título completo: acima disto o Google costuma cortar o texto. */
+const LIMITE_TITULO = 60;
+
+/**
+ * Monta o título completo.
+ *
+ * Quando o título da página já é longo, o nome do escritório sai para o
+ * resultado não ser cortado na busca — o que importa é a parte que descreve
+ * a página.
+ */
+export function tituloCompleto(titulo: string, nome: string = SITE.nome) {
+  const comMarca = `${titulo} | ${nome}`;
+  return comMarca.length <= LIMITE_TITULO ? comMarca : titulo;
+}
 
 function upsertMeta(attr: "name" | "property", chave: string, valor: string) {
   let el = document.head.querySelector<HTMLMetaElement>(
@@ -51,14 +70,20 @@ export function Seo({
   caminho,
   tipo = "website",
   noindex = false,
+  palavrasChave,
+  imagem,
   jsonLd,
 }: SeoProps) {
   useEffect(() => {
-    const tituloCompleto = `${titulo} | ${SITE.nome}`;
+    const completo = tituloCompleto(titulo);
     const url = `${SITE.dominio}${caminho}`;
+    const imagemPagina = imagem
+      ? `${SITE.dominio}${imagem}`
+      : `${SITE.dominio}/images/og-image.jpg`;
 
-    document.title = tituloCompleto;
+    document.title = completo;
     upsertMeta("name", "description", descricao);
+    if (palavrasChave) upsertMeta("name", "keywords", palavrasChave);
     upsertMeta(
       "name",
       "robots",
@@ -70,16 +95,16 @@ export function Seo({
 
     upsertMeta("property", "og:type", tipo);
     upsertMeta("property", "og:site_name", SITE.nomeCompleto);
-    upsertMeta("property", "og:title", tituloCompleto);
+    upsertMeta("property", "og:title", completo);
     upsertMeta("property", "og:description", descricao);
     upsertMeta("property", "og:url", url);
-    upsertMeta("property", "og:image", `${SITE.dominio}/images/og-image.jpg`);
+    upsertMeta("property", "og:image", imagemPagina);
     upsertMeta("property", "og:locale", "pt_BR");
 
     upsertMeta("name", "twitter:card", "summary_large_image");
-    upsertMeta("name", "twitter:title", tituloCompleto);
+    upsertMeta("name", "twitter:title", completo);
     upsertMeta("name", "twitter:description", descricao);
-    upsertMeta("name", "twitter:image", `${SITE.dominio}/images/og-image.jpg`);
+    upsertMeta("name", "twitter:image", imagemPagina);
 
     const marcaId = "jsonld-pagina";
     document.getElementById(marcaId)?.remove();
@@ -88,9 +113,11 @@ export function Seo({
       {
         "@context": "https://schema.org",
         "@type": "LegalService",
+        "@id": `${SITE.dominio}/#escritorio`,
         name: SITE.nomeCompleto,
         url: SITE.dominio,
-        image: `${SITE.dominio}/images/og-image.jpg`,
+        logo: `${SITE.dominio}/images/favicon-512.png`,
+        image: [`${SITE.dominio}/images/og-image.jpg`],
         telephone: `+${SITE.whatsapp}`,
         email: SITE.email,
         openingHours: "Mo-Fr 09:00-17:00",
@@ -129,7 +156,7 @@ export function Seo({
     return () => {
       document.getElementById(marcaId)?.remove();
     };
-  }, [titulo, descricao, caminho, tipo, jsonLd, noindex]);
+  }, [titulo, descricao, caminho, tipo, jsonLd, noindex, palavrasChave, imagem]);
 
   return null;
 }

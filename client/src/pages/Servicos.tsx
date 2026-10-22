@@ -22,9 +22,10 @@ export default function Servicos() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Serviços"
+        titulo="Serviços de direito previdenciário"
         descricao="Encontre o atendimento para o seu assunto: aposentadorias, benefícios por incapacidade, aposentadoria negada, revisão, pensão por morte e BPC/LOAS."
         caminho="/servicos"
+        palavrasChave="serviços previdenciários, aposentadoria, benefício por incapacidade, revisão de benefício, pensão por morte, BPC LOAS"
         jsonLd={breadcrumbJsonLd([
           { label: "Início", href: "/" },
           { label: "Serviços", href: "/servicos" },

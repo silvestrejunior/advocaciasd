@@ -164,6 +164,8 @@ export default function PericiaNegada() {
         titulo="Perícia negada: o que fazer"
         descricao="Perícia do INSS negada? Veja o que analisar no laudo, no prazo de recurso e nos documentos antes de escolher o próximo caminho."
         caminho="/pericia-negada"
+        palavrasChave="perícia negada INSS, benefício por incapacidade negado, laudo médico, recurso administrativo, nova perícia"
+        imagem="/images/og-pericia.jpg"
         jsonLd={[
           faqJsonLd(PERGUNTAS),
           breadcrumbJsonLd(

@@ -868,7 +868,7 @@ export default function CTC() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("/images/ctc-hero.jpg")`,
+            backgroundImage: `url("/images/ctc-hero.webp")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

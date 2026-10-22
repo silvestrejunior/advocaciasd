@@ -10,10 +10,10 @@ export function BannerPrincipal() {
       <picture>
         <source
           media="(max-width: 767px)"
-          srcSet="/images/hero-fachada-mobile.jpg"
+          srcSet="/images/hero-fachada-mobile.webp"
         />
         <img
-          src="/images/hero-fachada.jpg"
+          src="/images/hero-fachada.webp"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover object-center"

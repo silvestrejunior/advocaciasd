@@ -149,6 +149,7 @@ export default function ServidoresPublicos() {
         titulo="Aposentadoria de servidor público: o que analisar"
         descricao="Servidor efetivo não se aposenta pelo INSS. Entenda o que analisamos no regime próprio, no histórico funcional e nos períodos que podem ser averbados."
         caminho="/servidores-publicos"
+        palavrasChave="aposentadoria de servidor público, RPPS, averbação de tempo, certidão de tempo de contribuição, abono de permanência"
         jsonLd={[faqJsonLd(PERGUNTAS), breadcrumbJsonLd(TRILHA.map((t) => ({ label: t.label, href: t.href ?? "/servidores-publicos" })))]}
       />
       <SiteHeader sobreHeroEscuro />

@@ -25,9 +25,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Aposentadoria: INSS e servidores públicos"
+        titulo="Advogado previdenciário em Maringá"
         descricao="Análise de aposentadorias e benefícios do INSS e de regimes próprios, com cuidado prático desde o histórico até o pedido."
         caminho="/"
+        palavrasChave="advogado previdenciário Maringá, aposentadoria INSS, aposentadoria servidor público, benefício negado, tempo rural, tempo especial"
         jsonLd={faqJsonLd(FAQ_HOME)}
       />
       <SiteHeader sobreHeroEscuro />
@@ -47,7 +48,7 @@ export default function Home() {
             <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,360px)_1fr] lg:gap-14">
               <figure className="mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
                 <img
-                  src="/images/escritorio-retrato.jpg"
+                  src="/images/escritorio-retrato.webp"
                   alt={`${SITE.responsavel}, advogado responsável pelo escritório`}
                   loading="lazy"
                   className="aspect-[3/4] w-full rounded-2xl object-cover object-top shadow-lg"
@@ -72,7 +73,7 @@ export default function Home() {
                 <div className="mt-8 grid gap-6 sm:grid-cols-2">
                   <figure>
                     <img
-                      src="/images/escritorio-sala-reuniao.jpg"
+                      src="/images/escritorio-sala-reuniao.webp"
                       alt="Sala de reuniões do escritório, com vista para a cidade de Maringá"
                       loading="lazy"
                       className="aspect-[4/3] w-full rounded-xl object-cover shadow-sm"
@@ -84,7 +85,7 @@ export default function Home() {
                   </figure>
                   <figure>
                     <img
-                      src="/images/escritorio-mesa.jpg"
+                      src="/images/escritorio-mesa.webp"
                       alt="Mesa de trabalho usada na análise dos documentos do caso"
                       loading="lazy"
                       className="aspect-[4/3] w-full rounded-xl object-cover shadow-sm"
@@ -139,7 +140,7 @@ export default function Home() {
 
         <section className="relative overflow-hidden bg-brand-900 py-16 text-white md:py-20">
           <img
-            src="/images/escritorio-sala.jpg"
+            src="/images/escritorio-sala.webp"
             alt=""
             aria-hidden="true"
             loading="lazy"

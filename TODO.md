@@ -83,3 +83,16 @@
 
 - [x] Adicionar fundos individuais: pessoa de muletas em “Perícia negada”, agricultor com enxada em “Tempo Rural” e enfermeiro em ambiente hospitalar em “Tempo Especial”. Imagens ilustrativas com tratamento azul consistente, camada de contraste para leitura, integração com a identidade, hover e foco acessíveis; manter os três destinos e o restante da home.
 - [x] Substituir a foto do card “Estou com dificuldades no meu Tempo Especial” por uma enfermeira do sexo feminino, em ambiente hospitalar, mantendo o mesmo enquadramento, o tratamento azul e a legibilidade do texto.
+
+## Conferência de SEO e busca no Google — 22/10/2026
+
+- [x] Títulos entre 30 e 60 caracteres em todas as 28 rotas, com o nome do escritório saindo quando o título já é longo.
+- [x] Meta descrições entre 50 e 160 caracteres, incluindo a correção da página Sobre.
+- [x] Palavras-chave por rota (3 a 8 termos) nas páginas principais e de serviço.
+- [x] Canônica, og:url e og:image apontando para www.advocaciasd.com.br, inclusive na base HTML.
+- [x] Imagem de compartilhamento própria nas páginas de perícia negada, tempo rural e tempo especial.
+- [x] Dados estruturados com logo e identificador do escritório, além de BlogPosting, FAQPage e BreadcrumbList por página.
+- [x] Favicon com a logo sem fundo (.ico, 32, 192 e 512), ícone de toque e maskable em azul, e manifesto do site.
+- [x] Imagens convertidas para WebP e arquivos sem uso removidos: pasta de imagens de 3,4 MB para 1,6 MB.
+- [x] Pré-carregamento da imagem do banner e limpeza dos marcadores de edição no HTML publicado.
+- [x] Conferência publicada: 28 rotas com status 200, título, descrição, canônica, palavras-chave, um único H1 e conteúdo no HTML sem JavaScript.

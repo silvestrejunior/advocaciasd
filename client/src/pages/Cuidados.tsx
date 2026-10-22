@@ -106,6 +106,7 @@ export default function Cuidados() {
         titulo="Cuidados antes de pedir a aposentadoria"
         descricao="Os cuidados práticos de cada benefício do INSS e de servidores públicos: o que costuma decidir o resultado antes de dar entrada no pedido."
         caminho="/cuidados"
+        palavrasChave="cuidados antes de aposentar, conferir CNIS, documentos da aposentadoria, erros no pedido do INSS"
         jsonLd={breadcrumbJsonLd([
           { label: "Início", href: "/" },
           { label: "Cuidados antes de pedir", href: "/cuidados" },
@@ -222,7 +223,7 @@ export default function Cuidados() {
           className="relative scroll-mt-24 overflow-hidden bg-brand-900 py-16 text-white md:py-20"
         >
           <img
-            src="/images/escritorio-sala.jpg"
+            src="/images/escritorio-sala.webp"
             alt=""
             aria-hidden="true"
             loading="lazy"

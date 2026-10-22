@@ -19,8 +19,9 @@ export default function Sobre() {
     <div className="min-h-screen bg-white">
       <Seo
         titulo="Sobre o escritório"
-        descricao={`${SITE.nomeCompleto} — atuação especializada em Direito Previdenciário com ${SITE.experiencia} de experiência. Aposentadorias do INSS e de servidores públicos, em Maringá/PR e em todo o Brasil.`}
+        descricao={`${SITE.nomeCompleto}: ${SITE.experiencia} de experiência em aposentadorias do INSS e de servidores públicos. Atendimento em Maringá/PR e a distância.`}
         caminho="/sobre"
+        palavrasChave="escritório de advocacia previdenciária, João Luiz Santana Daufenbach, OAB PR 66208, advogado previdenciário Maringá"
         jsonLd={breadcrumbJsonLd([
           { label: "Início", href: "/" },
           { label: "Sobre", href: "/sobre" },

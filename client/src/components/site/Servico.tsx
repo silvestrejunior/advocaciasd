@@ -521,11 +521,15 @@ export function SeoServico({
   titulo,
   descricao,
   caminho,
+  palavrasChave,
+  imagem,
   jsonLd,
 }: {
   titulo: string;
   descricao: string;
   caminho: string;
+  palavrasChave?: string;
+  imagem?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }) {
   return (
@@ -533,6 +537,8 @@ export function SeoServico({
       titulo={titulo}
       descricao={descricao}
       caminho={caminho}
+      palavrasChave={palavrasChave}
+      imagem={imagem}
       jsonLd={jsonLd}
     />
   );

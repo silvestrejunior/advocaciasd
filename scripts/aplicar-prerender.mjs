@@ -35,6 +35,9 @@ const TAG_PLATAFORMA = '<script src="/api/platform/config.js"></script>';
 
 function preparar(html) {
   return html
+    // remove os marcadores de edição visual da prévia, que não pertencem ao
+    // HTML publicado (reduzem o arquivo e não têm uso em produção)
+    .replace(/\sdata-loc="[^"]*"/g, "")
     // remove as referências antigas de assets (e o script da plataforma,
     // que é reinserido para não duplicar)
     .replace(/<link\b[^>]*\/assets\/[^>]*>/g, "")

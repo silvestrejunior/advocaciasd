@@ -168,6 +168,8 @@ export default function TempoRural() {
         titulo="Tempo rural: como comprovar"
         descricao="Entenda como organizar documentos, autodeclaração e testemunhas para comprovar o tempo de trabalho rural no seu histórico previdenciário."
         caminho="/tempo-rural"
+        palavrasChave="tempo rural, comprovar trabalho rural, segurado especial, CNIS sem tempo rural, aposentadoria rural"
+        imagem="/images/og-tempo-rural.jpg"
         jsonLd={[faqJsonLd(PERGUNTAS), breadcrumbJsonLd(TRILHA.map((t) => ({ label: t.label, href: t.href ?? "/tempo-rural" })))]}
       />
       <SiteHeader sobreHeroEscuro />

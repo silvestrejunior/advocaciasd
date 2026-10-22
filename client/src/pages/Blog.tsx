@@ -28,6 +28,7 @@ export default function Blog() {
         titulo="Conteúdo sobre aposentadorias e benefícios"
         descricao="Artigos sobre o que analisar em cada tipo de aposentadoria e benefício: documentos, prazos, perícia, tempo rural e tempo especial."
         caminho="/blog"
+        palavrasChave="conteúdo previdenciário, aposentadoria, perícia, tempo rural, tempo especial, revisão de benefício"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Blog",

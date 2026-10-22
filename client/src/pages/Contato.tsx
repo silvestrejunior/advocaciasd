@@ -63,9 +63,10 @@ export default function Contato() {
   return (
     <div className="min-h-screen bg-white">
       <Seo
-        titulo="Contato"
+        titulo="Fale com o escritório em Maringá"
         descricao={`Fale com o escritório ${SITE.nomeCompleto}. WhatsApp ${SITE.whatsappExibicao}, e-mail e endereço em Maringá/PR. Atendimento presencial e remoto em todo o Brasil.`}
         caminho="/contato"
+        palavrasChave="contato advogado previdenciário, atendimento previdenciário Maringá, WhatsApp advogado INSS, consulta previdenciária"
         jsonLd={breadcrumbJsonLd([
           { label: "Início", href: "/" },
           { label: "Contato", href: "/contato" },
