@@ -49,7 +49,7 @@ const ROTAS_BASE = [
   { path: "/ctc", title: "Certidão de tempo de contribuição" },
 ];
 
-const ORIGEM = "https://advsdprev-p9xr5zpa.manus.space";
+const ORIGEM = "https://www.advocaciasd.com.br";
 
 /* ---------------------------------------------------------------- artigos */
 

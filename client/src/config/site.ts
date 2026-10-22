@@ -14,7 +14,7 @@ export const SITE = {
    * Quando o site passar para o domínio definitivo, trocar por
    * "https://www.advocaciasd.com.br" — é o único lugar a alterar.
    */
-  dominio: "https://advsdprev-p9xr5zpa.manus.space",
+  dominio: "https://www.advocaciasd.com.br",
 
   // Responsável técnico pelo escritório
   responsavel: "João Luiz Santana Daufenbach",
