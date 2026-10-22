@@ -104,11 +104,12 @@ export const APOSENTADORIAS_INSS: Modalidade[] = [
       "É o seu caso se você trabalhou em ambiente com ruído, produtos químicos, agentes biológicos ou calor — a exposição precisa estar comprovada em documento.",
     requisitos: [
       "15, 20 ou 25 anos de efetiva exposição a agentes nocivos",
-      "55, 58 ou 60 anos de idade, conforme o tempo de exposição",
-      "Comprovação por PPP (Perfil Profissiográfico Previdenciário) e LTCAT",
-      "Quem já contribuía em 13/11/2019 pode usar a transição por pontos: 66, 76 ou 86 pontos",
+      "Comprovação da exposição por PPP e documentos técnicos de cada vínculo",
+      "A idade mínima não é mais exigida: o STF afastou as idades de 55, 58 e 60 anos (ADI 6.309, julgada em junho de 2026)",
+      "Quem já contribuía em 13/11/2019 pode ter a regra de transição por pontos aplicada, conforme o período",
     ],
-    base: "EC 103/2019, arts. 19, §1º, I, e 21; Lei 8.213/1991, arts. 57 e 58",
+    base:
+      "EC 103/2019, arts. 19, §1º, I, e 21; Lei 8.213/1991, arts. 57 e 58 (idade mínima afastada na ADI 6.309)",
   },
   {
     id: "rural",
@@ -200,9 +201,9 @@ export const REGRAS_INSS: LinhaRegra[] = [
   },
   {
     regra: "Aposentadoria especial",
-    mulheres: "55 / 58 / 60 anos conforme exposição",
-    homens: "55 / 58 / 60 anos conforme exposição",
-    base: "EC 103, art. 19, §1º, I",
+    mulheres: "15, 20 ou 25 anos de exposição (sem idade mínima)",
+    homens: "15, 20 ou 25 anos de exposição (sem idade mínima)",
+    base: "EC 103, art. 19, §1º, I — idade mínima afastada na ADI 6.309",
   },
   {
     regra: "Professor",

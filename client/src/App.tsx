@@ -7,6 +7,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import AposentadoriaINSS from "./pages/AposentadoriaINSS";
+import AposentadoriaEspecial from "./pages/AposentadoriaEspecial";
 import AposentadoriaServidorPublico from "./pages/AposentadoriaServidorPublico";
 import Beneficios from "./pages/Beneficios";
 import Sobre from "./pages/Sobre";
@@ -28,6 +29,7 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/aposentadoria-inss"} component={AposentadoriaINSS} />
+      <Route path={"/aposentadoria-especial"} component={AposentadoriaEspecial} />
       <Route
         path={"/aposentadoria-servidor-publico"}
         component={AposentadoriaServidorPublico}

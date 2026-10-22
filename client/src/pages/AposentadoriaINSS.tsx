@@ -161,6 +161,25 @@ export default function AposentadoriaINSS() {
             ))}
           </nav>
 
+          <div className="mt-10 flex flex-col gap-5 rounded-2xl border border-cyan-200 bg-cyan-50/50 p-7 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h3 className="font-['Playfair_Display'] text-lg font-bold text-blue-900">
+                Trabalhou exposto a ruído, calor, produtos químicos ou agentes
+                biológicos?
+              </h3>
+              <p className="mt-2 text-[14px] leading-relaxed text-slate-600">
+                A aposentadoria especial tem análise própria, documento por
+                documento. Veja os pontos que costumam decidir esse tipo de caso.
+              </p>
+            </div>
+            <Link
+              href="/aposentadoria-especial"
+              className="inline-flex flex-shrink-0 items-center gap-2 rounded-lg bg-blue-900 px-6 py-3.5 text-[14px] font-bold text-white hover:bg-blue-800"
+            >
+              Ver a análise da aposentadoria especial
+            </Link>
+          </div>
+
           <div className="mt-10 space-y-7">
             {APOSENTADORIAS_INSS.map((item) => (
               <BlocoModalidade key={item.id} item={item} />
