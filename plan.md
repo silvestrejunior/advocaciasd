@@ -129,3 +129,7 @@ Componentes: `components/site/HomeAreas.tsx` para blocos de casos, atuação e b
 Vídeo inicial confirmado pelo cliente: https://www.youtube.com/shorts/8tRtrJsjv_Q. Por ser Short, o player será 9:16 (e não 16:9), limitado a 290px de largura. Quando a URL manual for de vídeo convencional, usar 16:9 automaticamente. Sem autoplay; iframe lazy e link externo de alternativa.
 
 O pré-render existente captura `page.content()` do navegador, não HTML de SSR do React. Portanto, a entrada passa a usar montagem normal (`createRoot`) sobre o snapshot; isso preserva o conteúdo HTML inicial para SEO e evita divergências de hidratação por marcadores de texto ausentes (#418).
+
+## Fundos dos cards de situação — 22/10/2026
+
+Três fotos ilustrativas originais, com figuras genéricas (não clientes nem integrantes do escritório): muletas para perícia, agricultor com enxada para tempo rural e enfermeiro hospitalar para tempo especial. Enquadramentos verticais coerentes, tratamento sóbrio, sobreposição em azul profundo em gradiente, títulos brancos e palavras-chave/CTAs ciano. Os cards continuam inteiramente clicáveis, com bordas e elevação discretas no hover, foco visível e imagens decorativas com alt vazio. As mesmas fotos são utilizadas sem deformação no desktop e no celular; assets leves e lazy loading.

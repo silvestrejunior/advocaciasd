@@ -78,3 +78,7 @@
 - [x] “Por onde começar”: destacar atuação em benefícios do INSS e aposentadoria de servidores públicos, “Conhecer seu direito é sempre a melhor escolha” e a frase literal “Você não trabalhou a vida inteira pra aposentar de qualquer jeito”. Sem listas de regras de aposentadoria.
 - [x] Substituir “Quatro etapas, do histórico à concessão” pela seção do canal no YouTube com player responsivo (9:16 para o Short e 16:9 para vídeos convencionais), link alternativo e vídeo de destaque atualizável manualmente por uma configuração central. Remover o bloco duplicado do canal. Primeiro vídeo confirmado: https://www.youtube.com/shorts/8tRtrJsjv_Q.
 - [x] Regenerar HTML pré-renderizado, conferir responsividade, links, diagnóstico e build; preservar o histórico do GitHub e salvar o checkpoint.
+
+## Imagens dos cards de situação — 22/10/2026
+
+- [x] Adicionar fundos individuais: pessoa de muletas em “Perícia negada”, agricultor com enxada em “Tempo Rural” e enfermeiro em ambiente hospitalar em “Tempo Especial”. Imagens ilustrativas com tratamento azul consistente, camada de contraste para leitura, integração com a identidade, hover e foco acessíveis; manter os três destinos e o restante da home.

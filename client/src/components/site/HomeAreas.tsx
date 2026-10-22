@@ -19,8 +19,7 @@ const CASOS_AGORA = [
     situacao:
       "Você ainda convive com a limitação, mas o pedido voltou com uma negativa. O motivo registrado e o que a perícia considerou precisam ser lidos com cuidado.",
     cta: "Entender a perícia negada",
-    estilo: "border-[#14507f] bg-white",
-    icone: "bg-[#0e3a63] text-[#22d3ee]",
+    imagem: "/images/caso-pericia.webp",
   },
   {
     href: "/tempo-rural",
@@ -31,8 +30,7 @@ const CASOS_AGORA = [
     situacao:
       "Anos de trabalho no campo podem não aparecer no histórico do INSS. A análise começa pelos documentos que ajudam a reconstruir esse período.",
     cta: "Comprovar o tempo rural",
-    estilo: "border-[#22d3ee] bg-[#f2fbfd]",
-    icone: "bg-[#14507f] text-[#22d3ee]",
+    imagem: "/images/caso-rural.webp",
   },
   {
     href: "/aposentadoria-especial",
@@ -43,8 +41,7 @@ const CASOS_AGORA = [
     situacao:
       "O PPP pode não reconhecer a exposição que existia no trabalho. É preciso comparar as atividades reais e os documentos de cada vínculo.",
     cta: "Analisar o tempo especial",
-    estilo: "border-[#0e3a63] bg-white",
-    icone: "bg-[#071e36] text-[#22d3ee]",
+    imagem: "/images/caso-especial.webp",
   },
 ] as const;
 
@@ -85,32 +82,42 @@ export function CasosAgora() {
               <Link
                 key={caso.href}
                 href={caso.href}
-                className={`group flex h-full min-w-0 flex-col rounded-2xl border-t-4 p-5 shadow-[0_12px_28px_-22px_rgba(4,18,31,0.7)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_42px_-24px_rgba(4,18,31,0.65)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#22d3ee] sm:p-6 ${caso.estilo}`}
+                className="caso-card group"
               >
-                <span
+                <img
+                  src={caso.imagem}
+                  alt=""
                   aria-hidden="true"
-                  className={`flex h-11 w-11 items-center justify-center rounded-xl ${caso.icone}`}
-                >
-                  <Icone size={21} strokeWidth={1.8} />
-                </span>
-                <h3 className="mt-5 font-['Playfair_Display'] text-[20px] font-bold leading-snug text-[#0a2a4a]">
-                  {caso.antes}
-                  <span className="text-[#14507f] underline decoration-[#22d3ee] decoration-2 underline-offset-4 transition-colors group-hover:text-[#0e3a63]">
-                    {caso.destaque}
+                  width={900}
+                  height={1200}
+                  loading="lazy"
+                  decoding="async"
+                  className="caso-card-foto"
+                />
+                <span className="caso-card-azul" aria-hidden="true" />
+                <div className="caso-card-conteudo">
+                  <span aria-hidden="true" className="caso-card-icone">
+                    <Icone size={21} strokeWidth={1.8} />
                   </span>
-                  {caso.depois}
-                </h3>
-                <p className="mt-3 flex-1 text-[14px] leading-relaxed text-slate-700">
-                  {caso.situacao}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-2 text-[13.5px] font-bold text-[#14507f]">
-                  {caso.cta}
-                  <ArrowRight
-                    aria-hidden="true"
-                    size={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </span>
+                  <div className="caso-card-texto">
+                    <h3 className="caso-card-titulo font-['Playfair_Display'] font-bold">
+                      {caso.antes}
+                      <span className="caso-card-destaque">
+                        {caso.destaque}
+                      </span>
+                      {caso.depois}
+                    </h3>
+                    <p className="caso-card-descricao">{caso.situacao}</p>
+                    <span className="caso-card-cta">
+                      {caso.cta}
+                      <ArrowRight
+                        aria-hidden="true"
+                        size={16}
+                        className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                      />
+                    </span>
+                  </div>
+                </div>
               </Link>
             );
           })}
