@@ -2,62 +2,61 @@
 
 ## Base compartilhada
 
-- [ ] Dados do escritório centralizados em `config/site.ts` (Santana Daufenbach Advocacia; João Luiz Santana Daufenbach, OAB/PR 66.208; Av. João Paulino Vieira Filho, 625, sala 708, Torre 2, Novo Centro, Maringá/PR; segunda a sexta, 9h às 17h; joao@advocaciasd.com.br; WhatsApp (44) 99856-3465), com MENU, RODAPE e mensagens de WhatsApp por intenção.
-- [ ] Nenhuma página escreve telefone, endereço ou número de OAB diretamente: a troca de um dado do escritório acontece em um único arquivo.
-- [ ] Catálogo de serviços em `data/servicos.ts` com pergunta, resumo, rota, rótulo de ação e bloco; mais os 3 passos do atendimento, o aviso de documentos e o FAQ sobre o atendimento.
-- [ ] Blocos reutilizáveis de página de serviço: aviso de documentos, cartão de serviço, passos do atendimento, conheça o escritório, dúvidas antes de contratar, chamada final, hero de serviço, o que precisa ser analisado, pontos de atenção, documentos que ajudam.
-- [ ] SEO por rota: título, descrição, canônica, Open Graph e dados estruturados (serviço, FAQ, trilha de navegação).
+- [x] Dados do escritório centralizados em `config/site.ts` (Santana Daufenbach Advocacia; João Luiz Santana Daufenbach, OAB/PR 66.208; Av. João Paulino Vieira Filho, 625, sala 708, Torre 2, Novo Centro, Maringá/PR; segunda a sexta, 9h às 17h; joao@advocaciasd.com.br; WhatsApp (44) 99856-3465), com MENU, RODAPE e mensagens de WhatsApp por intenção.
+- [x] Nenhuma página escreve telefone, endereço ou número de OAB diretamente.
+- [x] Paleta de azul profundo institucional (brand 600 a 950) aplicada em todo o site, com ciano apenas como acento e ação.
+- [x] SEO por rota: título, descrição, canônica, Open Graph e dados estruturados.
+- [x] Manifesto de rotas, sitemap e robots atualizados.
 
-## Página inicial
+## Conteúdo por regime (`data/regimes.ts`)
 
-- [ ] Abre com "Advocacia para a sua aposentadoria e para os seus benefícios" e a linha de apoio "Quer dar entrada, recebeu uma negativa ou precisa de orientação sobre um benefício? Conheça os serviços do escritório".
-- [ ] Deixa claro, no banner, que o escritório trabalha com aposentadorias do INSS e de servidores públicos, com "quase 15 anos" de experiência e atendimento especializado em Direito Previdenciário.
-- [ ] Exibe "Você não precisa enviar documentos neste primeiro contato" na primeira tela e repetido ao longo da página.
-- [ ] Três blocos de serviços: "Principais serviços" (6 cartões), "Já fez um pedido ou recebe um benefício?" (3 cartões) e "Outras formas de atuação" (5 cartões), cada cartão abrindo com a pergunta do cliente e fechando com o rótulo de ação.
-- [ ] Bloco lateral "Por onde começar" com quatro atalhos que abrem o WhatsApp com a mensagem já escrita.
-- [ ] Seções "Como começa o atendimento" (3 passos), "Conheça antes de decidir", "Dúvidas antes de entrar em contato" e chamada final "Vamos conversar sobre a sua situação?".
+- [x] Aposentadorias do INSS: seis benefícios, cada um com "o que é" e o cuidado prático correspondente.
+- [x] Aposentadorias de servidores públicos: sete benefícios com o mesmo formato.
+- [x] Além da aposentadoria: oito benefícios com o mesmo formato.
+- [x] Nenhum item explica regras de aposentadoria (sem idade mínima, pontos, pedágio ou artigos de lei).
+- [x] Quatro alertas que atravessam todos os casos (extrato de contribuições, momento de dar entrada, documentos do trabalho e "contar tempo não é calcular").
+- [x] Quatro etapas do atendimento e as perguntas frequentes da página inicial.
 
-## Hub de serviços
+## Página inicial (formato do esboço aprovado)
 
-- [ ] `/servicos` reúne os três blocos na íntegra, com a data de conferência do conteúdo publicada e o aviso de documentos no topo.
+- [x] Hero escuro em duas colunas: título "Aposentadoria no INSS e para servidores públicos", linha de experiência, aviso de que não é preciso enviar documentos, e painel "Converse por WhatsApp" com cinco atalhos de intenção.
+- [x] Seção "Você se aposenta pelo INSS ou é servidor público?" com os dois cartões de entrada, ligados à rota de seleção com a resposta pré-marcada.
+- [x] "Aposentadorias do INSS" em grade, com o cuidado em destaque em cada cartão.
+- [x] "Aposentadorias de servidores públicos" em grade, em fundo alternado.
+- [x] "Além da aposentadoria" em grade.
+- [x] "Quatro etapas, do histórico à concessão".
+- [x] Faixa escura "Entenda antes de pedir" com os quatro alertas.
+- [x] Perguntas frequentes e chamada final "Vamos analisar o seu caso".
+
+## Rota de seleção `/seu-caso`
+
+- [x] Primeira pergunta: servidor público ou INSS.
+- [x] Segunda pergunta: já é aposentado ou ainda vai se aposentar.
+- [x] Cada resposta rola suavemente até a etapa seguinte, e o passo seguinte fica desabilitado até a pergunta anterior ser respondida.
+- [x] Resultado por combinação das respostas, com os cuidados do perfil e a grade de benefícios correspondente.
+- [x] Resposta escolhida pode ser alterada, com limpeza das etapas seguintes.
+- [x] Pré-seleção por `?regime=inss` ou `?regime=servidor`, usada pelos cartões da página inicial.
 
 ## Páginas de serviço
 
-- [ ] `/aposentadoria-especial` — análise do trabalho com exposição a agentes nocivos, com o efeito da decisão do STF que afastou a idade mínima e o que permanece exigido.
-- [ ] `/aposentadoria-negada` — o que fazer antes de recorrer: motivo da negativa, prazo do recurso, data de início do benefício, novo pedido versus recurso.
-- [ ] `/beneficios-por-incapacidade` — auxílio-doença e aposentadoria por invalidez, com os pontos que decidem a perícia.
-- [ ] `/auxilio-acidente` — o que pode ser analisado quando a lesão deixa sequela, mesmo com retorno ao trabalho.
-- [ ] `/servidores-publicos` — aposentadoria no regime próprio, tempo de serviço público, abono de permanência e averbação de tempo.
-- [ ] `/planejamento-de-aposentadoria` — comparação das regras aplicáveis ao histórico do cliente, com datas possíveis.
-- [ ] `/perdeu-o-beneficio` — cessação e suspensão: motivo, medidas possíveis e restabelecimento.
-- [ ] `/revisao-de-aposentadoria` — conferência de cálculo, documentos e prazos antes de pedir revisão.
-- [ ] Cada página de serviço tem os oito blocos: título em forma de serviço, aviso de documentos, o que precisa ser analisado, documentos que ajudam, como começa o atendimento, conheça os profissionais, dúvidas antes de entrar em contato e chamada final.
-- [ ] Cada página de serviço inclui o bloco "os pontos que costumam decidir o caso", com "por que acontece" e "o que fazemos" lado a lado.
+- [x] `/servicos` e oito páginas de serviço: aposentadoria especial, aposentadoria negada, benefícios por incapacidade, auxílio-acidente, servidores públicos, planejamento de aposentadoria, perdeu o benefício e revisão de aposentadoria.
+- [x] Cada página com os blocos fixos, pontos de atenção no formato pergunta/problema/o que fazemos, documentos que ajudam e dúvidas antes de contratar.
+- [x] Data de conferência do conteúdo publicada em cada página.
 
 ## Institucional
 
-- [ ] `/como-funciona` explica o passo a passo do atendimento, a diferença entre consulta, planejamento e acompanhamento, o que conferir antes de contratar e o que fazer quem precisa de ajuda com etapas digitais.
-- [ ] `/sobre` apresenta o responsável, a OAB, o endereço, o horário e os canais oficiais.
-- [ ] `/contato` reúne WhatsApp, e-mail, endereço, horário e o aviso de que documentos e dados de saúde devem ser enviados apenas pelos canais indicados pela equipe.
-- [ ] `/ctc` mantém a página de averbação de tempo já existente, dentro da nova navegação.
-
-## Blog
-
-- [ ] `/blog` lista os artigos publicados, e cada artigo tem HTML próprio no build.
-- [ ] Cada artigo aponta para a página de serviço correspondente, e cada página de serviço cita dois artigos — o caminho de ida e volta.
-- [ ] Primeiros artigos sobre os benefícios do regime geral e sobre aposentadorias de regimes próprios.
-
-## Linguagem e conformidade
-
-- [ ] Nenhuma página promete resultado: o texto usa "pode ser analisado", "depende" e "a análise deve considerar".
-- [ ] As perguntas frequentes são sobre o atendimento (primeiro contato não é consulta jurídica, honorários antes da contratação, como confirmar que se está falando com o escritório), e não sobre a lei.
-- [ ] Cada página publica a data de conferência do conteúdo.
-- [ ] Nenhuma regra previdenciária é escrita de memória: as afirmações jurídicas seguem as fontes conferidas e registradas no documento de especificação.
+- [x] `/como-funciona`, `/sobre`, `/contato` e `/ctc`.
+- [x] Menu e rodapé reorganizados, com link para a rota de seleção.
 
 ## Publicação
 
-- [ ] Manifesto de rotas em `public/manus-routes.json` sincronizado com as rotas reais.
-- [ ] `sitemap.xml` e `robots.txt` atualizados com as páginas publicadas.
-- [ ] Build estático declarado (`build.command`, `outputDirectory = dist/public`) e SPA fallback por `routes`.
-- [ ] `logoUrl` declarado em `app.config.ts` com URL HTTPS durável.
-- [ ] Verificação final: um `<h1>` por página, dados estruturados válidos, nenhuma imagem quebrada, nenhum erro de console.
+- [x] Build estático declarado (`pnpm install --frozen-lockfile && pnpm build:static`, saída em `dist/public`).
+- [x] SPA fallback por `routes` e `logoUrl` declarado em `app.config.ts`.
+- [x] Verificação: um `<h1>` por página, contraste dos botões conferido no navegador, nenhuma imagem quebrada.
+
+## Próximos passos sugeridos
+
+- [ ] Blog com artigos por tipo de benefício e pré-renderização, para ranqueamento orgânico.
+- [ ] Página própria para pensão por morte, BPC/LOAS, aposentadoria rural e isenção de imposto de renda.
+- [ ] Ajustar o numeral do passo na rota `/seu-caso` (hoje discreto demais).
+- [ ] Ligar o site definitivo ao domínio `advocaciasd.com.br` quando o conteúdo for aprovado.
