@@ -25,18 +25,6 @@ import { ARTIGOS, temaPorId } from "@/data/blog";
 import { AVISO_DOCUMENTOS } from "@/data/servicos";
 import { WHATSAPP_MENSAGENS, SITE, whatsapp } from "@/config/site";
 
-const ATALHOS_WHATSAPP = [
-  { titulo: "Quero me aposentar", mensagem: WHATSAPP_MENSAGENS.inss },
-  { titulo: "Meu benefício foi negado", mensagem: WHATSAPP_MENSAGENS.negado },
-  { titulo: "Sou servidor público", mensagem: WHATSAPP_MENSAGENS.servidor },
-  {
-    titulo: "Meu benefício foi cessado",
-    mensagem:
-      "Olá, vim pelo site e meu benefício foi cessado ou suspenso. Gostaria de orientação.",
-  },
-  { titulo: "Quero revisar o meu benefício", mensagem: WHATSAPP_MENSAGENS.revisao },
-] as const;
-
 /** Situações de entrada: cada uma leva à página que trata do assunto. */
 const SITUACOES = [
   {
@@ -236,36 +224,22 @@ export default function Home() {
                 </div>
               </div>
 
-              <aside className="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm md:p-8">
-                <h2 className="font-['Playfair_Display'] text-2xl font-bold text-white">
-                  Converse por WhatsApp
-                </h2>
-                <ul className="mt-5 divide-y divide-white/10">
-                  {ATALHOS_WHATSAPP.map((item) => (
-                    <li key={item.titulo}>
-                      <a
-                        href={whatsapp(item.mensagem)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block py-3 text-[14px] text-slate-100/90 transition-colors hover:text-cyan-300"
-                      >
-                        {item.titulo}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+              <aside className="relative flex flex-col items-center justify-end">
+                {/* Foto recortada: só o advogado aparece, o azul do banner fica atrás. */}
+                <img
+                  src="/images/advogado-banner.png"
+                  alt={`${SITE.responsavel}, advogado responsável pelo escritório`}
+                  className="w-full max-w-[320px] drop-shadow-[0_28px_50px_rgba(2,20,40,0.6)] sm:max-w-[380px] lg:max-w-[430px]"
+                />
                 <a
                   href={whatsapp(WHATSAPP_MENSAGENS.geral)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 flex items-center justify-center gap-2 rounded-lg bg-green-500 px-4 py-3.5 text-[14px] font-bold text-white transition-colors hover:bg-green-600"
+                  className="pulsar-cta mt-3 flex w-full max-w-[430px] items-center justify-center gap-2.5 rounded-xl bg-cyan-400 px-6 py-4 text-[16px] font-bold text-brand-950 ring-2 ring-cyan-200/60 transition-all hover:-translate-y-0.5 hover:bg-cyan-300"
                 >
-                  <Phone size={16} />
-                  Falar no WhatsApp
+                  <Phone size={18} />
+                  Me conte um pouco do seu caso
                 </a>
-                <p className="mt-5 text-[11.5px] leading-relaxed text-slate-300/75">
-                  {SITE.responsavel} — {SITE.oab}
-                </p>
               </aside>
             </div>
           </div>
