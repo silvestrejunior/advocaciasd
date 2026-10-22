@@ -79,6 +79,11 @@ export const MENU: ItemMenu[] = [
     href: "/servicos",
     filhos: [
       {
+        label: "Cuidados antes de pedir",
+        href: "/cuidados",
+        descricao: "O que observar em cada benefício antes de dar entrada",
+      },
+      {
         label: "Aposentadoria especial",
         href: "/aposentadoria-especial",
         descricao: "Análise do trabalho com exposição a agentes nocivos",
@@ -119,6 +124,7 @@ export const MENU: ItemMenu[] = [
 /** Links do rodapé. */
 export const RODAPE = {
   aposentadorias: [
+    { label: "Cuidados antes de pedir", href: "/cuidados" },
     { label: "Aposentadoria especial", href: "/aposentadoria-especial" },
     { label: "Servidores públicos", href: "/servidores-publicos" },
     { label: "Planejamento de aposentadoria", href: "/planejamento-de-aposentadoria" },

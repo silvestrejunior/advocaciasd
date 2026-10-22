@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import SeuCaso from "./pages/SeuCaso";
 import Servicos from "./pages/Servicos";
+import Cuidados from "./pages/Cuidados";
 import AposentadoriaEspecial from "./pages/AposentadoriaEspecial";
 import AposentadoriaNegada from "./pages/AposentadoriaNegada";
 import BeneficiosPorIncapacidade from "./pages/BeneficiosPorIncapacidade";
@@ -27,6 +28,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/seu-caso"} component={SeuCaso} />
       <Route path={"/servicos"} component={Servicos} />
+      <Route path={"/cuidados"} component={Cuidados} />
       <Route path={"/aposentadoria-especial"} component={AposentadoriaEspecial} />
       <Route path={"/aposentadoria-negada"} component={AposentadoriaNegada} />
       <Route

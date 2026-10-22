@@ -5,6 +5,10 @@
       "title": "Início"
     },
     {
+      "path": "/cuidados",
+      "title": "Cuidados antes de pedir"
+    },
+    {
       "path": "/seu-caso",
       "title": "Descubra o seu caso"
     },

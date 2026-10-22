@@ -250,36 +250,16 @@ export default function Home() {
               <CartaoRegime
                 titulo="Aposentadoria do INSS"
                 itens={BENEFICIOS_INSS}
-                href="/seu-caso?regime=inss"
-                acao="Ver os benefícios do INSS"
+                href="/cuidados#inss"
+                acao="Ver os cuidados de cada benefício"
               />
               <CartaoRegime
                 titulo="Aposentadoria de servidores públicos"
                 itens={BENEFICIOS_SERVIDOR}
-                href="/seu-caso?regime=servidor"
-                acao="Ver os benefícios do servidor"
+                href="/cuidados#servidores"
+                acao="Ver os cuidados de cada benefício"
               />
             </div>
-          </div>
-        </section>
-
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <TituloSecao
-              titulo="Aposentadorias do INSS"
-              texto="Os benefícios do regime geral e o que precisa ser observado em cada um."
-            />
-            <GradeBeneficios itens={BENEFICIOS_INSS} />
-          </div>
-        </section>
-
-        <section className="bg-slate-50 py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <TituloSecao
-              titulo="Aposentadorias de servidores públicos"
-              texto="O regime próprio de cada ente e os pontos que costumam passar em branco."
-            />
-            <GradeBeneficios itens={BENEFICIOS_SERVIDOR} />
           </div>
         </section>
 
