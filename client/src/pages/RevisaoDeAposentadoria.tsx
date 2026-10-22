@@ -140,7 +140,7 @@ export default function RevisaoDeAposentadoria() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Revisão de aposentadoria: o que conferir antes de pedir"
+        titulo="Revisão de aposentadoria: o que conferir"
         descricao="Já recebe aposentadoria? Entenda o que precisa ser conferido no cálculo, nos períodos de contribuição e nos documentos antes de analisar uma revisão."
         caminho="/revisao-de-aposentadoria"
         jsonLd={[faqJsonLd(PERGUNTAS), breadcrumbJsonLd(TRILHA.map((t) => ({ label: t.label, href: t.href ?? "/revisao-de-aposentadoria" })))]}

@@ -214,8 +214,8 @@ export default function AposentadoriaEspecial() {
   return (
     <div className="min-h-screen bg-white">
       <Seo
-        titulo="Aposentadoria especial: análise do trabalho com exposição"
-        descricao="O reconhecimento do tempo especial depende das atividades, do agente e das provas de cada vínculo. Veja o que analisamos, os pontos que costumam decidir o caso e o efeito da decisão do STF sobre a idade mínima."
+        titulo="Aposentadoria especial: o que é analisado"
+        descricao="O tempo especial depende das atividades, do agente e das provas de cada vínculo. Veja o que analisamos e o efeito da decisão do STF sobre a idade mínima."
         caminho="/aposentadoria-especial"
         jsonLd={[
           faqJsonLd(PERGUNTAS),

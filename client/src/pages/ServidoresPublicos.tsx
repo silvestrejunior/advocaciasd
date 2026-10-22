@@ -146,7 +146,7 @@ export default function ServidoresPublicos() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Aposentadoria de servidor público: o que precisa ser analisado"
+        titulo="Aposentadoria de servidor público: o que analisar"
         descricao="Servidor efetivo não se aposenta pelo INSS. Entenda o que analisamos no regime próprio, no histórico funcional e nos períodos que podem ser averbados."
         caminho="/servidores-publicos"
         jsonLd={[faqJsonLd(PERGUNTAS), breadcrumbJsonLd(TRILHA.map((t) => ({ label: t.label, href: t.href ?? "/servidores-publicos" })))]}

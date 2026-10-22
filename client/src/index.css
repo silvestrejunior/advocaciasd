@@ -210,3 +210,28 @@
     animation: none;
   }
 }
+
+/* Efeito pulsante do botão flutuante do WhatsApp */
+@keyframes pulsar-whatsapp {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 30px -8px rgba(37, 211, 102, 0.75),
+      0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+  50% {
+    box-shadow:
+      0 10px 30px -8px rgba(37, 211, 102, 0.75),
+      0 0 0 16px rgba(37, 211, 102, 0);
+  }
+}
+
+.pulsar-whatsapp {
+  animation: pulsar-whatsapp 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulsar-whatsapp {
+    animation: none;
+  }
+}

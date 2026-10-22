@@ -119,7 +119,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Aposentadoria no INSS e para servidores públicos"
+        titulo="Aposentadoria: INSS e servidores públicos"
         descricao="Análise de aposentadorias e benefícios do INSS e de regimes próprios, com cuidado prático desde o histórico até o pedido."
         caminho="/"
         jsonLd={faqJsonLd(FAQ_HOME)}

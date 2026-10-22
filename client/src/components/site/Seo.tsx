@@ -9,6 +9,8 @@ type SeoProps = {
   /** Caminho da rota, começando com barra. Ex.: "/aposentadoria-inss". */
   caminho: string;
   tipo?: "website" | "article";
+  /** Página que não deve ser indexada (ex.: rota inexistente). */
+  noindex?: boolean;
   /** Dados estruturados (schema.org) específicos da página. */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
@@ -43,14 +45,27 @@ function upsertLink(rel: string, href: string) {
  * resultados do Google ficarem corretos; a versão pré-renderizada dessas
  * mesmas tags é gerada no build.
  */
-export function Seo({ titulo, descricao, caminho, tipo = "website", jsonLd }: SeoProps) {
+export function Seo({
+  titulo,
+  descricao,
+  caminho,
+  tipo = "website",
+  noindex = false,
+  jsonLd,
+}: SeoProps) {
   useEffect(() => {
-    const tituloCompleto = `${titulo} | ${SITE.nomeCompleto}`;
+    const tituloCompleto = `${titulo} | ${SITE.nome}`;
     const url = `${SITE.dominio}${caminho}`;
 
     document.title = tituloCompleto;
     upsertMeta("name", "description", descricao);
-    upsertMeta("name", "robots", "index, follow, max-image-preview:large");
+    upsertMeta(
+      "name",
+      "robots",
+      noindex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large, max-snippet:-1",
+    );
     upsertLink("canonical", url);
 
     upsertMeta("property", "og:type", tipo);
@@ -78,7 +93,15 @@ export function Seo({ titulo, descricao, caminho, tipo = "website", jsonLd }: Se
         image: `${SITE.dominio}/images/og-image.jpg`,
         telephone: `+${SITE.whatsapp}`,
         email: SITE.email,
+        openingHours: "Mo-Fr 09:00-17:00",
         areaServed: { "@type": "Country", name: "Brasil" },
+        knowsAbout: [
+          "Aposentadoria por idade",
+          "Aposentadoria especial",
+          "Aposentadoria de servidor público",
+          "Benefícios por incapacidade",
+          "Revisão de benefício do INSS",
+        ],
         address: {
           "@type": "PostalAddress",
           streetAddress: "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2",
@@ -105,7 +128,7 @@ export function Seo({ titulo, descricao, caminho, tipo = "website", jsonLd }: Se
     return () => {
       document.getElementById(marcaId)?.remove();
     };
-  }, [titulo, descricao, caminho, tipo, jsonLd]);
+  }, [titulo, descricao, caminho, tipo, jsonLd, noindex]);
 
   return null;
 }

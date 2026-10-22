@@ -9,7 +9,12 @@
 export const SITE = {
   nome: "Santana Daufenbach",
   nomeCompleto: "Santana Daufenbach Advocacia",
-  dominio: "https://www.advocaciasd.com.br",
+  /**
+   * Origem pública real do site: usada na canônica, no og:url e no sitemap.
+   * Quando o site passar para o domínio definitivo, trocar por
+   * "https://www.advocaciasd.com.br" — é o único lugar a alterar.
+   */
+  dominio: "https://advsdprev-p9xr5zpa.manus.space",
 
   // Responsável técnico pelo escritório
   responsavel: "João Luiz Santana Daufenbach",

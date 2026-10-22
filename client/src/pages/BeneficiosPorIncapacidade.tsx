@@ -146,8 +146,8 @@ export default function BeneficiosPorIncapacidade() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Benefícios por incapacidade: o que a perícia analisa"
-        descricao="Entenda o que a perícia analisa nos benefícios por incapacidade, quais documentos ajudam e como o caso depende dos exames, do trabalho e do histórico de contribuições."
+        titulo="Benefícios por incapacidade: o que analisar"
+        descricao="Entenda o que a perícia analisa nos benefícios por incapacidade, quais documentos ajudam e como o caso depende dos exames e do histórico."
         caminho="/beneficios-por-incapacidade"
         jsonLd={[faqJsonLd(PERGUNTAS), breadcrumbJsonLd(TRILHA.map((t) => ({ label: t.label, href: t.href ?? "/beneficios-por-incapacidade" })))]}
       />

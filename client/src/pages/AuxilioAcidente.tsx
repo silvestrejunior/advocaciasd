@@ -146,7 +146,7 @@ export default function AuxilioAcidente() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Auxílio-acidente: quando a sequela permanece depois do acidente"
+        titulo="Auxílio-acidente: a sequela depois do acidente"
         descricao="Saiba o que precisa ser analisado no auxílio-acidente quando uma sequela permanece após o acidente, mesmo com o retorno ao trabalho."
         caminho="/auxilio-acidente"
         jsonLd={[faqJsonLd(PERGUNTAS), breadcrumbJsonLd(TRILHA.map((t) => ({ label: t.label, href: t.href ?? "/auxilio-acidente" })))]}

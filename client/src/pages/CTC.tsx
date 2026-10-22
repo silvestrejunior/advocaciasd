@@ -6,6 +6,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import { Seo } from "@/components/site/Seo";
 import {
   Menu,
   X,
@@ -382,7 +383,10 @@ function AnimatedRoad() {
         <text x="120" y={step3Y + 6} textAnchor="middle" fill="#1E5FA8" fontSize="14" fontWeight="bold">3</text>
         {/* Bandeira de chegada */}
         <line x1="120" y1={step3Y - 40} x2="120" y2={step3Y - 80} stroke="#1E5FA8" strokeWidth="2.5" />
-        <polygon points="120,{step3Y - 80} 148,{step3Y - 68} 120,{step3Y - 56}" fill="#1E5FA8" />
+        <polygon
+          points={`120,${step3Y - 80} 148,${step3Y - 68} 120,${step3Y - 56}`}
+          fill="#1E5FA8"
+        />
         {/* Placa Marco 3 */}
         <rect x="150" y={step3Y - 20} width="80" height="36" rx="6" fill="#1E5FA8" />
         <text x="190" y={step3Y - 5} textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">AVERBAÇÃO</text>
@@ -677,6 +681,11 @@ export default function CTC() {
 
   return (
     <div className="min-h-screen bg-white font-['Nunito']">
+      <Seo
+        titulo="Certidão de tempo de contribuição (CTC)"
+        descricao="Emissão, conferência e uso da CTC para averbação de tempo no serviço público: o que precisa estar correto antes do requerimento."
+        caminho="/ctc"
+      />
 
       {/* Keyframes para animações do personagem */}
       <style>{`

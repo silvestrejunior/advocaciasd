@@ -146,7 +146,7 @@ export default function PlanejamentoDeAposentadoria() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Planejamento de aposentadoria: quando você pode se aposentar"
+        titulo="Planejamento de aposentadoria: o que comparar"
         descricao="Compare as regras aplicáveis ao seu histórico, confira o extrato de contribuições e organize os próximos passos antes de pedir a aposentadoria."
         caminho="/planejamento-de-aposentadoria"
         jsonLd={[faqJsonLd(PERGUNTAS), breadcrumbJsonLd(TRILHA.map((t) => ({ label: t.label, href: t.href ?? "/planejamento-de-aposentadoria" })))]}

@@ -144,7 +144,7 @@ export default function PerdeuOBeneficio() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Perdeu o benefício: o que fazer quando o pagamento para"
+        titulo="Perdeu o benefício: o que fazer"
         descricao="Seu benefício foi cessado ou suspenso? Entenda o que pode ser analisado, quais documentos ajudam e quais caminhos dependem do motivo da decisão do INSS."
         caminho="/perdeu-o-beneficio"
         jsonLd={[faqJsonLd(PERGUNTAS), breadcrumbJsonLd(TRILHA.map((t) => ({ label: t.label, href: t.href ?? "/perdeu-o-beneficio" })))]}

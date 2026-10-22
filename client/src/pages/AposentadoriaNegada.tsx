@@ -145,7 +145,7 @@ export default function AposentadoriaNegada() {
   return (
     <div className="min-h-screen bg-white">
       <SeoServico
-        titulo="Aposentadoria negada: o que fazer antes de recorrer"
+        titulo="Aposentadoria negada: o que fazer"
         descricao="Recebeu uma negativa do INSS? Antes de recorrer, é preciso ler o motivo da negativa, verificar prazos e avaliar o que faltou no pedido. Veja o que analisamos."
         caminho="/aposentadoria-negada"
         jsonLd={[faqJsonLd(PERGUNTAS), breadcrumbJsonLd(TRILHA.map((t) => ({ label: t.label, href: t.href ?? "/aposentadoria-negada" })))]}

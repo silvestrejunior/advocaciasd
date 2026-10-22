@@ -7,7 +7,7 @@ Allow: /
 Disallow: /404
 
 # Sitemap
-Sitemap: https://advocaciasd.com.br/sitemap.xml
+Sitemap: https://advsdprev-p9xr5zpa.manus.space/sitemap.xml
 
 # Google específico
 User-agent: Googlebot

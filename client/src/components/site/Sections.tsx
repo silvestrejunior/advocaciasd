@@ -289,9 +289,14 @@ export function BotaoWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
-      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-xl transition-transform hover:scale-105 md:h-16 md:w-16"
+      className="pulsar-whatsapp group fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-[#25D366] py-2 pl-2.5 pr-3.5 text-white shadow-2xl shadow-green-900/30 transition-transform hover:scale-105 md:bottom-7 md:right-7 md:py-2.5 md:pl-3 md:pr-5"
     >
-      <Phone size={26} />
+      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/20 md:h-12 md:w-12">
+        <Phone size={24} />
+      </span>
+      <span className="hidden text-[14px] font-bold leading-tight md:block">
+        Fale no WhatsApp
+      </span>
     </a>
   );
 }
