@@ -1,0 +1,20 @@
+# Robots.txt para Santana Daufenbach Advocacia
+# Otimiza rastreamento de buscadores
+
+# Permitir todos os buscadores
+User-agent: *
+Allow: /
+Disallow: /404
+
+# Sitemap
+Sitemap: https://advocaciasd.com.br/sitemap.xml
+
+# Google específico
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing específico
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

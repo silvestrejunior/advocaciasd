@@ -5,12 +5,47 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Servicos from "./pages/Servicos";
+import AposentadoriaEspecial from "./pages/AposentadoriaEspecial";
+import AposentadoriaNegada from "./pages/AposentadoriaNegada";
+import BeneficiosPorIncapacidade from "./pages/BeneficiosPorIncapacidade";
+import AuxilioAcidente from "./pages/AuxilioAcidente";
+import ServidoresPublicos from "./pages/ServidoresPublicos";
+import PlanejamentoDeAposentadoria from "./pages/PlanejamentoDeAposentadoria";
+import PerdeuOBeneficio from "./pages/PerdeuOBeneficio";
+import RevisaoDeAposentadoria from "./pages/RevisaoDeAposentadoria";
+import ComoFunciona from "./pages/ComoFunciona";
+import Sobre from "./pages/Sobre";
+import Contato from "./pages/Contato";
+import CTC from "./pages/CTC";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/servicos"} component={Servicos} />
+      <Route path={"/aposentadoria-especial"} component={AposentadoriaEspecial} />
+      <Route path={"/aposentadoria-negada"} component={AposentadoriaNegada} />
+      <Route
+        path={"/beneficios-por-incapacidade"}
+        component={BeneficiosPorIncapacidade}
+      />
+      <Route path={"/auxilio-acidente"} component={AuxilioAcidente} />
+      <Route path={"/servidores-publicos"} component={ServidoresPublicos} />
+      <Route
+        path={"/planejamento-de-aposentadoria"}
+        component={PlanejamentoDeAposentadoria}
+      />
+      <Route path={"/perdeu-o-beneficio"} component={PerdeuOBeneficio} />
+      <Route
+        path={"/revisao-de-aposentadoria"}
+        component={RevisaoDeAposentadoria}
+      />
+      <Route path={"/como-funciona"} component={ComoFunciona} />
+      <Route path={"/sobre"} component={Sobre} />
+      <Route path={"/contato"} component={Contato} />
+      <Route path={"/ctc"} component={CTC} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
