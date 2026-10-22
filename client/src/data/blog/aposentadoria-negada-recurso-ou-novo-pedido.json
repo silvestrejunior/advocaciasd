@@ -1,0 +1,71 @@
+{
+  "slug": "aposentadoria-negada-recurso-ou-novo-pedido",
+  "titulo": "Aposentadoria negada: recurso ou novo pedido?",
+  "resumo": "Leia o motivo da negativa, compare recurso e novo pedido e reúna a prova certa antes de deixar passar prazo ou repetir o erro.",
+  "publicado": "2026-10-22",
+  "tema": "aposentadoria-negada",
+  "servico": "/aposentadoria-negada",
+  "palavrasChave": ["aposentadoria negada", "recurso ao INSS", "novo pedido de aposentadoria"],
+  "secoes": [
+    {
+      "titulo": "A decisão começa pelo motivo escrito",
+      "paragrafos": [
+        "A carta de indeferimento não é apenas uma resposta final. Ela mostra qual requisito o INSS considerou não comprovado e orienta a escolha entre recurso, novo pedido ou outra medida. Antes de tomar qualquer providência, confira a data da ciência e leia a fundamentação inteira.",
+        "Também é preciso comparar a decisão com o processo apresentado. Um vínculo pode ter sido desconsiderado, um período pode ter recebido interpretação diferente ou um documento pode não ter sido analisado. O que decide o caminho não é apenas o resultado, mas a causa concreta da negativa.",
+        "Quando a discussão é sobre a interpretação de um período, o enquadramento de uma atividade ou uma divergência de vínculo que já estava documentada, o recurso costuma ser a via a examinar. Nesses casos, o objetivo é mostrar por que a conclusão adotada não corresponde ao histórico e à prova existente."
+      ]
+    },
+    {
+      "titulo": "Quando o novo pedido pode fazer mais sentido",
+      "paragrafos": [
+        "O novo requerimento pode ser adequado quando faltou uma prova essencial e ela só ficou disponível depois. É o caso de um documento de empresa, uma correção de registro, um PPP retificado ou uma comprovação de período que não acompanhou o primeiro pedido.",
+        "Isso não significa simplesmente repetir a solicitação. Se o conjunto de documentos permanece igual, a tendência é que a resposta também seja igual. O novo pedido precisa enfrentar a lacuna que levou à negativa e ser organizado para que o período não reconhecido possa ser examinado.",
+        "A escolha também envolve tempo. O recurso preserva a discussão dentro do processo, mas pode levar a uma nova análise administrativa. Um novo pedido começa outra tramitação e pode alterar a data de referência, por isso o efeito financeiro e o direito adquirido precisam ser comparados antes do protocolo."
+      ]
+    },
+    {
+      "titulo": "Prazo, direito adquirido e risco de perder o processo",
+      "paragrafos": [
+        "O prazo do recurso corre a partir da ciência da decisão. Reunir documentos é importante, mas não suspende automaticamente esse prazo. Deixar a contagem para depois pode fechar uma via que ainda era útil para discutir o motivo da negativa.",
+        "A negativa não apaga, por si só, um direito que já havia sido preenchido em data anterior. Durante a análise, pode ser necessário demonstrar quando os requisitos foram completados e qual data deve ser preservada. Isso influencia o início do benefício e eventuais parcelas atrasadas.",
+        "Também é arriscado abrir mão do processo anterior antes de avaliar seus efeitos. Um novo pedido não deve ser usado para abandonar uma discussão que preserva uma data mais favorável. O caminho precisa considerar prazo, prova, data do direito e consequência financeira de cada alternativa."
+      ]
+    },
+    {
+      "titulo": "O que reunir em cada cenário",
+      "lista": [
+        "Carta de indeferimento, protocolo e registro da data em que a decisão foi conhecida.",
+        "CNIS, carteira de trabalho, contratos e comprovantes para conferir vínculos e datas.",
+        "PPP, laudos e documentos do trabalho quando o enquadramento da atividade estiver em discussão.",
+        "Documento novo, retificado ou complementar que explique por que o período não foi reconhecido.",
+        "Processo administrativo e comunicações do INSS para identificar o que foi efetivamente analisado.",
+        "Provas de atividade rural, contribuições ou outros períodos que não apareceram no extrato."
+      ]
+    },
+    {
+      "titulo": "O que evitar antes de decidir",
+      "paragrafos": [
+        "Evite protocolar o mesmo pedido com os mesmos documentos apenas para tentar novamente. Evite também deixar o prazo passar enquanto procura uma solução ideal. Primeiro se identifica o que a decisão resolveu, o que ficou sem prova e qual medida preserva melhor a situação.",
+        "A análise deve ser feita com os documentos disponíveis e com uma estimativa realista de tempo. Não existe garantia de resultado, mas existe uma forma mais segura de reduzir erros: comparar o recurso e o novo pedido antes de escolher, mantendo registradas as razões da decisão e as datas relevantes."
+      ]
+    }
+  ],
+  "perguntas": [
+    {
+      "pergunta": "A aposentadoria negada exige sempre um recurso?",
+      "resposta": "Não. Se a negativa decorreu de interpretação ou enquadramento discutível, o recurso pode ser adequado. Se faltou um documento essencial que agora pode ser obtido, um novo pedido pode ser analisado, sempre com comparação de prazo e efeito financeiro."
+    },
+    {
+      "pergunta": "Posso fazer um novo pedido sem avaliar o processo anterior?",
+      "resposta": "Não é recomendável. O processo anterior pode conter uma data mais favorável ou uma discussão que ainda interessa preservar. Antes de abandonar qualquer via, é preciso conferir o motivo da negativa e o que já foi provado."
+    },
+    {
+      "pergunta": "O direito adquirido se perde porque o primeiro pedido foi negado?",
+      "resposta": "A negativa não elimina automaticamente um direito que já existia. É necessário demonstrar a data em que os requisitos foram cumpridos e escolher a medida capaz de preservar esse marco, conforme os documentos e os prazos do caso."
+    },
+    {
+      "pergunta": "O que acontece se o prazo do recurso já passou?",
+      "resposta": "Ainda pode haver alternativas, mas elas dependem do motivo da negativa, do histórico e das provas disponíveis. Por isso a data da ciência deve ser conferida logo no primeiro atendimento, sem presumir que um novo pedido produzirá o mesmo efeito."
+    }
+  ]
+}

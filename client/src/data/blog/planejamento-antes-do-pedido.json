@@ -1,0 +1,72 @@
+{
+  "slug": "planejamento-antes-de-dar-entrada",
+  "titulo": "Planejamento: o que comparar antes de dar entrada",
+  "resumo": "Antes do pedido, confira o CNIS, compare datas e valores e organize as provas para evitar negativa, tempo perdido e escolhas difíceis de corrigir.",
+  "publicado": "2026-10-22",
+  "tema": "planejamento-de-aposentadoria",
+  "servico": "/planejamento-de-aposentadoria",
+  "palavrasChave": ["planejamento de aposentadoria", "CNIS", "pedido de aposentadoria"],
+  "secoes": [
+    {
+      "titulo": "O que o planejamento realmente compara",
+      "paragrafos": [
+        "Planejar não é apenas somar o tempo de contribuição. O trabalho compara as regras aplicáveis ao histórico, as datas possíveis em cada caminho, o valor estimado e o tempo que ainda falta para cada alternativa se tornar viável.",
+        "O mesmo histórico pode permitir mais de um caminho, mas a primeira data disponível nem sempre é a melhor escolha. Esperar pode aumentar o valor em determinadas situações; em outras, esperar significa deixar de receber parcelas que já poderiam ser discutidas.",
+        "A comparação também inclui o efeito de continuar trabalhando depois de cumprir os requisitos. Esse período pode ter consequências diferentes na data, no cálculo e na estratégia, e não deve ser tratado como uma vantagem automática."
+      ]
+    },
+    {
+      "titulo": "O CNIS precisa ser conferido antes do protocolo",
+      "lista": [
+        "Vínculos sem data de saída, com datas erradas ou duplicados.",
+        "Períodos sem contribuição e remunerações que não correspondem aos comprovantes.",
+        "Empresas que não repassaram contribuições, sem presumir que o trabalhador perdeu o período.",
+        "Tempo rural e tempo especial que não aparecem no extrato.",
+        "Contribuições em atraso, complementações e carnês que precisam de validação.",
+        "Diferenças entre o CNIS, a carteira de trabalho e os demais registros do histórico."
+      ]
+    },
+    {
+      "titulo": "Quando esperar ajuda ou custa dinheiro",
+      "paragrafos": [
+        "Esperar pode ser útil quando uma data próxima muda o valor estimado, completa uma condição ou permite reunir uma prova importante. Mas a espera também pode custar parcelas, atrasar a proteção previdenciária e deixar documentos mais difíceis de localizar.",
+        "A decisão depende do cenário comparado, não de uma regra geral. É preciso colocar lado a lado a data em que cada caminho se torna possível, o valor aproximado, o tempo sem benefício e o custo de continuar contribuindo.",
+        "Continuar trabalhando depois do direito também exige análise. A contribuição posterior não deve ser feita apenas por hábito, sem verificar se altera algum resultado. Cada pagamento precisa ser relacionado à data e ao valor que se pretende alcançar."
+      ]
+    },
+    {
+      "titulo": "O custo de dar entrada sem conferir",
+      "paragrafos": [
+        "Um pedido protocolado com CNIS incompleto pode ser negado porque o INSS não encontrou o vínculo, o período rural ou a exposição a agentes nocivos. A negativa posterior costuma exigir nova prova, recurso ou novo pedido, além de consumir tempo que poderia ter sido usado para organizar o processo.",
+        "Também existe o risco de escolher uma data ou um caminho sem comparar as alternativas. Depois da concessão, certas decisões podem ser difíceis de alterar, e uma revisão não deve ser presumida como solução para qualquer escolha ruim.",
+        "O planejamento reduz esse risco ao separar o que já está comprovado, o que precisa ser corrigido e o que depende de documento externo. A decisão fica apoiada em cenários examinados, não apenas na expectativa de que o sistema reconheça tudo automaticamente."
+      ]
+    },
+    {
+      "titulo": "Como preparar o pedido",
+      "paragrafos": [
+        "Depois da conferência, organize os documentos por período e por tipo de prova. Carteira de trabalho, contracheques, carnês, documentos rurais, PPP e laudos devem conversar com as datas do CNIS e explicar as divergências encontradas.",
+        "Em seguida, registre qual caminho será pedido, qual data está sendo considerada e quais períodos precisam de análise específica. Se houver vínculo sem baixa, contribuição em atraso ou tempo especial, a justificativa e os documentos devem ser apresentados de modo identificável.",
+        "O pedido bem preparado não elimina a necessidade de acompanhamento, mas torna mais fácil verificar o que foi analisado e reagir a uma decisão incompleta. A conferência termina apenas quando o protocolo reflete o histórico que os documentos conseguem sustentar."
+      ]
+    }
+  ],
+  "perguntas": [
+    {
+      "pergunta": "Por que conferir o CNIS antes de dar entrada?",
+      "resposta": "O extrato pode ter vínculos sem baixa, datas divergentes, períodos ausentes e contribuições não registradas. Corrigir ou documentar essas inconsistências antes do protocolo reduz o risco de uma decisão baseada em um histórico incompleto."
+    },
+    {
+      "pergunta": "É sempre melhor esperar para se aposentar?",
+      "resposta": "Não. Esperar pode melhorar uma data ou um valor, mas também pode significar perda de parcelas e mais dificuldade para obter documentos. A escolha depende da comparação entre os caminhos e do custo de cada mês de espera."
+    },
+    {
+      "pergunta": "Continuar trabalhando depois de cumprir os requisitos aumenta o benefício?",
+      "resposta": "Não há uma resposta automática. O efeito depende da regra, dos salários e do histórico, por isso é necessário simular a data do pedido e a continuidade das contribuições antes de decidir."
+    },
+    {
+      "pergunta": "O que acontece se eu der entrada sem organizar os documentos?",
+      "resposta": "O pedido pode ser negado ou concedido sem considerar períodos relevantes. Depois, a correção pode exigir recurso, novo requerimento ou revisão, com mais tempo e risco do que uma conferência feita antes do protocolo."
+    }
+  ]
+}

@@ -36,7 +36,6 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.manus-logs/
 pnpm-debug.log*
 lerna-debug.log*
 
@@ -109,4 +108,6 @@ temp/
 
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
-.project-config.json
+
+# Manus version file (auto-generated, not part of source)
+client/public/__manus__/version.json

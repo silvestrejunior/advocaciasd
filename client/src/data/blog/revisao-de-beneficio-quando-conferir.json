@@ -1,0 +1,72 @@
+{
+  "slug": "revisao-de-beneficio-quando-vale-a-pena",
+  "titulo": "Revisão de benefício: quando vale a pena conferir",
+  "resumo": "Confira períodos, vínculos e cálculo antes de pedir revisão: a simulação mostra se há ganho, risco de redução e prazo a considerar.",
+  "publicado": "2026-10-22",
+  "tema": "revisao-de-aposentadoria",
+  "servico": "/revisao-de-aposentadoria",
+  "palavrasChave": ["revisão de benefício", "cálculo da aposentadoria", "decadência previdenciária"],
+  "secoes": [
+    {
+      "titulo": "O que costuma produzir diferença",
+      "paragrafos": [
+        "A conferência começa pelo cálculo que concedeu o benefício e pelos períodos que entraram na conta. Diferenças aparecem quando vínculos não foram considerados, salários de contribuição ficaram de fora ou a data de início foi calculada de forma inadequada.",
+        "Também merecem atenção o tempo especial não reconhecido, o tempo rural e períodos antigos que não aparecem corretamente no histórico. Cada hipótese exige prova própria e precisa ser comparada com o que já foi analisado pelo INSS, não apenas com uma soma informal de anos.",
+        "O processo administrativo mostra quais documentos foram usados, quais períodos foram aceitos e como o valor foi formado. Sem essa leitura, a revisão pode ser baseada em uma impressão correta sobre o histórico, mas aplicada ao ponto errado do benefício."
+      ]
+    },
+    {
+      "titulo": "Antes de decidir, peça os documentos certos",
+      "lista": [
+        "Extrato de contribuições, para conferir vínculos, remunerações e períodos ausentes.",
+        "Memória de cálculo ou carta de concessão, para entender a fórmula e os dados usados.",
+        "Histórico de créditos e extratos de pagamento, para conferir valores recebidos e descontos.",
+        "Processo administrativo da concessão, inclusive documentos apresentados e decisões.",
+        "Carteiras de trabalho, carnês e comprovantes de contribuições antigas.",
+        "PPP, laudos e provas de atividade rural quando esses períodos puderem alterar a conta."
+      ]
+    },
+    {
+      "titulo": "Revisão não é recurso de negativa",
+      "paragrafos": [
+        "A revisão parte de um benefício que já foi concedido e busca conferir o cálculo ou os períodos considerados. O recurso, por outro lado, discute uma decisão que negou um pedido. Confundir as duas medidas pode levar à escolha de um procedimento que não enfrenta o problema real.",
+        "Mesmo quando há um período não reconhecido, o contexto importa. No benefício já pago, é necessário verificar como esse período altera a renda e se existe limite temporal para discutir a concessão. Em uma negativa, a prioridade pode ser o prazo do recurso e a preservação da data do requerimento.",
+        "Por isso, o primeiro passo não é protocolar. É identificar a natureza da decisão, localizar os documentos e definir qual resultado está sendo buscado, com os limites e riscos próprios de cada via."
+      ]
+    },
+    {
+      "titulo": "A simulação evita uma decisão mais cara",
+      "paragrafos": [
+        "Nem toda revisão aumenta o benefício. Dependendo dos dados reavaliados, ela pode manter o valor, recalcular para menos ou produzir um resultado que não compensa o custo e o tempo do procedimento. A simulação serve para testar o cenário antes de mexer em uma renda que já está sendo paga.",
+        "A análise deve comparar o cálculo original com o cálculo possível, incluindo a data de início, os períodos comprováveis e os efeitos financeiros. Não basta descobrir que existe um vínculo ausente; é preciso medir o que ele realmente muda no benefício.",
+        "Quando a simulação não demonstra vantagem ou revela risco de redução, a decisão mais prudente pode ser não pedir a revisão. O objetivo da conferência é decidir com informação, não transformar qualquer divergência em um requerimento."
+      ]
+    },
+    {
+      "titulo": "Prazo e documentos que merecem atenção",
+      "paragrafos": [
+        "Algumas revisões estão sujeitas ao prazo decadencial de dez anos, contado conforme a situação do benefício. A data de início e os registros de pagamento precisam ser conferidos antes de concluir que ainda há tempo. Esperar a reunião de todos os documentos sem verificar o prazo pode inviabilizar a análise.",
+        "Quanto mais antigo o vínculo, maior a dificuldade para obter registros de empresa, formulários de exposição e comprovantes rurais. Reunir esses documentos cedo ajuda a separar o que pode ser comprovado do que é apenas uma hipótese e permite uma simulação mais segura.",
+        "O pedido deve ser feito somente depois de testar o cenário e entender o efeito sobre o benefício pago. A revisão pode ser útil, mas a conferência técnica vem antes da decisão."
+      ]
+    }
+  ],
+  "perguntas": [
+    {
+      "pergunta": "Como saber se existe uma revisão possível?",
+      "resposta": "A indicação surge da comparação entre a carta de concessão, o processo, o CNIS e os documentos de trabalho. Um período ausente ou salário ignorado pode ser relevante, mas só a simulação mostra se isso altera o benefício."
+    },
+    {
+      "pergunta": "O INSS pode reduzir uma aposentadoria em uma revisão?",
+      "resposta": "Pode, dependendo do que for reavaliado e do resultado do cálculo. Por isso o cenário deve ser testado antes do protocolo, para que o segurado conheça o risco de redução ou de ausência de vantagem."
+    },
+    {
+      "pergunta": "O prazo de dez anos vale para qualquer revisão?",
+      "resposta": "A decadência de dez anos alcança algumas revisões, mas a contagem e as exceções dependem do histórico do benefício. A data de início, a carta de concessão e os pagamentos devem ser conferidos antes de afirmar que o prazo terminou ou está aberto."
+    },
+    {
+      "pergunta": "Revisão e recurso de negativa são a mesma coisa?",
+      "resposta": "Não. A revisão examina benefício já concedido, enquanto o recurso discute uma negativa. A diferença muda os documentos, os prazos e o objetivo da medida, por isso a decisão original precisa ser identificada primeiro."
+    }
+  ]
+}

@@ -1,8 +1,12 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm build:static && node scripts/aplicar-prerender.mjs && node scripts/gerar-redirecionamentos.mjs && node scripts/gerar-html-plano.mjs",
+  "outputDirectory": "dist/public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/prev", "destination": "/servicos", "permanent": true },
+    { "source": "/previdenciario", "destination": "/servicos", "permanent": true },
+    { "source": "/iss", "destination": "/", "permanent": true }
   ]
 }

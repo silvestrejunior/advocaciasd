@@ -1,0 +1,75 @@
+{
+  "slug": "laudo-medico-o-que-precisa-constar",
+  "titulo": "Laudo médico: o que o relatório precisa mostrar",
+  "resumo": "Um relatório útil descreve limitações, tratamento e impacto no trabalho, com datas e exames que permitam compreender a incapacidade além do diagnóstico.",
+  "publicado": "2026-10-22",
+  "tema": "beneficios-por-incapacidade",
+  "servico": "/beneficios-por-incapacidade",
+  "palavrasChave": [
+    "laudo médico",
+    "incapacidade para o trabalho",
+    "relatório médico"
+  ],
+  "secoes": [
+    {
+      "titulo": "Diagnóstico não é descrição da incapacidade",
+      "paragrafos": [
+        "Um relatório médico útil precisa mostrar o que a pessoa consegue ou não consegue fazer. Informar apenas a doença, o CID e um pedido de afastamento deixa sem resposta a pergunta central da perícia: como aquele quadro interfere no trabalho habitual e desde quando isso acontece.",
+        "A limitação deve ser descrita de modo concreto, considerando esforço físico, concentração, permanência em pé ou sentado, movimentos repetitivos, contato com público, uso de máquinas, deslocamento e necessidade de pausas. A mesma condição pode produzir efeitos diferentes conforme a função e o ambiente de trabalho.",
+        "O médico assistente acompanha a evolução clínica e pode registrar essas informações com precisão, mas o relatório não precisa afirmar um resultado previdenciário. Ele precisa explicar o quadro, o tratamento, os achados e as restrições observadas."
+      ]
+    },
+    {
+      "titulo": "O que a perícia procura no relatório",
+      "paragrafos": [
+        "A perícia costuma verificar o CID, o histórico do tratamento, os exames que confirmam os achados e a data provável de início da incapacidade. Também confronta esses dados com a atividade exercida e com os afastamentos anteriores. Datas incompatíveis ou conclusões sem explicação abrem dúvidas que poderiam ser evitadas.",
+        "Um bom documento relaciona sintomas, sinais clínicos e limitações funcionais, indicando se são temporárias, persistentes ou sujeitas a reavaliação. Quando houver previsão de tratamento, cirurgia, fisioterapia ou retorno gradual, isso deve aparecer com o período estimado e a justificativa médica disponível.",
+        "CID mais uma vez acompanhado de pedido genérico não costuma ser suficiente. O código identifica uma condição, mas não informa sozinho a intensidade dos sintomas, a evolução, as tarefas afetadas ou o momento em que o trabalho deixou de ser possível."
+      ]
+    },
+    {
+      "titulo": "Casos que exigem descrição cuidadosa",
+      "paragrafos": [
+        "Dor crônica precisa ser relacionada aos movimentos, posturas e duração das tarefas, além dos tratamentos tentados. Em saúde mental, o relatório pode detalhar atenção, memória, interação, crises, efeitos dos medicamentos e capacidade de manter rotina, sem expor informações desnecessárias. A ausência de lesão visível não elimina a necessidade de demonstrar a limitação.",
+        "Em doenças degenerativas, é importante mostrar a evolução e a perda funcional ao longo do tempo. No pós-cirúrgico, o relatório deve indicar procedimento, recuperação, restrições e previsão de reavaliação. Sequelas ortopédicas devem ser descritas pelos movimentos e esforços comprometidos, não apenas pelo nome da lesão.",
+        "Exames antigos podem ajudar a contar a história, mas a atualização é essencial quando o pedido é atual. Se o quadro mudou, o conjunto deve mostrar o que permanece, o que piorou e quais documentos confirmam a situação presente."
+      ]
+    },
+    {
+      "titulo": "Como traduzir o dia de trabalho",
+      "paragrafos": [
+        "Antes de pedir o benefício, escreva como era um dia comum: horário, deslocamento, tarefas, peso, ritmo, posturas, pausas e exigências de atenção. Depois, marque o que deixou de ser feito, o que passou a exigir ajuda e por quanto tempo a atividade pode ser mantida. Esse registro ajuda o médico a descrever limitações relacionadas à função real.",
+        "Evite pedir ao médico apenas uma frase pronta. Leve informações objetivas e os documentos de tratamento para que o relatório seja baseado no acompanhamento clínico. Também informe mudanças de função, tentativas de retorno e afastamentos, pois esses fatos podem esclarecer a data e a extensão da incapacidade."
+      ]
+    },
+    {
+      "titulo": "Documentos para reunir antes do pedido",
+      "lista": [
+        "Relatório atualizado do médico assistente, com identificação, data, CID, tratamento e limitações funcionais.",
+        "Exames de imagem, laboratoriais e avaliações que confirmem ou acompanhem o quadro.",
+        "Receitas, prontuários, comprovantes de terapias, internações e procedimentos realizados.",
+        "Atestados e registros de afastamento, organizados em ordem cronológica.",
+        "Carteira de trabalho, CNIS e descrição das tarefas exercidas no trabalho habitual.",
+        "Laudos ou relatórios anteriores que permitam comparar a evolução da condição."
+      ]
+    }
+  ],
+  "perguntas": [
+    {
+      "pergunta": "O laudo precisa informar apenas o CID?",
+      "resposta": "Não. O CID identifica a condição, mas o relatório precisa explicar tratamento, evolução, data de início e limitações para as tarefas do trabalho habitual. CID acompanhado apenas de pedido de afastamento costuma deixar a incapacidade sem demonstração suficiente."
+    },
+    {
+      "pergunta": "Quem deve escrever o relatório médico?",
+      "resposta": "O médico assistente que acompanha o caso pode descrever o histórico e as limitações observadas. É importante que o documento esteja atualizado, identificado e baseado em exames e evolução clínica, sem depender de uma fórmula genérica."
+    },
+    {
+      "pergunta": "Dor crônica ou doença mental pode ser descrita no laudo?",
+      "resposta": "Sim, mas a descrição precisa mostrar o impacto funcional: movimentos, resistência, concentração, crises, interação, sono, efeitos do tratamento e tarefas comprometidas. O diagnóstico isolado não permite compreender como a condição interfere no trabalho."
+    },
+    {
+      "pergunta": "O que devo levar antes de solicitar o benefício?",
+      "resposta": "Organize relatório atualizado, exames, receitas, atestados, prontuários e registros de afastamento por data. Também descreva as tarefas do trabalho habitual e reúna carteira de trabalho e CNIS para que a análise médica e previdenciária não fique separada da realidade do vínculo."
+    }
+  ]
+}

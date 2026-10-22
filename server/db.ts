@@ -1,6 +1,7 @@
-import { eq, desc } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { documents, users, contactSubmissions, InsertDocument, Document, InsertContactSubmission, ContactSubmission } from "../drizzle/schema";
+import { InsertUser, users } from "../drizzle/schema";
+import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -17,88 +18,74 @@ export async function getDb() {
   return _db;
 }
 
-/**
- * Document Management Functions
- */
+export async function upsertUser(user: InsertUser): Promise<void> {
+  if (!user.openId) {
+    throw new Error("User openId is required for upsert");
+  }
 
-export async function uploadDocument(data: InsertDocument): Promise<Document> {
   const db = await getDb();
-  if (!db) throw new Error("Database not available");
+  if (!db) {
+    throw new Error("Database is not available");
+  }
 
-  const result = await db.insert(documents).values(data);
-  const id = result[0]?.insertId;
-  
-  if (!id) throw new Error("Failed to create document record");
+  try {
+    const values: InsertUser = {
+      openId: user.openId,
+    };
+    const updateSet: Record<string, unknown> = {};
 
-  const doc = await db.select().from(documents).where(eq(documents.id, id)).limit(1);
-  return doc[0]!;
+    const textFields = ["name", "email", "loginMethod"] as const;
+    type TextField = (typeof textFields)[number];
+
+    const assignNullable = (field: TextField) => {
+      const value = user[field];
+      if (value === undefined) return;
+      const normalized = value ?? null;
+      values[field] = normalized;
+      updateSet[field] = normalized;
+    };
+
+    textFields.forEach(assignNullable);
+
+    if (user.lastSignedIn !== undefined) {
+      values.lastSignedIn = user.lastSignedIn;
+      updateSet.lastSignedIn = user.lastSignedIn;
+    }
+    if (user.role !== undefined) {
+      values.role = user.role;
+      updateSet.role = user.role;
+    } else if (user.openId === ENV.ownerOpenId) {
+      values.role = 'admin';
+      updateSet.role = 'admin';
+    }
+
+    if (!values.lastSignedIn) {
+      values.lastSignedIn = new Date();
+    }
+
+    if (Object.keys(updateSet).length === 0) {
+      updateSet.lastSignedIn = new Date();
+    }
+
+    await db.insert(users).values(values).onDuplicateKeyUpdate({
+      set: updateSet,
+    });
+  } catch (error) {
+    console.error("[Database] Failed to upsert user:", error);
+    throw error;
+  }
 }
 
-export async function getUserDocuments(userId: number): Promise<Document[]> {
+export async function getUserByOpenId(openId: string) {
   const db = await getDb();
-  if (!db) return [];
+  if (!db) {
+    console.warn("[Database] Cannot get user: database not available");
+    return undefined;
+  }
 
-  return db
-    .select()
-    .from(documents)
-    .where(eq(documents.userId, userId))
-    .orderBy(desc(documents.createdAt));
+  const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
+
+  return result.length > 0 ? result[0] : undefined;
 }
 
-export async function getDocument(id: number): Promise<Document | undefined> {
-  const db = await getDb();
-  if (!db) return undefined;
-
-  const result = await db.select().from(documents).where(eq(documents.id, id)).limit(1);
-  return result[0];
-}
-
-export async function deleteDocument(id: number): Promise<boolean> {
-  const db = await getDb();
-  if (!db) return false;
-
-  const result = await db.delete(documents).where(eq(documents.id, id));
-  return result.rowsAffected > 0;
-}
-
-export async function updateDocument(id: number, data: Partial<Document>): Promise<Document | undefined> {
-  const db = await getDb();
-  if (!db) return undefined;
-
-  await db.update(documents).set(data).where(eq(documents.id, id));
-  return getDocument(id);
-}
-
-/**
- * Contact Submission Functions
- */
-
-export async function createContactSubmission(data: InsertContactSubmission): Promise<ContactSubmission> {
-  const db = await getDb();
-  if (!db) throw new Error("Database not available");
-
-  const result = await db.insert(contactSubmissions).values(data);
-  const id = result[0]?.insertId;
-  
-  if (!id) throw new Error("Failed to create contact submission");
-
-  const submission = await db.select().from(contactSubmissions).where(eq(contactSubmissions.id, id)).limit(1);
-  return submission[0]!;
-}
-
-export async function getContactSubmissions(): Promise<ContactSubmission[]> {
-  const db = await getDb();
-  if (!db) return [];
-
-  return db.select().from(contactSubmissions).orderBy(desc(contactSubmissions.createdAt));
-}
-
-export async function updateContactSubmissionStatus(id: number, status: string): Promise<ContactSubmission | undefined> {
-  const db = await getDb();
-  if (!db) return undefined;
-
-  await db.update(contactSubmissions).set({ status }).where(eq(contactSubmissions.id, id));
-  
-  const result = await db.select().from(contactSubmissions).where(eq(contactSubmissions.id, id)).limit(1);
-  return result[0];
-}
+// TODO: add feature queries here as your schema grows.

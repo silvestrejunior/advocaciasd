@@ -1,107 +1,98 @@
-import { S3Client, PutObjectCommand, GetObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { nanoid } from "nanoid";
+// Preconfigured storage helpers for Manus WebDev templates
+// Uploads via Forge Server presigned URL to S3 (PUT direct).
+// Downloads return /manus-storage/{key} paths served via 307 redirect.
 
-// Initialize S3 client with Manus credentials
-const s3Client = new S3Client({
-  region: process.env.AWS_REGION || "us-east-1",
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID || "",
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || "",
-  },
-});
+import { ENV } from "./_core/env";
 
-const BUCKET_NAME = process.env.AWS_S3_BUCKET || "manus-storage";
+function getForgeConfig() {
+  const forgeUrl = ENV.forgeApiUrl;
+  const forgeKey = ENV.forgeApiKey;
 
-/**
- * Upload a file to S3 storage
- * @param key - The S3 object key (path)
- * @param data - The file data (Buffer, Uint8Array, or string)
- * @param contentType - The MIME type of the file
- * @returns Object with key and url
- */
+  if (!forgeUrl || !forgeKey) {
+    throw new Error(
+      "Storage config missing: set MANUS_API_URL and MANUS_API_KEY",
+    );
+  }
+
+  return { forgeUrl: forgeUrl.replace(/\/+$/, ""), forgeKey };
+}
+
+function normalizeKey(relKey: string): string {
+  return relKey.replace(/^\/+/, "");
+}
+
+function appendHashSuffix(relKey: string): string {
+  const hash = crypto.randomUUID().replace(/-/g, "").slice(0, 8);
+  const lastDot = relKey.lastIndexOf(".");
+  if (lastDot === -1) return `${relKey}_${hash}`;
+  return `${relKey.slice(0, lastDot)}_${hash}${relKey.slice(lastDot)}`;
+}
+
 export async function storagePut(
-  key: string,
+  relKey: string,
   data: Buffer | Uint8Array | string,
-  contentType: string = "application/octet-stream"
+  contentType = "application/octet-stream",
 ): Promise<{ key: string; url: string }> {
-  try {
-    const command = new PutObjectCommand({
-      Bucket: BUCKET_NAME,
-      Key: key,
-      Body: data,
-      ContentType: contentType,
-    });
+  const { forgeUrl, forgeKey } = getForgeConfig();
+  const key = appendHashSuffix(normalizeKey(relKey));
 
-    await s3Client.send(command);
+  // 1. Get presigned PUT URL from Forge
+  const presignUrl = new URL("v1/storage/presign/put", forgeUrl + "/");
+  presignUrl.searchParams.set("path", key);
 
-    // Generate public URL (assuming bucket is public)
-    const url = `https://${BUCKET_NAME}.s3.amazonaws.com/${key}`;
+  const presignResp = await fetch(presignUrl, {
+    headers: { Authorization: `Bearer ${forgeKey}` },
+  });
 
-    return { key, url };
-  } catch (error) {
-    console.error("[Storage] Upload failed:", error);
-    throw new Error(`Failed to upload file: ${error}`);
+  if (!presignResp.ok) {
+    const msg = await presignResp.text().catch(() => presignResp.statusText);
+    throw new Error(`Storage presign failed (${presignResp.status}): ${msg}`);
   }
+
+  const { url: s3Url } = (await presignResp.json()) as { url: string };
+  if (!s3Url) throw new Error("Forge returned empty presign URL");
+
+  // 2. PUT file directly to S3
+  const blob =
+    typeof data === "string"
+      ? new Blob([data], { type: contentType })
+      : new Blob([data as any], { type: contentType });
+
+  const uploadResp = await fetch(s3Url, {
+    method: "PUT",
+    headers: { "Content-Type": contentType },
+    body: blob,
+  });
+
+  if (!uploadResp.ok) {
+    throw new Error(`Storage upload to S3 failed (${uploadResp.status})`);
+  }
+
+  return { key, url: `/manus-storage/${key}` };
 }
 
-/**
- * Get a signed URL for downloading a file from S3
- * @param key - The S3 object key
- * @param expiresIn - Expiration time in seconds (default: 3600)
- * @returns Object with key and url
- */
-export async function storageGet(
-  key: string,
-  expiresIn: number = 3600
-): Promise<{ key: string; url: string }> {
-  try {
-    const command = new GetObjectCommand({
-      Bucket: BUCKET_NAME,
-      Key: key,
-    });
-
-    const url = await getSignedUrl(s3Client, command, { expiresIn });
-
-    return { key, url };
-  } catch (error) {
-    console.error("[Storage] Get signed URL failed:", error);
-    throw new Error(`Failed to get signed URL: ${error}`);
-  }
+export async function storageGet(relKey: string): Promise<{ key: string; url: string }> {
+  const key = normalizeKey(relKey);
+  return { key, url: `/manus-storage/${key}` };
 }
 
-/**
- * Delete a file from S3 storage
- * @param key - The S3 object key
- */
-export async function storageDelete(key: string): Promise<void> {
-  try {
-    const command = new DeleteObjectCommand({
-      Bucket: BUCKET_NAME,
-      Key: key,
-    });
+export async function storageGetSignedUrl(relKey: string): Promise<string> {
+  const { forgeUrl, forgeKey } = getForgeConfig();
+  const key = normalizeKey(relKey);
 
-    await s3Client.send(command);
-  } catch (error) {
-    console.error("[Storage] Delete failed:", error);
-    throw new Error(`Failed to delete file: ${error}`);
-  }
-}
+  const getUrl = new URL("v1/storage/presign/get", forgeUrl + "/");
+  getUrl.searchParams.set("path", key);
 
-/**
- * Generate a unique file key with random suffix to prevent enumeration
- * @param fileName - The original file name
- * @param userId - Optional user ID for organizing files
- * @returns A unique file key
- */
-export function generateFileKey(fileName: string, userId?: string): string {
-  const ext = fileName.split(".").pop() || "";
-  const baseName = fileName.replace(`.${ext}`, "");
-  const randomSuffix = nanoid(8);
-  
-  if (userId) {
-    return `${userId}/documents/${baseName}-${randomSuffix}.${ext}`;
+  const resp = await fetch(getUrl, {
+    headers: { Authorization: `Bearer ${forgeKey}` },
+  });
+
+  if (!resp.ok) {
+    const msg = await resp.text().catch(() => resp.statusText);
+    throw new Error(`Storage signed URL failed (${resp.status}): ${msg}`);
   }
-  
-  return `documents/${baseName}-${randomSuffix}.${ext}`;
+
+  const { url } = (await resp.json()) as { url: string };
+  if (!url) throw new Error("Storage did not return a download URL");
+  return url;
 }
