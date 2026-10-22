@@ -179,36 +179,21 @@ export default function Home() {
                     {AVISO_DOCUMENTOS}
                   </p>
                 </div>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
+                <div className="mt-8">
                   <Link
                     href="/seu-caso"
-                    className="group inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-[15px] font-bold text-brand-950 shadow-xl shadow-cyan-500/30 ring-2 ring-cyan-300/50 transition-all hover:-translate-y-0.5 hover:bg-cyan-300 hover:shadow-2xl"
+                    className="pulsar-cta group inline-flex items-center gap-2.5 rounded-xl bg-cyan-400 px-9 py-4.5 text-[16px] font-bold text-brand-950 ring-2 ring-cyan-200/60 transition-all hover:-translate-y-0.5 hover:bg-cyan-300"
                   >
                     Descobrir o meu caso
                     <span
                       aria-hidden="true"
-                      className="transition-transform group-hover:translate-x-0.5"
+                      className="transition-transform group-hover:translate-x-1"
                     >
                       →
                     </span>
                   </Link>
-                  <a
-                    href={whatsapp(WHATSAPP_MENSAGENS.geral)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3.5 text-[14px] font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-                  >
-                    <Phone size={16} />
-                    Falar com o escritório
-                  </a>
-                  <Link
-                    href="/servicos"
-                    className="inline-flex items-center justify-center rounded-lg border border-white/40 bg-white/10 px-6 py-3.5 text-[14px] font-bold text-white transition-colors hover:bg-white/20"
-                  >
-                    Conhecer os serviços
-                  </Link>
                 </div>
-                <p className="mt-4 text-[13.5px] font-medium text-cyan-200/90">
+                <p className="mt-4 max-w-md text-[13.5px] font-medium text-cyan-200/90">
                   Duas perguntas para chegar ao seu caso — leva menos de um
                   minuto e não pede documento.
                 </p>
@@ -329,8 +314,103 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-brand-900 py-16 text-white md:py-20">
+        <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
+            <TituloSecao
+              sobretitulo="O escritório"
+              titulo="Quem atende e onde o seu caso é analisado"
+              texto="O atendimento é feito pelo advogado responsável, com reuniões presenciais em Maringá ou a distância, conforme a sua preferência."
+            />
+            <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,360px)_1fr] lg:gap-14">
+              <figure className="mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
+                <img
+                  src="/images/escritorio-retrato.jpg"
+                  alt={`${SITE.responsavel}, advogado responsável pelo escritório`}
+                  loading="lazy"
+                  className="aspect-[3/4] w-full rounded-2xl object-cover object-top shadow-lg"
+                />
+                <figcaption className="mt-4 text-[13.5px] leading-relaxed text-slate-600">
+                  <strong className="font-semibold text-brand-800">
+                    {SITE.responsavel}
+                  </strong>{" "}
+                  — {SITE.oab}
+                </figcaption>
+              </figure>
+
+              <div>
+                <p className="max-w-2xl text-[15px] leading-relaxed text-slate-700">
+                  Quase 15 anos de atuação em Direito Previdenciário, com leitura
+                  do histórico, comparação dos caminhos possíveis e
+                  acompanhamento do pedido até a decisão. O primeiro contato pode
+                  ser por WhatsApp, telefone ou e-mail, sem envio de documentos.
+                </p>
+
+                <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                  <figure>
+                    <img
+                      src="/images/escritorio-sala-reuniao.jpg"
+                      alt="Sala de reuniões do escritório, com vista para a cidade de Maringá"
+                      loading="lazy"
+                      className="aspect-[4/3] w-full rounded-xl object-cover shadow-sm"
+                    />
+                    <figcaption className="mt-3 text-[13px] text-slate-600">
+                      Sala de reuniões — atendimento presencial, com hora marcada
+                    </figcaption>
+                  </figure>
+                  <figure>
+                    <img
+                      src="/images/escritorio-mesa.jpg"
+                      alt="Mesa de trabalho usada na análise dos documentos do caso"
+                      loading="lazy"
+                      className="aspect-[4/3] w-full rounded-xl object-cover shadow-sm"
+                    />
+                    <figcaption className="mt-3 text-[13px] text-slate-600">
+                      Análise do histórico e dos documentos de cada caso
+                    </figcaption>
+                  </figure>
+                </div>
+
+                <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                  <h3 className="font-['Playfair_Display'] text-lg font-bold text-brand-800">
+                    Onde fica
+                  </h3>
+                  <dl className="mt-4 space-y-2 text-[14px] leading-relaxed text-slate-700">
+                    <div className="flex flex-wrap gap-1.5">
+                      <dt className="font-semibold text-slate-900">Endereço:</dt>
+                      <dd>{SITE.endereco.completo}</dd>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <dt className="font-semibold text-slate-900">Horário:</dt>
+                      <dd>{SITE.horario}</dd>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <dt className="font-semibold text-slate-900">
+                        Atendimento a distância:
+                      </dt>
+                      <dd>
+                        para todo o Brasil, por WhatsApp, telefone ou e-mail
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-brand-900 py-16 text-white md:py-20">
+          <img
+            src="/images/escritorio-sala.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-center opacity-25"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-br from-brand-950/90 via-brand-900/85 to-brand-800/80"
+          />
+          <div className="relative container mx-auto px-4">
             <TituloSecao
               claro
               titulo="Entenda antes de pedir"
