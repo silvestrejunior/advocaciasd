@@ -60,3 +60,12 @@
 - [ ] Página própria para pensão por morte, BPC/LOAS, aposentadoria rural e isenção de imposto de renda.
 - [ ] Ajustar o numeral do passo na rota `/seu-caso` (hoje discreto demais).
 - [ ] Ligar o site definitivo ao domínio `advocaciasd.com.br` quando o conteúdo for aprovado.
+## Área de conteúdo (blog) e canais
+
+- [x] Página /blog com os artigos agrupados por tema, cada tema ligado ao serviço correspondente e com link "Ver o serviço".
+- [x] Página de artigo (/blog/:slug) com seções, perguntas frequentes, dados estruturados de BlogPosting, BreadcrumbList e FAQPage, CTA de WhatsApp e cartão do serviço relacionado.
+- [x] Nove artigos publicados (um por tema), escritos na linguagem de análise do site, sem explicação de regras.
+- [x] Script `scripts/gerar-conteudo.mjs`: consolida os artigos e regenera o manifesto de rotas e o sitemap (28 rotas).
+- [x] Home com a seção "O que analisar antes de decidir" (três artigos mais recentes) e faixa do canal do YouTube.
+- [x] Canal do YouTube em `SITE.youtube`, no rodapé, na faixa da home e nos dados estruturados (sameAs).
+- [x] Pré-renderização com rotas aninhadas (/blog/<slug>) gravadas no caminho correto.

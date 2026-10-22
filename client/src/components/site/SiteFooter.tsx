@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import {
   RODAPE,
   SITE,
@@ -106,6 +106,17 @@ export function SiteFooter() {
                 <Clock size={16} className="mt-0.5 flex-shrink-0 text-cyan-400" />
                 <span>{SITE.horario}</span>
               </li>
+              <li className="flex gap-2.5">
+                <Youtube size={16} className="mt-0.5 flex-shrink-0 text-cyan-400" />
+                <a
+                  href={SITE.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-300"
+                >
+                  Canal no YouTube
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -115,6 +126,11 @@ export function SiteFooter() {
             © {ano} {SITE.nomeCompleto}. Todos os direitos reservados.
           </span>
           <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            {RODAPE.conteudo.map((l) => (
+              <Link key={l.href + l.label} href={l.href} className="hover:text-cyan-300">
+                {l.label}
+              </Link>
+            ))}
             {RODAPE.escritorio.map((l) => (
               <Link key={l.href + l.label} href={l.href} className="hover:text-cyan-300">
                 {l.label}

@@ -44,7 +44,11 @@ function preparar(html) {
     .replace("</body>", `${TAG_PLATAFORMA}\n${tagsJs.join("\n")}\n</body>`);
 }
 
-const arquivos = (await readdir(ORIGEM)).filter((nome) => nome.endsWith(".html"));
+// A leitura é recursiva porque as rotas aninhadas (ex.: /blog/algum-artigo)
+// ficam em subpastas dentro de prerender/.
+const arquivos = (await readdir(ORIGEM, { recursive: true })).filter((nome) =>
+  nome.endsWith(".html"),
+);
 
 for (const arquivo of arquivos) {
   const html = await readFile(path.join(ORIGEM, arquivo), "utf8");

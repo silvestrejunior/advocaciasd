@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { CheckCircle2, Phone } from "lucide-react";
+import { CheckCircle2, Phone, ArrowRight, Clock, Youtube } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import {
@@ -21,6 +21,7 @@ import {
   FAQ_HOME,
   type BeneficioRegime,
 } from "@/data/regimes";
+import { ARTIGOS, temaPorId } from "@/data/blog";
 import { AVISO_DOCUMENTOS } from "@/data/servicos";
 import { WHATSAPP_MENSAGENS, SITE, whatsapp } from "@/config/site";
 
@@ -496,6 +497,105 @@ export default function Home() {
           </div>
         </section>
 
+<section className="relative overflow-hidden bg-brand-950 py-16 text-white md:py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid items-center gap-10 lg:grid-cols-[1fr_minmax(0,460px)] lg:gap-16">
+              <div>
+                <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">
+                  <Youtube size={16} />
+                  Canal do escritório
+                </p>
+                <h2 className="mt-4 font-['Playfair_Display'] text-3xl font-bold leading-tight md:text-4xl">
+                  Também explicamos em vídeo
+                </h2>
+                <p className="mt-5 max-w-xl text-[15.5px] leading-relaxed text-slate-200/90">
+                  No canal tratamos das mesmas dúvidas que aparecem no
+                  atendimento: o que a perícia observa, o que pesa na análise do
+                  tempo especial e como se lê uma negativa. É a forma mais direta
+                  de conhecer o escritório antes de falar com a gente.
+                </p>
+                <a
+                  href={SITE.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-2.5 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 transition-colors hover:bg-cyan-300"
+                >
+                  <Youtube size={18} />
+                  Acessar o canal
+                </a>
+                <p className="mt-4 text-[13px] text-slate-300/80">
+                  {SITE.youtubeNome}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/15 bg-white/5 p-7">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">
+                  Por que acompanhar
+                </p>
+                <ul className="mt-5 space-y-4 text-[14.5px] leading-relaxed text-slate-200/90">
+                  <li className="flex gap-3">
+                    <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-400" />
+                    <span>Casos explicados sem juridiquês.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-400" />
+                    <span>Alertas sobre prazos e decisões que não voltam.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-400" />
+                    <span>Conteúdo para quem já fez o pedido e para quem está começando.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-slate-100 bg-slate-50 py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <TituloSecao
+              sobretitulo="Conteúdo"
+              titulo="O que analisar antes de decidir"
+              texto="Escrevemos sobre os pontos que costumam decidir um caso, tema por tema."
+            />
+            <div className="mt-9 grid gap-6 md:grid-cols-3">
+              {ARTIGOS.slice(0, 3).map((artigo) => (
+                <Link
+                  key={artigo.slug}
+                  href={`/blog/${artigo.slug}`}
+                  className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_24px_45px_-24px_rgba(10,42,74,0.5)]"
+                >
+                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-cyan-700">
+                    {temaPorId(artigo.tema)?.nome ?? "Conteúdo"}
+                  </span>
+                  <h3 className="mt-3 font-['Playfair_Display'] text-[19px] font-bold leading-snug text-brand-800 transition-colors group-hover:text-cyan-700">
+                    {artigo.titulo}
+                  </h3>
+                  <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-slate-700">
+                    {artigo.resumo}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-[12.5px] text-slate-500">
+                    <Clock size={14} />
+                    {Math.max(3, Math.round(artigo.palavras / 200))} min de leitura
+                  </span>
+                  <span className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-bold text-cyan-700">
+                    Ler o artigo
+                    <ArrowRight
+                      size={15}
+                      className="transition-transform duration-300 group-hover:translate-x-1.5"
+                    />
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <Link
+              href="/blog"
+              className="mt-9 inline-flex items-center gap-2 text-[14.5px] font-bold text-brand-800 hover:text-cyan-700"
+            >
+              Ver todo o conteúdo
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </section>
         <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
             <TituloSecao titulo="Perguntas frequentes" />

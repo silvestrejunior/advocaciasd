@@ -23,7 +23,8 @@ import ComoFunciona from "./pages/ComoFunciona";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import CTC from "./pages/CTC";
-
+import Blog from "./pages/Blog";
+import Artigo from "./pages/Artigo";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -55,6 +56,8 @@ function Router() {
       <Route path={"/sobre"} component={Sobre} />
       <Route path={"/contato"} component={Contato} />
       <Route path={"/ctc"} component={CTC} />
+      <Route path={"/blog"} component={Blog} />
+      <Route path={"/blog/:slug"} component={Artigo} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

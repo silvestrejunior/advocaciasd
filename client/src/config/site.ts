@@ -39,6 +39,10 @@ export const SITE = {
 
   horario: "Segunda a Sexta: 9h às 17h",
 
+  // Canais do escritório
+  youtube: "https://www.youtube.com/@sdadvocaciaprevidenciaria",
+  youtubeNome: "@sdadvocaciaprevidenciaria",
+
   // Imagens
   logo: "/images/logo-sd.png",
   logoClaro: "/images/logo-sd-branco.png",
@@ -85,6 +89,7 @@ export type ItemMenu = {
 export const MENU: ItemMenu[] = [
   { label: "Início", href: "/" },
   { label: "Descubra o seu caso", href: "/seu-caso" },
+  { label: "Conteúdo", href: "/blog" },
   {
     label: "Serviços",
     href: "/servicos",
@@ -160,6 +165,11 @@ export const RODAPE = {
     { label: "Auxílio-acidente", href: "/auxilio-acidente" },
     { label: "Perdeu o benefício", href: "/perdeu-o-beneficio" },
     { label: "Revisão de aposentadoria", href: "/revisao-de-aposentadoria" },
+  ],
+  conteudo: [
+    { label: "Todos os artigos", href: "/blog" },
+    { label: "Cuidados antes de pedir", href: "/cuidados" },
+    { label: "Canal no YouTube", href: SITE.youtube },
   ],
   escritorio: [
     { label: "Descubra o seu caso", href: "/seu-caso" },

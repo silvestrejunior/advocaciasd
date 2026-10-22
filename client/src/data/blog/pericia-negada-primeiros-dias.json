@@ -1,0 +1,75 @@
+{
+  "slug": "pericia-negada-o-que-fazer-primeiro",
+  "titulo": "Perícia negada: o que fazer nos primeiros dias",
+  "resumo": "Leia a decisão, preserve o prazo e escolha entre recurso e novo pedido com base nos documentos que faltaram e no motivo real da negativa.",
+  "publicado": "2026-10-22",
+  "tema": "pericia-negada",
+  "servico": "/pericia-negada",
+  "palavrasChave": [
+    "perícia negada",
+    "recurso administrativo",
+    "benefício por incapacidade"
+  ],
+  "secoes": [
+    {
+      "titulo": "Comece pelo motivo escrito da decisão",
+      "paragrafos": [
+        "Depois de uma perícia negada, a primeira providência não é abrir outro pedido. É localizar a decisão e ler o motivo que foi registrado: ausência de incapacidade, documentação insuficiente, falta de qualidade de segurado, carência, não comparecimento ou cessação de benefício. Cada fundamento aponta um problema diferente e exige uma resposta diferente.",
+        "Também confira a data em que você tomou ciência. É essa data, e não necessariamente o dia da perícia ou o dia em que o resultado apareceu em uma conversa, que deve orientar a contagem do prazo. Salve a comunicação, o protocolo e o resultado no Meu INSS para não depender apenas da memória.",
+        "O laudo administrativo deve ser comparado com os exames e com o trabalho habitual. Diagnóstico e incapacidade não são a mesma coisa: a questão prática é saber se as limitações impedem as tarefas que a pessoa exercia, em qual período e com quais evidências."
+      ]
+    },
+    {
+      "titulo": "Prazo correndo: recurso ou novo pedido",
+      "paragrafos": [
+        "Em regra, o recurso administrativo contra indeferimento ou cessação deve ser apresentado em até 30 dias contados da ciência. O prazo precisa ser conferido no documento concreto, mas esperar para reunir tudo indefinidamente é um risco. A perda do prazo pode retirar uma via de contestação e alterar a discussão sobre datas e valores.",
+        "Recurso e novo pedido não são equivalentes. O recurso contesta o que foi decidido naquele processo, usando a decisão, o laudo e as provas para apontar o erro ou a insuficiência da análise. Um novo pedido pode ser mais adequado quando o problema era documental e já existe prova atualizada, mas pode ser pior quando ainda é necessário discutir o mérito da incapacidade ou preservar a data do primeiro requerimento.",
+        "A escolha deve considerar o motivo da negativa, a qualidade dos documentos, a data de início da incapacidade e a situação do benefício. Repetir o mesmo pedido sem corrigir a falha costuma apenas criar outro problema."
+      ]
+    },
+    {
+      "titulo": "O que reunir para a próxima etapa",
+      "paragrafos": [
+        "Separe exames recentes e os anteriores que mostrem a evolução do quadro. Reúna relatório do médico assistente com data, diagnóstico, tratamento e, principalmente, limitações funcionais. O relatório deve indicar desde quando a incapacidade existe ou é provável, sem transformar o documento em uma simples repetição do CID.",
+        "Receitas, prontuários, internações, fisioterapia, psicoterapia, afastamentos e atestados ajudam a mostrar continuidade e gravidade. A documentação precisa ser organizada por data, porque um conjunto solto dificulta entender o que acontecia no momento do pedido. Inclua também carteira de trabalho, CNIS e registros de afastamentos, quando a discussão envolver contribuições ou qualidade de segurado.",
+        "Se a cessação veio de perícia de prorrogação, confira imediatamente a data final e se ainda havia possibilidade de pedir prorrogação. Quando esse momento passou, o recurso e outras medidas precisam ser avaliados com base na continuidade da incapacidade e na documentação disponível."
+      ]
+    },
+    {
+      "titulo": "O que evitar nos primeiros dias",
+      "lista": [
+        "Não deixe a decisão sem leitura porque o resultado parece apenas uma conclusão médica.",
+        "Não conte o prazo a partir da data que você imagina; confirme a data de ciência registrada.",
+        "Não abra novo pedido sem saber se o problema anterior era documental ou de mérito.",
+        "Não compareça a uma nova perícia apenas com receitas antigas e sem relatório atualizado.",
+        "Não descarte o laudo administrativo, mesmo que você discorde dele; ele será comparado com a prova.",
+        "Não espere indefinidamente para buscar orientação quando o prazo estiver próximo do fim."
+      ]
+    },
+    {
+      "titulo": "Organizar a resposta evita repetir o problema",
+      "paragrafos": [
+        "Nos primeiros dias, faça uma linha do tempo: data do requerimento, perícia, ciência, início da incapacidade, afastamentos, tratamento e cessação, se houver. Depois, marque o que a decisão reconheceu e o que deixou sem resposta. Essa organização mostra se falta um documento, se existe contradição no laudo ou se a discussão é sobre outro requisito.",
+        "Com esse material, é possível avaliar o caminho adequado e o que precisa ser produzido antes do protocolo. O objetivo não é agir por impulso, mas evitar que o prazo passe e que um pedido novo seja feito com a mesma prova que já foi considerada insuficiente."
+      ]
+    }
+  ],
+  "perguntas": [
+    {
+      "pergunta": "Qual é a primeira coisa a fazer depois da perícia negada?",
+      "resposta": "Leia o motivo escrito da decisão e confira a data de ciência. Em seguida, compare o laudo com seus exames, relatório médico e atividade habitual para identificar o que realmente precisa ser contestado."
+    },
+    {
+      "pergunta": "O prazo do recurso começa no dia da perícia?",
+      "resposta": "Não necessariamente. Em regra, a contagem considera a ciência da decisão, que deve ser conferida no processo ou na comunicação recebida. O prazo administrativo é, em regra, de 30 dias, mas o documento concreto precisa ser analisado."
+    },
+    {
+      "pergunta": "Quando um novo pedido pode ser melhor que um recurso?",
+      "resposta": "Pode fazer sentido quando a negativa decorreu de documento ausente ou desatualizado e a situação pode ser demonstrada em um novo requerimento. Se for necessário discutir o mérito da perícia ou preservar a data anterior, abrir outro pedido sem avaliar o recurso pode prejudicar a estratégia."
+    },
+    {
+      "pergunta": "O que levar para uma nova perícia?",
+      "resposta": "Leve exames recentes, relatório do médico assistente, receitas, atestados e registros do tratamento, organizados por data. O relatório deve explicar limitações para o trabalho habitual e a data provável de início da incapacidade, não apenas indicar o diagnóstico."
+    }
+  ]
+}

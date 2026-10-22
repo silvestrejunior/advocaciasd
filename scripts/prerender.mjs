@@ -82,10 +82,13 @@ for (const rota of routes) {
   );
 
   const html = await pagina.content();
+  // O nome do arquivo mantém a estrutura da rota (ex.: blog/algum-artigo.html)
+  // para que o build grave cada página no caminho correto.
   const arquivo =
     rota.path === "/"
       ? "index.html"
-      : `${rota.path.replace(/^\//, "").replace(/\//g, "-")}.html`;
+      : `${rota.path.replace(/^\//, "")}.html`;
+  await mkdir(path.dirname(path.join(SAIDA, arquivo)), { recursive: true });
   await writeFile(path.join(SAIDA, arquivo), html, "utf8");
 
   const titulo = await pagina.title();

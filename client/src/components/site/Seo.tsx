@@ -95,6 +95,7 @@ export function Seo({
         email: SITE.email,
         openingHours: "Mo-Fr 09:00-17:00",
         areaServed: { "@type": "Country", name: "Brasil" },
+        sameAs: [SITE.youtube],
         knowsAbout: [
           "Aposentadoria por idade",
           "Aposentadoria especial",
