@@ -31,7 +31,7 @@ export function BannerPrincipal() {
             </p>
             <h1 className="home-banner-titulo mt-5 max-w-2xl font-['Playfair_Display'] font-bold">
               Aposentadoria no <span className="text-cyan-300">INSS</span> e
-              para <span className="text-cyan-300">servidores públicos</span>
+              para <span className="text-cyan-300">Servidores Públicos</span>
             </h1>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-100/90 sm:text-[17px]">
               Analisamos o seu histórico, identificamos o caminho aplicável ao
