@@ -74,36 +74,23 @@ export type ItemMenu = {
 export const MENU: ItemMenu[] = [
   { label: "Início", href: "/" },
   {
-    label: "Aposentadorias",
-    href: "/aposentadoria-inss",
+    label: "Serviços",
+    href: "/servicos",
     filhos: [
       {
-        label: "Aposentadoria no INSS",
-        href: "/aposentadoria-inss",
-        descricao: "Regras do regime geral para trabalhadores e autônomos",
+        label: "Aposentadoria especial",
+        href: "/aposentadoria-especial",
+        descricao: "Análise do trabalho com exposição a agentes nocivos",
       },
       {
-        label: "Servidores públicos",
-        href: "/aposentadoria-servidor-publico",
-        descricao: "Regimes próprios, regra permanente e transições",
+        label: "Aposentadoria negada",
+        href: "/aposentadoria-negada",
+        descricao: "O que fazer depois de uma negativa do INSS",
       },
+      { label: "Todos os serviços", href: "/servicos" },
     ],
   },
-  {
-    label: "Benefícios",
-    href: "/beneficios",
-    filhos: [
-      { label: "Todos os benefícios", href: "/beneficios" },
-      {
-        label: "Auxílio por incapacidade temporária",
-        href: "/beneficios#incapacidade-temporaria",
-      },
-      { label: "Aposentadoria por incapacidade permanente", href: "/beneficios#incapacidade-permanente" },
-      { label: "Pensão por morte", href: "/beneficios#pensao-por-morte" },
-      { label: "BPC/LOAS", href: "/beneficios#bpc-loas" },
-    ],
-  },
-  { label: "CTC e averbação", href: "/ctc" },
+  { label: "Como funciona", href: "/como-funciona" },
   { label: "Sobre", href: "/sobre" },
   { label: "Contato", href: "/contato" },
 ];
@@ -111,19 +98,19 @@ export const MENU: ItemMenu[] = [
 /** Links do rodapé. */
 export const RODAPE = {
   aposentadorias: [
-    { label: "Aposentadoria no INSS", href: "/aposentadoria-inss" },
+    { label: "Aposentadoria especial", href: "/aposentadoria-especial" },
     { label: "Servidores públicos", href: "/aposentadoria-servidor-publico" },
-    { label: "Regras de transição", href: "/aposentadoria-inss#regras" },
-    { label: "Aposentadoria especial", href: "/aposentadoria-inss#especial" },
     { label: "CTC e averbação de tempo", href: "/ctc" },
+    { label: "Todos os serviços", href: "/servicos" },
   ],
   beneficios: [
-    { label: "Todos os benefícios", href: "/beneficios" },
-    { label: "Incapacidade temporária", href: "/beneficios#incapacidade-temporaria" },
-    { label: "Pensão por morte", href: "/beneficios#pensao-por-morte" },
-    { label: "BPC/LOAS", href: "/beneficios#bpc-loas" },
+    { label: "Aposentadoria negada", href: "/aposentadoria-negada" },
+    { label: "Benefícios por incapacidade", href: "/contato" },
+    { label: "Pensão por morte", href: "/contato" },
+    { label: "BPC/LOAS", href: "/contato" },
   ],
   escritorio: [
+    { label: "Como funciona", href: "/como-funciona" },
     { label: "Sobre o escritório", href: "/sobre" },
     { label: "Contato", href: "/contato" },
     { label: "ISS em obras de saneamento", href: "/iss" },

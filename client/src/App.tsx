@@ -10,6 +10,9 @@ import AposentadoriaINSS from "./pages/AposentadoriaINSS";
 import AposentadoriaEspecial from "./pages/AposentadoriaEspecial";
 import AposentadoriaServidorPublico from "./pages/AposentadoriaServidorPublico";
 import Beneficios from "./pages/Beneficios";
+import Servicos from "./pages/Servicos";
+import AposentadoriaNegada from "./pages/AposentadoriaNegada";
+import ComoFunciona from "./pages/ComoFunciona";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import ISS from "./pages/ISS";
@@ -28,6 +31,9 @@ function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/servicos"} component={Servicos} />
+      <Route path={"/aposentadoria-negada"} component={AposentadoriaNegada} />
+      <Route path={"/como-funciona"} component={ComoFunciona} />
       <Route path={"/aposentadoria-inss"} component={AposentadoriaINSS} />
       <Route path={"/aposentadoria-especial"} component={AposentadoriaEspecial} />
       <Route

@@ -603,3 +603,6 @@ export const FAQ_RPPS: PerguntaFrequente[] = [
       "Sim. O professor tem redução de idade e pontuação em relação à regra geral, tanto na regra permanente quanto nas transições, desde que comprove exercício exclusivo em funções de magistério na educação infantil, no ensino fundamental ou no médio.",
   },
 ];
+
+/** Data da última conferência do conteúdo jurídico publicado. */
+export const REVISAO_CONTEUDO = "21 de outubro de 2026";
