@@ -127,15 +127,47 @@ export default function Home() {
       <SiteHeader sobreHeroEscuro />
 
       <main>
-        <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 pb-16 pt-28 text-white md:pb-20 md:pt-36">
-          <div className="container mx-auto px-4">
+        <section className="relative overflow-hidden bg-brand-950 pb-16 pt-28 text-white md:pb-20 md:pt-36">
+          {/* Fundo: a fachada do escritório, sob o azul da identidade */}
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/hero-fachada-mobile.jpg"
+            />
+            <img
+              src="/images/hero-fachada.jpg"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+          </picture>
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-br from-brand-950/95 via-brand-900/90 to-brand-800/85"
+          />
+          <div className="relative container mx-auto px-4">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">
                   DIREITO PREVIDENCIÁRIO HÁ QUASE 15 ANOS
                 </p>
                 <h1 className="mt-5 max-w-2xl font-['Playfair_Display'] text-4xl font-bold leading-[1.08] md:text-6xl">
-                  Aposentadoria no INSS e para servidores públicos
+                  Aposentadoria no{" "}
+                  <span className="relative inline-block whitespace-nowrap text-cyan-300">
+                    INSS
+                    <span
+                      aria-hidden="true"
+                      className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-cyan-400/70"
+                    />
+                  </span>{" "}
+                  e para{" "}
+                  <span className="relative inline-block text-cyan-300">
+                    servidores&nbsp;públicos
+                    <span
+                      aria-hidden="true"
+                      className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-cyan-400/70"
+                    />
+                  </span>
                 </h1>
                 <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-slate-100/90 md:text-[18px]">
                   Analisamos o seu histórico, identificamos o caminho aplicável
@@ -147,18 +179,24 @@ export default function Home() {
                     {AVISO_DOCUMENTOS}
                   </p>
                 </div>
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href="/seu-caso"
-                    className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3.5 text-[14px] font-bold text-brand-900 transition-colors hover:bg-cyan-50"
+                    className="group inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-8 py-4 text-[15px] font-bold text-brand-950 shadow-xl shadow-cyan-500/30 ring-2 ring-cyan-300/50 transition-all hover:-translate-y-0.5 hover:bg-cyan-300 hover:shadow-2xl"
                   >
                     Descobrir o meu caso
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform group-hover:translate-x-0.5"
+                    >
+                      →
+                    </span>
                   </Link>
                   <a
                     href={whatsapp(WHATSAPP_MENSAGENS.geral)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-6 py-3.5 text-[14px] font-bold text-brand-950 transition-colors hover:bg-cyan-300"
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3.5 text-[14px] font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
                   >
                     <Phone size={16} />
                     Falar com o escritório
@@ -170,6 +208,10 @@ export default function Home() {
                     Conhecer os serviços
                   </Link>
                 </div>
+                <p className="mt-4 text-[13.5px] font-medium text-cyan-200/90">
+                  Duas perguntas para chegar ao seu caso — leva menos de um
+                  minuto e não pede documento.
+                </p>
                 <div className="mt-10 grid gap-5 border-t border-white/15 pt-6 text-[13px] text-slate-200/90 sm:grid-cols-3 sm:gap-6">
                   <p>Quase 15 anos de experiência</p>
                   <p>Atendimento em todo o Brasil</p>
