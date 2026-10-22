@@ -227,7 +227,7 @@ export default function Home() {
               <aside className="relative flex flex-col items-center justify-end">
                 {/* Foto recortada: só o advogado aparece, o azul do banner fica atrás. */}
                 <img
-                  src="/images/advogado-banner.png"
+                  src="/images/advogado-banner.webp"
                   alt={`${SITE.responsavel}, advogado responsável pelo escritório`}
                   className="w-full max-w-[320px] drop-shadow-[0_28px_50px_rgba(2,20,40,0.6)] sm:max-w-[380px] lg:max-w-[430px]"
                 />
