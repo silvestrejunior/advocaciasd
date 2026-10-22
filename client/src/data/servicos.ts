@@ -129,6 +129,16 @@ export const SERVICOS: Servico[] = [
     acao: "analise",
     bloco: "pedido",
   },
+  {
+    id: "pericia-negada",
+    nome: "Perícia negada",
+    pergunta: "Saiu da perícia com o benefício negado?",
+    resumo:
+      "O motivo escrito da negativa define o caminho — recurso, novo pedido ou outra medida — e cada um tem prazo e consequência próprios.",
+    href: "/pericia-negada",
+    acao: "analise",
+    bloco: "pedido",
+  },
 
   /* ------------------------------------ Outras formas de atuação */
   {
@@ -151,11 +161,12 @@ export const SERVICOS: Servico[] = [
   },
   {
     id: "aposentadoria-rural",
-    nome: "Aposentadoria rural",
+    nome: "Tempo rural",
     pergunta: "Trabalhou no campo, em regime de economia familiar?",
     resumo:
-      "Análise da comprovação da atividade rural e dos períodos que podem ser reconhecidos.",
-    acao: "conversa",
+      "Análise da comprovação da atividade rural: documentos da época, autodeclaração e testemunhas.",
+    href: "/tempo-rural",
+    acao: "servico",
     bloco: "outras",
   },
   {

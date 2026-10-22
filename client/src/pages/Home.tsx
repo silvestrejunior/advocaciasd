@@ -36,32 +36,63 @@ const ATALHOS_WHATSAPP = [
   { titulo: "Quero revisar o meu benefício", mensagem: WHATSAPP_MENSAGENS.revisao },
 ] as const;
 
+/** Situações de entrada: cada uma leva à página que trata do assunto. */
+const SITUACOES = [
+  {
+    href: "/pericia-negada",
+    antes: "Minha ",
+    destaque: "Perícia",
+    depois: " foi negada",
+    texto:
+      "O motivo escrito da negativa define o próximo passo. Veja o que conferir antes de recorrer ou de pedir de novo.",
+  },
+  {
+    href: "/tempo-rural",
+    antes: "Preciso de ajuda com meu ",
+    destaque: "Tempo Rural",
+    depois: "",
+    texto:
+      "O período rural depende de prova material da época. Veja o que costuma ser aceito e o que enfraquece o pedido.",
+  },
+  {
+    href: "/aposentadoria-especial",
+    antes: "Estou com dificuldades no meu ",
+    destaque: "Tempo Especial",
+    depois: "",
+    texto:
+      "O tempo especial depende das atividades, do agente e das provas de cada vínculo. Veja o que é analisado.",
+  },
+] as const;
+
 function CartaoBeneficio({ item }: { item: BeneficioRegime }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:p-7">
-      <h3 className="font-['Playfair_Display'] text-[19px] font-bold leading-snug text-brand-800">
+    <Link
+      href={item.href ?? "/cuidados#alem"}
+      className="group relative flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-7 shadow-[0_10px_30px_-20px_rgba(10,42,74,0.45)] transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-400 hover:shadow-[0_28px_55px_-24px_rgba(10,42,74,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-500 md:p-8"
+    >
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-8 -top-px h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      />
+      <h3 className="font-['Playfair_Display'] text-[20px] font-bold leading-snug text-brand-800 transition-colors duration-300 group-hover:text-cyan-700">
         {item.titulo}
       </h3>
       <p className="mt-3 text-[14.5px] leading-relaxed text-slate-700">
         {item.oQueE}
       </p>
-      <div className="mt-5 border-l-4 border-l-cyan-500 bg-slate-50 px-4 py-3.5">
-        <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-cyan-700">
-          Cuidado
-        </p>
-        <p className="mt-2 text-[14px] leading-relaxed text-slate-700">
-          {item.cuidado}
-        </p>
-      </div>
-      {item.href && (
-        <Link
-          href={item.href}
-          className="mt-5 inline-flex w-fit items-center text-[13.5px] font-bold text-cyan-700 hover:text-cyan-800"
+      <p className="mt-5 flex-1 border-l-4 border-l-cyan-500 bg-slate-50 px-4 py-3.5 text-[14px] leading-relaxed text-slate-700">
+        {item.cuidado}
+      </p>
+      <span className="mt-6 inline-flex items-center gap-2 text-[13.5px] font-bold text-cyan-700">
+        Conhecer melhor
+        <span
+          aria-hidden="true"
+          className="transition-transform duration-300 group-hover:translate-x-1.5"
         >
-          Conhecer o serviço →
-        </Link>
-      )}
-    </article>
+          →
+        </span>
+      </span>
+    </Link>
   );
 }
 
@@ -235,6 +266,45 @@ export default function Home() {
                   {SITE.responsavel} — {SITE.oab}
                 </p>
               </aside>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-slate-100 bg-slate-50 py-14 md:py-16">
+          <div className="container mx-auto px-4">
+            <TituloSecao
+              sobretitulo="Comece por aqui"
+              titulo="Como está o seu caso agora?"
+              texto="Escolha a situação que mais se parece com a sua. Cada caminho mostra o que precisa ser analisado antes de qualquer pedido."
+            />
+            <div className="mt-9 grid gap-5 md:grid-cols-3">
+              {SITUACOES.map((situacao) => (
+                <Link
+                  key={situacao.href}
+                  href={situacao.href}
+                  className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_24px_45px_-24px_rgba(10,42,74,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-500"
+                >
+                  <p className="font-['Playfair_Display'] text-[21px] font-bold leading-snug text-brand-800">
+                    {situacao.antes}
+                    <span className="text-cyan-600 underline decoration-cyan-300 decoration-2 underline-offset-4 transition-colors duration-300 group-hover:text-cyan-700">
+                      {situacao.destaque}
+                    </span>
+                    {situacao.depois}
+                  </p>
+                  <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-slate-700">
+                    {situacao.texto}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-[13.5px] font-bold text-cyan-700">
+                    Ver o que analisamos
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:translate-x-1.5"
+                    >
+                      →
+                    </span>
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>

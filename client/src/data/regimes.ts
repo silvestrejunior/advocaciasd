@@ -146,7 +146,7 @@ export const BENEFICIOS_SERVIDOR: BeneficioRegime[] = [
 export const BENEFICIOS_ALEM: BeneficioRegime[] = [
   {
     id: "alem-incapacidade-temporaria",
-    titulo: "Auxílio por incapacidade temporária",
+    titulo: "Auxílio doença",
     oQueE:
       "O benefício de quem precisa se afastar do trabalho por um período — o antigo auxílio-doença.",
     cuidado:

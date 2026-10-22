@@ -10,6 +10,8 @@ import Servicos from "./pages/Servicos";
 import Cuidados from "./pages/Cuidados";
 import AposentadoriaEspecial from "./pages/AposentadoriaEspecial";
 import AposentadoriaNegada from "./pages/AposentadoriaNegada";
+import PericiaNegada from "@/pages/PericiaNegada";
+import TempoRural from "@/pages/TempoRural";
 import BeneficiosPorIncapacidade from "./pages/BeneficiosPorIncapacidade";
 import AuxilioAcidente from "./pages/AuxilioAcidente";
 import ServidoresPublicos from "./pages/ServidoresPublicos";
@@ -31,6 +33,8 @@ function Router() {
       <Route path={"/cuidados"} component={Cuidados} />
       <Route path={"/aposentadoria-especial"} component={AposentadoriaEspecial} />
       <Route path={"/aposentadoria-negada"} component={AposentadoriaNegada} />
+      <Route path={"/pericia-negada"} component={PericiaNegada} />
+      <Route path={"/tempo-rural"} component={TempoRural} />
       <Route
         path={"/beneficios-por-incapacidade"}
         component={BeneficiosPorIncapacidade}

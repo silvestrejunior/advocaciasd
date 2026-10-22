@@ -57,6 +57,12 @@ export const WHATSAPP_MENSAGENS = {
     "Olá, vim pelo site e meu benefício foi negado. Gostaria de orientação.",
   revisao:
     "Olá, vim pelo site e gostaria de avaliar uma revisão do meu benefício.",
+  periciaNegada:
+    "Olá, vim pelo site e minha perícia foi negada. Gostaria de orientação.",
+  tempoRural:
+    "Olá, vim pelo site e preciso de ajuda para comprovar o meu tempo rural.",
+  tempoEspecial:
+    "Olá, vim pelo site e estou com dificuldades no meu tempo especial.",
 } as const;
 
 /** Monta o link do WhatsApp com mensagem inicial. */
@@ -104,6 +110,16 @@ export const MENU: ItemMenu[] = [
         descricao: "O que a perícia analisa e o que precisa ser comprovado",
       },
       {
+        label: "Perícia negada",
+        href: "/pericia-negada",
+        descricao: "O que fazer quando a perícia nega o benefício",
+      },
+      {
+        label: "Tempo rural",
+        href: "/tempo-rural",
+        descricao: "Como é comprovado o período de trabalho no campo",
+      },
+      {
         label: "Servidores públicos",
         href: "/servidores-publicos",
         descricao: "Regime próprio, averbação de tempo e abono",
@@ -131,6 +147,7 @@ export const RODAPE = {
   aposentadorias: [
     { label: "Cuidados antes de pedir", href: "/cuidados" },
     { label: "Aposentadoria especial", href: "/aposentadoria-especial" },
+    { label: "Tempo rural", href: "/tempo-rural" },
     { label: "Servidores públicos", href: "/servidores-publicos" },
     { label: "Planejamento de aposentadoria", href: "/planejamento-de-aposentadoria" },
     { label: "CTC e averbação de tempo", href: "/ctc" },
@@ -139,6 +156,7 @@ export const RODAPE = {
   beneficios: [
     { label: "Aposentadoria negada", href: "/aposentadoria-negada" },
     { label: "Benefícios por incapacidade", href: "/beneficios-por-incapacidade" },
+    { label: "Perícia negada", href: "/pericia-negada" },
     { label: "Auxílio-acidente", href: "/auxilio-acidente" },
     { label: "Perdeu o benefício", href: "/perdeu-o-beneficio" },
     { label: "Revisão de aposentadoria", href: "/revisao-de-aposentadoria" },

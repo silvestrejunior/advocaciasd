@@ -380,7 +380,7 @@ export const REGRAS_RPPS: LinhaRegra[] = [
 export const BENEFICIOS: Modalidade[] = [
   {
     id: "incapacidade-temporaria",
-    nome: "Auxílio por incapacidade temporária",
+    nome: "Auxílio doença",
     resumo:
       "O antigo auxílio-doença: afastamento remunerado quando uma doença ou acidente impede o trabalho por mais de 15 dias.",
     paraQuem:

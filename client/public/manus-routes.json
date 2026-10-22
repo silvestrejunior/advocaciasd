@@ -25,6 +25,14 @@
       "title": "Aposentadoria negada"
     },
     {
+      "path": "/pericia-negada",
+      "title": "Perícia negada"
+    },
+    {
+      "path": "/tempo-rural",
+      "title": "Tempo rural"
+    },
+    {
       "path": "/beneficios-por-incapacidade",
       "title": "Benefícios por incapacidade"
     },
