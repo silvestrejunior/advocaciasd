@@ -49,7 +49,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
           <span className="leading-tight">
             <span
               className={`block font-['Playfair_Display'] text-lg font-bold ${
-                solido ? "text-blue-900" : "text-white"
+                solido ? "text-brand-800" : "text-white"
               }`}
             >
               {SITE.nome}
@@ -87,7 +87,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
                         : "text-slate-700 hover:text-cyan-700"
                       : ativo
                         ? "text-cyan-300"
-                        : "text-blue-50 hover:text-cyan-300"
+                        : "text-slate-100 hover:text-cyan-300"
                   }`}
                   aria-current={ativo ? "page" : undefined}
                 >
@@ -106,7 +106,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
                           href={filho.href}
                           className="block border-b border-slate-50 px-4 py-3 last:border-0 hover:bg-cyan-50/60"
                         >
-                          <span className="block text-sm font-semibold text-blue-900">
+                          <span className="block text-sm font-semibold text-brand-800">
                             {filho.label}
                           </span>
                           {filho.descricao && (
@@ -141,7 +141,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
           aria-expanded={menuAberto}
           aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
           className={`ml-auto rounded-lg p-2 lg:hidden ${
-            solido ? "text-blue-900" : "text-white"
+            solido ? "text-brand-800" : "text-white"
           }`}
         >
           {menuAberto ? <X size={24} /> : <Menu size={24} />}
@@ -155,7 +155,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
             <div key={item.label} className="border-b border-slate-100 py-3">
               <Link
                 href={item.href}
-                className="block text-[15px] font-semibold text-blue-900"
+                className="block text-[15px] font-semibold text-brand-800"
               >
                 {item.label}
               </Link>

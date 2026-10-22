@@ -49,13 +49,13 @@ export default function ComoFunciona() {
       />
       <SiteHeader sobreHeroEscuro />
 
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 pb-16 pt-36 text-white md:pt-44">
+      <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 pb-16 pt-36 text-white md:pt-44">
         <div className="container mx-auto px-4">
           <Trilha itens={TRILHA} />
           <h1 className="mt-6 max-w-3xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
             Como funciona o atendimento
           </h1>
-          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-blue-50/90">
+          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-slate-100/90">
             Você pode conhecer o escritório, explicar a sua procura e esclarecer o
             funcionamento do serviço antes de decidir.
           </p>
@@ -80,7 +80,7 @@ export default function ComoFunciona() {
                 key={item.titulo}
                 className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"
               >
-                <h3 className="font-['Playfair_Display'] text-lg font-bold text-blue-900">
+                <h3 className="font-['Playfair_Display'] text-lg font-bold text-brand-800">
                   {item.titulo}
                 </h3>
                 <p className="mt-3 text-[14px] leading-relaxed text-slate-600">
@@ -92,7 +92,7 @@ export default function ComoFunciona() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border-l-4 border-l-cyan-500 bg-white p-6">
-              <h3 className="font-['Playfair_Display'] text-lg font-bold text-blue-900">
+              <h3 className="font-['Playfair_Display'] text-lg font-bold text-brand-800">
                 Antes de contratar, confira
               </h3>
               <ul className="mt-3 space-y-2 text-[14px] leading-relaxed text-slate-700">
@@ -103,7 +103,7 @@ export default function ComoFunciona() {
               </ul>
             </div>
             <div className="rounded-2xl border-l-4 border-l-slate-300 bg-white p-6">
-              <h3 className="font-['Playfair_Display'] text-lg font-bold text-blue-900">
+              <h3 className="font-['Playfair_Display'] text-lg font-bold text-brand-800">
                 Precisa de ajuda com as etapas digitais?
               </h3>
               <p className="mt-3 text-[14px] leading-relaxed text-slate-700">
@@ -123,7 +123,7 @@ export default function ComoFunciona() {
           <div className="mt-10">
             <Link
               href="/contato"
-              className="inline-flex items-center gap-2 rounded-lg bg-blue-900 px-6 py-3.5 text-[14px] font-bold text-white hover:bg-blue-800"
+              className="inline-flex items-center gap-2 rounded-lg bg-brand-800 px-6 py-3.5 text-[14px] font-bold text-white hover:bg-brand-700"
             >
               Ver os canais de contato
             </Link>

@@ -28,13 +28,13 @@ export default function Sobre() {
       />
       <SiteHeader sobreHeroEscuro />
 
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 pb-16 pt-36 text-white md:pt-44">
+      <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 pb-16 pt-36 text-white md:pt-44">
         <div className="container mx-auto px-4">
           <Trilha itens={TRILHA} />
           <h1 className="mt-6 max-w-3xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
             Um escritório dedicado ao Direito Previdenciário
           </h1>
-          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-blue-50/90">
+          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-slate-100/90">
             Trabalhamos com um recorte específico: aposentadorias e benefícios
             previdenciários, tanto no regime geral quanto nos regimes próprios de
             servidores públicos. É o que nos permite acompanhar as mudanças que a
@@ -70,10 +70,10 @@ export default function Sobre() {
 
             <div className="space-y-7">
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
-                <h2 className="font-['Playfair_Display'] text-xl font-bold text-blue-900">
+                <h2 className="font-['Playfair_Display'] text-xl font-bold text-brand-800">
                   Responsável
                 </h2>
-                <p className="mt-4 font-['Playfair_Display'] text-2xl font-bold text-blue-900">
+                <p className="mt-4 font-['Playfair_Display'] text-2xl font-bold text-brand-800">
                   {SITE.responsavel}
                 </p>
                 <p className="mt-1 text-sm font-semibold text-cyan-700">
@@ -87,7 +87,7 @@ export default function Sobre() {
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-8">
-                <h2 className="font-['Playfair_Display'] text-xl font-bold text-blue-900">
+                <h2 className="font-['Playfair_Display'] text-xl font-bold text-brand-800">
                   Onde estamos
                 </h2>
                 <ul className="mt-5 space-y-3.5 text-[14px] text-slate-700">
@@ -125,7 +125,7 @@ export default function Sobre() {
                 </ul>
                 <Link
                   href="/contato"
-                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-blue-900 px-6 py-3.5 text-[14px] font-bold text-white hover:bg-blue-800"
+                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-brand-800 px-6 py-3.5 text-[14px] font-bold text-white hover:bg-brand-700"
                 >
                   Ir para o contato
                 </Link>

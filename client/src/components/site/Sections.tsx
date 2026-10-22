@@ -42,7 +42,7 @@ export function TituloSecao({
       )}
       <h2
         className={`mt-3 font-['Playfair_Display'] text-3xl font-bold leading-tight md:text-4xl ${
-          claro ? "text-white" : "text-blue-900"
+          claro ? "text-white" : "text-brand-800"
         }`}
       >
         {titulo}
@@ -50,7 +50,7 @@ export function TituloSecao({
       {texto && (
         <p
           className={`mt-4 text-base leading-relaxed md:text-[17px] ${
-            claro ? "text-blue-100/85" : "text-slate-600"
+            claro ? "text-slate-300/85" : "text-slate-600"
           }`}
         >
           {texto}
@@ -76,7 +76,7 @@ export function CartaoModalidade({
       href={`${href}#${item.id}`}
       className="group flex flex-col rounded-xl border border-slate-200 border-l-4 border-l-cyan-500 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-l-blue-700 hover:shadow-lg"
     >
-      <h3 className="font-['Playfair_Display'] text-[17px] font-bold leading-snug text-blue-900">
+      <h3 className="font-['Playfair_Display'] text-[17px] font-bold leading-snug text-brand-800">
         {item.nome}
       </h3>
       <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-slate-600">
@@ -100,7 +100,7 @@ export function BlocoModalidade({ item }: { item: Modalidade }) {
       id={item.id}
       className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm md:p-9"
     >
-      <h2 className="font-['Playfair_Display'] text-2xl font-bold text-blue-900 md:text-[28px]">
+      <h2 className="font-['Playfair_Display'] text-2xl font-bold text-brand-800 md:text-[28px]">
         {item.nome}
       </h2>
       <p className="mt-3.5 text-[15.5px] leading-relaxed text-slate-700">
@@ -134,7 +134,7 @@ export function BlocoModalidade({ item }: { item: Modalidade }) {
           href={whatsapp(`Olá, vim pelo site e gostaria de orientação sobre ${item.nome.toLowerCase()}.`)}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg bg-blue-900 px-5 py-3 text-[13.5px] font-bold text-white transition-colors hover:bg-blue-800"
+          className="inline-flex items-center gap-2 rounded-lg bg-brand-800 px-5 py-3 text-[13.5px] font-bold text-white transition-colors hover:bg-brand-700"
         >
           <Phone size={15} />
           Falar sobre este caso
@@ -160,7 +160,7 @@ export function TabelaRegras({
   return (
     <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <div className="border-b border-slate-100 bg-slate-50/80 px-6 py-4">
-        <h3 className="font-['Playfair_Display'] text-lg font-bold text-blue-900">
+        <h3 className="font-['Playfair_Display'] text-lg font-bold text-brand-800">
           {titulo}
         </h3>
         <p className="mt-1 text-xs text-slate-500">
@@ -180,7 +180,7 @@ export function TabelaRegras({
           <tbody>
             {linhas.map((l) => (
               <tr key={l.regra} className="border-t border-slate-100 align-top">
-                <td className="px-6 py-4 font-semibold text-blue-900">{l.regra}</td>
+                <td className="px-6 py-4 font-semibold text-brand-800">{l.regra}</td>
                 <td className="px-6 py-4 text-slate-700">{l.mulheres}</td>
                 <td className="px-6 py-4 text-slate-700">{l.homens}</td>
                 <td className="px-6 py-4 text-slate-400">{l.base}</td>
@@ -212,7 +212,7 @@ export function Perguntas({ itens }: { itens: PerguntaFrequente[] }) {
               aria-expanded={ativa}
               className="flex w-full items-start justify-between gap-6 py-5 text-left"
             >
-              <span className="font-['Playfair_Display'] text-[17px] font-bold leading-snug text-blue-900">
+              <span className="font-['Playfair_Display'] text-[17px] font-bold leading-snug text-brand-800">
                 {item.pergunta}
               </span>
               <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-cyan-50 text-cyan-700">
@@ -245,12 +245,12 @@ export function FaixaCta({
   mensagem?: string;
 }) {
   return (
-    <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700">
+    <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600">
       <div className="container mx-auto px-4 py-16 text-center md:py-20">
         <h2 className="font-['Playfair_Display'] text-3xl font-bold text-white md:text-4xl">
           {titulo}
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-[15.5px] leading-relaxed text-blue-100/90">
+        <p className="mx-auto mt-4 max-w-2xl text-[15.5px] leading-relaxed text-slate-300/90">
           {texto}
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -270,7 +270,7 @@ export function FaixaCta({
             Enviar uma mensagem
           </Link>
         </div>
-        <p className="mt-6 text-xs text-blue-100/70">
+        <p className="mt-6 text-xs text-slate-300/70">
           {SITE.endereco.completo} · {SITE.horario}
         </p>
       </div>
@@ -302,7 +302,7 @@ export function BotaoWhatsApp() {
 
 export function Trilha({ itens }: { itens: { label: string; href?: string }[] }) {
   return (
-    <nav aria-label="Trilha de navegação" className="text-[13px] text-blue-100/80">
+    <nav aria-label="Trilha de navegação" className="text-[13px] text-slate-300/80">
       <ol className="flex flex-wrap items-center gap-1.5">
         {itens.map((item, i) => (
           <li key={item.label} className="flex items-center gap-1.5">
@@ -329,7 +329,7 @@ export function Selo({ titulo, texto }: { titulo: string; texto: string }) {
         <Scale size={20} />
       </span>
       <span>
-        <span className="block text-[14.5px] font-bold text-blue-900">{titulo}</span>
+        <span className="block text-[14.5px] font-bold text-brand-800">{titulo}</span>
         <span className="mt-0.5 block text-[13px] leading-relaxed text-slate-600">
           {texto}
         </span>

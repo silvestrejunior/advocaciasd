@@ -1,27 +1,64 @@
 {
   "routes": [
-    { "path": "/", "title": "Início" },
-    { "path": "/servicos", "title": "Serviços" },
-    { "path": "/aposentadoria-especial", "title": "Aposentadoria especial" },
-    { "path": "/aposentadoria-negada", "title": "Aposentadoria negada" },
+    {
+      "path": "/",
+      "title": "Início"
+    },
+    {
+      "path": "/seu-caso",
+      "title": "Descubra o seu caso"
+    },
+    {
+      "path": "/servicos",
+      "title": "Serviços"
+    },
+    {
+      "path": "/aposentadoria-especial",
+      "title": "Aposentadoria especial"
+    },
+    {
+      "path": "/aposentadoria-negada",
+      "title": "Aposentadoria negada"
+    },
     {
       "path": "/beneficios-por-incapacidade",
       "title": "Benefícios por incapacidade"
     },
-    { "path": "/auxilio-acidente", "title": "Auxílio-acidente" },
-    { "path": "/servidores-publicos", "title": "Servidores públicos" },
+    {
+      "path": "/auxilio-acidente",
+      "title": "Auxílio-acidente"
+    },
+    {
+      "path": "/servidores-publicos",
+      "title": "Servidores públicos"
+    },
     {
       "path": "/planejamento-de-aposentadoria",
       "title": "Planejamento de aposentadoria"
     },
-    { "path": "/perdeu-o-beneficio", "title": "Perdeu o benefício" },
+    {
+      "path": "/perdeu-o-beneficio",
+      "title": "Perdeu o benefício"
+    },
     {
       "path": "/revisao-de-aposentadoria",
       "title": "Revisão de aposentadoria"
     },
-    { "path": "/como-funciona", "title": "Como funciona o atendimento" },
-    { "path": "/sobre", "title": "Sobre o escritório" },
-    { "path": "/contato", "title": "Contato" },
-    { "path": "/ctc", "title": "CTC e averbação de tempo" }
+    {
+      "path": "/como-funciona",
+      "title": "Como funciona o atendimento"
+    },
+    {
+      "path": "/sobre",
+      "title": "Sobre o escritório"
+    },
+    {
+      "path": "/contato",
+      "title": "Contato"
+    },
+    {
+      "path": "/ctc",
+      "title": "CTC e averbação de tempo"
+    }
   ]
 }

@@ -32,7 +32,7 @@ function mensagemDoServico(servico: Servico): string {
 export function AvisoDocumentos({ centro = false }: { centro?: boolean }) {
   return (
     <p
-      className={`text-[14px] leading-relaxed text-blue-100/85 ${centro ? "text-center" : ""}`}
+      className={`text-[14px] leading-relaxed text-slate-300/85 ${centro ? "text-center" : ""}`}
     >
       {AVISO_DOCUMENTOS}
     </p>
@@ -47,7 +47,7 @@ export function CartaoServico({ servico }: { servico: Servico }) {
   const destino = servico.href;
   return (
     <div className="flex flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-shadow hover:shadow-md">
-      <h3 className="font-['Playfair_Display'] text-[19px] font-bold leading-snug text-blue-900">
+      <h3 className="font-['Playfair_Display'] text-[19px] font-bold leading-snug text-brand-800">
         {servico.nome}
       </h3>
       <p className="mt-3 text-[15px] font-medium leading-relaxed text-slate-800">
@@ -124,10 +124,10 @@ export function ComoComecaAtendimento({ claro = false }: { claro?: boolean }) {
         <ol className="mt-11 grid gap-8 md:grid-cols-3">
           {PASSOS_ATENDIMENTO.map((passo, i) => (
             <li key={passo.titulo}>
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-900 font-['Playfair_Display'] text-[16px] font-bold text-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-800 font-['Playfair_Display'] text-[16px] font-bold text-white">
                 {i + 1}
               </span>
-              <h3 className="mt-5 font-['Playfair_Display'] text-lg font-bold text-blue-900">
+              <h3 className="mt-5 font-['Playfair_Display'] text-lg font-bold text-brand-800">
                 {passo.titulo}
               </h3>
               <p className="mt-2.5 text-[14px] leading-relaxed text-slate-600">
@@ -163,13 +163,13 @@ export function ConhecaEscritorio({ claro = false }: { claro?: boolean }) {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/sobre"
-                className="rounded-lg bg-blue-900 px-6 py-3.5 text-[14px] font-bold text-white hover:bg-blue-800"
+                className="rounded-lg bg-brand-800 px-6 py-3.5 text-[14px] font-bold text-white hover:bg-brand-700"
               >
                 Conhecer o responsável
               </Link>
               <Link
                 href="/como-funciona"
-                className="rounded-lg border border-blue-900 px-6 py-3.5 text-[14px] font-bold text-blue-900 hover:bg-blue-900 hover:text-white"
+                className="rounded-lg border border-brand-800 px-6 py-3.5 text-[14px] font-bold text-brand-800 hover:bg-brand-800 hover:text-white"
               >
                 Como funciona o atendimento
               </Link>
@@ -177,7 +177,7 @@ export function ConhecaEscritorio({ claro = false }: { claro?: boolean }) {
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-7">
-            <h3 className="font-['Playfair_Display'] text-lg font-bold text-blue-900">
+            <h3 className="font-['Playfair_Display'] text-lg font-bold text-brand-800">
               {SITE.responsavel}
             </h3>
             <p className="mt-1 text-[13.5px] font-semibold text-cyan-700">
@@ -257,13 +257,13 @@ export function ChamadaFinal({
   mensagem?: string;
 }) {
   return (
-    <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 py-16 text-white md:py-20">
+    <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 py-16 text-white md:py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl">
           <h2 className="font-['Playfair_Display'] text-3xl font-bold leading-tight md:text-4xl">
             {titulo}
           </h2>
-          <p className="mt-5 text-[16px] leading-relaxed text-blue-50/90">
+          <p className="mt-5 text-[16px] leading-relaxed text-slate-100/90">
             {texto}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -271,7 +271,7 @@ export function ChamadaFinal({
               href={whatsapp(mensagem)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-blue-950 hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
             >
               <Phone size={17} />
               Falar com o escritório
@@ -283,7 +283,7 @@ export function ChamadaFinal({
               Ver os canais de contato
             </Link>
           </div>
-          <p className="mt-6 text-[13.5px] leading-relaxed text-blue-100/80">
+          <p className="mt-6 text-[13.5px] leading-relaxed text-slate-300/80">
             {AVISO_DOCUMENTOS} O serviço e os honorários são apresentados antes da
             contratação.
           </p>
@@ -311,7 +311,7 @@ export function HeroServico({
   mensagem: string;
 }) {
   return (
-    <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 pb-16 pt-36 text-white md:pt-44">
+    <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 pb-16 pt-36 text-white md:pt-44">
       <div className="container mx-auto px-4">
         <Trilha itens={trilha} />
         <h1 className="mt-6 max-w-3xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
@@ -323,12 +323,12 @@ export function HeroServico({
         {linhas.map((linha) => (
           <p
             key={linha}
-            className="mt-3 max-w-2xl text-[15px] leading-relaxed text-blue-50/90"
+            className="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-100/90"
           >
             {linha}
           </p>
         ))}
-        <p className="mt-5 max-w-2xl text-[14px] leading-relaxed text-blue-100/80">
+        <p className="mt-5 max-w-2xl text-[14px] leading-relaxed text-slate-300/80">
           {AVISO_DOCUMENTOS}
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
@@ -336,7 +336,7 @@ export function HeroServico({
             href={whatsapp(mensagem)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-blue-950 hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
           >
             <Phone size={17} />
             Falar com o escritório
@@ -382,7 +382,7 @@ export function OQueAnalisar({
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan-50 font-['Playfair_Display'] text-[15px] font-bold text-cyan-700">
                 {i + 1}
               </span>
-              <h3 className="mt-4 font-['Playfair_Display'] text-[17px] font-bold leading-snug text-blue-900">
+              <h3 className="mt-4 font-['Playfair_Display'] text-[17px] font-bold leading-snug text-brand-800">
                 {item.titulo}
               </h3>
               <p className="mt-2.5 text-[14px] leading-relaxed text-slate-600">
@@ -422,7 +422,7 @@ export function PontosDeAtencao({
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-cyan-50 text-cyan-700">
                   <ponto.icone size={22} />
                 </span>
-                <h3 className="mt-1 font-['Playfair_Display'] text-[21px] font-bold leading-snug text-blue-900">
+                <h3 className="mt-1 font-['Playfair_Display'] text-[21px] font-bold leading-snug text-brand-800">
                   {ponto.titulo}
                 </h3>
               </div>
@@ -495,7 +495,7 @@ export function FaixaEscritorio() {
               <Building2 size={22} />
             </span>
             <div>
-              <h2 className="font-['Playfair_Display'] text-xl font-bold text-blue-900">
+              <h2 className="font-['Playfair_Display'] text-xl font-bold text-brand-800">
                 Quem analisa o seu caso
               </h2>
               <p className="mt-2 max-w-2xl text-[14.5px] leading-relaxed text-slate-600">
@@ -506,7 +506,7 @@ export function FaixaEscritorio() {
           </div>
           <Link
             href="/sobre"
-            className="flex-shrink-0 rounded-lg border border-blue-900 px-6 py-3.5 text-[14px] font-bold text-blue-900 hover:bg-blue-900 hover:text-white"
+            className="flex-shrink-0 rounded-lg border border-brand-800 px-6 py-3.5 text-[14px] font-bold text-brand-800 hover:bg-brand-800 hover:text-white"
           >
             Conhecer o escritório
           </Link>

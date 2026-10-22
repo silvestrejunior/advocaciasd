@@ -229,7 +229,7 @@ export default function AposentadoriaEspecial() {
       <SiteHeader sobreHeroEscuro />
 
       {/* --------------------------------------------------------- Hero */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 pb-16 pt-36 text-white md:pt-44">
+      <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 pb-16 pt-36 text-white md:pt-44">
         <div className="container mx-auto px-4">
           <Trilha itens={TRILHA} />
           <h1 className="mt-6 max-w-3xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
@@ -240,7 +240,7 @@ export default function AposentadoriaEspecial() {
             biológicos? O reconhecimento do tempo especial depende dos períodos,
             do agente e das provas de cada vínculo — não do nome do cargo.
           </p>
-          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-blue-100/80">
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-slate-300/80">
             Você não precisa enviar documentos neste primeiro contato.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -250,7 +250,7 @@ export default function AposentadoriaEspecial() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-blue-950 hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
             >
               <Phone size={17} />
               Quero saber se o meu caso é analisável
@@ -282,7 +282,7 @@ export default function AposentadoriaEspecial() {
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan-50 font-['Playfair_Display'] text-[15px] font-bold text-cyan-700">
                   {i + 1}
                 </span>
-                <h3 className="mt-4 font-['Playfair_Display'] text-[17px] font-bold leading-snug text-blue-900">
+                <h3 className="mt-4 font-['Playfair_Display'] text-[17px] font-bold leading-snug text-brand-800">
                   {item.titulo}
                 </h3>
                 <p className="mt-2.5 text-[14px] leading-relaxed text-slate-600">
@@ -362,7 +362,7 @@ export default function AposentadoriaEspecial() {
                   <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-cyan-50 text-cyan-700">
                     <ponto.icone size={22} />
                   </span>
-                  <h3 className="mt-1 font-['Playfair_Display'] text-[21px] font-bold leading-snug text-blue-900">
+                  <h3 className="mt-1 font-['Playfair_Display'] text-[21px] font-bold leading-snug text-brand-800">
                     {ponto.titulo}
                   </h3>
                 </div>
@@ -392,7 +392,7 @@ export default function AposentadoriaEspecial() {
       </section>
 
       {/* --------------------------------------------- Como trabalhamos */}
-      <section className="bg-blue-900 py-16 text-white md:py-20">
+      <section className="bg-brand-800 py-16 text-white md:py-20">
         <div className="container mx-auto px-4">
           <TituloSecao
             sobretitulo="O trabalho"
@@ -403,14 +403,14 @@ export default function AposentadoriaEspecial() {
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {O_QUE_FAZEMOS.map((etapa, i) => (
               <div key={etapa.titulo}>
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cyan-400 font-['Playfair_Display'] text-[15px] font-bold text-blue-950">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cyan-400 font-['Playfair_Display'] text-[15px] font-bold text-brand-950">
                   {i + 1}
                 </span>
                 <etapa.icone size={22} className="mt-6 text-cyan-300" />
                 <h3 className="mt-3 font-['Playfair_Display'] text-lg font-bold text-white">
                   {etapa.titulo}
                 </h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-blue-100/85">
+                <p className="mt-2 text-[13.5px] leading-relaxed text-slate-300/85">
                   {etapa.texto}
                 </p>
               </div>
@@ -452,11 +452,11 @@ export default function AposentadoriaEspecial() {
               <ol className="mt-7 space-y-6">
                 {PASSOS.map((passo, i) => (
                   <li key={passo.titulo} className="flex gap-4">
-                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-blue-900 font-['Playfair_Display'] text-[15px] font-bold text-white">
+                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-brand-800 font-['Playfair_Display'] text-[15px] font-bold text-white">
                       {i + 1}
                     </span>
                     <div>
-                      <h3 className="font-['Playfair_Display'] text-[17px] font-bold text-blue-900">
+                      <h3 className="font-['Playfair_Display'] text-[17px] font-bold text-brand-800">
                         {passo.titulo}
                       </h3>
                       <p className="mt-1.5 text-[14px] leading-relaxed text-slate-600">
@@ -490,7 +490,7 @@ export default function AposentadoriaEspecial() {
       <section className="py-14 md:py-16">
         <div className="container mx-auto px-4">
           <div className="rounded-2xl border border-slate-200 bg-white p-7 md:p-9">
-            <h2 className="font-['Playfair_Display'] text-xl font-bold text-blue-900">
+            <h2 className="font-['Playfair_Display'] text-xl font-bold text-brand-800">
               Não sabe se o seu caso é de tempo especial?
             </h2>
             <p className="mt-3 max-w-3xl text-[14.5px] leading-relaxed text-slate-600">
@@ -502,13 +502,13 @@ export default function AposentadoriaEspecial() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/aposentadoria-inss"
-                className="rounded-lg border border-blue-900 px-5 py-3 text-[13.5px] font-bold text-blue-900 hover:bg-blue-900 hover:text-white"
+                className="rounded-lg border border-brand-800 px-5 py-3 text-[13.5px] font-bold text-brand-800 hover:bg-brand-800 hover:text-white"
               >
                 Ver todas as aposentadorias do INSS
               </Link>
               <Link
                 href="/aposentadoria-servidor-publico"
-                className="rounded-lg border border-blue-900 px-5 py-3 text-[13.5px] font-bold text-blue-900 hover:bg-blue-900 hover:text-white"
+                className="rounded-lg border border-brand-800 px-5 py-3 text-[13.5px] font-bold text-brand-800 hover:bg-brand-800 hover:text-white"
               >
                 Sou servidor público
               </Link>

@@ -73,6 +73,7 @@ export type ItemMenu = {
  */
 export const MENU: ItemMenu[] = [
   { label: "Início", href: "/" },
+  { label: "Descubra o seu caso", href: "/seu-caso" },
   {
     label: "Serviços",
     href: "/servicos",
@@ -87,6 +88,26 @@ export const MENU: ItemMenu[] = [
         href: "/aposentadoria-negada",
         descricao: "O que fazer depois de uma negativa do INSS",
       },
+      {
+        label: "Benefícios por incapacidade",
+        href: "/beneficios-por-incapacidade",
+        descricao: "O que a perícia analisa e o que precisa ser comprovado",
+      },
+      {
+        label: "Servidores públicos",
+        href: "/servidores-publicos",
+        descricao: "Regime próprio, averbação de tempo e abono",
+      },
+      {
+        label: "Perdeu o benefício",
+        href: "/perdeu-o-beneficio",
+        descricao: "Cessação, suspensão e restabelecimento",
+      },
+      {
+        label: "Revisão de aposentadoria",
+        href: "/revisao-de-aposentadoria",
+        descricao: "Conferência de cálculo antes de pedir",
+      },
       { label: "Todos os serviços", href: "/servicos" },
     ],
   },
@@ -99,20 +120,22 @@ export const MENU: ItemMenu[] = [
 export const RODAPE = {
   aposentadorias: [
     { label: "Aposentadoria especial", href: "/aposentadoria-especial" },
-    { label: "Servidores públicos", href: "/aposentadoria-servidor-publico" },
+    { label: "Servidores públicos", href: "/servidores-publicos" },
+    { label: "Planejamento de aposentadoria", href: "/planejamento-de-aposentadoria" },
     { label: "CTC e averbação de tempo", href: "/ctc" },
     { label: "Todos os serviços", href: "/servicos" },
   ],
   beneficios: [
     { label: "Aposentadoria negada", href: "/aposentadoria-negada" },
-    { label: "Benefícios por incapacidade", href: "/contato" },
-    { label: "Pensão por morte", href: "/contato" },
-    { label: "BPC/LOAS", href: "/contato" },
+    { label: "Benefícios por incapacidade", href: "/beneficios-por-incapacidade" },
+    { label: "Auxílio-acidente", href: "/auxilio-acidente" },
+    { label: "Perdeu o benefício", href: "/perdeu-o-beneficio" },
+    { label: "Revisão de aposentadoria", href: "/revisao-de-aposentadoria" },
   ],
   escritorio: [
+    { label: "Descubra o seu caso", href: "/seu-caso" },
     { label: "Como funciona", href: "/como-funciona" },
     { label: "Sobre o escritório", href: "/sobre" },
     { label: "Contato", href: "/contato" },
-    { label: "ISS em obras de saneamento", href: "/iss" },
   ],
 } as const;

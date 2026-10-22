@@ -759,7 +759,7 @@ export default function CTC() {
               href="/iss"
               className={`text-sm font-semibold uppercase tracking-wider px-5 py-2 rounded-full transition-all duration-300 ${
                 scrolled
-                  ? "bg-blue-700 text-white hover:bg-blue-800"
+                  ? "bg-blue-700 text-white hover:bg-brand-700"
                   : "bg-cyan-400/20 text-cyan-300 hover:bg-cyan-400/30 border border-cyan-400/50"
               }`}
             >
@@ -769,7 +769,7 @@ export default function CTC() {
               href="/prev"
               className={`text-sm font-semibold uppercase tracking-wider px-5 py-2 rounded-full transition-all duration-300 ${
                 scrolled
-                  ? "bg-blue-700 text-white hover:bg-blue-800"
+                  ? "bg-blue-700 text-white hover:bg-brand-700"
                   : "bg-cyan-400/20 text-cyan-300 hover:bg-cyan-400/30 border border-cyan-400/50"
               }`}
             >
@@ -893,7 +893,7 @@ export default function CTC() {
               <span className="block text-cyan-300">de Contribuição</span>
             </h1>
             <p
-              className="fade-in-up text-2xl md:text-3xl text-blue-100 mb-6 max-w-2xl leading-relaxed"
+              className="fade-in-up text-2xl md:text-3xl text-slate-300 mb-6 max-w-2xl leading-relaxed"
               style={{ transitionDelay: "0.2s" }}
             >
               Antes de iniciar a trilha para a averbação do tempo de contribuição, você precisa conhecer o documento mais importante dessa jornada.

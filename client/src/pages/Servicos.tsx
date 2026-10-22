@@ -32,20 +32,20 @@ export default function Servicos() {
       />
       <SiteHeader sobreHeroEscuro />
 
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 pb-16 pt-36 text-white md:pt-44">
+      <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 pb-16 pt-36 text-white md:pt-44">
         <div className="container mx-auto px-4">
           <Trilha itens={TRILHA} />
           <h1 className="mt-6 max-w-3xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
             Encontre o atendimento para o seu assunto
           </h1>
-          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-blue-50/90">
+          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-slate-100/90">
             Do planejamento à análise de um benefício negado, o primeiro passo é
             entender a sua situação e o trabalho necessário.
           </p>
           <div className="mt-5">
             <AvisoDocumentos />
           </div>
-          <p className="mt-4 text-[12.5px] text-blue-100/70">
+          <p className="mt-4 text-[12.5px] text-slate-300/70">
             Conteúdo conferido em {REVISAO_CONTEUDO}.
           </p>
         </div>
