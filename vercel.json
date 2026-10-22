@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/prev", "destination": "/aposentadoria-inss", "permanent": true },
+    { "source": "/previdenciario", "destination": "/aposentadoria-inss", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
