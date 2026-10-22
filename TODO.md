@@ -82,3 +82,4 @@
 ## Imagens dos cards de situação — 22/10/2026
 
 - [x] Adicionar fundos individuais: pessoa de muletas em “Perícia negada”, agricultor com enxada em “Tempo Rural” e enfermeiro em ambiente hospitalar em “Tempo Especial”. Imagens ilustrativas com tratamento azul consistente, camada de contraste para leitura, integração com a identidade, hover e foco acessíveis; manter os três destinos e o restante da home.
+- [x] Substituir a foto do card “Estou com dificuldades no meu Tempo Especial” por uma enfermeira do sexo feminino, em ambiente hospitalar, mantendo o mesmo enquadramento, o tratamento azul e a legibilidade do texto.
