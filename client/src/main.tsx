@@ -1,8 +1,8 @@
 import { trpc } from "@/lib/trpc";
-import { COOKIE_NAME, UNAUTHED_ERR_MSG } from '@shared/const';
+import { COOKIE_NAME, UNAUTHED_ERR_MSG } from "@shared/const";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink, TRPCClientError } from "@trpc/client";
-import { createRoot, hydrateRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import superjson from "superjson";
 import App from "./App";
 import { startLogin } from "./const";
@@ -82,11 +82,9 @@ const app = (
   </trpc.Provider>
 );
 
-// Em produção cada rota chega com o HTML pronto (pré-renderizado), então
-// hidratamos a árvore existente: o conteúdo já está no HTML inicial, que é o
-// que o buscador lê, e a página não pisca ao abrir.
-if (container.hasChildNodes()) {
-  hydrateRoot(container, app);
-} else {
-  createRoot(container).render(app);
-}
+// O HTML inicial continua completo para leitores e buscadores sem JavaScript.
+// Ele é um snapshot do DOM de um navegador, e não renderToString do React:
+// faltam os marcadores de nós de texto necessários para hydrateRoot. Montar
+// normalmente evita a divergência #418; o snapshot permanece até o primeiro
+// commit da árvore interativa, com o mesmo conteúdo e os mesmos estilos.
+createRoot(container).render(app);

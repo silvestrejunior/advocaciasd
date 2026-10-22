@@ -42,6 +42,9 @@ export const SITE = {
   // Canais do escritório
   youtube: "https://www.youtube.com/@sdadvocaciaprevidenciaria",
   youtubeNome: "@sdadvocaciaprevidenciaria",
+  // Troque apenas este link para atualizar manualmente o vídeo da home.
+  // Aceita links de Shorts (player vertical), watch e youtu.be (horizontal).
+  youtubeVideoDestaque: "https://www.youtube.com/shorts/8tRtrJsjv_Q",
 
   // Imagens
   logo: "/images/logo-sd.png",
@@ -55,8 +58,7 @@ export const WHATSAPP_MENSAGENS = {
   inss: "Olá, vim pelo site e gostaria de orientação sobre aposentadoria pelo INSS.",
   servidor:
     "Olá, vim pelo site e gostaria de orientação sobre aposentadoria de servidor público.",
-  beneficio:
-    "Olá, vim pelo site e preciso de ajuda com um benefício do INSS.",
+  beneficio: "Olá, vim pelo site e preciso de ajuda com um benefício do INSS.",
   negado:
     "Olá, vim pelo site e meu benefício foi negado. Gostaria de orientação.",
   revisao:
@@ -154,13 +156,19 @@ export const RODAPE = {
     { label: "Aposentadoria especial", href: "/aposentadoria-especial" },
     { label: "Tempo rural", href: "/tempo-rural" },
     { label: "Servidores públicos", href: "/servidores-publicos" },
-    { label: "Planejamento de aposentadoria", href: "/planejamento-de-aposentadoria" },
+    {
+      label: "Planejamento de aposentadoria",
+      href: "/planejamento-de-aposentadoria",
+    },
     { label: "CTC e averbação de tempo", href: "/ctc" },
     { label: "Todos os serviços", href: "/servicos" },
   ],
   beneficios: [
     { label: "Aposentadoria negada", href: "/aposentadoria-negada" },
-    { label: "Benefícios por incapacidade", href: "/beneficios-por-incapacidade" },
+    {
+      label: "Benefícios por incapacidade",
+      href: "/beneficios-por-incapacidade",
+    },
     { label: "Perícia negada", href: "/pericia-negada" },
     { label: "Auxílio-acidente", href: "/auxilio-acidente" },
     { label: "Perdeu o benefício", href: "/perdeu-o-beneficio" },

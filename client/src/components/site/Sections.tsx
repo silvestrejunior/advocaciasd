@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import {
   ArrowRight,
@@ -9,7 +9,11 @@ import {
   Plus,
   Scale,
 } from "lucide-react";
-import type { LinhaRegra, Modalidade, PerguntaFrequente } from "@/data/previdenciario";
+import type {
+  LinhaRegra,
+  Modalidade,
+  PerguntaFrequente,
+} from "@/data/previdenciario";
 import { SITE, WHATSAPP_MENSAGENS, whatsapp } from "@/config/site";
 
 /* ------------------------------------------------------------------ */
@@ -84,7 +88,10 @@ export function CartaoModalidade({
       </p>
       <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-bold text-cyan-700">
         Entender
-        <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+        <ArrowRight
+          size={14}
+          className="transition-transform group-hover:translate-x-1"
+        />
       </span>
     </Link>
   );
@@ -117,9 +124,15 @@ export function BlocoModalidade({ item }: { item: Modalidade }) {
         Requisitos
       </h3>
       <ul className="mt-3 space-y-2.5">
-        {item.requisitos.map((r) => (
-          <li key={r} className="flex gap-2.5 text-[14.5px] leading-relaxed text-slate-700">
-            <CheckCircle2 size={17} className="mt-0.5 flex-shrink-0 text-cyan-600" />
+        {item.requisitos.map(r => (
+          <li
+            key={r}
+            className="flex gap-2.5 text-[14.5px] leading-relaxed text-slate-700"
+          >
+            <CheckCircle2
+              size={17}
+              className="mt-0.5 flex-shrink-0 text-cyan-600"
+            />
             <span>{r}</span>
           </li>
         ))}
@@ -131,7 +144,9 @@ export function BlocoModalidade({ item }: { item: Modalidade }) {
 
       <div className="mt-5 flex flex-wrap gap-3">
         <a
-          href={whatsapp(`Olá, vim pelo site e gostaria de orientação sobre ${item.nome.toLowerCase()}.`)}
+          href={whatsapp(
+            `Olá, vim pelo site e gostaria de orientação sobre ${item.nome.toLowerCase()}.`
+          )}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-lg bg-brand-800 px-5 py-3 text-[13.5px] font-bold text-white transition-colors hover:bg-brand-700"
@@ -164,7 +179,8 @@ export function TabelaRegras({
           {titulo}
         </h3>
         <p className="mt-1 text-xs text-slate-500">
-          Valores vigentes em {ano}. As regras de transição sobem a cada 1º de janeiro.
+          Valores vigentes em {ano}. As regras de transição sobem a cada 1º de
+          janeiro.
         </p>
       </div>
       <div className="overflow-x-auto">
@@ -178,9 +194,11 @@ export function TabelaRegras({
             </tr>
           </thead>
           <tbody>
-            {linhas.map((l) => (
+            {linhas.map(l => (
               <tr key={l.regra} className="border-t border-slate-100 align-top">
-                <td className="px-6 py-4 font-semibold text-brand-800">{l.regra}</td>
+                <td className="px-6 py-4 font-semibold text-brand-800">
+                  {l.regra}
+                </td>
                 <td className="px-6 py-4 text-slate-700">{l.mulheres}</td>
                 <td className="px-6 py-4 text-slate-700">{l.homens}</td>
                 <td className="px-6 py-4 text-slate-400">{l.base}</td>
@@ -282,7 +300,39 @@ export function FaixaCta({
 /* Botão flutuante do WhatsApp                                         */
 /* ------------------------------------------------------------------ */
 
-export function BotaoWhatsApp() {
+export function BotaoWhatsApp({
+  respeitarBanner = false,
+}: {
+  respeitarBanner?: boolean;
+}) {
+  const [bannerMovelVisivel, setBannerMovelVisivel] = useState(respeitarBanner);
+
+  useEffect(() => {
+    if (!respeitarBanner) return;
+    const banner = document.querySelector(".home-banner");
+    if (!banner || !("IntersectionObserver" in window)) {
+      setBannerMovelVisivel(false);
+      return;
+    }
+    const telaMovel = window.matchMedia("(max-width: 767px)");
+    let bannerVisivel = banner.getBoundingClientRect().bottom > 0;
+    const atualizar = () =>
+      setBannerMovelVisivel(telaMovel.matches && bannerVisivel);
+    const observer = new IntersectionObserver(([entrada]) => {
+      bannerVisivel = entrada.isIntersecting;
+      atualizar();
+    });
+    observer.observe(banner);
+    telaMovel.addEventListener("change", atualizar);
+    atualizar();
+    return () => {
+      observer.disconnect();
+      telaMovel.removeEventListener("change", atualizar);
+    };
+  }, [respeitarBanner]);
+
+  if (respeitarBanner && bannerMovelVisivel) return null;
+
   return (
     <a
       href={whatsapp(WHATSAPP_MENSAGENS.geral)}
@@ -305,9 +355,16 @@ export function BotaoWhatsApp() {
 /* Trilha de navegação                                                 */
 /* ------------------------------------------------------------------ */
 
-export function Trilha({ itens }: { itens: { label: string; href?: string }[] }) {
+export function Trilha({
+  itens,
+}: {
+  itens: { label: string; href?: string }[];
+}) {
   return (
-    <nav aria-label="Trilha de navegação" className="text-[13px] text-slate-300/80">
+    <nav
+      aria-label="Trilha de navegação"
+      className="text-[13px] text-slate-300/80"
+    >
       <ol className="flex flex-wrap items-center gap-1.5">
         {itens.map((item, i) => (
           <li key={item.label} className="flex items-center gap-1.5">
@@ -334,7 +391,9 @@ export function Selo({ titulo, texto }: { titulo: string; texto: string }) {
         <Scale size={20} />
       </span>
       <span>
-        <span className="block text-[14.5px] font-bold text-brand-800">{titulo}</span>
+        <span className="block text-[14.5px] font-bold text-brand-800">
+          {titulo}
+        </span>
         <span className="mt-0.5 block text-[13px] leading-relaxed text-slate-600">
           {texto}
         </span>

@@ -117,3 +117,15 @@ client/
 Build estático: `build.command = "pnpm install --frozen-lockfile && pnpm build:static"`,
 `outputDirectory = "dist/public"`. Sem `features.server`, sem `deploy`. SPA fallback por
 `routes` com `{"path":"/*","target":"static","spaFallback":true}`.
+
+## Refinamento aprovado — 22/10/2026
+
+O domínio definitivo utiliza o GitHub `silvestrejunior/advocaciasd` e o Vercel; o remoto Manus permanece para checkpoints e Preview. Usar o pipeline de pré-renderização existente; não reintroduzir fallback global que intercepta HTML por rota.
+
+Na home, o retrato real sobre o azul será dimensionado com limites responsivos, máscaras suaves nas bordas e base e legenda legível com especialidade, nome, OAB e atendimento nacional. A seção de entrada passa a usar cards editoriais com uma pergunta de identificação, uma preocupação concreta e um CTA específico. O bloco de atuação apresenta INSS e servidores públicos sem listar modalidades/regras e destaca a frase do escritório. Benefícios complementares ficam compactos, alternando azul profundo e azul claro, com título, descrição curta e clique. O vídeo entra no lugar das quatro etapas; haverá somente uma seção do canal e um campo central para sua URL manual, sem atualizar automaticamente o conteúdo. Sem URL definida, apresentar o acesso ao canal sem simular um player.
+
+Componentes: `components/site/HomeAreas.tsx` para blocos de casos, atuação e benefícios; `components/site/YoutubeDestaque.tsx` para vídeo; `config/site.ts` para credenciais públicas e URL manual do vídeo. Preservar as outras seções, contatos, mapa, blog, seleção guiada e SEO.
+
+Vídeo inicial confirmado pelo cliente: https://www.youtube.com/shorts/8tRtrJsjv_Q. Por ser Short, o player será 9:16 (e não 16:9), limitado a 290px de largura. Quando a URL manual for de vídeo convencional, usar 16:9 automaticamente. Sem autoplay; iframe lazy e link externo de alternativa.
+
+O pré-render existente captura `page.content()` do navegador, não HTML de SSR do React. Portanto, a entrada passa a usar montagem normal (`createRoot`) sobre o snapshot; isso preserva o conteúdo HTML inicial para SEO e evita divergências de hidratação por marcadores de texto ausentes (#418).

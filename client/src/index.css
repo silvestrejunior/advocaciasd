@@ -250,3 +250,33 @@
     scroll-margin-top: 5.5rem;
   }
 }
+
+/* Banner da home: foto real, sem deformar ou ultrapassar telas estreitas. */
+.home-banner-titulo {
+  font-size: clamp(2.05rem, 4.35vw, 3.7rem);
+  line-height: 1.13;
+  overflow-wrap: normal;
+}
+
+.home-banner-retrato {
+  width: min(100%, 300px);
+  height: 290px;
+}
+
+.home-banner-foto {
+  /* Dissolve as bordas do suporte do microfone no próprio fundo do banner. */
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 91%, transparent),
+    linear-gradient(to bottom, #000 80%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 91%, transparent),
+    linear-gradient(to bottom, #000 80%, transparent 100%);
+  -webkit-mask-composite: source-in;
+}
+
+@media (min-width: 640px) {
+  .home-banner-retrato { width: 340px; height: 330px; }
+}
+
+@media (min-width: 1024px) {
+  .home-banner-retrato { width: min(100%, 360px); height: 370px; }
+}

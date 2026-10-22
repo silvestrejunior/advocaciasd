@@ -19,12 +19,12 @@
 
 ## Página inicial (formato do esboço aprovado)
 
-- [x] Hero escuro em duas colunas: título "Aposentadoria no INSS e para servidores públicos", linha de experiência, aviso de que não é preciso enviar documentos, e painel "Converse por WhatsApp" com cinco atalhos de intenção.
-- [x] Seção "Você se aposenta pelo INSS ou é servidor público?" com os dois cartões de entrada, ligados à rota de seleção com a resposta pré-marcada.
-- [x] "Aposentadorias do INSS" em grade, com o cuidado em destaque em cada cartão.
-- [x] "Aposentadorias de servidores públicos" em grade, em fundo alternado.
+- [x] Banner escuro com título INSS/servidores, botão de seleção, foto real, apresentação do responsável e CTA de WhatsApp (quadro de atalhos removido).
+- [x] Bloco de atuação em benefícios do INSS e aposentadoria de servidores, com a frase do escritório e links para cuidados e seleção guiada.
+- [x] Grade de aposentadorias do INSS transferida para a página de cuidados, fora da home.
+- [x] Grade de aposentadorias de servidores transferida para a página de cuidados, fora da home.
 - [x] "Além da aposentadoria" em grade.
-- [x] "Quatro etapas, do histórico à concessão".
+- [x] Quatro etapas removidas da home; a seção de YouTube passa a ocupar esse lugar.
 - [x] Faixa escura "Entenda antes de pedir" com os quatro alertas.
 - [x] Perguntas frequentes e chamada final "Vamos analisar o seu caso".
 
@@ -51,15 +51,15 @@
 ## Publicação
 
 - [x] Build estático declarado (`pnpm install --frozen-lockfile && pnpm build:static`, saída em `dist/public`).
-- [x] SPA fallback por `routes` e `logoUrl` declarado em `app.config.ts`.
+- [x] HTML pré-renderizado por rota, resolução estática sem fallback global interceptando páginas e `logoUrl` declarado em `app.config.ts`.
 - [x] Verificação: um `<h1>` por página, contraste dos botões conferido no navegador, nenhuma imagem quebrada.
 
 ## Próximos passos sugeridos
 
-- [ ] Blog com artigos por tipo de benefício e pré-renderização, para ranqueamento orgânico.
+- [x] Blog com artigos por tema e HTML pré-renderizado entregue.
 - [ ] Página própria para pensão por morte, BPC/LOAS, aposentadoria rural e isenção de imposto de renda.
 - [ ] Ajustar o numeral do passo na rota `/seu-caso` (hoje discreto demais).
-- [ ] Ligar o site definitivo ao domínio `advocaciasd.com.br` quando o conteúdo for aprovado.
+- [x] Site no domínio www.advocaciasd.com.br, pela main do GitHub e Vercel.
 ## Área de conteúdo (blog) e canais
 
 - [x] Página /blog com os artigos agrupados por tema, cada tema ligado ao serviço correspondente e com link "Ver o serviço".
@@ -69,3 +69,12 @@
 - [x] Home com a seção "O que analisar antes de decidir" (três artigos mais recentes) e faixa do canal do YouTube.
 - [x] Canal do YouTube em `SITE.youtube`, no rodapé, na faixa da home e nos dados estruturados (sameAs).
 - [x] Pré-renderização com rotas aninhadas (/blog/<slug>) gravadas no caminho correto.
+
+## Refinamento da home — 22/10/2026
+
+- [x] Banner: abaixo da foto mostrar “Advogado Especialista há mais de 10 anos atendendo o cliente Previdenciário”, João Luiz Santana Daufenbach, OAB/PR 66.208 e “Atendimento em todo o Brasil”. Preservar a chamada “Me conte um pouco do seu caso” para WhatsApp e o botão de seleção “Descobrir o meu caso”. Foto integrada ao fundo azul, responsiva, sem deformação ou estouro lateral no celular.
+- [x] “Como está o seu caso agora?”: melhorar a atração e os caminhos para Perícia negada, Tempo Rural e Tempo Especial, preservando as rotas existentes, os destaques e a linguagem consultiva sem promessa de resultado.
+- [x] “Além da aposentadoria”: cards menores e alternando tons da paleta institucional, com somente o nome, uma breve descrição e indicação de clique; retirar o bloco extenso de cuidados da home, preservando a informação nas páginas de destino.
+- [x] “Por onde começar”: destacar atuação em benefícios do INSS e aposentadoria de servidores públicos, “Conhecer seu direito é sempre a melhor escolha” e a frase literal “Você não trabalhou a vida inteira pra aposentar de qualquer jeito”. Sem listas de regras de aposentadoria.
+- [x] Substituir “Quatro etapas, do histórico à concessão” pela seção do canal no YouTube com player responsivo (9:16 para o Short e 16:9 para vídeos convencionais), link alternativo e vídeo de destaque atualizável manualmente por uma configuração central. Remover o bloco duplicado do canal. Primeiro vídeo confirmado: https://www.youtube.com/shorts/8tRtrJsjv_Q.
+- [x] Regenerar HTML pré-renderizado, conferir responsividade, links, diagnóstico e build; preservar o histórico do GitHub e salvar o checkpoint.
