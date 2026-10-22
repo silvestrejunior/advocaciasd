@@ -19,7 +19,11 @@ const shell = await readFile(path.join(DIST, "index.html"), "utf8");
 // Tags de asset do build atual (nomes com hash, diferentes a cada build).
 const tags = shell.match(/<(?:script|link)\b[^>]*\/assets\/[^>]*>/g) ?? [];
 const tagsCss = tags.filter((tag) => tag.startsWith("<link"));
-const tagsJs = tags.filter((tag) => tag.startsWith("<script"));
+// O `match` devolve só a tag de abertura: o fechamento é recomposto aqui —
+// sem ele o navegador baixa o arquivo e não executa nada.
+const tagsJs = tags
+  .filter((tag) => tag.startsWith("<script"))
+  .map((tag) => `${tag}</script>`);
 
 if (tagsJs.length === 0) {
   throw new Error(

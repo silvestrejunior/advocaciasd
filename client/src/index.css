@@ -235,3 +235,18 @@
     animation: none;
   }
 }
+
+/* Rolagem por seção em telas de toque: o navegador encaixa a seção no topo
+   quando o dedo solta. Usa "proximity" (e não "mandatory") para que uma seção
+   mais alta que a tela continue podendo ser lida até o fim. No desktop quem
+   conduz o encaixe é o componente RolagemPorSecao. */
+@media (hover: none) and (pointer: coarse) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-margin-top: 5.5rem;
+  }
+}
