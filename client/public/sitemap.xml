@@ -1,42 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Página Principal -->
+  <!-- Página inicial -->
   <url>
-    <loc>https://advocaciasd.com.br/</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.advocaciasd.com.br/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- ISS Saneamento Básico -->
+  <!-- Aposentadorias do INSS -->
   <url>
-    <loc>https://advocaciasd.com.br/iss</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.advocaciasd.com.br/aposentadoria-inss</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Direito Previdenciário -->
+  <!-- Aposentadorias de servidores públicos -->
   <url>
-    <loc>https://advocaciasd.com.br/prev</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.advocaciasd.com.br/aposentadoria-servidor-publico</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
+  <!-- Benefícios -->
+  <url>
+    <loc>https://www.advocaciasd.com.br/beneficios</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Certidão de Tempo de Contribuição -->
   <url>
-    <loc>https://advocaciasd.com.br/ctc</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Redirecionamento alternativo para Previdenciário -->
-  <url>
-    <loc>https://advocaciasd.com.br/previdenciario</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.advocaciasd.com.br/ctc</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <!-- Sobre -->
+  <url>
+    <loc>https://www.advocaciasd.com.br/sobre</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- Contato -->
+  <url>
+    <loc>https://www.advocaciasd.com.br/contato</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- ISS em obras de saneamento (linha de atuação separada) -->
+  <url>
+    <loc>https://www.advocaciasd.com.br/iss</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
