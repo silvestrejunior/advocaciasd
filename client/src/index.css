@@ -248,6 +248,8 @@
   section {
     scroll-snap-align: start;
     scroll-margin-top: 5.5rem;
+    /* Cada gesto para na seção seguinte, em vez de atravessar várias. */
+    scroll-snap-stop: always;
   }
 }
 

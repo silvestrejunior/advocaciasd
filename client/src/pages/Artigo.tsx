@@ -44,12 +44,12 @@ export default function Artigo() {
 
   if (!artigo) return <NotFound />;
 
-  const servico = SERVICOS.find((item) => item.href === artigo.servico);
+  const servico = SERVICOS.find(item => item.href === artigo.servico);
   const relacionados = ARTIGOS.filter(
-    (item) => item.slug !== artigo.slug && item.tema === artigo.tema,
+    item => item.slug !== artigo.slug && item.tema === artigo.tema
   ).slice(0, 2);
   const outros = ARTIGOS.filter(
-    (item) => item.slug !== artigo.slug && item.tema !== artigo.tema,
+    item => item.slug !== artigo.slug && item.tema !== artigo.tema
   ).slice(0, 3 - relacionados.length);
   const continuar = [...relacionados, ...outros];
 
@@ -85,8 +85,18 @@ export default function Artigo() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Início", item: `${SITE.dominio}/` },
-              { "@type": "ListItem", position: 2, name: "Conteúdo", item: `${SITE.dominio}/blog` },
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Início",
+                item: `${SITE.dominio}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Conteúdo",
+                item: `${SITE.dominio}/blog`,
+              },
               {
                 "@type": "ListItem",
                 position: 3,
@@ -100,10 +110,14 @@ export default function Artigo() {
       />
       <SiteHeader />
 
-      <main>
+      {/* Página de leitura: a rolagem aqui é livre, sem paradas por seção. */}
+      <main data-pagina="artigo">
         <section className="border-b border-slate-100 bg-slate-50 pb-12 pt-28 md:pb-16 md:pt-36">
           <div className="container mx-auto px-4">
-            <nav aria-label="Você está aqui" className="text-[13px] text-slate-500">
+            <nav
+              aria-label="Você está aqui"
+              className="text-[13px] text-slate-500"
+            >
               <Link href="/" className="hover:text-cyan-700">
                 Início
               </Link>
@@ -126,7 +140,9 @@ export default function Artigo() {
                 {Math.max(3, Math.round(artigo.palavras / 200))} min de leitura
               </span>
               <span>Conferido em {dataPorExtenso(artigo.publicado)}</span>
-              <span>{SITE.responsavel} — {SITE.oab}</span>
+              <span>
+                {SITE.responsavel} — {SITE.oab}
+              </span>
             </div>
           </div>
         </section>
@@ -134,12 +150,12 @@ export default function Artigo() {
         <section className="py-12 md:py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
-              {artigo.secoes.map((secao) => (
+              {artigo.secoes.map(secao => (
                 <div key={secao.titulo} className="mt-10 first:mt-0">
                   <h2 className="font-['Playfair_Display'] text-2xl font-bold leading-snug text-brand-800">
                     {secao.titulo}
                   </h2>
-                  {secao.paragrafos?.map((paragrafo) => (
+                  {secao.paragrafos?.map(paragrafo => (
                     <p
                       key={paragrafo.slice(0, 40)}
                       className="mt-4 text-[16px] leading-relaxed text-slate-700"
@@ -149,7 +165,7 @@ export default function Artigo() {
                   ))}
                   {secao.lista && (
                     <ul className="mt-5 space-y-3">
-                      {secao.lista.map((item) => (
+                      {secao.lista.map(item => (
                         <li
                           key={item.slice(0, 40)}
                           className="flex items-start gap-3 text-[15.5px] leading-relaxed text-slate-700"
@@ -220,7 +236,9 @@ export default function Artigo() {
                   href={servico.href}
                   className="mt-6 inline-flex items-center gap-2 rounded-lg bg-brand-800 px-6 py-3.5 text-[14.5px] font-bold text-white transition-colors hover:bg-brand-700"
                 >
-                  {servico.acao === "analise" ? "Entender a análise" : "Conhecer o serviço"}
+                  {servico.acao === "analise"
+                    ? "Entender a análise"
+                    : "Conhecer o serviço"}
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -235,7 +253,7 @@ export default function Artigo() {
                 Continue lendo
               </h2>
               <div className="mt-7 grid gap-6 md:grid-cols-3">
-                {continuar.map((item) => (
+                {continuar.map(item => (
                   <Link
                     key={item.slug}
                     href={`/blog/${item.slug}`}
