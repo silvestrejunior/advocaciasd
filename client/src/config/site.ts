@@ -184,5 +184,6 @@ export const RODAPE = {
     { label: "Como funciona", href: "/como-funciona" },
     { label: "Sobre o escritório", href: "/sobre" },
     { label: "Contato", href: "/contato" },
+    { label: "Política de Privacidade", href: "/privacidade" },
   ],
 } as const;

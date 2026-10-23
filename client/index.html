@@ -77,6 +77,16 @@
       function gtag() {
         dataLayer.push(arguments);
       }
+      // LGPD: quem já recusou os cookies navega com a medição desativada desde
+      // a primeira linha, antes de qualquer configuração da tag.
+      if (localStorage.getItem("sd_cookies") === "recusado") {
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "denied",
+        });
+      }
       gtag("js", new Date());
 
       gtag("config", "AW-17096336975");

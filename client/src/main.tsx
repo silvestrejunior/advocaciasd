@@ -6,7 +6,22 @@ import { createRoot } from "react-dom/client";
 import superjson from "superjson";
 import App from "./App";
 import { startLogin } from "./const";
+import { trackWhatsApp } from "./lib/tracking";
 import "./index.css";
+
+// Conversão do Google Ads: qualquer clique em link do WhatsApp é medido, de
+// qualquer página e inclusive nos links que abrem em nova aba. O ouvinte está
+// em fase de captura e não bloqueia a abertura do link.
+document.addEventListener(
+  "click",
+  evento => {
+    const alvo = evento.target as Element | null;
+    if (alvo?.closest?.('a[href*="wa.me"], a[href*="whatsapp.com"]')) {
+      trackWhatsApp("link");
+    }
+  },
+  { capture: true }
+);
 
 const queryClient = new QueryClient();
 

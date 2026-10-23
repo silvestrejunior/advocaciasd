@@ -1,3 +1,4 @@
+import { trackWhatsApp } from "@/lib/tracking";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -33,10 +34,10 @@ export default function Contato() {
   });
 
   const alterar = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setForm((anterior) => ({ ...anterior, [name]: value }));
+    setForm(anterior => ({ ...anterior, [name]: value }));
   };
 
   const enviar = (e: FormEvent<HTMLFormElement>) => {
@@ -53,10 +54,12 @@ export default function Contato() {
       .filter(Boolean)
       .join("\n");
 
+    // Conversão do Google Ads: o clique parte do envio do formulário.
+    trackWhatsApp("formulario");
     window.open(
       `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(texto)}`,
       "_blank",
-      "noopener,noreferrer",
+      "noopener,noreferrer"
     );
   };
 
@@ -81,9 +84,9 @@ export default function Contato() {
             Fale com o escritório
           </h1>
           <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-slate-100/90">
-            Você pode escrever pelo formulário abaixo ou falar direto no WhatsApp.
-            Se já tiver documentos, informe no primeiro contato: agiliza bastante a
-            análise.
+            Você pode escrever pelo formulário abaixo ou falar direto no
+            WhatsApp. Se já tiver documentos, informe no primeiro contato:
+            agiliza bastante a análise.
           </p>
         </div>
       </section>
@@ -154,7 +157,7 @@ export default function Contato() {
                       onChange={alterar}
                       className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-[14px] outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                     >
-                      {ASSUNTOS.map((a) => (
+                      {ASSUNTOS.map(a => (
                         <option key={a} value={a}>
                           {a}
                         </option>
@@ -187,8 +190,8 @@ export default function Contato() {
                 </button>
 
                 <p className="text-[12px] leading-relaxed text-slate-500">
-                  O envio abre a conversa no WhatsApp do escritório. Nenhum dado é
-                  armazenado neste site.
+                  O envio abre a conversa no WhatsApp do escritório. Nenhum dado
+                  é armazenado neste site.
                 </p>
               </form>
             </div>
@@ -201,7 +204,10 @@ export default function Contato() {
                 </h2>
                 <ul className="mt-5 space-y-3.5 text-[14px] text-slate-700">
                   <li className="flex gap-2.5">
-                    <Phone size={17} className="mt-0.5 flex-shrink-0 text-cyan-600" />
+                    <Phone
+                      size={17}
+                      className="mt-0.5 flex-shrink-0 text-cyan-600"
+                    />
                     <a
                       href={whatsapp(WHATSAPP_MENSAGENS.geral)}
                       target="_blank"
@@ -212,13 +218,22 @@ export default function Contato() {
                     </a>
                   </li>
                   <li className="flex gap-2.5">
-                    <Mail size={17} className="mt-0.5 flex-shrink-0 text-cyan-600" />
-                    <a href={`mailto:${SITE.email}`} className="hover:text-cyan-700">
+                    <Mail
+                      size={17}
+                      className="mt-0.5 flex-shrink-0 text-cyan-600"
+                    />
+                    <a
+                      href={`mailto:${SITE.email}`}
+                      className="hover:text-cyan-700"
+                    >
                       {SITE.email}
                     </a>
                   </li>
                   <li className="flex gap-2.5">
-                    <MapPin size={17} className="mt-0.5 flex-shrink-0 text-cyan-600" />
+                    <MapPin
+                      size={17}
+                      className="mt-0.5 flex-shrink-0 text-cyan-600"
+                    />
                     <span>
                       {SITE.endereco.linha1}
                       <br />
@@ -228,7 +243,10 @@ export default function Contato() {
                     </span>
                   </li>
                   <li className="flex gap-2.5">
-                    <Clock size={17} className="mt-0.5 flex-shrink-0 text-cyan-600" />
+                    <Clock
+                      size={17}
+                      className="mt-0.5 flex-shrink-0 text-cyan-600"
+                    />
                     <span>{SITE.horario}</span>
                   </li>
                 </ul>

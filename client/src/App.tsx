@@ -1,5 +1,6 @@
 import { RolagemPorSecao } from "@/components/site/RolagemPorSecao";
 import { TagGoogle } from "@/components/site/TagGoogle";
+import { AvisoCookies } from "@/components/site/AvisoCookies";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -24,6 +25,7 @@ import ComoFunciona from "./pages/ComoFunciona";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import CTC from "./pages/CTC";
+import Privacidade from "./pages/Privacidade";
 import Blog from "./pages/Blog";
 import Artigo from "./pages/Artigo";
 function Router() {
@@ -34,7 +36,10 @@ function Router() {
       <Route path={"/seu-caso"} component={SeuCaso} />
       <Route path={"/servicos"} component={Servicos} />
       <Route path={"/cuidados"} component={Cuidados} />
-      <Route path={"/aposentadoria-especial"} component={AposentadoriaEspecial} />
+      <Route
+        path={"/aposentadoria-especial"}
+        component={AposentadoriaEspecial}
+      />
       <Route path={"/aposentadoria-negada"} component={AposentadoriaNegada} />
       <Route path={"/pericia-negada"} component={PericiaNegada} />
       <Route path={"/tempo-rural"} component={TempoRural} />
@@ -57,6 +62,7 @@ function Router() {
       <Route path={"/sobre"} component={Sobre} />
       <Route path={"/contato"} component={Contato} />
       <Route path={"/ctc"} component={CTC} />
+      <Route path={"/privacidade"} component={Privacidade} />
       <Route path={"/blog"} component={Blog} />
       <Route path={"/blog/:slug"} component={Artigo} />
       <Route path={"/404"} component={NotFound} />
@@ -81,8 +87,9 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
-        <RolagemPorSecao />
-        <TagGoogle />
+          <RolagemPorSecao />
+          <TagGoogle />
+          <AvisoCookies />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

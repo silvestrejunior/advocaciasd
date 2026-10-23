@@ -104,3 +104,13 @@
 - [x] Visualização registrada a cada troca de página interna (o site navega sem recarregar), com caminho, endereço e título corretos.
 - [x] A pré-renderização do build bloqueia as requisições de medição, para não sujar as métricas do Google Ads com acessos do próprio build.
 - [x] Conferido no navegador: biblioteca carregada, `gtag` disponível, uma visualização por rota e sem duplicidade.
+
+## Conversão do WhatsApp e LGPD — 23/10/2026 (aguardando aprovação)
+
+- [ ] Conversão "Clique no WhatsApp" (AW-17096336975/0KROCN2brKcdEM_Mldg_) disparada por função única, com proteção contra disparo duplo de 1 segundo.
+- [ ] Links para o WhatsApp medidos por um ouvinte global de clique, em todas as páginas e componentes.
+- [ ] Aberturas por JavaScript (formulários da /ctc e da /contato) medidas antes de abrir o WhatsApp.
+- [ ] Aviso de cookies no rodapé da tela, com escolha guardada em localStorage (sd_cookies) e consentimento negado antes da tag quando já houve recusa.
+- [ ] Página /privacidade publicada na navegação, no rodapé, no manifesto de rotas e no sitemap.
+- [ ] Testes na prévia: uma conversão por clique, aviso some após a escolha e não volta ao recarregar.
+- [ ] Publicar somente após a resposta "aprovado".

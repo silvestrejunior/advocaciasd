@@ -73,6 +73,10 @@
       "title": "Certidão de tempo de contribuição"
     },
     {
+      "path": "/privacidade",
+      "title": "Política de Privacidade"
+    },
+    {
       "path": "/blog",
       "title": "Conteúdo"
     },

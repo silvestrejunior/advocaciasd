@@ -1,3 +1,4 @@
+import { trackWhatsApp } from "@/lib/tracking";
 /**
  * Página: Certidão de Tempo de Contribuição (CTC)
  * Design: Trilha Ilustrada — Estrada com Personagem Animado
@@ -56,7 +57,8 @@ const FAQ_ITEMS = [
       "Averbar significa incluir oficialmente o tempo de contribuição de um regime em outro. Com isso, o servidor público pode somar o tempo do INSS ao seu cargo público (ou o contrário), o que pode antecipar a aposentadoria, aumentar o valor do benefício ou até possibilitar mais de uma aposentadoria.",
   },
   {
-    question: "Por que é importante fazer um planejamento antes de solicitar a CTC?",
+    question:
+      "Por que é importante fazer um planejamento antes de solicitar a CTC?",
     answer:
       "Porque a destinação do tempo de contribuição na CTC é irreversível. Um planejamento especializado identifica a melhor forma de distribuir esse tempo — podendo indicar, por exemplo, a possibilidade de duas aposentadorias ou a antecipação de uma regra mais vantajosa. Sem planejamento, o cliente pode perder direitos valiosos.",
   },
@@ -87,7 +89,7 @@ function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (idx: number) => {
-    setOpenIndex((prev) => (prev === idx ? null : idx));
+    setOpenIndex(prev => (prev === idx ? null : idx));
     // Rastreia abertura de pergunta do FAQ
     pushGTMEvent("faq_open_ctc", {
       event_category: "Engajamento",
@@ -98,7 +100,10 @@ function FAQSection() {
 
   return (
     <section className="py-20" style={{ backgroundColor: "#F8FBFF" }}>
-      <div className="container" style={{ maxWidth: "800px", margin: "0 auto" }}>
+      <div
+        className="container"
+        style={{ maxWidth: "800px", margin: "0 auto" }}
+      >
         <div className="text-center mb-12">
           <div
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-4"
@@ -109,12 +114,16 @@ function FAQSection() {
           </div>
           <h2
             className="text-3xl md:text-4xl font-bold"
-            style={{ color: "#1E5FA8", fontFamily: "'Playfair Display', serif" }}
+            style={{
+              color: "#1E5FA8",
+              fontFamily: "'Playfair Display', serif",
+            }}
           >
             Dúvidas sobre a CTC?
           </h2>
           <p className="text-lg mt-3" style={{ color: "#4A5568" }}>
-            Respondemos as perguntas mais comuns sobre a Certidão de Tempo de Contribuição.
+            Respondemos as perguntas mais comuns sobre a Certidão de Tempo de
+            Contribuição.
           </p>
         </div>
 
@@ -151,7 +160,8 @@ function FAQSection() {
                   style={{
                     color: "#29ABE2",
                     flexShrink: 0,
-                    transform: openIndex === idx ? "rotate(180deg)" : "rotate(0deg)",
+                    transform:
+                      openIndex === idx ? "rotate(180deg)" : "rotate(0deg)",
                     transition: "transform 0.3s ease",
                   }}
                 />
@@ -189,11 +199,17 @@ function FAQSection() {
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20a%20CTC.`}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => pushGTMEvent("whatsapp_click_ctc", { event_category: "Conversao", event_label: "FAQ - Falar com Especialista CTC", page: "/ctc" })}
+            onClick={() =>
+              pushGTMEvent("whatsapp_click_ctc", {
+                event_category: "Conversao",
+                event_label: "FAQ - Falar com Especialista CTC",
+                page: "/ctc",
+              })
+            }
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white text-sm"
             style={{ backgroundColor: "#25D366", transition: "opacity 0.2s" }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
           >
             <Phone size={16} />
             Falar com especialista no WhatsApp
@@ -209,8 +225,8 @@ function useScrollAnimation() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
           }
@@ -219,7 +235,7 @@ function useScrollAnimation() {
       { threshold: 0.12 }
     );
     const elements = ref.current?.querySelectorAll(".fade-in-up");
-    elements?.forEach((el) => observer.observe(el));
+    elements?.forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
   return ref;
@@ -257,22 +273,66 @@ function WalkerCharacter({ flipped = false }: { flipped?: boolean }) {
       height="64"
       viewBox="0 0 48 64"
       fill="none"
-      style={{ transform: flipped ? "scaleX(-1)" : "none", filter: "drop-shadow(0 4px 8px rgba(30,95,168,0.4))" }}
+      style={{
+        transform: flipped ? "scaleX(-1)" : "none",
+        filter: "drop-shadow(0 4px 8px rgba(30,95,168,0.4))",
+      }}
     >
       {/* Cabeça */}
       <circle cx="24" cy="9" r="7" fill="#1E5FA8" />
       {/* Corpo */}
       <rect x="18" y="17" width="12" height="18" rx="4" fill="#29ABE2" />
       {/* Braço esquerdo animado */}
-      <rect x="8" y="19" width="10" height="4" rx="2" fill="#1E5FA8" transform="rotate(-20 8 21)" />
+      <rect
+        x="8"
+        y="19"
+        width="10"
+        height="4"
+        rx="2"
+        fill="#1E5FA8"
+        transform="rotate(-20 8 21)"
+      />
       {/* Braço direito animado */}
-      <rect x="30" y="19" width="10" height="4" rx="2" fill="#1E5FA8" transform="rotate(20 40 21)" />
+      <rect
+        x="30"
+        y="19"
+        width="10"
+        height="4"
+        rx="2"
+        fill="#1E5FA8"
+        transform="rotate(20 40 21)"
+      />
       {/* Perna esquerda */}
-      <rect x="16" y="34" width="6" height="18" rx="3" fill="#1E5FA8" transform="rotate(-10 19 34)" />
+      <rect
+        x="16"
+        y="34"
+        width="6"
+        height="18"
+        rx="3"
+        fill="#1E5FA8"
+        transform="rotate(-10 19 34)"
+      />
       {/* Perna direita */}
-      <rect x="26" y="34" width="6" height="18" rx="3" fill="#1E5FA8" transform="rotate(10 29 34)" />
+      <rect
+        x="26"
+        y="34"
+        width="6"
+        height="18"
+        rx="3"
+        fill="#1E5FA8"
+        transform="rotate(10 29 34)"
+      />
       {/* Pasta/documento */}
-      <rect x="32" y="22" width="10" height="8" rx="2" fill="#FFF" stroke="#1E5FA8" strokeWidth="1.5" />
+      <rect
+        x="32"
+        y="22"
+        width="10"
+        height="8"
+        rx="2"
+        fill="#FFF"
+        stroke="#1E5FA8"
+        strokeWidth="1.5"
+      />
       <line x1="34" y1="25" x2="40" y2="25" stroke="#29ABE2" strokeWidth="1" />
       <line x1="34" y1="27" x2="40" y2="27" stroke="#29ABE2" strokeWidth="1" />
     </svg>
@@ -297,7 +357,11 @@ function AnimatedRoad() {
   const flipped = characterY > step1Y + 80 && characterY < step2Y + 80;
 
   return (
-    <div ref={roadRef} className="relative w-full" style={{ minHeight: `${totalH + 60}px` }}>
+    <div
+      ref={roadRef}
+      className="relative w-full"
+      style={{ minHeight: `${totalH + 60}px` }}
+    >
       {/* SVG da estrada */}
       <svg
         viewBox={`0 0 400 ${totalH}`}
@@ -354,49 +418,208 @@ function AnimatedRoad() {
         {/* Marco 1 — Ponto de Partida */}
         <circle cx="200" cy={step1Y} r="22" fill="#1E5FA8" />
         <circle cx="200" cy={step1Y} r="16" fill="white" />
-        <text x="200" y={step1Y + 6} textAnchor="middle" fill="#1E5FA8" fontSize="14" fontWeight="bold">1</text>
+        <text
+          x="200"
+          y={step1Y + 6}
+          textAnchor="middle"
+          fill="#1E5FA8"
+          fontSize="14"
+          fontWeight="bold"
+        >
+          1
+        </text>
         {/* Placa Marco 1 */}
-        <rect x="230" y={step1Y - 20} width="80" height="36" rx="6" fill="#1E5FA8" />
-        <text x="270" y={step1Y - 5} textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">PLANEJAMENTO</text>
-        <text x="270" y={step1Y + 8} textAnchor="middle" fill="#A8D8F0" fontSize="8">Ponto de Partida</text>
+        <rect
+          x="230"
+          y={step1Y - 20}
+          width="80"
+          height="36"
+          rx="6"
+          fill="#1E5FA8"
+        />
+        <text
+          x="270"
+          y={step1Y - 5}
+          textAnchor="middle"
+          fill="white"
+          fontSize="9"
+          fontWeight="bold"
+        >
+          PLANEJAMENTO
+        </text>
+        <text
+          x="270"
+          y={step1Y + 8}
+          textAnchor="middle"
+          fill="#A8D8F0"
+          fontSize="8"
+        >
+          Ponto de Partida
+        </text>
         {/* Poste da placa */}
-        <line x1="230" y1={step1Y + 16} x2="230" y2={step1Y + 40} stroke="#1E5FA8" strokeWidth="2" />
+        <line
+          x1="230"
+          y1={step1Y + 16}
+          x2="230"
+          y2={step1Y + 40}
+          stroke="#1E5FA8"
+          strokeWidth="2"
+        />
 
         {/* Marco 2 — No Caminho */}
         <circle cx="280" cy={step2Y} r="22" fill="#29ABE2" />
         <circle cx="280" cy={step2Y} r="16" fill="white" />
-        <text x="280" y={step2Y + 6} textAnchor="middle" fill="#29ABE2" fontSize="14" fontWeight="bold">2</text>
+        <text
+          x="280"
+          y={step2Y + 6}
+          textAnchor="middle"
+          fill="#29ABE2"
+          fontSize="14"
+          fontWeight="bold"
+        >
+          2
+        </text>
         {/* Placa Marco 2 */}
-        <rect x="90" y={step2Y - 20} width="80" height="36" rx="6" fill="#29ABE2" />
-        <text x="130" y={step2Y - 5} textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">REQUERIMENTOS</text>
-        <text x="130" y={step2Y + 8} textAnchor="middle" fill="#E0F7FF" fontSize="8">No Caminho</text>
-        <line x1="170" y1={step2Y + 16} x2="170" y2={step2Y + 40} stroke="#29ABE2" strokeWidth="2" />
+        <rect
+          x="90"
+          y={step2Y - 20}
+          width="80"
+          height="36"
+          rx="6"
+          fill="#29ABE2"
+        />
+        <text
+          x="130"
+          y={step2Y - 5}
+          textAnchor="middle"
+          fill="white"
+          fontSize="9"
+          fontWeight="bold"
+        >
+          REQUERIMENTOS
+        </text>
+        <text
+          x="130"
+          y={step2Y + 8}
+          textAnchor="middle"
+          fill="#E0F7FF"
+          fontSize="8"
+        >
+          No Caminho
+        </text>
+        <line
+          x1="170"
+          y1={step2Y + 16}
+          x2="170"
+          y2={step2Y + 40}
+          stroke="#29ABE2"
+          strokeWidth="2"
+        />
 
         {/* Marco 3 — Chegada */}
         <circle cx="120" cy={step3Y} r="22" fill="#1E5FA8" />
         <circle cx="120" cy={step3Y} r="16" fill="white" />
-        <text x="120" y={step3Y + 6} textAnchor="middle" fill="#1E5FA8" fontSize="14" fontWeight="bold">3</text>
+        <text
+          x="120"
+          y={step3Y + 6}
+          textAnchor="middle"
+          fill="#1E5FA8"
+          fontSize="14"
+          fontWeight="bold"
+        >
+          3
+        </text>
         {/* Bandeira de chegada */}
-        <line x1="120" y1={step3Y - 40} x2="120" y2={step3Y - 80} stroke="#1E5FA8" strokeWidth="2.5" />
+        <line
+          x1="120"
+          y1={step3Y - 40}
+          x2="120"
+          y2={step3Y - 80}
+          stroke="#1E5FA8"
+          strokeWidth="2.5"
+        />
         <polygon
           points={`120,${step3Y - 80} 148,${step3Y - 68} 120,${step3Y - 56}`}
           fill="#1E5FA8"
         />
         {/* Placa Marco 3 */}
-        <rect x="150" y={step3Y - 20} width="80" height="36" rx="6" fill="#1E5FA8" />
-        <text x="190" y={step3Y - 5} textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">AVERBAÇÃO</text>
-        <text x="190" y={step3Y + 8} textAnchor="middle" fill="#A8D8F0" fontSize="8">Chegada!</text>
-        <line x1="150" y1={step3Y + 16} x2="150" y2={step3Y + 40} stroke="#1E5FA8" strokeWidth="2" />
+        <rect
+          x="150"
+          y={step3Y - 20}
+          width="80"
+          height="36"
+          rx="6"
+          fill="#1E5FA8"
+        />
+        <text
+          x="190"
+          y={step3Y - 5}
+          textAnchor="middle"
+          fill="white"
+          fontSize="9"
+          fontWeight="bold"
+        >
+          AVERBAÇÃO
+        </text>
+        <text
+          x="190"
+          y={step3Y + 8}
+          textAnchor="middle"
+          fill="#A8D8F0"
+          fontSize="8"
+        >
+          Chegada!
+        </text>
+        <line
+          x1="150"
+          y1={step3Y + 16}
+          x2="150"
+          y2={step3Y + 40}
+          stroke="#1E5FA8"
+          strokeWidth="2"
+        />
 
         {/* Árvores decorativas */}
         <circle cx="60" cy="150" r="18" fill="#68D391" opacity="0.7" />
-        <rect x="57" y="165" width="6" height="15" rx="2" fill="#9AE6B4" opacity="0.7" />
+        <rect
+          x="57"
+          y="165"
+          width="6"
+          height="15"
+          rx="2"
+          fill="#9AE6B4"
+          opacity="0.7"
+        />
         <circle cx="340" cy="250" r="15" fill="#68D391" opacity="0.6" />
-        <rect x="337" y="263" width="6" height="12" rx="2" fill="#9AE6B4" opacity="0.6" />
+        <rect
+          x="337"
+          y="263"
+          width="6"
+          height="12"
+          rx="2"
+          fill="#9AE6B4"
+          opacity="0.6"
+        />
         <circle cx="50" cy="450" r="20" fill="#68D391" opacity="0.7" />
-        <rect x="47" y="467" width="6" height="15" rx="2" fill="#9AE6B4" opacity="0.7" />
+        <rect
+          x="47"
+          y="467"
+          width="6"
+          height="15"
+          rx="2"
+          fill="#9AE6B4"
+          opacity="0.7"
+        />
         <circle cx="350" cy="550" r="16" fill="#68D391" opacity="0.6" />
-        <rect x="347" y="564" width="6" height="12" rx="2" fill="#9AE6B4" opacity="0.6" />
+        <rect
+          x="347"
+          y="564"
+          width="6"
+          height="12"
+          rx="2"
+          fill="#9AE6B4"
+          opacity="0.6"
+        />
 
         {/* Nuvens decorativas */}
         <ellipse cx="80" cy="60" rx="25" ry="12" fill="white" opacity="0.6" />
@@ -405,16 +628,18 @@ function AnimatedRoad() {
         <ellipse cx="340" cy="315" rx="16" ry="9" fill="white" opacity="0.5" />
 
         {/* Personagem animado */}
-        <g transform={`translate(${
-          // Interpola X ao longo do caminho curvo
-          characterY < step1Y
-            ? 200 - (characterY / step1Y) * 80
-            : characterY < step2Y
-            ? 120 + ((characterY - step1Y) / (step2Y - step1Y)) * 160
-            : characterY < step3Y
-            ? 280 - ((characterY - step2Y) / (step3Y - step2Y)) * 160
-            : 120
-        } ${characterY}) translate(-24, -56)`}>
+        <g
+          transform={`translate(${
+            // Interpola X ao longo do caminho curvo
+            characterY < step1Y
+              ? 200 - (characterY / step1Y) * 80
+              : characterY < step2Y
+                ? 120 + ((characterY - step1Y) / (step2Y - step1Y)) * 160
+                : characterY < step3Y
+                  ? 280 - ((characterY - step2Y) / (step3Y - step2Y)) * 160
+                  : 120
+          } ${characterY}) translate(-24, -56)`}
+        >
           {/* Sombra do personagem */}
           <ellipse cx="24" cy="62" rx="16" ry="5" fill="rgba(0,0,0,0.15)" />
           {/* Cabeça */}
@@ -426,25 +651,84 @@ function AnimatedRoad() {
           {/* Gravata */}
           <polygon points="24,19 22,26 24,28 26,26" fill="#1E5FA8" />
           {/* Braço esquerdo */}
-          <rect x="8" y="20" width="10" height="4" rx="2" fill="#1E5FA8"
-            style={{ transformOrigin: "18px 22px", animation: "swingArm 0.6s ease-in-out infinite alternate" }}
+          <rect
+            x="8"
+            y="20"
+            width="10"
+            height="4"
+            rx="2"
+            fill="#1E5FA8"
+            style={{
+              transformOrigin: "18px 22px",
+              animation: "swingArm 0.6s ease-in-out infinite alternate",
+            }}
           />
           {/* Braço direito */}
-          <rect x="30" y="20" width="10" height="4" rx="2" fill="#1E5FA8"
-            style={{ transformOrigin: "30px 22px", animation: "swingArm 0.6s ease-in-out infinite alternate-reverse" }}
+          <rect
+            x="30"
+            y="20"
+            width="10"
+            height="4"
+            rx="2"
+            fill="#1E5FA8"
+            style={{
+              transformOrigin: "30px 22px",
+              animation: "swingArm 0.6s ease-in-out infinite alternate-reverse",
+            }}
           />
           {/* Perna esquerda */}
-          <rect x="16" y="34" width="6" height="18" rx="3" fill="#1E5FA8"
-            style={{ transformOrigin: "19px 34px", animation: "swingLeg 0.6s ease-in-out infinite alternate" }}
+          <rect
+            x="16"
+            y="34"
+            width="6"
+            height="18"
+            rx="3"
+            fill="#1E5FA8"
+            style={{
+              transformOrigin: "19px 34px",
+              animation: "swingLeg 0.6s ease-in-out infinite alternate",
+            }}
           />
           {/* Perna direita */}
-          <rect x="26" y="34" width="6" height="18" rx="3" fill="#1E5FA8"
-            style={{ transformOrigin: "29px 34px", animation: "swingLeg 0.6s ease-in-out infinite alternate-reverse" }}
+          <rect
+            x="26"
+            y="34"
+            width="6"
+            height="18"
+            rx="3"
+            fill="#1E5FA8"
+            style={{
+              transformOrigin: "29px 34px",
+              animation: "swingLeg 0.6s ease-in-out infinite alternate-reverse",
+            }}
           />
           {/* Pasta */}
-          <rect x="33" y="22" width="10" height="8" rx="2" fill="white" stroke="#1E5FA8" strokeWidth="1.5" />
-          <line x1="35" y1="25" x2="41" y2="25" stroke="#29ABE2" strokeWidth="1" />
-          <line x1="35" y1="27" x2="41" y2="27" stroke="#29ABE2" strokeWidth="1" />
+          <rect
+            x="33"
+            y="22"
+            width="10"
+            height="8"
+            rx="2"
+            fill="white"
+            stroke="#1E5FA8"
+            strokeWidth="1.5"
+          />
+          <line
+            x1="35"
+            y1="25"
+            x2="41"
+            y2="25"
+            stroke="#29ABE2"
+            strokeWidth="1"
+          />
+          <line
+            x1="35"
+            y1="27"
+            x2="41"
+            y2="27"
+            stroke="#29ABE2"
+            strokeWidth="1"
+          />
         </g>
       </svg>
 
@@ -464,9 +748,26 @@ function AnimatedRoad() {
       >
         <div
           className="rounded-2xl p-6 shadow-xl border-l-4 cursor-default"
-          style={{ backgroundColor: "#FFFFFF", borderLeftColor: "#1E5FA8", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}
-          onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-6px) scale(1.02)'; (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 40px rgba(30,95,168,0.25)'; (e.currentTarget as HTMLDivElement).style.borderLeftColor = '#29ABE2'; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0) scale(1)'; (e.currentTarget as HTMLDivElement).style.boxShadow = ''; (e.currentTarget as HTMLDivElement).style.borderLeftColor = '#1E5FA8'; }}
+          style={{
+            backgroundColor: "#FFFFFF",
+            borderLeftColor: "#1E5FA8",
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLDivElement).style.transform =
+              "translateY(-6px) scale(1.02)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow =
+              "0 20px 40px rgba(30,95,168,0.25)";
+            (e.currentTarget as HTMLDivElement).style.borderLeftColor =
+              "#29ABE2";
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLDivElement).style.transform =
+              "translateY(0) scale(1)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow = "";
+            (e.currentTarget as HTMLDivElement).style.borderLeftColor =
+              "#1E5FA8";
+          }}
         >
           <div
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold mb-3"
@@ -477,12 +778,20 @@ function AnimatedRoad() {
           </div>
           <h3
             className="text-2xl font-bold mb-3"
-            style={{ color: "#1E5FA8", fontFamily: "'Playfair Display', serif" }}
+            style={{
+              color: "#1E5FA8",
+              fontFamily: "'Playfair Display', serif",
+            }}
           >
             Planejamento Estratégico
           </h3>
-          <p className="text-lg leading-relaxed mb-3" style={{ color: "#2D3748" }}>
-            Realizamos um <strong>estudo completo da sua situação previdenciária</strong>, identificando as melhores possibilidades:
+          <p
+            className="text-lg leading-relaxed mb-3"
+            style={{ color: "#2D3748" }}
+          >
+            Realizamos um{" "}
+            <strong>estudo completo da sua situação previdenciária</strong>,
+            identificando as melhores possibilidades:
           </p>
           <ul className="space-y-2">
             {[
@@ -491,8 +800,17 @@ function AnimatedRoad() {
               "Combinações mais vantajosas de tempo",
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-2">
-                <CheckCircle size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#29ABE2" }} />
-                <span className="text-base font-medium" style={{ color: "#4A5568" }}>{item}</span>
+                <CheckCircle
+                  size={14}
+                  className="flex-shrink-0 mt-0.5"
+                  style={{ color: "#29ABE2" }}
+                />
+                <span
+                  className="text-base font-medium"
+                  style={{ color: "#4A5568" }}
+                >
+                  {item}
+                </span>
               </li>
             ))}
           </ul>
@@ -520,9 +838,26 @@ function AnimatedRoad() {
       >
         <div
           className="rounded-2xl p-6 shadow-xl border-r-4 cursor-default"
-          style={{ backgroundColor: "#FFFFFF", borderRightColor: "#29ABE2", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}
-          onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-6px) scale(1.02)'; (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 40px rgba(41,171,226,0.25)'; (e.currentTarget as HTMLDivElement).style.borderRightColor = '#1E5FA8'; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0) scale(1)'; (e.currentTarget as HTMLDivElement).style.boxShadow = ''; (e.currentTarget as HTMLDivElement).style.borderRightColor = '#29ABE2'; }}
+          style={{
+            backgroundColor: "#FFFFFF",
+            borderRightColor: "#29ABE2",
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLDivElement).style.transform =
+              "translateY(-6px) scale(1.02)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow =
+              "0 20px 40px rgba(41,171,226,0.25)";
+            (e.currentTarget as HTMLDivElement).style.borderRightColor =
+              "#1E5FA8";
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLDivElement).style.transform =
+              "translateY(0) scale(1)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow = "";
+            (e.currentTarget as HTMLDivElement).style.borderRightColor =
+              "#29ABE2";
+          }}
         >
           <div
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold mb-3"
@@ -533,12 +868,19 @@ function AnimatedRoad() {
           </div>
           <h3
             className="text-2xl font-bold mb-3"
-            style={{ color: "#1E5FA8", fontFamily: "'Playfair Display', serif" }}
+            style={{
+              color: "#1E5FA8",
+              fontFamily: "'Playfair Display', serif",
+            }}
           >
             Requerimentos da CTC
           </h3>
-          <p className="text-lg leading-relaxed mb-3" style={{ color: "#2D3748" }}>
-            Elaboramos os <strong>requerimentos da CTC</strong> com destinação exata do tempo de contribuição, seguindo o plano.
+          <p
+            className="text-lg leading-relaxed mb-3"
+            style={{ color: "#2D3748" }}
+          >
+            Elaboramos os <strong>requerimentos da CTC</strong> com destinação
+            exata do tempo de contribuição, seguindo o plano.
           </p>
           <div className="grid grid-cols-2 gap-2">
             {[
@@ -553,7 +895,12 @@ function AnimatedRoad() {
                 style={{ backgroundColor: "#F0F7FF" }}
               >
                 <span className="text-sm">{item.icon}</span>
-                <span className="text-base font-semibold" style={{ color: "#1E5FA8" }}>{item.label}</span>
+                <span
+                  className="text-base font-semibold"
+                  style={{ color: "#1E5FA8" }}
+                >
+                  {item.label}
+                </span>
               </div>
             ))}
           </div>
@@ -575,9 +922,26 @@ function AnimatedRoad() {
       >
         <div
           className="rounded-2xl p-6 shadow-xl border-l-4 cursor-default"
-          style={{ backgroundColor: "#FFFFFF", borderLeftColor: "#1E5FA8", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}
-          onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-6px) scale(1.02)'; (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 40px rgba(30,95,168,0.25)'; (e.currentTarget as HTMLDivElement).style.borderLeftColor = '#29ABE2'; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0) scale(1)'; (e.currentTarget as HTMLDivElement).style.boxShadow = ''; (e.currentTarget as HTMLDivElement).style.borderLeftColor = '#1E5FA8'; }}
+          style={{
+            backgroundColor: "#FFFFFF",
+            borderLeftColor: "#1E5FA8",
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLDivElement).style.transform =
+              "translateY(-6px) scale(1.02)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow =
+              "0 20px 40px rgba(30,95,168,0.25)";
+            (e.currentTarget as HTMLDivElement).style.borderLeftColor =
+              "#29ABE2";
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLDivElement).style.transform =
+              "translateY(0) scale(1)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow = "";
+            (e.currentTarget as HTMLDivElement).style.borderLeftColor =
+              "#1E5FA8";
+          }}
         >
           <div
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold mb-3"
@@ -588,20 +952,34 @@ function AnimatedRoad() {
           </div>
           <h3
             className="text-2xl font-bold mb-3"
-            style={{ color: "#1E5FA8", fontFamily: "'Playfair Display', serif" }}
+            style={{
+              color: "#1E5FA8",
+              fontFamily: "'Playfair Display', serif",
+            }}
           >
             Averbação do Tempo
           </h3>
-          <p className="text-lg leading-relaxed mb-3" style={{ color: "#2D3748" }}>
-            Com a CTC em mãos, realizamos os <strong>pedidos de averbação</strong> de acordo com o planejamento inicial.
+          <p
+            className="text-lg leading-relaxed mb-3"
+            style={{ color: "#2D3748" }}
+          >
+            Com a CTC em mãos, realizamos os{" "}
+            <strong>pedidos de averbação</strong> de acordo com o planejamento
+            inicial.
           </p>
           <div
             className="p-4 rounded-xl border-2"
             style={{ backgroundColor: "#EFF6FF", borderColor: "#1E5FA8" }}
           >
-            <p className="font-bold text-lg mb-1" style={{ color: "#1E5FA8" }}>🏁 Resultado Final</p>
-            <p className="text-base leading-relaxed" style={{ color: "#2D3748" }}>
-              Tempo averbado da maneira que você tenha o <strong>melhor direito de aposentadoria possível</strong>.
+            <p className="font-bold text-lg mb-1" style={{ color: "#1E5FA8" }}>
+              🏁 Resultado Final
+            </p>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: "#2D3748" }}
+            >
+              Tempo averbado da maneira que você tenha o{" "}
+              <strong>melhor direito de aposentadoria possível</strong>.
             </p>
           </div>
         </div>
@@ -645,9 +1023,11 @@ export default function CTC() {
     setMenuOpen(false);
   };
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -659,6 +1039,8 @@ export default function CTC() {
       page: "/ctc",
     });
     const message = `Olá! Vim pelo site CTC.%0ANome: ${formData.nome}%0AWhatsApp: ${formData.whatsapp}%0AE-mail: ${formData.email}%0AMensagem: ${formData.mensagem}`;
+    // Conversão do Google Ads: o clique parte do envio do formulário.
+    trackWhatsApp("formulario");
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
     setFormData({ nome: "", whatsapp: "", email: "", mensagem: "" });
   };
@@ -746,7 +1128,7 @@ export default function CTC() {
               { label: "Serviços", href: "/#servicos" },
               { label: "Equipe", href: "/#equipe" },
               { label: "Contato", href: "/#contato" },
-            ].map((item) => (
+            ].map(item => (
               <a
                 key={item.href}
                 href={item.href}
@@ -819,7 +1201,7 @@ export default function CTC() {
                 { label: "Serviços", href: "/#servicos" },
                 { label: "Equipe", href: "/#equipe" },
                 { label: "Contato", href: "/#contato" },
-              ].map((item) => (
+              ].map(item => (
                 <a
                   key={item.href}
                   href={item.href}
@@ -828,20 +1210,31 @@ export default function CTC() {
                   {item.label}
                 </a>
               ))}
-              <a href="/iss" className="text-left text-slate-700 font-semibold py-2 border-b border-slate-100 hover:text-blue-700 bg-blue-50 px-3 rounded">
+              <a
+                href="/iss"
+                className="text-left text-slate-700 font-semibold py-2 border-b border-slate-100 hover:text-blue-700 bg-blue-50 px-3 rounded"
+              >
                 ISS Saneamento
               </a>
-              <a href="/prev" className="text-left text-slate-700 font-semibold py-2 border-b border-slate-100 hover:text-blue-700 bg-blue-50 px-3 rounded">
+              <a
+                href="/prev"
+                className="text-left text-slate-700 font-semibold py-2 border-b border-slate-100 hover:text-blue-700 bg-blue-50 px-3 rounded"
+              >
                 Previdenciário
               </a>
-              <a href="/ctc" className="text-left text-white font-semibold py-2 border-b border-slate-100 bg-cyan-500 px-3 rounded">
+              <a
+                href="/ctc"
+                className="text-left text-white font-semibold py-2 border-b border-slate-100 bg-cyan-500 px-3 rounded"
+              >
                 CTC
               </a>
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => handleWhatsAppClick("Mobile Menu - Falar no WhatsApp CTC")}
+                onClick={() =>
+                  handleWhatsAppClick("Mobile Menu - Falar no WhatsApp CTC")
+                }
                 className="bg-green-500 text-white px-5 py-3 rounded-full text-center font-bold"
               >
                 Falar no WhatsApp
@@ -856,7 +1249,8 @@ export default function CTC() {
         id="inicio"
         className="relative min-h-screen flex items-center overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, #0F2A4A 0%, #1E5FA8 55%, #2B8FCC 100%)",
+          background:
+            "linear-gradient(135deg, #0F2A4A 0%, #1E5FA8 55%, #2B8FCC 100%)",
         }}
       >
         {/* Imagem de fundo */}
@@ -873,7 +1267,8 @@ export default function CTC() {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(135deg, rgba(15,42,74,0.88) 0%, rgba(30,95,168,0.82) 55%, rgba(43,143,204,0.75) 100%)",
+            background:
+              "linear-gradient(135deg, rgba(15,42,74,0.88) 0%, rgba(30,95,168,0.82) 55%, rgba(43,143,204,0.75) 100%)",
           }}
         />
         {/* Corte diagonal inferior */}
@@ -891,7 +1286,10 @@ export default function CTC() {
             </div>
             <h1
               className="fade-in-up text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
-              style={{ transitionDelay: "0.1s", fontFamily: "'Playfair Display', serif" }}
+              style={{
+                transitionDelay: "0.1s",
+                fontFamily: "'Playfair Display', serif",
+              }}
             >
               Certidão de Tempo
               <span className="block text-cyan-300">de Contribuição</span>
@@ -900,7 +1298,9 @@ export default function CTC() {
               className="fade-in-up text-2xl md:text-3xl text-slate-300 mb-6 max-w-2xl leading-relaxed"
               style={{ transitionDelay: "0.2s" }}
             >
-              Antes de iniciar a trilha para a averbação do tempo de contribuição, você precisa conhecer o documento mais importante dessa jornada.
+              Antes de iniciar a trilha para a averbação do tempo de
+              contribuição, você precisa conhecer o documento mais importante
+              dessa jornada.
             </p>
 
             {/* Box explicativo */}
@@ -917,10 +1317,21 @@ export default function CTC() {
                 🎯 O que é a Certidão de Tempo de Contribuição?
               </p>
               <p className="text-white leading-relaxed text-xl">
-                É o documento que permite <strong className="text-cyan-200">somar as contribuições de um regime previdenciário em outro</strong> — por exemplo, o tempo contribuído para o INSS pode ser averbado no seu cargo público, ou vice-versa.
+                É o documento que permite{" "}
+                <strong className="text-cyan-200">
+                  somar as contribuições de um regime previdenciário em outro
+                </strong>{" "}
+                — por exemplo, o tempo contribuído para o INSS pode ser averbado
+                no seu cargo público, ou vice-versa.
               </p>
               <p className="text-blue-200 mt-3 leading-relaxed text-lg">
-                Em outras palavras: se você trabalhou na iniciativa privada (INSS) e hoje é servidor público, ou o contrário, a CTC é o instrumento que une esses dois mundos e pode <strong className="text-white">ampliar significativamente seus direitos de aposentadoria</strong>.
+                Em outras palavras: se você trabalhou na iniciativa privada
+                (INSS) e hoje é servidor público, ou o contrário, a CTC é o
+                instrumento que une esses dois mundos e pode{" "}
+                <strong className="text-white">
+                  ampliar significativamente seus direitos de aposentadoria
+                </strong>
+                .
               </p>
             </div>
 
@@ -929,7 +1340,14 @@ export default function CTC() {
               style={{ transitionDelay: "0.4s" }}
             >
               <button
-                onClick={() => { scrollTo("trilha"); pushGTMEvent("cta_click_ctc", { event_category: "Engajamento", event_label: "Hero - Iniciar a Trilha", page: "/ctc" }); }}
+                onClick={() => {
+                  scrollTo("trilha");
+                  pushGTMEvent("cta_click_ctc", {
+                    event_category: "Engajamento",
+                    event_label: "Hero - Iniciar a Trilha",
+                    page: "/ctc",
+                  });
+                }}
                 className="flex items-center justify-center gap-2 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-xl"
                 style={{ backgroundColor: "#29ABE2" }}
               >
@@ -940,7 +1358,9 @@ export default function CTC() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => handleWhatsAppClick("Hero - Falar com Especialista CTC")}
+                onClick={() =>
+                  handleWhatsAppClick("Hero - Falar com Especialista CTC")
+                }
                 className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-xl"
               >
                 <Phone size={20} />
@@ -981,7 +1401,10 @@ export default function CTC() {
               className="text-lg max-w-2xl mx-auto leading-relaxed"
               style={{ color: "#4A5568" }}
             >
-              Vamos mostrar o <strong style={{ color: "#1E5FA8" }}>melhor caminho</strong> para aproveitar a Certidão de Tempo de Contribuição ao máximo. Role a página e acompanhe a jornada!
+              Vamos mostrar o{" "}
+              <strong style={{ color: "#1E5FA8" }}>melhor caminho</strong> para
+              aproveitar a Certidão de Tempo de Contribuição ao máximo. Role a
+              página e acompanhe a jornada!
             </p>
           </div>
 
@@ -1007,19 +1430,43 @@ export default function CTC() {
                 color: "#1E5FA8",
                 content: (
                   <>
-                    <p className="text-base leading-relaxed mb-3" style={{ color: "#2D3748" }}>
-                      Realizamos um <strong>estudo completo da sua situação previdenciária</strong>, identificando as melhores possibilidades.
+                    <p
+                      className="text-base leading-relaxed mb-3"
+                      style={{ color: "#2D3748" }}
+                    >
+                      Realizamos um{" "}
+                      <strong>
+                        estudo completo da sua situação previdenciária
+                      </strong>
+                      , identificando as melhores possibilidades.
                     </p>
                     <ul className="space-y-2">
-                      {["Possibilidade de mais de uma aposentadoria", "Antecipação de regras de aposentadoria", "Combinações mais vantajosas de tempo"].map((item, i) => (
+                      {[
+                        "Possibilidade de mais de uma aposentadoria",
+                        "Antecipação de regras de aposentadoria",
+                        "Combinações mais vantajosas de tempo",
+                      ].map((item, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <CheckCircle size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#29ABE2" }} />
-                          <span className="text-base font-medium" style={{ color: "#4A5568" }}>{item}</span>
+                          <CheckCircle
+                            size={14}
+                            className="flex-shrink-0 mt-0.5"
+                            style={{ color: "#29ABE2" }}
+                          />
+                          <span
+                            className="text-base font-medium"
+                            style={{ color: "#4A5568" }}
+                          >
+                            {item}
+                          </span>
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-3 p-3 rounded-xl text-sm font-semibold" style={{ backgroundColor: "#FFF8E1", color: "#B7791F" }}>
-                      💡 O planejamento é a <strong>bússola de toda a jornada</strong>
+                    <div
+                      className="mt-3 p-3 rounded-xl text-sm font-semibold"
+                      style={{ backgroundColor: "#FFF8E1", color: "#B7791F" }}
+                    >
+                      💡 O planejamento é a{" "}
+                      <strong>bússola de toda a jornada</strong>
                     </div>
                   </>
                 ),
@@ -1032,14 +1479,33 @@ export default function CTC() {
                 color: "#29ABE2",
                 content: (
                   <>
-                    <p className="text-base leading-relaxed mb-3" style={{ color: "#2D3748" }}>
-                      Elaboramos os <strong>requerimentos da CTC</strong> com destinação exata do tempo de contribuição, seguindo o plano.
+                    <p
+                      className="text-base leading-relaxed mb-3"
+                      style={{ color: "#2D3748" }}
+                    >
+                      Elaboramos os <strong>requerimentos da CTC</strong> com
+                      destinação exata do tempo de contribuição, seguindo o
+                      plano.
                     </p>
                     <div className="grid grid-cols-2 gap-2">
-                      {[{ label: "Documentação Completa", icon: "📋" }, { label: "Destinação Precisa", icon: "🎯" }, { label: "Seguindo o Plano", icon: "🗺️" }, { label: "Acompanhamento Total", icon: "👁️" }].map((item, i) => (
-                        <div key={i} className="flex items-center gap-1 p-2 rounded-lg" style={{ backgroundColor: "#F0F7FF" }}>
+                      {[
+                        { label: "Documentação Completa", icon: "📋" },
+                        { label: "Destinação Precisa", icon: "🎯" },
+                        { label: "Seguindo o Plano", icon: "🗺️" },
+                        { label: "Acompanhamento Total", icon: "👁️" },
+                      ].map((item, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-1 p-2 rounded-lg"
+                          style={{ backgroundColor: "#F0F7FF" }}
+                        >
                           <span className="text-sm">{item.icon}</span>
-                          <span className="text-base font-semibold" style={{ color: "#1E5FA8" }}>{item.label}</span>
+                          <span
+                            className="text-base font-semibold"
+                            style={{ color: "#1E5FA8" }}
+                          >
+                            {item.label}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -1054,13 +1520,36 @@ export default function CTC() {
                 color: "#1E5FA8",
                 content: (
                   <>
-                    <p className="text-base leading-relaxed mb-3" style={{ color: "#2D3748" }}>
-                      Com a CTC em mãos, realizamos os <strong>pedidos de averbação</strong> de acordo com o planejamento inicial.
+                    <p
+                      className="text-base leading-relaxed mb-3"
+                      style={{ color: "#2D3748" }}
+                    >
+                      Com a CTC em mãos, realizamos os{" "}
+                      <strong>pedidos de averbação</strong> de acordo com o
+                      planejamento inicial.
                     </p>
-                    <div className="p-3 rounded-xl border-2" style={{ backgroundColor: "#EFF6FF", borderColor: "#1E5FA8" }}>
-                      <p className="font-bold text-base mb-1" style={{ color: "#1E5FA8" }}>🏁 Resultado Final</p>
-                      <p className="text-sm leading-relaxed" style={{ color: "#2D3748" }}>
-                        Tempo averbado da maneira que você tenha o <strong>melhor direito de aposentadoria possível</strong>.
+                    <div
+                      className="p-3 rounded-xl border-2"
+                      style={{
+                        backgroundColor: "#EFF6FF",
+                        borderColor: "#1E5FA8",
+                      }}
+                    >
+                      <p
+                        className="font-bold text-base mb-1"
+                        style={{ color: "#1E5FA8" }}
+                      >
+                        🏁 Resultado Final
+                      </p>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{ color: "#2D3748" }}
+                      >
+                        Tempo averbado da maneira que você tenha o{" "}
+                        <strong>
+                          melhor direito de aposentadoria possível
+                        </strong>
+                        .
                       </p>
                     </div>
                   </>
@@ -1084,9 +1573,22 @@ export default function CTC() {
                 {/* Card */}
                 <div
                   className="rounded-2xl p-6 shadow-lg border-t-4 cursor-default"
-                  style={{ backgroundColor: "#FFFFFF", borderTopColor: step.color, transition: "transform 0.3s ease, box-shadow 0.3s ease" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-6px) scale(1.02)'; (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 40px rgba(30,95,168,0.22)'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0) scale(1)'; (e.currentTarget as HTMLDivElement).style.boxShadow = ''; }}
+                  style={{
+                    backgroundColor: "#FFFFFF",
+                    borderTopColor: step.color,
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLDivElement).style.transform =
+                      "translateY(-6px) scale(1.02)";
+                    (e.currentTarget as HTMLDivElement).style.boxShadow =
+                      "0 20px 40px rgba(30,95,168,0.22)";
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLDivElement).style.transform =
+                      "translateY(0) scale(1)";
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = "";
+                  }}
                 >
                   <div
                     className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold mb-2"
@@ -1096,7 +1598,10 @@ export default function CTC() {
                   </div>
                   <h3
                     className="text-xl font-bold mb-3"
-                    style={{ color: "#1E5FA8", fontFamily: "'Playfair Display', serif" }}
+                    style={{
+                      color: "#1E5FA8",
+                      fontFamily: "'Playfair Display', serif",
+                    }}
                   >
                     {step.title}
                   </h3>
@@ -1119,21 +1624,32 @@ export default function CTC() {
                 Pronto para iniciar sua jornada?
               </p>
               <p className="text-blue-200 mb-6 leading-relaxed">
-                Nossa equipe especializada está pronta para guiar você em cada etapa desta trilha e garantir que você chegue ao melhor destino possível.
+                Nossa equipe especializada está pronta para guiar você em cada
+                etapa desta trilha e garantir que você chegue ao melhor destino
+                possível.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => handleWhatsAppClick("CTA Trilha - Iniciar Agora CTC")}
+                  onClick={() =>
+                    handleWhatsAppClick("CTA Trilha - Iniciar Agora CTC")
+                  }
                   className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-lg"
                 >
                   <Phone size={20} />
                   Iniciar Agora pelo WhatsApp
                 </a>
                 <button
-                  onClick={() => { scrollTo("contato"); pushGTMEvent("cta_click_ctc", { event_category: "Engajamento", event_label: "CTA Trilha - Enviar Mensagem", page: "/ctc" }); }}
+                  onClick={() => {
+                    scrollTo("contato");
+                    pushGTMEvent("cta_click_ctc", {
+                      event_category: "Engajamento",
+                      event_label: "CTA Trilha - Enviar Mensagem",
+                      page: "/ctc",
+                    });
+                  }}
                   className="flex items-center justify-center gap-2 text-white font-bold px-8 py-4 rounded-xl transition-all border-2 border-white/40 hover:bg-white/10"
                 >
                   <Send size={20} />
@@ -1146,7 +1662,11 @@ export default function CTC() {
       </section>
 
       {/* ===== VÍDEO DO YOUTUBE ===== */}
-      <section id="video" className="py-20" style={{ backgroundColor: "#FFFFFF" }}>
+      <section
+        id="video"
+        className="py-20"
+        style={{ backgroundColor: "#FFFFFF" }}
+      >
         <div ref={videoRef} className="container">
           <div className="text-center mb-12">
             <div
@@ -1169,11 +1689,15 @@ export default function CTC() {
               className="fade-in-up text-lg mt-3 max-w-xl mx-auto"
               style={{ color: "#4A5568", transitionDelay: "0.2s" }}
             >
-              Assista ao nosso vídeo explicativo e entenda todos os detalhes do Serviço de Assessoria na Certidão de Tempo de Contribuição.
+              Assista ao nosso vídeo explicativo e entenda todos os detalhes do
+              Serviço de Assessoria na Certidão de Tempo de Contribuição.
             </p>
           </div>
 
-          <div className="fade-in-up max-w-3xl mx-auto" style={{ transitionDelay: "0.2s" }}>
+          <div
+            className="fade-in-up max-w-3xl mx-auto"
+            style={{ transitionDelay: "0.2s" }}
+          >
             <div
               className="relative rounded-2xl overflow-hidden shadow-2xl"
               style={{ paddingBottom: "56.25%" }}
@@ -1192,10 +1716,18 @@ export default function CTC() {
                 href={YOUTUBE_CHANNEL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => pushGTMEvent("cta_click_ctc", { event_category: "Engajamento", event_label: "Video - Acessar Canal YouTube", page: "/ctc" })}
+                onClick={() =>
+                  pushGTMEvent("cta_click_ctc", {
+                    event_category: "Engajamento",
+                    event_label: "Video - Acessar Canal YouTube",
+                    page: "/ctc",
+                  })
+                }
                 className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl transition-colors"
               >
-                <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
                 Acessar Nosso Canal no YouTube
               </a>
             </div>
@@ -1207,7 +1739,11 @@ export default function CTC() {
       <FAQSection />
 
       {/* ===== FORMULÁRIO DE CONTATO ===== */}
-      <section id="contato" className="py-20" style={{ backgroundColor: "#F0F7FF" }}>
+      <section
+        id="contato"
+        className="py-20"
+        style={{ backgroundColor: "#F0F7FF" }}
+      >
         <div ref={contactRef} className="container">
           <div className="text-center mb-12">
             <div
@@ -1231,23 +1767,51 @@ export default function CTC() {
               className="fade-in-up text-lg mt-3 max-w-xl mx-auto"
               style={{ color: "#4A5568", transitionDelay: "0.2s" }}
             >
-              Tire suas dúvidas ou solicite uma avaliação gratuita da sua situação previdenciária.
+              Tire suas dúvidas ou solicite uma avaliação gratuita da sua
+              situação previdenciária.
             </p>
           </div>
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
             {/* Informações de contato */}
             <div className="fade-in-up space-y-6">
-              <div className="rounded-2xl p-6 shadow-md" style={{ backgroundColor: "#FFFFFF" }}>
-                <h3 className="text-xl font-bold mb-5" style={{ color: "#1E5FA8" }}>
+              <div
+                className="rounded-2xl p-6 shadow-md"
+                style={{ backgroundColor: "#FFFFFF" }}
+              >
+                <h3
+                  className="text-xl font-bold mb-5"
+                  style={{ color: "#1E5FA8" }}
+                >
                   Informações de Contato
                 </h3>
                 <div className="space-y-4">
                   {[
-                    { icon: <Phone size={20} />, label: "WhatsApp", value: "(44) 99856-3465", href: whatsappUrl },
-                    { icon: <Mail size={20} />, label: "E-mail", value: "joao@advocaciasd.com.br", href: "mailto:joao@advocaciasd.com.br" },
-                    { icon: <MapPin size={20} />, label: "Endereço", value: "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2, Novo Centro, Maringá/PR", href: "#mapa" },
-                    { icon: <Clock size={20} />, label: "Horário", value: "Seg–Sex: 9h às 17h", href: null },
+                    {
+                      icon: <Phone size={20} />,
+                      label: "WhatsApp",
+                      value: "(44) 99856-3465",
+                      href: whatsappUrl,
+                    },
+                    {
+                      icon: <Mail size={20} />,
+                      label: "E-mail",
+                      value: "joao@advocaciasd.com.br",
+                      href: "mailto:joao@advocaciasd.com.br",
+                    },
+                    {
+                      icon: <MapPin size={20} />,
+                      label: "Endereço",
+                      value:
+                        "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2, Novo Centro, Maringá/PR",
+                      href: "#mapa",
+                    },
+                    {
+                      icon: <Clock size={20} />,
+                      label: "Horário",
+                      value: "Seg–Sex: 9h às 17h",
+                      href: null,
+                    },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div
@@ -1257,13 +1821,20 @@ export default function CTC() {
                         {item.icon}
                       </div>
                       <div>
-                        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: "#29ABE2" }}>
+                        <p
+                          className="text-xs font-bold uppercase tracking-wider"
+                          style={{ color: "#29ABE2" }}
+                        >
                           {item.label}
                         </p>
                         {item.href ? (
                           <a
                             href={item.href}
-                            target={item.href.startsWith("http") ? "_blank" : undefined}
+                            target={
+                              item.href.startsWith("http")
+                                ? "_blank"
+                                : undefined
+                            }
                             rel="noopener noreferrer"
                             className="font-semibold hover:underline"
                             style={{ color: "#2D3748" }}
@@ -1271,7 +1842,12 @@ export default function CTC() {
                             {item.value}
                           </a>
                         ) : (
-                          <p className="font-semibold" style={{ color: "#2D3748" }}>{item.value}</p>
+                          <p
+                            className="font-semibold"
+                            style={{ color: "#2D3748" }}
+                          >
+                            {item.value}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -1279,16 +1855,26 @@ export default function CTC() {
                 </div>
               </div>
 
-              <div className="rounded-2xl p-6 shadow-md" style={{ backgroundColor: "#1E5FA8" }}>
-                <p className="text-white font-bold text-lg mb-2">Atendimento Rápido</p>
+              <div
+                className="rounded-2xl p-6 shadow-md"
+                style={{ backgroundColor: "#1E5FA8" }}
+              >
+                <p className="text-white font-bold text-lg mb-2">
+                  Atendimento Rápido
+                </p>
                 <p className="text-blue-200 text-sm mb-4 leading-relaxed">
-                  Para uma resposta mais ágil, entre em contato diretamente pelo WhatsApp. Nossa equipe responde em até 2 horas úteis.
+                  Para uma resposta mais ágil, entre em contato diretamente pelo
+                  WhatsApp. Nossa equipe responde em até 2 horas úteis.
                 </p>
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => handleWhatsAppClick("Secao Contato - Chamar no WhatsApp CTC")}
+                  onClick={() =>
+                    handleWhatsAppClick(
+                      "Secao Contato - Chamar no WhatsApp CTC"
+                    )
+                  }
                   className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-xl transition-colors w-full"
                 >
                   <Phone size={18} />
@@ -1302,12 +1888,18 @@ export default function CTC() {
               className="fade-in-up rounded-2xl p-8 shadow-md"
               style={{ backgroundColor: "#FFFFFF", transitionDelay: "0.15s" }}
             >
-              <h3 className="text-xl font-bold mb-6" style={{ color: "#1E5FA8" }}>
+              <h3
+                className="text-xl font-bold mb-6"
+                style={{ color: "#1E5FA8" }}
+              >
                 Envie sua Mensagem
               </h3>
               <form onSubmit={handleFormSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold mb-1" style={{ color: "#2D3748" }}>
+                  <label
+                    className="block text-sm font-semibold mb-1"
+                    style={{ color: "#2D3748" }}
+                  >
                     Nome completo *
                   </label>
                   <input
@@ -1319,12 +1911,15 @@ export default function CTC() {
                     placeholder="Seu nome"
                     className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors text-gray-800"
                     style={{ borderColor: "#E2E8F0" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#29ABE2")}
-                    onBlur={(e) => (e.target.style.borderColor = "#E2E8F0")}
+                    onFocus={e => (e.target.style.borderColor = "#29ABE2")}
+                    onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold mb-1" style={{ color: "#2D3748" }}>
+                  <label
+                    className="block text-sm font-semibold mb-1"
+                    style={{ color: "#2D3748" }}
+                  >
                     WhatsApp *
                   </label>
                   <input
@@ -1336,12 +1931,15 @@ export default function CTC() {
                     placeholder="(44) 99999-9999"
                     className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors text-gray-800"
                     style={{ borderColor: "#E2E8F0" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#29ABE2")}
-                    onBlur={(e) => (e.target.style.borderColor = "#E2E8F0")}
+                    onFocus={e => (e.target.style.borderColor = "#29ABE2")}
+                    onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold mb-1" style={{ color: "#2D3748" }}>
+                  <label
+                    className="block text-sm font-semibold mb-1"
+                    style={{ color: "#2D3748" }}
+                  >
                     E-mail
                   </label>
                   <input
@@ -1352,12 +1950,15 @@ export default function CTC() {
                     placeholder="seu@email.com"
                     className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors text-gray-800"
                     style={{ borderColor: "#E2E8F0" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#29ABE2")}
-                    onBlur={(e) => (e.target.style.borderColor = "#E2E8F0")}
+                    onFocus={e => (e.target.style.borderColor = "#29ABE2")}
+                    onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold mb-1" style={{ color: "#2D3748" }}>
+                  <label
+                    className="block text-sm font-semibold mb-1"
+                    style={{ color: "#2D3748" }}
+                  >
                     Mensagem *
                   </label>
                   <textarea
@@ -1369,16 +1970,20 @@ export default function CTC() {
                     placeholder="Descreva sua situação ou dúvida..."
                     className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors resize-none text-gray-800"
                     style={{ borderColor: "#E2E8F0" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#29ABE2")}
-                    onBlur={(e) => (e.target.style.borderColor = "#E2E8F0")}
+                    onFocus={e => (e.target.style.borderColor = "#29ABE2")}
+                    onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
                   />
                 </div>
                 <button
                   type="submit"
                   className="w-full flex items-center justify-center gap-2 text-white font-bold py-4 rounded-xl transition-all hover:shadow-lg"
                   style={{ backgroundColor: "#1E5FA8" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1A4F8F")}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#1E5FA8")}
+                  onMouseEnter={e =>
+                    (e.currentTarget.style.backgroundColor = "#1A4F8F")
+                  }
+                  onMouseLeave={e =>
+                    (e.currentTarget.style.backgroundColor = "#1E5FA8")
+                  }
                 >
                   <Send size={18} />
                   Enviar via WhatsApp
@@ -1390,12 +1995,19 @@ export default function CTC() {
       </section>
 
       {/* ===== MAPA ===== */}
-      <section id="mapa" className="py-20" style={{ backgroundColor: "#FFFFFF" }}>
+      <section
+        id="mapa"
+        className="py-20"
+        style={{ backgroundColor: "#FFFFFF" }}
+      >
         <div className="container">
           <div className="text-center mb-10">
             <h2
               className="text-3xl md:text-4xl font-bold"
-              style={{ color: "#1E5FA8", fontFamily: "'Playfair Display', serif" }}
+              style={{
+                color: "#1E5FA8",
+                fontFamily: "'Playfair Display', serif",
+              }}
             >
               Nossa Localização
             </h2>
@@ -1417,9 +2029,22 @@ export default function CTC() {
           </div>
           <div className="max-w-5xl mx-auto mt-8 grid md:grid-cols-3 gap-6">
             {[
-              { icon: <MapPin size={24} />, title: "Endereço", value: "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2, Novo Centro, Maringá/PR" },
-              { icon: <Phone size={24} />, title: "Telefone / WhatsApp", value: "(44) 99856-3465" },
-              { icon: <Clock size={24} />, title: "Horário de Atendimento", value: "Segunda a Sexta: 9h às 17h" },
+              {
+                icon: <MapPin size={24} />,
+                title: "Endereço",
+                value:
+                  "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2, Novo Centro, Maringá/PR",
+              },
+              {
+                icon: <Phone size={24} />,
+                title: "Telefone / WhatsApp",
+                value: "(44) 99856-3465",
+              },
+              {
+                icon: <Clock size={24} />,
+                title: "Horário de Atendimento",
+                value: "Segunda a Sexta: 9h às 17h",
+              },
             ].map((item, i) => (
               <div
                 key={i}
@@ -1433,10 +2058,15 @@ export default function CTC() {
                   {item.icon}
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: "#29ABE2" }}>
+                  <p
+                    className="text-xs font-bold uppercase tracking-wider mb-1"
+                    style={{ color: "#29ABE2" }}
+                  >
                     {item.title}
                   </p>
-                  <p className="font-semibold" style={{ color: "#2D3748" }}>{item.value}</p>
+                  <p className="font-semibold" style={{ color: "#2D3748" }}>
+                    {item.value}
+                  </p>
                 </div>
               </div>
             ))}
@@ -1449,20 +2079,39 @@ export default function CTC() {
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
-              <img src={LOGO_NEW} alt="Santana Daufenbach" className="h-10 w-auto" />
+              <img
+                src={LOGO_NEW}
+                alt="Santana Daufenbach"
+                className="h-10 w-auto"
+              />
               <div>
                 <div className="font-bold text-white">Santana Daufenbach</div>
-                <div className="text-sm text-slate-400">Advocacia e Assessoria Jurídica</div>
+                <div className="text-sm text-slate-400">
+                  Advocacia e Assessoria Jurídica
+                </div>
               </div>
             </div>
             <div className="flex gap-6 text-sm text-slate-400">
-              <a href="/" className="hover:text-white transition-colors">Início</a>
-              <a href="/iss" className="hover:text-white transition-colors">ISS Saneamento</a>
-              <a href="/prev" className="hover:text-white transition-colors">Previdenciário</a>
-              <a href="/ctc" className="hover:text-white transition-colors" style={{ color: "#29ABE2" }}>CTC</a>
+              <a href="/" className="hover:text-white transition-colors">
+                Início
+              </a>
+              <a href="/iss" className="hover:text-white transition-colors">
+                ISS Saneamento
+              </a>
+              <a href="/prev" className="hover:text-white transition-colors">
+                Previdenciário
+              </a>
+              <a
+                href="/ctc"
+                className="hover:text-white transition-colors"
+                style={{ color: "#29ABE2" }}
+              >
+                CTC
+              </a>
             </div>
             <div className="text-sm text-slate-500 text-center md:text-right">
-              © 2026 Santana Daufenbach Advocacia.<br />
+              © 2026 Santana Daufenbach Advocacia.
+              <br />
               Todos os direitos reservados.
             </div>
           </div>
@@ -1479,10 +2128,19 @@ export default function CTC() {
         style={{ backgroundColor: "#25D366" }}
         title="Falar no WhatsApp"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="32" height="32">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="white"
+          width="32"
+          height="32"
+        >
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        <span className="absolute inset-0 rounded-full animate-ping opacity-30" style={{ backgroundColor: "#25D366" }} />
+        <span
+          className="absolute inset-0 rounded-full animate-ping opacity-30"
+          style={{ backgroundColor: "#25D366" }}
+        />
       </a>
     </div>
   );
