@@ -110,8 +110,7 @@ export default function Artigo() {
       />
       <SiteHeader />
 
-      {/* Página de leitura: a rolagem aqui é livre, sem paradas por seção. */}
-      <main data-pagina="artigo">
+      <main>
         <section className="border-b border-slate-100 bg-slate-50 pb-12 pt-28 md:pb-16 md:pt-36">
           <div className="container mx-auto px-4">
             <nav

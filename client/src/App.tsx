@@ -1,4 +1,3 @@
-import { RolagemPorSecao } from "@/components/site/RolagemPorSecao";
 import { TagGoogle } from "@/components/site/TagGoogle";
 import { AvisoCookies } from "@/components/site/AvisoCookies";
 import { Toaster } from "@/components/ui/sonner";
@@ -87,7 +86,6 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
-          <RolagemPorSecao />
           <TagGoogle />
           <AvisoCookies />
         </TooltipProvider>
