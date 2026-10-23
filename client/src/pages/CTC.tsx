@@ -30,11 +30,6 @@ const WHATSAPP_NUMBER = "5544998563465";
 const YOUTUBE_VIDEO_ID = "wfPLBr65oik";
 
 // Helper para disparar eventos no dataLayer do GTM
-declare global {
-  interface Window {
-    dataLayer: Record<string, unknown>[];
-  }
-}
 function pushGTMEvent(eventName: string, params?: Record<string, unknown>) {
   if (typeof window !== "undefined") {
     window.dataLayer = window.dataLayer || [];

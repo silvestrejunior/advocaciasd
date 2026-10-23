@@ -71,6 +71,21 @@ const navegador = await puppeteer.launch({
 const pagina = await navegador.newPage();
 await pagina.setViewport({ width: 1280, height: 900 });
 
+// A pré-renderização abre as 28 rotas de uma vez. Sem este bloqueio, cada
+// abertura enviaria uma visualização real para o Google, sujando as métricas
+// com acessos do próprio build.
+await pagina.setRequestInterception(true);
+pagina.on("request", (requisicao) => {
+  const alvo = requisicao.url();
+  if (
+    /googletagmanager\.com|google-analytics\.com|doubleclick\.net/.test(alvo)
+  ) {
+    requisicao.abort();
+    return;
+  }
+  requisicao.continue();
+});
+
 let total = 0;
 for (const rota of routes) {
   const url = `http://localhost:${PORTA}${rota.path}`;

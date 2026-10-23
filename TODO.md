@@ -96,3 +96,11 @@
 - [x] Imagens convertidas para WebP e arquivos sem uso removidos: pasta de imagens de 3,4 MB para 1,6 MB.
 - [x] Pré-carregamento da imagem do banner e limpeza dos marcadores de edição no HTML publicado.
 - [x] Conferência publicada: 28 rotas com status 200, título, descrição, canônica, palavras-chave, um único H1 e conteúdo no HTML sem JavaScript.
+
+## Tag do Google (Google Ads) — 23/10/2026
+
+- [x] Tag do Google (AW-17096336975) instalada no `<head>` de todas as páginas, antes do fechamento da tag.
+- [x] As 28 rotas do site saem do build com a tag; as três páginas de redirecionamento antigas ficam sem, de propósito.
+- [x] Visualização registrada a cada troca de página interna (o site navega sem recarregar), com caminho, endereço e título corretos.
+- [x] A pré-renderização do build bloqueia as requisições de medição, para não sujar as métricas do Google Ads com acessos do próprio build.
+- [x] Conferido no navegador: biblioteca carregada, `gtag` disponível, uma visualização por rota e sem duplicidade.

@@ -1,4 +1,5 @@
 import { RolagemPorSecao } from "@/components/site/RolagemPorSecao";
+import { TagGoogle } from "@/components/site/TagGoogle";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -81,6 +82,7 @@ function App() {
           <Toaster />
           <Router />
         <RolagemPorSecao />
+        <TagGoogle />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
