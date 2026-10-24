@@ -134,3 +134,14 @@
 - No lugar, uma seção forte de chamada para ação com a frase do escritório "Você não trabalhou a vida inteira pra aposentar de qualquer jeito", os três passos do atendimento, botões de WhatsApp e "Descobrir o meu caso", e o reforço de que nenhum documento é necessário no primeiro contato.
 - O cartão do STF na seção de últimas mudanças passou a levar ao WhatsApp, já que a seção detalhada saiu; a âncora #analise continua válida para os links dos cartões de serviço.
 - Página reduzida de 767 para 518 linhas, com constantes e ícones sem uso removidos.
+
+## Destaque no título e otimizações de SEO — 24/10/2026
+
+- Palavra-chave "Aposentadoria Especial" destacada em azul no título, no mesmo padrão usado na página inicial.
+- Corrigidos os links internos quebrados: a trilha apontava para rotas que não existem mais (/aposentadoria-inss e /aposentadoria-servidor-publico) e agora vai para /servicos.
+- A política de privacidade entrou no manifesto de rotas e no sitemap (a página existia, mas não era gerada no build).
+- Removida a página de exemplo de componentes, sem uso.
+- Textos alternativos das imagens dos cartões passaram a usar o título do artigo, e o do banner ganhou a palavra-chave de exposição.
+- Dados estruturados ampliados: WebPage com data de modificação, Service de análise de aposentadoria especial, além do FAQ e da trilha já existentes.
+- Bloco "Veja também" com ligações internas para perícia negada, aposentadoria negada, tempo rural, servidores públicos, benefícios por incapacidade e cuidados.
+- Título da seção de artigos com a palavra-chave completa.

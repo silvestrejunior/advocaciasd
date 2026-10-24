@@ -36,16 +36,23 @@ const ROTAS_BASE = [
   { path: "/aposentadoria-especial", title: "Aposentadoria especial" },
   { path: "/aposentadoria-negada", title: "Aposentadoria negada" },
   { path: "/pericia-negada", title: "Perícia negada" },
-  { path: "/beneficios-por-incapacidade", title: "Benefícios por incapacidade" },
+  {
+    path: "/beneficios-por-incapacidade",
+    title: "Benefícios por incapacidade",
+  },
   { path: "/auxilio-acidente", title: "Auxílio-acidente" },
   { path: "/tempo-rural", title: "Tempo rural" },
   { path: "/servidores-publicos", title: "Servidores públicos" },
-  { path: "/planejamento-de-aposentadoria", title: "Planejamento de aposentadoria" },
+  {
+    path: "/planejamento-de-aposentadoria",
+    title: "Planejamento de aposentadoria",
+  },
   { path: "/perdeu-o-beneficio", title: "Perdeu o benefício" },
   { path: "/revisao-de-aposentadoria", title: "Revisão de aposentadoria" },
   { path: "/como-funciona", title: "Como funciona" },
   { path: "/sobre", title: "Sobre o escritório" },
   { path: "/contato", title: "Contato" },
+  { path: "/privacidade", title: "Política de Privacidade" },
   { path: "/ctc", title: "Certidão de tempo de contribuição" },
 ];
 
@@ -54,27 +61,35 @@ const ORIGEM = "https://www.advocaciasd.com.br";
 /* ---------------------------------------------------------------- artigos */
 
 const arquivos = (await readdir(PASTA_BLOG)).filter(
-  (nome) => nome.endsWith(".json") && nome !== "artigos.json",
+  nome => nome.endsWith(".json") && nome !== "artigos.json"
 );
 
 const artigos = [];
 for (const arquivo of arquivos) {
-  const bruto = JSON.parse(await readFile(path.join(PASTA_BLOG, arquivo), "utf8"));
+  const bruto = JSON.parse(
+    await readFile(path.join(PASTA_BLOG, arquivo), "utf8")
+  );
   for (const campo of CAMPOS) {
-    if (!(campo in bruto)) throw new Error(`${arquivo}: falta o campo "${campo}"`);
+    if (!(campo in bruto))
+      throw new Error(`${arquivo}: falta o campo "${campo}"`);
   }
   if (bruto.resumo.length > 160) {
-    throw new Error(`${arquivo}: resumo com ${bruto.resumo.length} caracteres (limite 160)`);
+    throw new Error(
+      `${arquivo}: resumo com ${bruto.resumo.length} caracteres (limite 160)`
+    );
   }
   if (!Array.isArray(bruto.secoes) || bruto.secoes.length < 3) {
     throw new Error(`${arquivo}: são esperadas pelo menos 3 seções`);
   }
   const palavras =
     bruto.secoes
-      .flatMap((s) => [...(s.paragrafos ?? []), ...(s.lista ?? [])])
+      .flatMap(s => [...(s.paragrafos ?? []), ...(s.lista ?? [])])
       .join(" ")
       .split(/\s+/).length +
-    bruto.perguntas.map((p) => `${p.pergunta} ${p.resposta}`).join(" ").split(/\s+/).length;
+    bruto.perguntas
+      .map(p => `${p.pergunta} ${p.resposta}`)
+      .join(" ")
+      .split(/\s+/).length;
   if (palavras < 500) {
     console.warn(`aviso: ${arquivo} tem apenas ${palavras} palavras`);
   }
@@ -82,7 +97,11 @@ for (const arquivo of arquivos) {
 }
 
 artigos.sort((a, b) =>
-  a.publicado === b.publicado ? a.titulo.localeCompare(b.titulo) : a.publicado < b.publicado ? 1 : -1,
+  a.publicado === b.publicado
+    ? a.titulo.localeCompare(b.titulo)
+    : a.publicado < b.publicado
+      ? 1
+      : -1
 );
 
 if (artigos.length === 0) {
@@ -94,9 +113,9 @@ await writeFile(
   JSON.stringify(
     artigos.map(({ palavras, ...artigo }) => ({ ...artigo, palavras })),
     null,
-    2,
+    2
   ) + "\n",
-  "utf8",
+  "utf8"
 );
 
 console.log(`${artigos.length} artigos agrupados em artigos.json`);
@@ -109,13 +128,16 @@ const rotas = [
   ROTAS_BASE[2],
   ...ROTAS_BASE.slice(3),
   { path: "/blog", title: "Conteúdo" },
-  ...artigos.map((artigo) => ({ path: `/blog/${artigo.slug}`, title: artigo.titulo })),
+  ...artigos.map(artigo => ({
+    path: `/blog/${artigo.slug}`,
+    title: artigo.titulo,
+  })),
 ];
 
 await writeFile(
   "client/public/manus-routes.json",
   JSON.stringify({ routes: rotas }, null, 2) + "\n",
-  "utf8",
+  "utf8"
 );
 
 const url = (rota, prioridade, frequencia, lastmod) => `  <url>
@@ -132,11 +154,18 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${[
   url("/", "1.0", "weekly", hoje),
-  ...ROTAS_BASE.slice(1).map((rota) =>
-    url(rota.path, rota.path === "/servicos" || rota.path === "/cuidados" ? "0.9" : "0.8", "monthly", hoje),
+  ...ROTAS_BASE.slice(1).map(rota =>
+    url(
+      rota.path,
+      rota.path === "/servicos" || rota.path === "/cuidados" ? "0.9" : "0.8",
+      "monthly",
+      hoje
+    )
   ),
   url("/blog", "0.9", "weekly", ultimaAtualizacao),
-  ...artigos.map((artigo) => url(`/blog/${artigo.slug}`, "0.7", "monthly", artigo.publicado)),
+  ...artigos.map(artigo =>
+    url(`/blog/${artigo.slug}`, "0.7", "monthly", artigo.publicado)
+  ),
 ].join("\n")}
 </urlset>
 `;

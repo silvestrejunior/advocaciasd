@@ -191,7 +191,7 @@ export default function Home() {
                   {artigo.imagem && (
                     <img
                       src={artigo.imagem}
-                      alt=""
+                      alt={artigo.titulo}
                       loading="lazy"
                       className="-mx-6 -mt-6 mb-5 h-44 w-[calc(100%+3rem)] rounded-t-2xl object-cover"
                     />

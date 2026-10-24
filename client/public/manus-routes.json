@@ -69,6 +69,10 @@
       "title": "Contato"
     },
     {
+      "path": "/privacidade",
+      "title": "Política de Privacidade"
+    },
+    {
       "path": "/ctc",
       "title": "Certidão de tempo de contribuição"
     },

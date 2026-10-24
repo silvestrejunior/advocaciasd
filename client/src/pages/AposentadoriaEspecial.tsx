@@ -16,7 +16,7 @@ import { SITE, WHATSAPP_MENSAGENS, whatsapp } from "@/config/site";
 
 const TRILHA = [
   { label: "Início", href: "/" },
-  { label: "Aposentadoria no INSS", href: "/aposentadoria-inss" },
+  { label: "Serviços", href: "/servicos" },
   { label: "Aposentadoria especial" },
 ];
 
@@ -25,6 +25,16 @@ const REVISAO = "24 de outubro de 2026";
 
 /** Artigos do tema, do mais recente para o mais antigo. */
 const ARTIGOS_ESPECIAL = artigosDoTema("aposentadoria-especial");
+
+/** Temas que costumam acompanhar o tempo especial. */
+const TEMAS_RELACIONADOS = [
+  { nome: "Perícia negada", href: "/pericia-negada" },
+  { nome: "Aposentadoria negada", href: "/aposentadoria-negada" },
+  { nome: "Tempo rural", href: "/tempo-rural" },
+  { nome: "Servidores públicos", href: "/servidores-publicos" },
+  { nome: "Benefícios por incapacidade", href: "/beneficios-por-incapacidade" },
+  { nome: "Cuidados antes de pedir", href: "/cuidados" },
+];
 
 /** Passos mostrados na chamada para ação. */
 const ETAPAS_CTA = [
@@ -150,6 +160,39 @@ export default function AposentadoriaEspecial() {
         palavrasChave="aposentadoria especial, tempo especial, aposentadoria especial 25 anos, PPP, agentes biológicos, ruído, EPI eficaz"
         imagem="/images/og-tempo-especial.jpg"
         jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Aposentadoria especial: o que saber antes de pedir",
+            description:
+              "Tempo especial: 15, 20 ou 25 anos de exposição, sem idade mínima. O que analisamos em cada vínculo e as decisões recentes do STF e da TNU.",
+            url: `${SITE.dominio}/aposentadoria-especial`,
+            inLanguage: "pt-BR",
+            dateModified: "2026-10-24",
+            isPartOf: {
+              "@type": "WebSite",
+              name: SITE.nomeCompleto,
+              url: SITE.dominio,
+            },
+            about: [
+              { "@type": "Thing", name: "Aposentadoria especial" },
+              { "@type": "Thing", name: "Tempo especial" },
+              { "@type": "Thing", name: "Agentes nocivos" },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Análise de aposentadoria especial",
+            serviceType: "Advocacia previdenciária",
+            provider: {
+              "@type": "LegalService",
+              name: SITE.nomeCompleto,
+              url: SITE.dominio,
+            },
+            areaServed: { "@type": "Country", name: "Brasil" },
+            url: `${SITE.dominio}/aposentadoria-especial`,
+          },
           faqJsonLd(PERGUNTAS),
           breadcrumbJsonLd([
             { label: "Início", href: "/" },
@@ -167,14 +210,15 @@ export default function AposentadoriaEspecial() {
       <section className="relative isolate overflow-hidden bg-brand-950 pb-16 pt-36 text-white md:pb-20 md:pt-44">
         <img
           src="/images/hero-especial.webp"
-          alt="Profissional de saúde de 50 anos em ambiente hospitalar"
+          alt="Profissional de saúde de 50 anos em ambiente hospitalar, exposta a agentes biológicos"
           className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center] opacity-65 md:object-center"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950 via-brand-950/90 to-brand-900/60" />
         <div className="container mx-auto px-4">
           <Trilha itens={TRILHA} />
           <h1 className="mt-6 max-w-4xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
-            Aposentadoria Especial: o que você precisa saber antes de pedir.
+            <span className="text-cyan-300">Aposentadoria Especial</span>: o que
+            você precisa saber antes de pedir.
           </h1>
           <p className="mt-6 max-w-2xl text-[18px] leading-relaxed text-cyan-100">
             Quem trabalhou exposto a ruído, calor, produtos químicos ou agentes
@@ -295,8 +339,8 @@ export default function AposentadoriaEspecial() {
       >
         <div className="container mx-auto px-4">
           <TituloSecao
-            sobretitulo="Conteúdo sobre aposentadoria especial"
-            titulo="Os principais artigos sobre o direito"
+            sobretitulo="Conteúdo"
+            titulo="Os principais artigos sobre aposentadoria especial"
             texto="Cada artigo trata de um ponto que costuma decidir o reconhecimento do tempo especial — do PPP ao ruído, dos agentes biológicos à empresa que fechou as portas."
           />
           <div className="mt-9 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -309,7 +353,7 @@ export default function AposentadoriaEspecial() {
                 {artigo.imagem && (
                   <img
                     src={artigo.imagem}
-                    alt=""
+                    alt={artigo.titulo}
                     loading="lazy"
                     className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
@@ -348,6 +392,22 @@ export default function AposentadoriaEspecial() {
               Ver todos os conteúdos
               <ArrowRight size={15} />
             </Link>
+          </div>
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+            <h3 className="text-[11.5px] font-bold uppercase tracking-[0.16em] text-cyan-700">
+              Veja também
+            </h3>
+            <div className="mt-4 flex flex-wrap gap-2.5">
+              {TEMAS_RELACIONADOS.map(tema => (
+                <Link
+                  key={tema.href}
+                  href={tema.href}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-[13px] font-semibold text-slate-700 transition-colors hover:border-cyan-400 hover:bg-cyan-50 hover:text-brand-800"
+                >
+                  {tema.nome}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -460,7 +520,7 @@ export default function AposentadoriaEspecial() {
                 Ver todas as aposentadorias do INSS
               </Link>
               <Link
-                href="/aposentadoria-servidor-publico"
+                href="/servicos"
                 className="rounded-lg border border-brand-800 px-5 py-3 text-[13.5px] font-bold text-brand-800 hover:bg-brand-800 hover:text-white"
               >
                 Sou servidor público
