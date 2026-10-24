@@ -1,7 +1,9 @@
 import { Link } from "wouter";
 import {
+  ArrowRight,
   AlertTriangle,
   CheckCircle2,
+  Clock,
   FileSearch,
   FileText,
   Phone,
@@ -20,6 +22,7 @@ import {
   Trilha,
 } from "@/components/site/Sections";
 import { Seo, breadcrumbJsonLd, faqJsonLd } from "@/components/site/Seo";
+import { artigosDoTema, temaPorId } from "@/data/blog";
 import type { PerguntaFrequente } from "@/data/previdenciario";
 import { SITE, WHATSAPP_MENSAGENS, whatsapp } from "@/config/site";
 
@@ -30,7 +33,10 @@ const TRILHA = [
 ];
 
 /** Data da última conferência das referências citadas nesta página. */
-const REVISAO = "21 de outubro de 2026";
+const REVISAO = "24 de outubro de 2026";
+
+/** Artigos do tema, do mais recente para o mais antigo. */
+const ARTIGOS_ESPECIAL = artigosDoTema("aposentadoria-especial");
 
 /* ------------------------------------------------------------------ */
 /* Conteúdo                                                            */
@@ -214,41 +220,53 @@ export default function AposentadoriaEspecial() {
   return (
     <div className="min-h-screen bg-white">
       <Seo
-        titulo="Aposentadoria especial: o que é analisado"
-        descricao="O tempo especial depende das atividades, do agente e das provas de cada vínculo. Veja o que analisamos e o efeito da decisão do STF sobre a idade mínima."
+        titulo="Aposentadoria especial: o que saber antes de pedir"
+        descricao="Tempo especial: 15, 20 ou 25 anos de exposição, sem idade mínima. Veja o que analisamos em cada vínculo e os artigos sobre PPP, ruído e agentes biológicos."
         caminho="/aposentadoria-especial"
-        palavrasChave="aposentadoria especial, tempo especial, PPP, exposição a ruído, agente nocivo, EPI eficaz"
+        palavrasChave="aposentadoria especial, tempo especial, aposentadoria especial 25 anos, PPP, agentes biológicos, ruído, EPI eficaz"
         imagem="/images/og-tempo-especial.jpg"
         jsonLd={[
           faqJsonLd(PERGUNTAS),
           breadcrumbJsonLd([
             { label: "Início", href: "/" },
             { label: "Aposentadoria no INSS", href: "/aposentadoria-inss" },
-            { label: "Aposentadoria especial", href: "/aposentadoria-especial" },
+            {
+              label: "Aposentadoria especial",
+              href: "/aposentadoria-especial",
+            },
           ]),
         ]}
       />
       <SiteHeader sobreHeroEscuro />
 
       {/* --------------------------------------------------------- Hero */}
-      <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 pb-16 pt-36 text-white md:pt-44">
+      <section className="relative isolate overflow-hidden bg-brand-950 pb-16 pt-36 text-white md:pb-20 md:pt-44">
+        <img
+          src="/images/hero-especial.webp"
+          alt="Profissional de saúde de 50 anos em ambiente hospitalar"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center] opacity-65 md:object-center"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950 via-brand-950/90 to-brand-900/60" />
         <div className="container mx-auto px-4">
           <Trilha itens={TRILHA} />
-          <h1 className="mt-6 max-w-3xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
-            Aposentadoria especial: a análise do trabalho com exposição
+          <h1 className="mt-6 max-w-4xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
+            Aposentadoria Especial: o que você precisa saber antes de pedir.
           </h1>
           <p className="mt-6 max-w-2xl text-[18px] leading-relaxed text-cyan-100">
-            Trabalhou com ruído intenso, calor, produtos químicos ou agentes
-            biológicos? O reconhecimento do tempo especial depende dos períodos,
-            do agente e das provas de cada vínculo — não do nome do cargo.
+            Quem trabalhou exposto a ruído, calor, produtos químicos ou agentes
+            biológicos pode ter direito à aposentadoria especial: 15, 20 ou 25
+            anos de exposição, conforme a atividade e o agente — e, desde a
+            decisão do Supremo em 2026, sem exigência de idade mínima.
           </p>
-          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-slate-300/80">
-            Você não precisa enviar documentos neste primeiro contato.
+          <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-slate-200/90">
+            O que decide o pedido não é o nome do cargo. É o que os documentos
+            conseguem demonstrar sobre cada vínculo: o agente, o período e a
+            intensidade da exposição.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href={whatsapp(
-                "Olá, vim pelo site e gostaria de saber se o meu tempo de trabalho com exposição pode ser reconhecido.",
+                "Olá, vim pelo site e gostaria de saber se o meu tempo de trabalho com exposição pode ser reconhecido."
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -258,10 +276,104 @@ export default function AposentadoriaEspecial() {
               Quero saber se o meu caso é analisável
             </a>
             <a
-              href="#analise"
+              href="#conteudo"
               className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/10 px-7 py-4 text-[15px] font-bold text-white hover:bg-white/20"
             >
-              Ver o que analisamos
+              Ler os artigos sobre o direito
+            </a>
+          </div>
+          <p className="mt-5 text-[14px] leading-relaxed text-slate-300/80">
+            Você não precisa enviar documentos neste primeiro contato.
+          </p>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------- Conteúdo (blog) */}
+      <section
+        id="conteudo"
+        className="scroll-mt-24 border-b border-slate-100 bg-slate-50 py-16 md:py-20"
+      >
+        <div className="container mx-auto px-4">
+          <TituloSecao
+            sobretitulo="Conteúdo sobre aposentadoria especial"
+            titulo="Os principais artigos sobre o direito"
+            texto="Cada artigo trata de um ponto que costuma decidir o reconhecimento do tempo especial — do PPP ao ruído, dos agentes biológicos à empresa que fechou as portas."
+          />
+          <div className="mt-9 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {ARTIGOS_ESPECIAL.slice(0, 6).map(artigo => (
+              <Link
+                key={artigo.slug}
+                href={`/blog/${artigo.slug}`}
+                className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_24px_45px_-24px_rgba(10,42,74,0.5)]"
+              >
+                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-cyan-700">
+                  {temaPorId(artigo.tema)?.nome ?? "Conteúdo"}
+                </span>
+                <h3 className="mt-3 font-['Playfair_Display'] text-[19px] font-bold leading-snug text-brand-800 transition-colors group-hover:text-cyan-700">
+                  {artigo.titulo}
+                </h3>
+                <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-slate-700">
+                  {artigo.resumo}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[12.5px] text-slate-500">
+                  <Clock size={14} />
+                  {Math.max(3, Math.round(artigo.palavras / 200))} min de
+                  leitura
+                </span>
+                <span className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-bold text-cyan-700">
+                  Ler o artigo
+                  <ArrowRight
+                    size={15}
+                    className="transition-transform duration-300 group-hover:translate-x-1.5"
+                  />
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 rounded-lg border border-brand-800 px-5 py-3 text-[13.5px] font-bold text-brand-800 hover:bg-brand-800 hover:text-white"
+            >
+              Ver todos os conteúdos
+              <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------- Faixa de chamada */}
+      <section className="relative isolate overflow-hidden bg-brand-900 py-16 text-white md:py-20">
+        <img
+          src="/images/especial-apoio.webp"
+          alt="Técnico de enfermagem de 50 anos conferindo um relatório técnico em ambiente hospitalar"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-center opacity-45"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950 via-brand-950/90 to-brand-900/55" />
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl">
+            <p className="text-[11.5px] font-bold uppercase tracking-[0.18em] text-cyan-300">
+              Antes de protocolar
+            </p>
+            <h2 className="mt-4 font-['Playfair_Display'] text-3xl font-bold leading-tight md:text-4xl">
+              Exposição que não aparece no papel costuma custar o benefício
+            </h2>
+            <p className="mt-5 text-[15.5px] leading-relaxed text-slate-200/90">
+              Ruído sem medição, PPP com descrição genérica, EPI anotado como
+              eficaz, empresa que fechou: cada um desses pontos tem um caminho
+              próprio de solução. O trabalho começa lendo o seu histórico e
+              dizendo o que sustenta o seu tempo.
+            </p>
+            <a
+              href={whatsapp(
+                "Olá, vim pelo site e gostaria de saber se o meu tempo de trabalho com exposição pode ser reconhecido."
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
+            >
+              <Phone size={17} />
+              Falar sobre o meu caso
             </a>
           </div>
         </div>
@@ -311,9 +423,15 @@ export default function AposentadoriaEspecial() {
                 O que mudou
               </h3>
               <ul className="mt-4 space-y-3">
-                {DECIDIU_STF.mudou.map((t) => (
-                  <li key={t} className="flex gap-2.5 text-[14px] leading-relaxed text-slate-700">
-                    <CheckCircle2 size={17} className="mt-0.5 flex-shrink-0 text-emerald-600" />
+                {DECIDIU_STF.mudou.map(t => (
+                  <li
+                    key={t}
+                    className="flex gap-2.5 text-[14px] leading-relaxed text-slate-700"
+                  >
+                    <CheckCircle2
+                      size={17}
+                      className="mt-0.5 flex-shrink-0 text-emerald-600"
+                    />
                     <span>{t}</span>
                   </li>
                 ))}
@@ -325,9 +443,15 @@ export default function AposentadoriaEspecial() {
                 O que continua igual
               </h3>
               <ul className="mt-4 space-y-3">
-                {DECIDIU_STF.permaneceu.map((t) => (
-                  <li key={t} className="flex gap-2.5 text-[14px] leading-relaxed text-slate-700">
-                    <AlertTriangle size={17} className="mt-0.5 flex-shrink-0 text-slate-400" />
+                {DECIDIU_STF.permaneceu.map(t => (
+                  <li
+                    key={t}
+                    className="flex gap-2.5 text-[14px] leading-relaxed text-slate-700"
+                  >
+                    <AlertTriangle
+                      size={17}
+                      className="mt-0.5 flex-shrink-0 text-slate-400"
+                    />
                     <span>{t}</span>
                   </li>
                 ))}
@@ -339,8 +463,8 @@ export default function AposentadoriaEspecial() {
             {DECIDIU_STF.ressalva}
           </p>
           <p className="mt-3 text-[12.5px] text-slate-500">
-            Referência conferida em {REVISAO}. A aplicação ao seu caso depende dos
-            períodos trabalhados e da documentação de cada vínculo.
+            Referência conferida em {REVISAO}. A aplicação ao seu caso depende
+            dos períodos trabalhados e da documentação de cada vínculo.
           </p>
         </div>
       </section>
@@ -355,7 +479,7 @@ export default function AposentadoriaEspecial() {
           />
 
           <div className="mt-11 space-y-7">
-            {PONTOS_DE_ATENCAO.map((ponto) => (
+            {PONTOS_DE_ATENCAO.map(ponto => (
               <div
                 key={ponto.titulo}
                 className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm md:p-9"
@@ -432,9 +556,15 @@ export default function AposentadoriaEspecial() {
                 texto="Se você tiver esses documentos, melhor. Se não tiver, o atendimento continua possível: indicamos o caminho para cada situação."
               />
               <ul className="mt-7 space-y-3.5">
-                {DOCUMENTOS.map((d) => (
-                  <li key={d} className="flex gap-2.5 text-[14.5px] leading-relaxed text-slate-700">
-                    <CheckCircle2 size={17} className="mt-0.5 flex-shrink-0 text-cyan-600" />
+                {DOCUMENTOS.map(d => (
+                  <li
+                    key={d}
+                    className="flex gap-2.5 text-[14.5px] leading-relaxed text-slate-700"
+                  >
+                    <CheckCircle2
+                      size={17}
+                      className="mt-0.5 flex-shrink-0 text-cyan-600"
+                    />
                     <span>{d}</span>
                   </li>
                 ))}
@@ -522,9 +652,7 @@ export default function AposentadoriaEspecial() {
       <FaixaCta
         titulo="Vamos analisar o seu tempo de exposição"
         texto="Conte em quais empresas você trabalhou e em que função. Indicamos o que é necessário para a análise — e você não precisa enviar documentos agora."
-        mensagem={
-          WHATSAPP_MENSAGENS.geral
-        }
+        mensagem={WHATSAPP_MENSAGENS.geral}
       />
       <SiteFooter />
       <BotaoWhatsApp />

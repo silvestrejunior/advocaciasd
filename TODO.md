@@ -114,3 +114,11 @@
 - [ ] Página /privacidade publicada na navegação, no rodapé, no manifesto de rotas e no sitemap.
 - [ ] Testes na prévia: uma conversão por clique, aviso some após a escolha e não volta ao recarregar.
 - [ ] Publicar somente após a resposta "aprovado".
+
+## Página de aposentadoria especial — 24/10/2026
+
+- Banner principal com a chamada "Aposentadoria Especial: o que você precisa saber antes de pedir.", informação direta sobre o direito (15, 20 ou 25 anos de exposição e ausência de idade mínima após a decisão do Supremo em 2026) e foto de profissional de saúde de 50 anos em ambiente hospitalar.
+- Bloco de conteúdo logo abaixo do banner, no formato de blog, com os principais artigos sobre o direito (seis cartões: agentes biológicos, empresa fechada, EPI eficaz, campos do PPP, ruído e conversão de tempo especial), todos ligados às páginas de artigo.
+- Faixa de chamada com a segunda imagem hospitalar, ligando a exposição que não aparece no papel ao contato pelo WhatsApp.
+- Seis artigos novos publicados no tema, com resumo, palavras-chave e perguntas: agentes biológicos na saúde, EPI eficaz, campos do PPP, ruído, empresa fechada e conversão de tempo especial.
+- Metadados de busca da página atualizados (título, descrição e palavras-chave), manifesto de rotas e sitemap regerados.

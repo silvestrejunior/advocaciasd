@@ -73,12 +73,32 @@
       "title": "Certidão de tempo de contribuição"
     },
     {
-      "path": "/privacidade",
-      "title": "Política de Privacidade"
-    },
-    {
       "path": "/blog",
       "title": "Conteúdo"
+    },
+    {
+      "path": "/blog/agentes-biologicos-na-saude-tempo-especial",
+      "title": "Agentes biológicos na saúde: o que precisa constar para contar como tempo especial"
+    },
+    {
+      "path": "/blog/empresa-fechada-como-comprovar-tempo-especial",
+      "title": "Empresa fechada: como comprovar o tempo especial sem o PPP"
+    },
+    {
+      "path": "/blog/epi-eficaz-quando-afasta-o-tempo-especial",
+      "title": "EPI eficaz no PPP: quando a anotação afasta o tempo especial"
+    },
+    {
+      "path": "/blog/ppp-campos-que-decidem-o-tempo-especial",
+      "title": "PPP: os campos que decidem o reconhecimento do tempo especial"
+    },
+    {
+      "path": "/blog/ruido-como-comprovar-o-tempo-especial",
+      "title": "Ruído no trabalho: como se comprova o tempo especial"
+    },
+    {
+      "path": "/blog/converter-tempo-especial-em-comum-o-que-comparar",
+      "title": "Vale converter tempo especial em comum? O que comparar antes"
     },
     {
       "path": "/blog/aposentadoria-negada-recurso-ou-novo-pedido",
