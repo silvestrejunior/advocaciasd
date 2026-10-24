@@ -127,3 +127,10 @@
 
 - Sete imagens próprias para os cartões dos artigos de tempo especial (agentes biológicos, empresa fechada, EPI, PPP, ruído, conversão e documentos), exibidas nos cartões da página, do índice do blog e da página inicial quando o artigo tem imagem.
 - Seção "Últimas mudanças" logo abaixo do banner principal, com as decisões que alteraram a análise do tempo especial: STF (junho de 2026, fim da idade mínima, ADI 6309) e TNU Tema 383 (setembro de 2026, EPI eficaz em setores críticos), cada uma com o que muda na prática e link para o detalhamento.
+
+## Página enxuta com chamada para ação — 24/10/2026
+
+- Removidas as seções "O que precisa ser analisado", "O que a decisão do STF mudou", "Os pontos que costumam decidir o caso", "Como conduzimos a análise" e "Documentos/Como começa", junto com a faixa de chamada que repetia a conversão.
+- No lugar, uma seção forte de chamada para ação com a frase do escritório "Você não trabalhou a vida inteira pra aposentar de qualquer jeito", os três passos do atendimento, botões de WhatsApp e "Descobrir o meu caso", e o reforço de que nenhum documento é necessário no primeiro contato.
+- O cartão do STF na seção de últimas mudanças passou a levar ao WhatsApp, já que a seção detalhada saiu; a âncora #analise continua válida para os links dos cartões de serviço.
+- Página reduzida de 767 para 518 linhas, com constantes e ícones sem uso removidos.
