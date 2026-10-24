@@ -18,7 +18,7 @@ import { SERVICOS } from "@/data/servicos";
 import { SITE, WHATSAPP_MENSAGENS } from "@/config/site";
 
 function nomeDoServico(href: string) {
-  return SERVICOS.find((servico) => servico.href === href);
+  return SERVICOS.find(servico => servico.href === href);
 }
 
 export default function Blog() {
@@ -35,7 +35,7 @@ export default function Blog() {
           name: `Conteúdo — ${SITE.nomeCompleto}`,
           url: `${SITE.dominio}/blog`,
           inLanguage: "pt-BR",
-          blogPost: ARTIGOS.slice(0, 10).map((artigo) => ({
+          blogPost: ARTIGOS.slice(0, 10).map(artigo => ({
             "@type": "BlogPosting",
             headline: artigo.titulo,
             url: `${SITE.dominio}/blog/${artigo.slug}`,
@@ -48,7 +48,10 @@ export default function Blog() {
       <main>
         <section className="relative overflow-hidden bg-brand-950 pb-16 pt-28 text-white md:pb-20 md:pt-36">
           <div className="container mx-auto px-4">
-            <nav aria-label="Você está aqui" className="text-[13px] text-slate-300/80">
+            <nav
+              aria-label="Você está aqui"
+              className="text-[13px] text-slate-300/80"
+            >
               <Link href="/" className="hover:text-cyan-300">
                 Início
               </Link>
@@ -71,8 +74,10 @@ export default function Blog() {
           </div>
         </section>
 
-        {TEMAS.map((tema) => {
-          const artigosDoTema = ARTIGOS.filter((artigo) => artigo.tema === tema.id);
+        {TEMAS.map(tema => {
+          const artigosDoTema = ARTIGOS.filter(
+            artigo => artigo.tema === tema.id
+          );
           if (artigosDoTema.length === 0) return null;
           const servico = nomeDoServico(tema.servico);
           return (
@@ -105,12 +110,21 @@ export default function Blog() {
                 </div>
 
                 <div className="mt-8 grid gap-6 md:grid-cols-3">
-                  {artigosDoTema.map((artigo) => (
+                  {artigosDoTema.map(artigo => (
                     <Link
                       key={artigo.slug}
                       href={`/blog/${artigo.slug}`}
-                      className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_24px_45px_-24px_rgba(10,42,74,0.5)]"
+                      className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_24px_45px_-24px_rgba(10,42,74,0.5)] overflow-hidden"
                     >
+                      {artigo.imagem && (
+                        <img
+                          src={artigo.imagem}
+                          alt=""
+                          loading="lazy"
+                          className="-mx-6 -mt-6 mb-5 h-44 w-[calc(100%+3rem)] rounded-t-2xl object-cover"
+                        />
+                      )}
+
                       <h3 className="font-['Playfair_Display'] text-[19px] font-bold leading-snug text-brand-800 transition-colors group-hover:text-cyan-700">
                         {artigo.titulo}
                       </h3>
@@ -120,7 +134,8 @@ export default function Blog() {
                       <span className="mt-5 flex items-center gap-4 text-[12.5px] text-slate-500">
                         <span className="inline-flex items-center gap-1.5">
                           <Clock size={14} />
-                          {Math.max(3, Math.round(artigo.palavras / 200))} min de leitura
+                          {Math.max(3, Math.round(artigo.palavras / 200))} min
+                          de leitura
                         </span>
                       </span>
                       <span className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-bold text-cyan-700">
@@ -162,8 +177,11 @@ export default function Blog() {
                   texto:
                     "Nas situações que envolvem escolha de regra, cálculo ou destino de tempo, a análise vem antes do pedido.",
                 },
-              ].map((item) => (
-                <article key={item.titulo} className="rounded-2xl border border-slate-200 bg-white p-6">
+              ].map(item => (
+                <article
+                  key={item.titulo}
+                  className="rounded-2xl border border-slate-200 bg-white p-6"
+                >
                   <FileText size={20} className="text-cyan-600" />
                   <h3 className="mt-4 font-['Playfair_Display'] text-lg font-bold text-brand-800">
                     {item.titulo}

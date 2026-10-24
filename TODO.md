@@ -122,3 +122,8 @@
 - Faixa de chamada com a segunda imagem hospitalar, ligando a exposição que não aparece no papel ao contato pelo WhatsApp.
 - Seis artigos novos publicados no tema, com resumo, palavras-chave e perguntas: agentes biológicos na saúde, EPI eficaz, campos do PPP, ruído, empresa fechada e conversão de tempo especial.
 - Metadados de busca da página atualizados (título, descrição e palavras-chave), manifesto de rotas e sitemap regerados.
+
+## Imagens nos cartões e seção de últimas mudanças — 24/10/2026
+
+- Sete imagens próprias para os cartões dos artigos de tempo especial (agentes biológicos, empresa fechada, EPI, PPP, ruído, conversão e documentos), exibidas nos cartões da página, do índice do blog e da página inicial quando o artigo tem imagem.
+- Seção "Últimas mudanças" logo abaixo do banner principal, com as decisões que alteraram a análise do tempo especial: STF (junho de 2026, fim da idade mínima, ADI 6309) e TNU Tema 383 (setembro de 2026, EPI eficaz em setores críticos), cada uma com o que muda na prática e link para o detalhamento.

@@ -186,8 +186,17 @@ export default function Home() {
                 <Link
                   key={artigo.slug}
                   href={`/blog/${artigo.slug}`}
-                  className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_24px_45px_-24px_rgba(10,42,74,0.5)]"
+                  className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_24px_45px_-24px_rgba(10,42,74,0.5)] overflow-hidden"
                 >
+                  {artigo.imagem && (
+                    <img
+                      src={artigo.imagem}
+                      alt=""
+                      loading="lazy"
+                      className="-mx-6 -mt-6 mb-5 h-44 w-[calc(100%+3rem)] rounded-t-2xl object-cover"
+                    />
+                  )}
+
                   <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-cyan-700">
                     {temaPorId(artigo.tema)?.nome ?? "Conteúdo"}
                   </span>

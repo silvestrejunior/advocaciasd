@@ -24,6 +24,8 @@ export type Artigo = {
   slug: string;
   titulo: string;
   resumo: string;
+  /** Imagem do cartão, em /images/blog/. Opcional. */
+  imagem?: string;
   publicado: string;
   /** Identificador do tema, igual ao de TEMAS. */
   tema: string;
@@ -116,9 +118,9 @@ export const TEMAS: Tema[] = [
 export const ARTIGOS = artigos as Artigo[];
 
 export const artigoPorSlug = (slug: string) =>
-  ARTIGOS.find((artigo) => artigo.slug === slug);
+  ARTIGOS.find(artigo => artigo.slug === slug);
 
 export const artigosDoTema = (tema: string) =>
-  ARTIGOS.filter((artigo) => artigo.tema === tema);
+  ARTIGOS.filter(artigo => artigo.tema === tema);
 
-export const temaPorId = (id: string) => TEMAS.find((tema) => tema.id === id);
+export const temaPorId = (id: string) => TEMAS.find(tema => tema.id === id);

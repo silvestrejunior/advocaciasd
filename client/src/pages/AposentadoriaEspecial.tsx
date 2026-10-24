@@ -38,6 +38,38 @@ const REVISAO = "24 de outubro de 2026";
 /** Artigos do tema, do mais recente para o mais antigo. */
 const ARTIGOS_ESPECIAL = artigosDoTema("aposentadoria-especial");
 
+/** Decisões recentes que alteraram a análise do tempo especial. */
+const MUDANCAS = [
+  {
+    orgao: "STF",
+    data: "junho de 2026",
+    titulo: "A idade mínima deixou de ser exigida",
+    resumo:
+      "O Supremo declarou inconstitucional a exigência de idade mínima para a aposentadoria especial, afastando as idades de 55, 58 e 60 anos criadas pela reforma. Quem já tinha o tempo de exposição completo e foi barrado apenas pela idade tem motivo para reavaliar a sua situação agora.",
+    pratica: [
+      "O tempo de exposição continua sendo exigido: 15, 20 ou 25 anos, conforme a atividade e o agente.",
+      "A comprovação da exposição segue obrigatória, com o PPP e os documentos técnicos de cada vínculo.",
+      "A forma de cálculo da reforma foi mantida — o benefício não corresponde necessariamente a 100% da média.",
+    ],
+    href: "#stf",
+    link: "Ver o que mudou e o que continua igual",
+  },
+  {
+    orgao: "TNU",
+    data: "setembro de 2026",
+    titulo: "EPI eficaz no PPP deixou de barrar quem atua em setores críticos",
+    resumo:
+      "No Tema 383, a Turma Nacional de Uniformização distinguiu as atividades de maior risco. Para quem realiza ou auxilia procedimentos que geram aerossol, atende urgência e emergência em setores críticos ou trabalha em alas de pacientes infectocontagiosos, a anotação de EPI eficaz no PPP não impede o reconhecimento do tempo especial.",
+    pratica: [
+      "Alcança médicos, enfermeiros, técnicos e auxiliares de enfermagem, fisioterapeutas e farmacêuticos, entre outros profissionais.",
+      "Exemplos citados na decisão: intubação, aspiração de vias aéreas e broncoscopia; UTI, pronto-socorro e centro cirúrgico.",
+      "Fora dessas hipóteses, a anotação de EPI eficaz só é afastada com impugnação específica e fundamentada (Temas 213 da TNU e 1.090 do STJ).",
+    ],
+    href: "/blog/epi-eficaz-quando-afasta-o-tempo-especial",
+    link: "Ler o artigo sobre EPI eficaz",
+  },
+];
+
 /* ------------------------------------------------------------------ */
 /* Conteúdo                                                            */
 /* ------------------------------------------------------------------ */
@@ -288,6 +320,70 @@ export default function AposentadoriaEspecial() {
         </div>
       </section>
 
+      {/* ------------------------------------------- Últimas mudanças */}
+      <section id="mudancas" className="scroll-mt-24 py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <TituloSecao
+            sobretitulo="Últimas mudanças"
+            titulo="O que mudou no direito à aposentadoria especial"
+            texto="As decisões recentes que alteram a forma de analisar o tempo especial, com o que cada uma significa na prática — e o que continua igual."
+          />
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            {MUDANCAS.map(mudanca => (
+              <article
+                key={mudanca.titulo}
+                className="flex h-full flex-col rounded-2xl border border-slate-200 border-t-4 border-t-cyan-500 bg-white p-7 shadow-sm"
+              >
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="rounded-full bg-cyan-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-cyan-700">
+                    {mudanca.orgao}
+                  </span>
+                  <span className="text-[12.5px] text-slate-500">
+                    {mudanca.data}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-['Playfair_Display'] text-[21px] font-bold leading-snug text-brand-800">
+                  {mudanca.titulo}
+                </h3>
+                <p className="mt-3 text-[14.5px] leading-relaxed text-slate-700">
+                  {mudanca.resumo}
+                </p>
+                <div className="mt-5 rounded-xl border-l-4 border-l-cyan-500 bg-slate-50 px-5 py-4">
+                  <h4 className="text-[11.5px] font-bold uppercase tracking-[0.16em] text-cyan-700">
+                    Na prática
+                  </h4>
+                  <ul className="mt-2.5 space-y-2">
+                    {mudanca.pratica.map(item => (
+                      <li
+                        key={item}
+                        className="flex gap-2.5 text-[14px] leading-relaxed text-slate-700"
+                      >
+                        <CheckCircle2
+                          size={16}
+                          className="mt-0.5 flex-shrink-0 text-cyan-600"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <Link
+                  href={mudanca.href}
+                  className="mt-5 inline-flex items-center gap-2 text-[13.5px] font-bold text-cyan-700 hover:text-cyan-800"
+                >
+                  {mudanca.link}
+                  <ArrowRight size={15} />
+                </Link>
+              </article>
+            ))}
+          </div>
+          <p className="mt-6 text-[12.5px] leading-relaxed text-slate-500">
+            Referências conferidas em {REVISAO}. A aplicação ao seu caso depende
+            dos períodos trabalhados e da documentação de cada vínculo.
+          </p>
+        </div>
+      </section>
+
       {/* ------------------------------------------------- Conteúdo (blog) */}
       <section
         id="conteudo"
@@ -304,29 +400,39 @@ export default function AposentadoriaEspecial() {
               <Link
                 key={artigo.slug}
                 href={`/blog/${artigo.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_24px_45px_-24px_rgba(10,42,74,0.5)]"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:shadow-[0_24px_45px_-24px_rgba(10,42,74,0.5)]"
               >
-                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-cyan-700">
-                  {temaPorId(artigo.tema)?.nome ?? "Conteúdo"}
-                </span>
-                <h3 className="mt-3 font-['Playfair_Display'] text-[19px] font-bold leading-snug text-brand-800 transition-colors group-hover:text-cyan-700">
-                  {artigo.titulo}
-                </h3>
-                <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-slate-700">
-                  {artigo.resumo}
-                </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[12.5px] text-slate-500">
-                  <Clock size={14} />
-                  {Math.max(3, Math.round(artigo.palavras / 200))} min de
-                  leitura
-                </span>
-                <span className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-bold text-cyan-700">
-                  Ler o artigo
-                  <ArrowRight
-                    size={15}
-                    className="transition-transform duration-300 group-hover:translate-x-1.5"
+                {artigo.imagem && (
+                  <img
+                    src={artigo.imagem}
+                    alt=""
+                    loading="lazy"
+                    className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
-                </span>
+                )}
+                <div className="flex flex-1 flex-col p-6">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-cyan-700">
+                    {temaPorId(artigo.tema)?.nome ?? "Conteúdo"}
+                  </span>
+                  <h3 className="mt-3 font-['Playfair_Display'] text-[19px] font-bold leading-snug text-brand-800 transition-colors group-hover:text-cyan-700">
+                    {artigo.titulo}
+                  </h3>
+                  <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-slate-700">
+                    {artigo.resumo}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-[12.5px] text-slate-500">
+                    <Clock size={14} />
+                    {Math.max(3, Math.round(artigo.palavras / 200))} min de
+                    leitura
+                  </span>
+                  <span className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-bold text-cyan-700">
+                    Ler o artigo
+                    <ArrowRight
+                      size={15}
+                      className="transition-transform duration-300 group-hover:translate-x-1.5"
+                    />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
@@ -409,7 +515,7 @@ export default function AposentadoriaEspecial() {
       </section>
 
       {/* --------------------------------------------------- STF atual */}
-      <section className="bg-slate-50 py-16 md:py-20">
+      <section id="stf" className="scroll-mt-24 bg-slate-50 py-16 md:py-20">
         <div className="container mx-auto px-4">
           <TituloSecao
             sobretitulo="Atualização recente"
