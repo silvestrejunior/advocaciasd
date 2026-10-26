@@ -6,7 +6,7 @@ type SeoProps = {
   titulo: string;
   /** Meta descrição: o texto que aparece abaixo do título na busca. */
   descricao: string;
-  /** Caminho da rota, começando com barra. Ex.: "/aposentadoria-inss". */
+  /** Caminho da rota, começando com barra. Ex.: "/servicos". */
   caminho: string;
   tipo?: "website" | "article";
   /** Página que não deve ser indexada (ex.: rota inexistente). */
@@ -36,7 +36,7 @@ export function tituloCompleto(titulo: string, nome: string = SITE.nome) {
 
 function upsertMeta(attr: "name" | "property", chave: string, valor: string) {
   let el = document.head.querySelector<HTMLMetaElement>(
-    `meta[${attr}="${chave}"]`,
+    `meta[${attr}="${chave}"]`
   );
   if (!el) {
     el = document.createElement("meta");
@@ -89,7 +89,7 @@ export function Seo({
       "robots",
       noindex
         ? "noindex, nofollow"
-        : "index, follow, max-image-preview:large, max-snippet:-1",
+        : "index, follow, max-image-preview:large, max-snippet:-1"
     );
     upsertLink("canonical", url);
 
@@ -112,6 +112,16 @@ export function Seo({
     const blocos = [
       {
         "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${SITE.dominio}/#site`,
+        name: SITE.nomeCompleto,
+        alternateName: SITE.nome,
+        url: SITE.dominio,
+        inLanguage: "pt-BR",
+        publisher: { "@id": `${SITE.dominio}/#escritorio` },
+      },
+      {
+        "@context": "https://schema.org",
         "@type": "LegalService",
         "@id": `${SITE.dominio}/#escritorio`,
         name: SITE.nomeCompleto,
@@ -132,7 +142,8 @@ export function Seo({
         ],
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2",
+          streetAddress:
+            "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2",
           addressLocality: "Maringá",
           addressRegion: "PR",
           addressCountry: "BR",
@@ -156,7 +167,16 @@ export function Seo({
     return () => {
       document.getElementById(marcaId)?.remove();
     };
-  }, [titulo, descricao, caminho, tipo, jsonLd, noindex, palavrasChave, imagem]);
+  }, [
+    titulo,
+    descricao,
+    caminho,
+    tipo,
+    jsonLd,
+    noindex,
+    palavrasChave,
+    imagem,
+  ]);
 
   return null;
 }
@@ -166,7 +186,7 @@ export function faqJsonLd(perguntas: { pergunta: string; resposta: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: perguntas.map((p) => ({
+    mainEntity: perguntas.map(p => ({
       "@type": "Question",
       name: p.pergunta,
       acceptedAnswer: { "@type": "Answer", text: p.resposta },

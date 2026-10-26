@@ -276,7 +276,7 @@ export default function Artigo() {
               </div>
               <Link
                 href="/blog"
-                className="mt-8 inline-flex items-center gap-2 text-[14px] font-bold text-brand-800 hover:text-cyan-700"
+                className="mt-8 inline-flex items-center gap-2 py-1.5 text-[14px] font-bold text-brand-800 hover:text-cyan-700"
               >
                 Ver todo o conteúdo
                 <ArrowRight size={15} />

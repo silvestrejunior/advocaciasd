@@ -145,3 +145,12 @@
 - Dados estruturados ampliados: WebPage com data de modificação, Service de análise de aposentadoria especial, além do FAQ e da trilha já existentes.
 - Bloco "Veja também" com ligações internas para perícia negada, aposentadoria negada, tempo rural, servidores públicos, benefícios por incapacidade e cuidados.
 - Título da seção de artigos com a palavra-chave completa.
+
+## Varredura para o Google Ads — 26/10/2026
+
+- Favicon reforçado: tamanhos 48 e 96 pixels, .ico com 16/32/48 e todos declarados no cabeçalho.
+- Bloco WebSite nos dados estruturados, para o nome do escritório aparecer na busca.
+- Links quebrados da página de aposentadoria especial corrigidos (trilha, dados estruturados e botão final).
+- Área de toque ampliada em três links de texto no celular.
+- Varredura completa: 35 rotas em 200, tag do Google em todas, conversão do WhatsApp disparando, nenhum link ou imagem quebrada, 404 real para página inexistente, sem erro de JavaScript.
+- Relatório em docs/auditoria-google-ads.md.

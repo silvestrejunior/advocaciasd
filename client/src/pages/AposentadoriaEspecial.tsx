@@ -196,7 +196,7 @@ export default function AposentadoriaEspecial() {
           faqJsonLd(PERGUNTAS),
           breadcrumbJsonLd([
             { label: "Início", href: "/" },
-            { label: "Aposentadoria no INSS", href: "/aposentadoria-inss" },
+            { label: "Serviços", href: "/servicos" },
             {
               label: "Aposentadoria especial",
               href: "/aposentadoria-especial",
@@ -514,13 +514,13 @@ export default function AposentadoriaEspecial() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
-                href="/aposentadoria-inss"
+                href="/servicos"
                 className="rounded-lg border border-brand-800 px-5 py-3 text-[13.5px] font-bold text-brand-800 hover:bg-brand-800 hover:text-white"
               >
-                Ver todas as aposentadorias do INSS
+                Ver todos os serviços
               </Link>
               <Link
-                href="/servicos"
+                href="/servidores-publicos"
                 className="rounded-lg border border-brand-800 px-5 py-3 text-[13.5px] font-bold text-brand-800 hover:bg-brand-800 hover:text-white"
               >
                 Sou servidor público

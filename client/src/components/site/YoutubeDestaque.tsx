@@ -91,7 +91,7 @@ export function YoutubeDestaque() {
                   href={SITE.youtubeVideoDestaque}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 flex items-center justify-center gap-1.5 text-[12px] font-semibold text-brand-700 underline underline-offset-4 hover:text-cyan-700"
+                  className="mt-4 flex items-center justify-center gap-1.5 py-1.5 text-[12px] font-semibold text-brand-700 underline underline-offset-4 hover:text-cyan-700"
                 >
                   Assistir diretamente no YouTube
                   <ArrowUpRight size={14} aria-hidden="true" />
