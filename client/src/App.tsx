@@ -44,6 +44,10 @@ function Router() {
         path={"/aposentadoria-especial-saude"}
         component={AposentadoriaEspecialSaude}
       />
+      <Route
+        path={"/aposentadoria-saude"}
+        component={AposentadoriaEspecialSaude}
+      />
       <Route path={"/aposentadoria-negada"} component={AposentadoriaNegada} />
       <Route path={"/pericia-negada"} component={PericiaNegada} />
       <Route path={"/tempo-rural"} component={TempoRural} />
