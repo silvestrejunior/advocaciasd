@@ -15,6 +15,10 @@ type SeoProps = {
   palavrasChave?: string;
   /** Imagem de compartilhamento própria da página. */
   imagem?: string;
+  /** Texto alternativo e dimensões da imagem de compartilhamento. */
+  imagemAlt?: string;
+  imagemLargura?: number;
+  imagemAltura?: number;
   /** Dados estruturados (schema.org) específicos da página. */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
@@ -72,6 +76,9 @@ export function Seo({
   noindex = false,
   palavrasChave,
   imagem,
+  imagemAlt,
+  imagemLargura,
+  imagemAltura,
   jsonLd,
 }: SeoProps) {
   useEffect(() => {
@@ -80,6 +87,9 @@ export function Seo({
     const imagemPagina = imagem
       ? `${SITE.dominio}${imagem}`
       : `${SITE.dominio}/images/og-image.jpg`;
+    const larguraImagem = imagemLargura ?? 1200;
+    const alturaImagem = imagemAltura ?? 630;
+    const textoAlternativoImagem = imagemAlt ?? `${SITE.nomeCompleto}`;
 
     document.title = completo;
     upsertMeta("name", "description", descricao);
@@ -99,12 +109,16 @@ export function Seo({
     upsertMeta("property", "og:description", descricao);
     upsertMeta("property", "og:url", url);
     upsertMeta("property", "og:image", imagemPagina);
+    upsertMeta("property", "og:image:alt", textoAlternativoImagem);
+    upsertMeta("property", "og:image:width", String(larguraImagem));
+    upsertMeta("property", "og:image:height", String(alturaImagem));
     upsertMeta("property", "og:locale", "pt_BR");
 
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", completo);
     upsertMeta("name", "twitter:description", descricao);
     upsertMeta("name", "twitter:image", imagemPagina);
+    upsertMeta("name", "twitter:image:alt", textoAlternativoImagem);
 
     const marcaId = "jsonld-pagina";
     document.getElementById(marcaId)?.remove();
@@ -146,6 +160,7 @@ export function Seo({
             "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2",
           addressLocality: "Maringá",
           addressRegion: "PR",
+          postalCode: "87020-015",
           addressCountry: "BR",
         },
         employee: {
@@ -176,6 +191,9 @@ export function Seo({
     noindex,
     palavrasChave,
     imagem,
+    imagemAlt,
+    imagemLargura,
+    imagemAltura,
   ]);
 
   return null;

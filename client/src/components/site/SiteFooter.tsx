@@ -1,13 +1,10 @@
 import { Link } from "wouter";
 import { Clock, Mail, MapPin, Phone, Youtube } from "lucide-react";
-import {
-  RODAPE,
-  SITE,
-  WHATSAPP_MENSAGENS,
-  whatsapp,
-} from "@/config/site";
+import { RODAPE, SITE, WHATSAPP_MENSAGENS, whatsapp } from "@/config/site";
 
-export function SiteFooter() {
+export function SiteFooter({
+  mensagem = WHATSAPP_MENSAGENS.geral,
+}: { mensagem?: string } = {}) {
   const ano = new Date().getFullYear();
 
   return (
@@ -16,11 +13,7 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <img
-                src={SITE.logoClaro}
-                alt=""
-                className="h-12 w-auto"
-              />
+              <img src={SITE.logoClaro} alt="" className="h-12 w-auto" />
               <span className="leading-tight">
                 <span className="block font-['Playfair_Display'] text-lg font-bold text-white">
                   {SITE.nome}
@@ -45,7 +38,7 @@ export function SiteFooter() {
               Aposentadorias
             </h3>
             <ul className="mt-4 space-y-2.5">
-              {RODAPE.aposentadorias.map((l) => (
+              {RODAPE.aposentadorias.map(l => (
                 <li key={l.href + l.label}>
                   <Link href={l.href} className="hover:text-cyan-300">
                     {l.label}
@@ -60,7 +53,7 @@ export function SiteFooter() {
               Benefícios
             </h3>
             <ul className="mt-4 space-y-2.5">
-              {RODAPE.beneficios.map((l) => (
+              {RODAPE.beneficios.map(l => (
                 <li key={l.href + l.label}>
                   <Link href={l.href} className="hover:text-cyan-300">
                     {l.label}
@@ -76,9 +69,12 @@ export function SiteFooter() {
             </h3>
             <ul className="mt-4 space-y-3.5">
               <li className="flex gap-2.5">
-                <Phone size={16} className="mt-0.5 flex-shrink-0 text-cyan-400" />
+                <Phone
+                  size={16}
+                  className="mt-0.5 flex-shrink-0 text-cyan-400"
+                />
                 <a
-                  href={whatsapp(WHATSAPP_MENSAGENS.geral)}
+                  href={whatsapp(mensagem)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-cyan-300"
@@ -87,13 +83,22 @@ export function SiteFooter() {
                 </a>
               </li>
               <li className="flex gap-2.5">
-                <Mail size={16} className="mt-0.5 flex-shrink-0 text-cyan-400" />
-                <a href={`mailto:${SITE.email}`} className="hover:text-cyan-300">
+                <Mail
+                  size={16}
+                  className="mt-0.5 flex-shrink-0 text-cyan-400"
+                />
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="hover:text-cyan-300"
+                >
                   {SITE.email}
                 </a>
               </li>
               <li className="flex gap-2.5">
-                <MapPin size={16} className="mt-0.5 flex-shrink-0 text-cyan-400" />
+                <MapPin
+                  size={16}
+                  className="mt-0.5 flex-shrink-0 text-cyan-400"
+                />
                 <span>
                   {SITE.endereco.linha1}
                   <br />
@@ -103,11 +108,17 @@ export function SiteFooter() {
                 </span>
               </li>
               <li className="flex gap-2.5">
-                <Clock size={16} className="mt-0.5 flex-shrink-0 text-cyan-400" />
+                <Clock
+                  size={16}
+                  className="mt-0.5 flex-shrink-0 text-cyan-400"
+                />
                 <span>{SITE.horario}</span>
               </li>
               <li className="flex gap-2.5">
-                <Youtube size={16} className="mt-0.5 flex-shrink-0 text-cyan-400" />
+                <Youtube
+                  size={16}
+                  className="mt-0.5 flex-shrink-0 text-cyan-400"
+                />
                 <a
                   href={SITE.youtube}
                   target="_blank"
@@ -126,13 +137,21 @@ export function SiteFooter() {
             © {ano} {SITE.nomeCompleto}. Todos os direitos reservados.
           </span>
           <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            {RODAPE.conteudo.map((l) => (
-              <Link key={l.href + l.label} href={l.href} className="hover:text-cyan-300">
+            {RODAPE.conteudo.map(l => (
+              <Link
+                key={l.href + l.label}
+                href={l.href}
+                className="hover:text-cyan-300"
+              >
                 {l.label}
               </Link>
             ))}
-            {RODAPE.escritorio.map((l) => (
-              <Link key={l.href + l.label} href={l.href} className="hover:text-cyan-300">
+            {RODAPE.escritorio.map(l => (
+              <Link
+                key={l.href + l.label}
+                href={l.href}
+                className="hover:text-cyan-300"
+              >
                 {l.label}
               </Link>
             ))}

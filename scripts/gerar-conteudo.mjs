@@ -34,6 +34,10 @@ const ROTAS_BASE = [
   { path: "/servicos", title: "Serviços" },
   { path: "/cuidados", title: "Cuidados antes de pedir" },
   { path: "/aposentadoria-especial", title: "Aposentadoria especial" },
+  {
+    path: "/aposentadoria-especial-saude",
+    title: "Aposentadoria especial na saúde",
+  },
   { path: "/aposentadoria-negada", title: "Aposentadoria negada" },
   { path: "/pericia-negada", title: "Perícia negada" },
   {

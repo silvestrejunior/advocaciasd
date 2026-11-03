@@ -228,6 +228,8 @@ export function Perguntas({ itens }: { itens: PerguntaFrequente[] }) {
               type="button"
               onClick={() => setAberta(ativa ? null : i)}
               aria-expanded={ativa}
+              aria-controls={`faq-resposta-${i}`}
+              id={`faq-pergunta-${i}`}
               className="flex w-full items-start justify-between gap-6 py-5 text-left"
             >
               <span className="font-['Playfair_Display'] text-[17px] font-bold leading-snug text-brand-800">
@@ -237,11 +239,14 @@ export function Perguntas({ itens }: { itens: PerguntaFrequente[] }) {
                 {ativa ? <Minus size={14} /> : <Plus size={14} />}
               </span>
             </button>
-            {ativa && (
-              <p className="max-w-3xl pb-6 text-[14.5px] leading-relaxed text-slate-600">
-                {item.resposta}
-              </p>
-            )}
+            <p
+              id={`faq-resposta-${i}`}
+              aria-labelledby={`faq-pergunta-${i}`}
+              hidden={!ativa}
+              className="max-w-3xl pb-6 text-[14.5px] leading-relaxed text-slate-600"
+            >
+              {item.resposta}
+            </p>
           </div>
         );
       })}
@@ -302,8 +307,10 @@ export function FaixaCta({
 
 export function BotaoWhatsApp({
   respeitarBanner = false,
+  mensagem = WHATSAPP_MENSAGENS.geral,
 }: {
   respeitarBanner?: boolean;
+  mensagem?: string;
 }) {
   const [bannerMovelVisivel, setBannerMovelVisivel] = useState(respeitarBanner);
 
@@ -335,7 +342,7 @@ export function BotaoWhatsApp({
 
   return (
     <a
-      href={whatsapp(WHATSAPP_MENSAGENS.geral)}
+      href={whatsapp(mensagem)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"

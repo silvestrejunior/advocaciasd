@@ -34,6 +34,8 @@ export type Artigo = {
   palavrasChave: string[];
   secoes: SecaoArtigo[];
   perguntas: PerguntaArtigo[];
+  /** Frase final do texto, com link para outra página. Opcional. */
+  vejaTambem?: { texto: string; href: string };
   palavras: number;
 };
 

@@ -181,6 +181,18 @@ export default function Artigo() {
                 </div>
               ))}
 
+              {artigo.vejaTambem && (
+                <p className="mt-8 text-[15.5px] leading-relaxed text-slate-700">
+                  Veja também:{" "}
+                  <Link
+                    href={artigo.vejaTambem.href}
+                    className="font-semibold text-cyan-700 underline decoration-cyan-300 underline-offset-4 hover:text-cyan-800"
+                  >
+                    {artigo.vejaTambem.texto}
+                  </Link>
+                </p>
+              )}
+
               <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
                 <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-700">
                   Próximo passo

@@ -256,6 +256,24 @@ export default function AposentadoriaEspecial() {
         </div>
       </section>
 
+      {/* ------------------------------------- Profissionais da saúde */}
+      <section className="py-8 md:py-10">
+        <div className="container mx-auto px-4">
+          <Link
+            href="/aposentadoria-especial-saude"
+            className="group flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5 transition-colors hover:border-cyan-400 hover:bg-cyan-50/60"
+          >
+            <span className="font-['Playfair_Display'] text-[18px] font-bold text-brand-800">
+              Trabalha na área da saúde? Veja o que muda no seu caso
+            </span>
+            <ArrowRight
+              size={18}
+              className="text-cyan-700 transition-transform duration-300 group-hover:translate-x-1.5"
+            />
+          </Link>
+        </div>
+      </section>
+
       {/* ------------------------------------------- Últimas mudanças */}
       <section id="mudancas" className="scroll-mt-24 py-16 md:py-20">
         <div className="container mx-auto px-4">

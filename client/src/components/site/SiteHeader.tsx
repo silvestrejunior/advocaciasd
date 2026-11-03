@@ -9,9 +9,14 @@ type Props = {
    * transparente no topo e ganha fundo sólido depois da rolagem.
    */
   sobreHeroEscuro?: boolean;
+  /** Mensagem do WhatsApp usada pelos botões desta página. */
+  mensagem?: string;
 };
 
-export function SiteHeader({ sobreHeroEscuro = false }: Props) {
+export function SiteHeader({
+  sobreHeroEscuro = false,
+  mensagem = WHATSAPP_MENSAGENS.geral,
+}: Props) {
   const [location] = useLocation();
   const [rolou, setRolou] = useState(false);
   const [menuAberto, setMenuAberto] = useState(false);
@@ -34,9 +39,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        solido
-          ? "bg-white/95 shadow-lg backdrop-blur-md"
-          : "bg-transparent"
+        solido ? "bg-white/95 shadow-lg backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center gap-6 px-4 py-3 lg:py-4">
@@ -66,7 +69,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
 
         {/* Navegação de desktop */}
         <nav className="ml-auto hidden items-center gap-1 lg:flex">
-          {MENU.map((item) => {
+          {MENU.map(item => {
             const ativo =
               item.href === "/"
                 ? location === "/"
@@ -100,7 +103,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
                 {item.filhos && aberto === item.label && (
                   <div className="absolute left-0 top-full z-50 w-80 pt-2">
                     <div className="overflow-hidden rounded-xl border border-slate-100 bg-white shadow-xl">
-                      {item.filhos.map((filho) => (
+                      {item.filhos.map(filho => (
                         <Link
                           key={filho.href + filho.label}
                           href={filho.href}
@@ -124,7 +127,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
           })}
 
           <a
-            href={whatsapp(WHATSAPP_MENSAGENS.geral)}
+            href={whatsapp(mensagem)}
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 flex items-center gap-2 rounded-full bg-green-500 px-4 py-2.5 text-[13.5px] font-bold text-white transition-colors hover:bg-green-600"
@@ -137,7 +140,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
         {/* Botão do menu móvel */}
         <button
           type="button"
-          onClick={() => setMenuAberto((v) => !v)}
+          onClick={() => setMenuAberto(v => !v)}
           aria-expanded={menuAberto}
           aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
           className={`ml-auto rounded-lg p-2 lg:hidden ${
@@ -151,7 +154,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
       {/* Navegação móvel */}
       {menuAberto && (
         <div className="max-h-[80vh] overflow-y-auto border-t border-slate-100 bg-white px-4 pb-6 lg:hidden">
-          {MENU.map((item) => (
+          {MENU.map(item => (
             <div key={item.label} className="border-b border-slate-100 py-3">
               <Link
                 href={item.href}
@@ -161,7 +164,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
               </Link>
               {item.filhos && (
                 <div className="mt-1.5 space-y-1 pl-3">
-                  {item.filhos.map((filho) => (
+                  {item.filhos.map(filho => (
                     <Link
                       key={filho.href + filho.label}
                       href={filho.href}
@@ -175,7 +178,7 @@ export function SiteHeader({ sobreHeroEscuro = false }: Props) {
             </div>
           ))}
           <a
-            href={whatsapp(WHATSAPP_MENSAGENS.geral)}
+            href={whatsapp(mensagem)}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-green-500 px-4 py-3 text-sm font-bold text-white"

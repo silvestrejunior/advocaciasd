@@ -154,3 +154,11 @@
 - Área de toque ampliada em três links de texto no celular.
 - Varredura completa: 35 rotas em 200, tag do Google em todas, conversão do WhatsApp disparando, nenhum link ou imagem quebrada, 404 real para página inexistente, sem erro de JavaScript.
 - Relatório em docs/auditoria-google-ads.md.
+
+## Aposentadoria especial na saúde (prévia para aprovação) — 26/10/2026
+
+- [x] Página `/aposentadoria-especial-saude` com os 8 blocos pedidos, mesmo visual da página de aposentadoria especial e topo sem foto.
+- [x] Todos os botões de WhatsApp da página com a mensagem "vim pela página de aposentadoria especial na saúde".
+- [x] Frase final com link no artigo sobre agentes biológicos e cartão discreto na página de aposentadoria especial.
+- [x] Links internos, acordeão, dados estruturados (FAQPage e LegalService com nome e endereço), sitemap e manifesto conferidos.
+- [ ] Publicar somente depois da aprovação do usuário.
