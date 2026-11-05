@@ -462,7 +462,6 @@ export default function AposentadoriaAcsAce() {
         titulo={TITULO}
         descricao={DESCRICAO}
         caminho="/aposentadoria-acs-ace"
-        origemCanonica="https://advocaciasd.com.br"
         palavrasChave="aposentadoria ACS, aposentadoria ACE, EC 140/2026, aposentadoria agente comunitário de saúde, regras de transição ACS, advogado previdenciário Maringá"
         geo={{ regiao: "BR-PR", cidade: "Maringá" }}
         areaAtendimento={[
@@ -475,7 +474,7 @@ export default function AposentadoriaAcsAce() {
             "@type": "WebPage",
             name: TITULO,
             description: DESCRICAO,
-            url: "https://advocaciasd.com.br/aposentadoria-acs-ace",
+            url: `${SITE.dominio}/aposentadoria-acs-ace`,
             inLanguage: "pt-BR",
             dateModified: "2026-11-05",
             isPartOf: {
