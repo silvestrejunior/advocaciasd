@@ -187,5 +187,7 @@
 - [x] Sem promessa de resultado, sem "garantido", sem depoimentos, números de casos, preços ou honorários, e sem formulário que colete dados.
 - [x] Revisão da EC 140/2026 conferida contra o texto oficial e divergências do briefing registradas em docs/revisao-ec140-2026.md para decisão do advogado.
 - [x] Prévia aprovada e canônica ajustada para www a pedido do cliente.
+- [x] Banner centrado com as duas categorias destacadas no H1 no azul institucional, quadro das idades movido para "O que mudou", botão de simulação em destaque pulsante.
+- [x] Botão flutuante de WhatsApp e rodapé no padrão das outras páginas (a barra fixa própria deixou de existir).
 - [x] Publicada em https://www.advocaciasd.com.br/aposentadoria-acs-ace (deploy Vercel confirmado, arquivos e sitemap conferidos).
 - [ ] Decisão do advogado sobre os ajustes jurídicos apontados em docs/revisao-ec140-2026.md (insalubridade na base de cálculo, redução da idade, revisão de aposentados, efetivação de temporários e mandato classista).

@@ -55,12 +55,8 @@ function preparar(html, arquivo) {
   // A campanha de ACS e ACE tem identidade tipográfica própria: só ela usa
   // Sora e Source Sans 3, então só ela pré-carrega esses arquivos.
   if (arquivo === "aposentadoria-acs-ace.html") {
-    // Playfair não é usada nesta rota: o preload sairia competindo com as
-    // fontes da campanha sem nunca ser aproveitado.
-    html = html.replace(
-      /<link\b[^>]*href="\/fonts\/playfair-display-latin-wght-normal\.woff2"[^>]*>/g,
-      ""
-    );
+    // O rodapé padrão do site usa Playfair, então o preload continua válido
+    // nesta rota, depois das fontes da campanha.
     html = html.replace(
       "</head>",
       '<link rel="preload" as="font" type="font/woff2" href="/fonts-acs/sora-latin.woff2" crossorigin>\n' +

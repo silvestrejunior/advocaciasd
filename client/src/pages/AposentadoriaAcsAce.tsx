@@ -12,7 +12,10 @@
  */
 
 import { useEffect, useMemo, useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { Seo, faqJsonLd } from "@/components/site/Seo";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { BotaoWhatsApp as BotaoWhatsAppFlutuante } from "@/components/site/Sections";
 import { SITE, whatsapp } from "@/config/site";
 import "@/styles/fonts-acs.css";
 
@@ -542,118 +545,53 @@ export default function AposentadoriaAcsAce() {
       <main>
         {/* ------------------------------------------------------------ topo */}
         <section className="bg-white">
-          <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
-            <div>
-              <Chamada texto="Emenda constitucional 140/2026 · ACS e ACE" />
-              <h1
-                className="mt-4 text-[30px] font-semibold leading-tight md:text-[40px]"
-                style={{ color: C.chumbo, fontFamily: "Sora, sans-serif" }}
-              >
-                Aposentadoria do agente comunitário de saúde e do agente de
-                endemias: as novas regras já valem
-              </h1>
-              <p className="mt-6 text-[18px] leading-relaxed">
-                A EC 140, promulgada em 16 de outubro de 2026, reduziu a idade
-                de aposentadoria de ACS e ACE. Na regra de transição, quem
-                completar 25 anos de atividade até 2030 pode se aposentar aos 50
-                anos (mulher) ou 52 anos (homem). Analisamos o seu tempo de
-                serviço e mostramos qual regra se aplica ao seu caso, com
-                atendimento em Maringá e virtual para todo o Paraná.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <BotaoWhatsApp href={LINK_WHATSAPP}>
-                  Quero analisar meu caso
-                </BotaoWhatsApp>
-                <a
-                  href="#simulador"
-                  className="inline-flex min-h-12 items-center justify-center rounded-lg border-2 px-6 py-3.5 text-[17px] font-semibold"
-                  style={{
-                    borderColor: C.medio,
-                    color: C.medio,
-                    fontFamily: "Sora, sans-serif",
-                  }}
-                >
-                  Simular minha aposentadoria
-                </a>
-              </div>
-              <ul className="mt-8 space-y-2 text-[15px] leading-relaxed">
-                <li>Dr. João Luiz Santana Daufenbach · OAB/PR 66.208</li>
-                <li>Mais de 10 anos em Direito Previdenciário</li>
-                <li>Regime próprio do município e INSS</li>
-                <li>Atendimento virtual em todo o Paraná</li>
-              </ul>
-            </div>
-
-            <div
-              className="h-fit rounded-xl p-6 text-white md:p-7"
-              style={{ backgroundColor: C.escuro }}
+          <div className="mx-auto flex w-full max-w-3xl flex-col items-center px-4 py-14 text-center md:py-20">
+            <Chamada texto="Emenda constitucional 140/2026 · ACS e ACE" />
+            <h1
+              className="mt-4 text-[30px] font-semibold leading-tight md:text-[42px]"
+              style={{ color: C.chumbo, fontFamily: "Sora, sans-serif" }}
             >
-              <h2
-                className="text-[21px] font-semibold leading-snug"
-                style={{ fontFamily: "Sora, sans-serif" }}
+              Aposentadoria do{" "}
+              <span style={{ color: C.medio }}>
+                Agente Comunitário de Saúde
+              </span>{" "}
+              e do <span style={{ color: C.medio }}>Agente de Endemias</span>:
+              as novas regras já valem
+            </h1>
+            <p className="mt-6 text-[18px] leading-relaxed">
+              A EC 140, promulgada em 16 de outubro de 2026, reduziu a idade de
+              aposentadoria de ACS e ACE. Na regra de transição, quem completar
+              25 anos de atividade até 2030 pode se aposentar aos 50 anos
+              (mulher) ou 52 anos (homem). Analisamos o seu tempo de serviço e
+              mostramos qual regra se aplica ao seu caso, com atendimento em
+              Maringá e virtual para todo o Paraná.
+            </p>
+            <div className="mt-10 flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+              <a
+                href="#simulador"
+                className="pulsar-cta inline-flex min-h-14 items-center justify-center gap-2.5 rounded-xl px-8 text-[19px] font-semibold shadow-lg transition-transform hover:scale-[1.03]"
+                style={{
+                  backgroundColor: C.ciano,
+                  color: C.escuro,
+                  fontFamily: "Sora, sans-serif",
+                }}
               >
-                Idade mínima na regra de transição
-              </h2>
-              <p className="mt-2 text-[16px] opacity-90">
-                Para quem já era ACS ou ACE em 16/10/2026
-              </p>
-              <div className="mt-5 overflow-x-auto">
-                <table className="w-full min-w-[300px] border-collapse text-left text-[16px]">
-                  <thead>
-                    <tr className="text-[13px] uppercase tracking-wide opacity-75">
-                      <th className="border-b border-white/25 py-2 pr-3 font-semibold">
-                        Requisitos cumpridos
-                      </th>
-                      <th className="border-b border-white/25 py-2 pr-3 font-semibold">
-                        Mulher
-                      </th>
-                      <th className="border-b border-white/25 py-2 font-semibold">
-                        Homem
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {IDADES_TRANSICAO.map(linha => (
-                      <tr
-                        key={linha.periodo}
-                        style={
-                          linha.destaque
-                            ? { backgroundColor: "rgba(0,174,239,0.18)" }
-                            : undefined
-                        }
-                      >
-                        <td
-                          className="border-b border-white/15 py-3 pr-3"
-                          style={
-                            linha.destaque
-                              ? {
-                                  borderLeft: `4px solid ${C.ciano}`,
-                                  paddingLeft: "10px",
-                                }
-                              : undefined
-                          }
-                        >
-                          {linha.periodo}
-                        </td>
-                        <td className="border-b border-white/15 py-3 pr-3">
-                          {linha.mulher}
-                        </td>
-                        <td className="border-b border-white/15 py-3">
-                          {linha.homem}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="mt-4 text-[17px] leading-relaxed opacity-90">
-                Exige 25 anos de contribuição e 25 anos de efetivo exercício
-                como agente. Cada ano a mais, além dos 25, reduz 1 ano da idade,
-                até o limite de 5 anos. Exemplo: uma ACS com 50 anos de idade e
-                25 anos de efetivo exercício em novembro de 2026 já cumpre os
-                requisitos.
-              </p>
+                Quero simular minha aposentadoria
+                <ArrowRight size={22} aria-hidden="true" />
+              </a>
+              <BotaoWhatsApp
+                href={LINK_WHATSAPP}
+                className="min-h-14 rounded-xl px-8"
+              >
+                Quero analisar meu caso
+              </BotaoWhatsApp>
             </div>
+            <ul className="mt-10 flex flex-wrap justify-center gap-x-7 gap-y-2 text-[15px] leading-relaxed">
+              <li>Dr. João Luiz Santana Daufenbach · OAB/PR 66.208</li>
+              <li>Mais de 10 anos em Direito Previdenciário</li>
+              <li>Regime próprio do município e INSS</li>
+              <li>Atendimento virtual em todo o Paraná</li>
+            </ul>
           </div>
         </section>
 
@@ -699,6 +637,79 @@ export default function AposentadoriaAcsAce() {
               <s className="decoration-2">62 anos (mulher) e 65 anos (homem)</s>
             </p>
             <FonteTramitacao className="mt-3" />
+
+            <div className="mt-10 max-w-3xl">
+              <div
+                className="h-fit rounded-xl p-6 text-white md:p-7"
+                style={{ backgroundColor: C.escuro }}
+              >
+                <h2
+                  className="text-[21px] font-semibold leading-snug"
+                  style={{ fontFamily: "Sora, sans-serif" }}
+                >
+                  Idade mínima na regra de transição
+                </h2>
+                <p className="mt-2 text-[16px] opacity-90">
+                  Para quem já era ACS ou ACE em 16/10/2026
+                </p>
+                <div className="mt-5 overflow-x-auto">
+                  <table className="w-full min-w-[300px] border-collapse text-left text-[16px]">
+                    <thead>
+                      <tr className="text-[13px] uppercase tracking-wide opacity-75">
+                        <th className="border-b border-white/25 py-2 pr-3 font-semibold">
+                          Requisitos cumpridos
+                        </th>
+                        <th className="border-b border-white/25 py-2 pr-3 font-semibold">
+                          Mulher
+                        </th>
+                        <th className="border-b border-white/25 py-2 font-semibold">
+                          Homem
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {IDADES_TRANSICAO.map(linha => (
+                        <tr
+                          key={linha.periodo}
+                          style={
+                            linha.destaque
+                              ? { backgroundColor: "rgba(0,174,239,0.18)" }
+                              : undefined
+                          }
+                        >
+                          <td
+                            className="border-b border-white/15 py-3 pr-3"
+                            style={
+                              linha.destaque
+                                ? {
+                                    borderLeft: `4px solid ${C.ciano}`,
+                                    paddingLeft: "10px",
+                                  }
+                                : undefined
+                            }
+                          >
+                            {linha.periodo}
+                          </td>
+                          <td className="border-b border-white/15 py-3 pr-3">
+                            {linha.mulher}
+                          </td>
+                          <td className="border-b border-white/15 py-3">
+                            {linha.homem}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="mt-4 text-[17px] leading-relaxed opacity-90">
+                  Exige 25 anos de contribuição e 25 anos de efetivo exercício
+                  como agente. Cada ano a mais, além dos 25, reduz 1 ano da
+                  idade, até o limite de 5 anos. Exemplo: uma ACS com 50 anos de
+                  idade e 25 anos de efetivo exercício em novembro de 2026 já
+                  cumpre os requisitos.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1294,24 +1305,8 @@ export default function AposentadoriaAcsAce() {
       </main>
 
       {/* ------------------------------------------------------------ rodapé */}
-      <footer
-        className="py-12 text-white"
-        style={{ backgroundColor: C.chumbo }}
-      >
+      <section className="border-t border-black/5 bg-white py-10">
         <div className="mx-auto w-full max-w-6xl space-y-4 px-4 text-[17px] leading-relaxed">
-          <p
-            className="text-[19px] font-semibold"
-            style={{ fontFamily: "Sora, sans-serif" }}
-          >
-            Santana Daufenbach Advocacia Previdenciária
-          </p>
-          <p>
-            Responsável técnico: João Luiz Santana Daufenbach · OAB/PR 66.208
-          </p>
-          <p>
-            Av. João Paulino Vieira Filho, 625, sala 708, torre 2 · Maringá/PR ·
-            CEP 87020-015
-          </p>
           <p>
             Fonte das informações sobre a EC 140/2026:{" "}
             <a
@@ -1319,55 +1314,32 @@ export default function AposentadoriaAcsAce() {
               target="_blank"
               rel="noopener noreferrer"
               className="underline underline-offset-2"
-              style={{ color: "#8FD8F7" }}
+              style={{ color: C.medio }}
             >
               Tramitação Inteligente
             </a>
           </p>
-          <p className="texto-pequeno max-w-4xl text-[15.5px] opacity-90">
+          <p className="texto-pequeno max-w-4xl text-[15.5px]">
             Aviso: Conteúdo informativo, de acordo com o Provimento nº 205/2021
             do Conselho Federal da OAB. As informações desta página não
             substituem a análise individual do caso. Dados pessoais enviados
             pelo WhatsApp são usados apenas para o atendimento, nos termos da
             LGPD.
           </p>
-          <p>
+          <p className="texto-pequeno text-[15.5px]">
             <a
               href="/privacidade"
               className="underline underline-offset-2"
-              style={{ color: "#8FD8F7" }}
+              style={{ color: C.medio }}
             >
               Política de Privacidade
             </a>
-            {" · "}
-            <a
-              href="/"
-              className="underline underline-offset-2"
-              style={{ color: "#8FD8F7" }}
-            >
-              Página inicial do escritório
-            </a>
           </p>
         </div>
-      </footer>
+      </section>
 
-      {/* Barra fixa do celular */}
-      <div
-        className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white p-3 sm:hidden"
-        style={{
-          paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))",
-        }}
-      >
-        <a
-          href={LINK_WHATSAPP}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex min-h-12 w-full items-center justify-center rounded-lg text-[17px] font-semibold text-white"
-          style={{ backgroundColor: C.verde, fontFamily: "Sora, sans-serif" }}
-        >
-          Falar no WhatsApp
-        </a>
-      </div>
+      <SiteFooter mensagem={MENSAGEM_PADRAO} />
+      <BotaoWhatsAppFlutuante mensagem={MENSAGEM_PADRAO} />
     </div>
   );
 }
