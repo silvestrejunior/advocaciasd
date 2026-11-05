@@ -21,6 +21,15 @@ type SeoProps = {
   imagemAltura?: number;
   /** Dados estruturados (schema.org) específicos da página. */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /**
+   * Origem pública usada na canônica e no og:url quando a página tem endereço
+   * próprio. Sem esta prop, vale o domínio principal do site.
+   */
+  origemCanonica?: string;
+  /** Região e cidade para as metatags de geolocalização. */
+  geo?: { regiao: string; cidade: string };
+  /** Área de atendimento declarada no LegalService do escritório. */
+  areaAtendimento?: { tipo: "City" | "State" | "Country"; nome: string }[];
 };
 
 /** Teto do título completo: acima disto o Google costuma cortar o texto. */
@@ -80,10 +89,14 @@ export function Seo({
   imagemLargura,
   imagemAltura,
   jsonLd,
+  origemCanonica,
+  geo,
+  areaAtendimento,
 }: SeoProps) {
   useEffect(() => {
     const completo = tituloCompleto(titulo);
-    const url = `${SITE.dominio}${caminho}`;
+    const origem = origemCanonica ?? SITE.dominio;
+    const url = `${origem}${caminho}`;
     const imagemPagina = imagem
       ? `${SITE.dominio}${imagem}`
       : `${SITE.dominio}/images/og-image.jpg`;
@@ -120,6 +133,16 @@ export function Seo({
     upsertMeta("name", "twitter:image", imagemPagina);
     upsertMeta("name", "twitter:image:alt", textoAlternativoImagem);
 
+    // Geolocalização: declarada nas páginas que atendem uma região específica.
+    // Fora delas, as marcas são removidas para não vazar para outras rotas.
+    if (geo) {
+      upsertMeta("name", "geo.region", geo.regiao);
+      upsertMeta("name", "geo.placename", geo.cidade);
+    } else {
+      document.head.querySelector('meta[name="geo.region"]')?.remove();
+      document.head.querySelector('meta[name="geo.placename"]')?.remove();
+    }
+
     const marcaId = "jsonld-pagina";
     document.getElementById(marcaId)?.remove();
 
@@ -145,7 +168,12 @@ export function Seo({
         telephone: `+${SITE.whatsapp}`,
         email: SITE.email,
         openingHours: "Mo-Fr 09:00-17:00",
-        areaServed: { "@type": "Country", name: "Brasil" },
+        areaServed: areaAtendimento
+          ? areaAtendimento.map(area => ({
+              "@type": area.tipo,
+              name: area.nome,
+            }))
+          : { "@type": "Country", name: "Brasil" },
         sameAs: [SITE.youtube],
         knowsAbout: [
           "Aposentadoria por idade",
@@ -194,6 +222,9 @@ export function Seo({
     imagemAlt,
     imagemLargura,
     imagemAltura,
+    origemCanonica,
+    geo,
+    areaAtendimento,
   ]);
 
   return null;

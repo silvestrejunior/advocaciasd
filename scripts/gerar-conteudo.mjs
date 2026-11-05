@@ -38,6 +38,17 @@ const ROTAS_BASE = [
     path: "/aposentadoria-especial-saude",
     title: "Aposentadoria especial na saúde",
   },
+  {
+    // Rota alternativa de campanha: entra no manifesto para ser pré-renderizada,
+    // mas fica fora do sitemap para não duplicar a página principal.
+    path: "/aposentadoria-saude",
+    title: "Aposentadoria especial na saúde — campanha",
+    noSitemap: true,
+  },
+  {
+    path: "/aposentadoria-acs-ace",
+    title: "Aposentadoria ACS e ACE (EC 140/2026)",
+  },
   { path: "/aposentadoria-negada", title: "Aposentadoria negada" },
   { path: "/pericia-negada", title: "Perícia negada" },
   {
@@ -158,14 +169,20 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${[
   url("/", "1.0", "weekly", hoje),
-  ...ROTAS_BASE.slice(1).map(rota =>
-    url(
-      rota.path,
-      rota.path === "/servicos" || rota.path === "/cuidados" ? "0.9" : "0.8",
-      "monthly",
-      hoje
-    )
-  ),
+  ...ROTAS_BASE.filter(rota => !rota.noSitemap)
+    .slice(1)
+    .map(rota =>
+      url(
+        rota.path,
+        rota.path === "/servicos" ||
+          rota.path === "/cuidados" ||
+          rota.path === "/aposentadoria-acs-ace"
+          ? "0.9"
+          : "0.8",
+        "monthly",
+        hoje
+      )
+    ),
   url("/blog", "0.9", "weekly", ultimaAtualizacao),
   ...artigos.map(artigo =>
     url(`/blog/${artigo.slug}`, "0.7", "monthly", artigo.publicado)

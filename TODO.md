@@ -170,3 +170,20 @@
 - [x] Remover a restrição de zoom em dispositivos móveis; ampliar áreas de toque dos links e controles apontados, com foco visível e nome acessível coerente no WhatsApp.
 - [x] Otimizar carregamento de Playfair Display e Inter e reservar dimensões das imagens para eliminar deslocamentos tardios; buscar CLS zero na rota de saúde e registrar a medição real, sem prometer zero em todos os dispositivos/conexões.
 - [x] Manter conteúdo, rotas de campanha e canonical existentes; regenerar HTML pré-renderizado e deixar publicação automática desativada. O checkpoint final será identificado pelo commit aceito no histórico de versões, sem publicar a correção automaticamente.
+## Campanha `/aposentadoria-acs-ace` (EC 140/2026)
+
+- [ ] Página publicada em /aposentadoria-acs-ace com identidade própria: azul-chumbo #32414E, azul médio #0066AD, ciano #00AEEF só em elementos gráficos, fundo #F4F7F9, faixa escura #22303B e WhatsApp #1F8F4E; Sora nos títulos e Source Sans 3 no texto, com no mínimo 17px no texto de leitura, sem fotos de banco de imagens, sem ícones genéricos e sem emojis.
+- [ ] Cabeçalho com o logo oficial (sem recriar), link para a página inicial e alt text, botão "Falar no WhatsApp" à direita e só o logo no celular; barra fixa no rodapé do celular com o botão de WhatsApp.
+- [ ] Topo em duas colunas com a chamada "EMENDA CONSTITUCIONAL 140/2026 · ACS E ACE", o H1 definido, os dois botões ("Quero analisar meu caso" no WhatsApp e "Simular minha aposentadoria" para a âncora) e os quatro selos de credibilidade.
+- [ ] Quadro escuro "Idade mínima na regra de transição" com a tabela de requisitos cumpridos (até 31/12/2030, 2031 a 2035, 2036 a 2040, a partir de 2041), linha de 50/52 destacada e a nota dos 25 anos com a redução de 1 ano por ano excedente.
+- [ ] Seção "O que mudou" com os três caminhos (idade, pontos e regra definitiva), os números 50/52, 83/86 e 57/60, a linha das idades anteriores riscada e a fonte citada com link em nova aba.
+- [ ] Simulador em /aposentadoria-acs-ace#simulador com os campos definidos, resultado ao vivo sem botão de calcular, as duas linhas de comparação, o aviso de conta aproximada e o botão que abre o WhatsApp com a mensagem preenchida; nenhum dado é enviado ou guardado.
+- [ ] Caso de teste do briefing confirmado: mulher, 47 anos, 20 como agente e 22 de contribuição resulta em 2031 pela transição por idade (aos 52) e 2039 pela transição por pontos (aos 60).
+- [ ] Simulador troca o resultado pela frase de revisão quando o vínculo é "Já sou aposentado" e acrescenta a nota de efetivação até 31/12/2028 no contrato temporário.
+- [ ] Seções "Quem tem direito" (lista com check e quadro "Tempo que também conta"), "Valor da aposentadoria" (dois quadros e faixa "O que entra no cálculo"), "Afastamento e invalidez", "Vínculo precário", faixa escura "Já aposentado", "Documentos", "Como trabalhamos" em quatro etapas, dúvidas frequentes em acordeão e chamada final com WhatsApp e e-mail.
+- [ ] Rodapé em #32414E com responsável técnico e OAB, endereço, link da fonte, aviso do Provimento 205/2021, menção à LGPD e link da Política de Privacidade.
+- [ ] SEO conforme o briefing: title e description definidos, canônica https://advocaciasd.com.br/aposentadoria-acs-ace, um único H1, H2 por seção, palavras-chave distribuídas no texto, Open Graph com pt_BR, geo BR-PR/Maringá, JSON-LD com LegalService (Maringá e Paraná), WebPage e FAQPage, link interno para a página inicial e alt no logo.
+- [ ] Página testada em 390px sem rolagem lateral, com todos os botões abrindo o WhatsApp certo e os links da fonte abrindo o artigo.
+- [ ] Sem promessa de resultado, sem "garantido", sem depoimentos, números de casos, preços ou honorários, e sem formulário que colete dados.
+- [ ] Revisão da EC 140/2026 conferida contra o texto oficial e divergências do briefing registradas em docs/revisao-ec140-2026.md para decisão do advogado.
+- [ ] Prévia entregue para aprovação, sem publicação.

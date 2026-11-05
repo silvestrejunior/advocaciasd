@@ -52,6 +52,21 @@ function preparar(html, arquivo) {
       '<link rel="preload" as="image" href="/images/saude-hero.webp" fetchpriority="high">\n</head>'
     );
   }
+  // A campanha de ACS e ACE tem identidade tipográfica própria: só ela usa
+  // Sora e Source Sans 3, então só ela pré-carrega esses arquivos.
+  if (arquivo === "aposentadoria-acs-ace.html") {
+    // Playfair não é usada nesta rota: o preload sairia competindo com as
+    // fontes da campanha sem nunca ser aproveitado.
+    html = html.replace(
+      /<link\b[^>]*href="\/fonts\/playfair-display-latin-wght-normal\.woff2"[^>]*>/g,
+      ""
+    );
+    html = html.replace(
+      "</head>",
+      '<link rel="preload" as="font" type="font/woff2" href="/fonts-acs/sora-latin.woff2" crossorigin>\n' +
+        '<link rel="preload" as="font" type="font/woff2" href="/fonts-acs/source-sans-3-latin.woff2" crossorigin>\n</head>'
+    );
+  }
   return (
     html
       // remove os marcadores de edição visual da prévia, que não pertencem ao
