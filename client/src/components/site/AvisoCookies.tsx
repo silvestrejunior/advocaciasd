@@ -50,11 +50,15 @@ export function AvisoCookies() {
   };
 
   return (
-    // O invólucro não intercepta cliques: assim o botão do WhatsApp, que fica
-    // no canto inferior direito, continua acessível enquanto o aviso está na tela.
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 p-3 sm:p-4">
-      <div className="pointer-events-auto mx-auto flex max-w-5xl flex-col gap-3 rounded-xl border border-white/10 bg-[#0b1f37]/95 px-4 py-3 text-xs text-slate-200/90 shadow-2xl backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pr-24 sm:text-[13px]">
-        <p className="pr-20 leading-relaxed sm:pr-0">
+    // A faixa fica acima de toda a área do flutuante, inclusive em tablet e
+    // com zoom. Não depende de medir a altura por JavaScript nem cobre as ações.
+    <div
+      role="region"
+      aria-label="Preferências de cookies"
+      className="pointer-events-none fixed inset-x-0 bottom-[calc(6.5rem+env(safe-area-inset-bottom,0px))] z-30 p-3 sm:p-4"
+    >
+      <div className="pointer-events-auto mx-auto flex max-w-5xl flex-col gap-3 rounded-xl border border-white/10 bg-[#0b1f37]/95 px-4 py-3 text-[13px] text-slate-100 shadow-2xl backdrop-blur lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+        <p className="leading-relaxed">
           Usamos cookies para medir o desempenho do site e dos nossos anúncios.
           Saiba mais na{" "}
           <Link
@@ -65,18 +69,18 @@ export function AvisoCookies() {
           </Link>
           .
         </p>
-        <div className="flex flex-shrink-0 items-center gap-2 pr-20 sm:pr-0">
+        <div className="flex flex-shrink-0 flex-wrap items-center gap-3">
           <button
             type="button"
             onClick={() => escolher("recusado")}
-            className="rounded-lg border border-white/25 px-4 py-2 text-xs font-semibold text-slate-100 transition hover:border-white/50 hover:bg-white/5"
+            className="min-h-11 min-w-24 flex-1 rounded-lg border border-white/40 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/70 hover:bg-white/10 sm:flex-none"
           >
             Recusar
           </button>
           <button
             type="button"
             onClick={() => escolher("aceito")}
-            className="rounded-lg bg-cyan-400 px-4 py-2 text-xs font-bold text-[#0b1f37] transition hover:bg-cyan-300"
+            className="min-h-11 min-w-24 flex-1 rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-[#0b1f37] transition hover:bg-cyan-300 sm:flex-none"
           >
             Aceitar
           </button>

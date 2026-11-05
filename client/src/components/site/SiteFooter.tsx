@@ -8,12 +8,18 @@ export function SiteFooter({
   const ano = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0b1f37] text-sm text-slate-300/80">
+    <footer className="site-footer bg-[#0b1f37] text-sm text-slate-300">
       <div className="container mx-auto px-4 py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <img src={SITE.logoClaro} alt="" className="h-12 w-auto" />
+              <img
+                src={SITE.logoClaro}
+                alt=""
+                width={512}
+                height={512}
+                className="h-12 w-12 object-contain"
+              />
               <span className="leading-tight">
                 <span className="block font-['Playfair_Display'] text-lg font-bold text-white">
                   {SITE.nome}
@@ -28,7 +34,7 @@ export function SiteFooter({
               {SITE.experiencia} de experiência em aposentadorias e benefícios
               do INSS e de regimes próprios de servidores públicos.
             </p>
-            <p className="mt-4 text-xs text-blue-200/60">
+            <p className="mt-4 text-xs text-blue-200">
               {SITE.responsavel} — {SITE.oab}
             </p>
           </div>
@@ -132,7 +138,7 @@ export function SiteFooter({
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-blue-200/60 md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-blue-200 md:flex-row md:items-center md:justify-between">
           <span>
             © {ano} {SITE.nomeCompleto}. Todos os direitos reservados.
           </span>

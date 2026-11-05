@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./styles/fonts.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -426,5 +427,28 @@ section {
   .caso-card:hover,
   .caso-card:hover .caso-card-foto {
     transform: none;
+  }
+}
+
+/* Acessibilidade: foco de duas cores legível sobre superfícies claras e escuras. */
+a[href]:focus-visible,
+button:focus-visible {
+  outline: 3px solid #0e7490;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+/* Links pequenos do rodapé passam a ter uma área clicável real, não só texto. */
+.site-footer a[href] {
+  display: inline-flex;
+  min-height: 32px;
+  max-width: 100%;
+  align-items: center;
+  border-radius: 4px;
+}
+
+@media (max-width: 1023px), (pointer: coarse) {
+  .site-footer a[href] {
+    min-height: 44px;
   }
 }

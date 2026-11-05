@@ -42,12 +42,14 @@ export function SiteHeader({
         solido ? "bg-white/95 shadow-lg backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center gap-6 px-4 py-3 lg:py-4">
+      <div className="container mx-auto flex items-center gap-3 px-4 py-3 sm:gap-6 lg:py-4">
         <Link href="/" className="flex flex-shrink-0 items-center gap-3">
           <img
             src={solido ? SITE.logo : SITE.logoClaro}
             alt={`${SITE.nomeCompleto} — logotipo`}
-            className="h-11 w-auto"
+            width={512}
+            height={512}
+            className="h-11 w-11 object-contain"
           />
           <span className="leading-tight">
             <span
@@ -59,7 +61,7 @@ export function SiteHeader({
             </span>
             <span
               className={`block text-[10px] font-semibold tracking-[0.28em] ${
-                solido ? "text-cyan-600" : "text-cyan-300"
+                solido ? "text-cyan-700" : "text-cyan-300"
               }`}
             >
               ADVOCACIA
@@ -83,7 +85,7 @@ export function SiteHeader({
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-[13.5px] font-semibold transition-colors ${
+                  className={`flex min-h-11 items-center gap-1.5 rounded-lg px-3 py-2 text-[13.5px] font-semibold transition-colors ${
                     solido
                       ? ativo
                         ? "text-cyan-700"
@@ -130,7 +132,7 @@ export function SiteHeader({
             href={whatsapp(mensagem)}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 flex items-center gap-2 rounded-full bg-green-500 px-4 py-2.5 text-[13.5px] font-bold text-white transition-colors hover:bg-green-600"
+            className="ml-2 flex min-h-11 items-center gap-2 rounded-full bg-green-500 px-4 py-2.5 text-[13.5px] font-bold text-brand-950 transition-colors hover:bg-green-400"
           >
             <Phone size={15} />
             WhatsApp
@@ -143,7 +145,7 @@ export function SiteHeader({
           onClick={() => setMenuAberto(v => !v)}
           aria-expanded={menuAberto}
           aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
-          className={`ml-auto rounded-lg p-2 lg:hidden ${
+          className={`ml-auto flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg p-2 lg:hidden ${
             solido ? "text-brand-800" : "text-white"
           }`}
         >
@@ -158,7 +160,7 @@ export function SiteHeader({
             <div key={item.label} className="border-b border-slate-100 py-3">
               <Link
                 href={item.href}
-                className="block text-[15px] font-semibold text-brand-800"
+                className="flex min-h-11 items-center text-[15px] font-semibold text-brand-800"
               >
                 {item.label}
               </Link>
@@ -168,7 +170,7 @@ export function SiteHeader({
                     <Link
                       key={filho.href + filho.label}
                       href={filho.href}
-                      className="block py-1 text-[13.5px] text-slate-600"
+                      className="flex min-h-11 items-center py-2 text-[13.5px] text-slate-600"
                     >
                       {filho.label}
                     </Link>
@@ -181,7 +183,7 @@ export function SiteHeader({
             href={whatsapp(mensagem)}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-green-500 px-4 py-3 text-sm font-bold text-white"
+            className="mt-5 flex min-h-11 items-center justify-center gap-2 rounded-lg bg-green-500 px-4 py-3 text-sm font-bold text-brand-950"
           >
             <Phone size={16} />
             Falar no WhatsApp

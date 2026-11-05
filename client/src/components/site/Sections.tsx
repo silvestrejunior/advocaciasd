@@ -38,7 +38,7 @@ export function TituloSecao({
       {sobretitulo && (
         <p
           className={`text-xs font-bold uppercase tracking-[0.2em] ${
-            claro ? "text-cyan-300" : "text-cyan-600"
+            claro ? "text-cyan-300" : "text-cyan-700"
           }`}
         >
           {sobretitulo}
@@ -230,7 +230,7 @@ export function Perguntas({ itens }: { itens: PerguntaFrequente[] }) {
               aria-expanded={ativa}
               aria-controls={`faq-resposta-${i}`}
               id={`faq-pergunta-${i}`}
-              className="flex w-full items-start justify-between gap-6 py-5 text-left"
+              className="flex min-h-11 w-full items-start justify-between gap-6 rounded-sm py-5 text-left"
             >
               <span className="font-['Playfair_Display'] text-[17px] font-bold leading-snug text-brand-800">
                 {item.pergunta}
@@ -281,7 +281,7 @@ export function FaixaCta({
             href={whatsapp(mensagem)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-green-500 px-7 py-4 text-[15px] font-bold text-white transition-colors hover:bg-green-600"
+            className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-green-500 px-7 py-4 text-[15px] font-bold text-brand-950 transition-colors hover:bg-green-400"
           >
             <Phone size={17} />
             Falar no WhatsApp
@@ -345,8 +345,8 @@ export function BotaoWhatsApp({
       href={whatsapp(mensagem)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Falar no WhatsApp"
-      className="pulsar-whatsapp group fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-[#25D366] py-2 pl-2.5 pr-3.5 text-white shadow-2xl shadow-green-900/30 transition-transform hover:scale-105 md:bottom-7 md:right-7 md:py-2.5 md:pl-3 md:pr-5"
+      aria-label="Fale no WhatsApp"
+      className="pulsar-whatsapp whatsapp-flutuante group fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-[calc(1.25rem+env(safe-area-inset-right,0px))] z-40 flex min-h-14 items-center gap-3 rounded-full bg-[#25D366] py-2 pl-2.5 pr-3.5 text-brand-950 shadow-2xl shadow-green-900/30 transition-transform hover:scale-105 md:bottom-[calc(1.75rem+env(safe-area-inset-bottom,0px))] md:right-[calc(1.75rem+env(safe-area-inset-right,0px))] md:py-2.5 md:pl-3 md:pr-5"
     >
       <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/20 md:h-12 md:w-12">
         <Phone size={24} />
@@ -377,7 +377,10 @@ export function Trilha({
           <li key={item.label} className="flex items-center gap-1.5">
             {i > 0 && <ChevronRight size={13} className="opacity-60" />}
             {item.href ? (
-              <Link href={item.href} className="hover:text-cyan-300">
+              <Link
+                href={item.href}
+                className="inline-flex min-h-8 items-center rounded-sm hover:text-cyan-300"
+              >
                 {item.label}
               </Link>
             ) : (

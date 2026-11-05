@@ -315,378 +315,390 @@ export default function AposentadoriaEspecialSaude() {
       />
       <SiteHeader sobreHeroEscuro mensagem={MENSAGEM_SAUDE} />
 
-      {/* --------------------------------------------------------- Bloco 1 */}
-      <section className="relative isolate overflow-hidden bg-brand-950 pb-16 pt-36 text-white md:pb-20 md:pt-44">
-        <img
-          src="/images/saude-hero.webp"
-          alt="Profissional de enfermagem de 55 anos em ambiente hospitalar"
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-[72%_center] opacity-60 md:object-center"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950 via-brand-950/92 to-brand-900/55" />
-        <div className="container mx-auto px-4">
-          <Trilha itens={TRILHA} />
-          <p className="mt-7 text-[11.5px] font-bold uppercase tracking-[0.18em] text-cyan-300">
-            Profissionais da saúde
-          </p>
-          <h1 className="mt-4 max-w-4xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
-            <span className="text-cyan-300">
-              Aposentadoria especial na saúde
-            </span>
-            : o que conta no seu tempo de trabalho.
-          </h1>
-          <p className="mt-6 max-w-2xl text-[18px] leading-relaxed text-cyan-100">
-            Quem trabalha em hospital, clínica, laboratório ou consultório, em
-            contato com pacientes ou material contaminado, pode ter direito à{" "}
-            <Link
-              href="/aposentadoria-especial"
-              className="underline decoration-cyan-400/60 underline-offset-4 hover:text-white"
-            >
-              aposentadoria especial
-            </Link>{" "}
-            com 25 anos de exposição a agentes biológicos. Desde a decisão do
-            Supremo em 2026, não se exige idade mínima.
-          </p>
-          <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-slate-200/90">
-            O que decide o pedido não é o nome do cargo nem o adicional de
-            insalubridade no holerite. É o que o PPP e os documentos mostram
-            sobre cada vínculo: o setor, as tarefas e a exposição no dia a dia.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href={WHATSAPP_SAUDE}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
-            >
-              <Phone size={17} />
-              Quero saber se o meu caso é analisável
-            </a>
-            <Link
-              href="/seu-caso"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/10 px-7 py-4 text-[15px] font-bold text-white hover:bg-white/20"
-            >
-              Descubra o seu caso
-            </Link>
-          </div>
-          <p className="mt-5 text-[14px] leading-relaxed text-slate-300/80">
-            Você não precisa enviar documentos neste primeiro contato.
-          </p>
-        </div>
-      </section>
-
-      {/* --------------------------------------------------------- Bloco 2 */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <TituloSecao
-            sobretitulo="Quem pode ter direito"
-            titulo="Profissões da saúde que analisamos"
+      <main id="conteudo-principal">
+        {/* --------------------------------------------------------- Bloco 1 */}
+        <section className="relative isolate overflow-hidden bg-brand-950 pb-16 pt-36 text-white md:pb-20 md:pt-44">
+          <img
+            src="/images/saude-hero.webp"
+            alt="Profissional de enfermagem de 55 anos em ambiente hospitalar"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-[72%_center] opacity-60 md:object-center"
           />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {PROFISSOES.map(profissao => (
-              <article
-                key={profissao.nome}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 border-t-4 border-t-cyan-500 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-lg"
-              >
-                <div className="relative h-36 overflow-hidden md:h-40">
-                  <img
-                    src={profissao.imagem}
-                    alt={profissao.imagemAlt}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-950/75 via-brand-900/20 to-transparent" />
-                  <div className="absolute inset-0 bg-brand-950/12" />
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="font-['Playfair_Display'] text-[18px] font-bold leading-snug text-brand-800">
-                    {profissao.nome}
-                  </h3>
-                  <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-700">
-                    {profissao.linha}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-slate-600">
-            A profissão é o ponto de partida. O direito depende do que você
-            fazia em cada período e de como isso está registrado.
-          </p>
-        </div>
-      </section>
-
-      {/* --------------------------------------------------------- Bloco 3 */}
-      <section className="border-y border-slate-100 bg-slate-50 py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <TituloSecao titulo="O setor pesa tanto quanto a profissão" />
-          <p className="mt-6 max-w-3xl text-[16px] leading-relaxed text-slate-700">
-            O mesmo cargo pode ter exposições bem diferentes conforme o lugar.
-            Por isso pedimos que você conte onde trabalhou e o que fazia na
-            prática.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-2.5">
-            {SETORES.map(setor => (
-              <span
-                key={setor}
-                className="rounded-full border border-slate-300 bg-white px-4 py-2 text-[13.5px] font-semibold text-slate-700"
-              >
-                {setor}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950 via-brand-950/92 to-brand-900/55" />
+          <div className="container mx-auto px-4">
+            <Trilha itens={TRILHA} />
+            <p className="mt-7 text-[11.5px] font-bold uppercase tracking-[0.18em] text-cyan-300">
+              Profissionais da saúde
+            </p>
+            <h1 className="mt-4 max-w-4xl font-['Playfair_Display'] text-4xl font-bold leading-tight md:text-5xl">
+              <span className="text-cyan-300">
+                Aposentadoria especial na saúde
               </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --------------------------------------------------------- Bloco 4 */}
-      <section id="mudancas" className="scroll-mt-24 py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <TituloSecao
-            sobretitulo="Últimas mudanças"
-            titulo="O que mudou no direito à aposentadoria especial"
-            texto="As decisões recentes que alteram a forma de analisar o tempo especial, com o que cada uma significa na prática — e o que continua igual."
-          />
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {MUDANCAS.map(mudanca => (
-              <article
-                key={mudanca.titulo}
-                className="flex h-full flex-col rounded-2xl border border-slate-200 border-t-4 border-t-cyan-500 bg-white p-7 shadow-sm"
+              : o que conta no seu tempo de trabalho.
+            </h1>
+            <p className="mt-6 max-w-2xl text-[18px] leading-relaxed text-cyan-100">
+              Quem trabalha em hospital, clínica, laboratório ou consultório, em
+              contato com pacientes ou material contaminado, pode ter direito à{" "}
+              <Link
+                href="/aposentadoria-especial"
+                className="underline decoration-cyan-400/60 underline-offset-4 hover:text-white"
               >
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-cyan-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-cyan-700">
-                    {mudanca.orgao}
-                  </span>
-                  <span className="text-[12.5px] text-slate-500">
-                    {mudanca.data}
-                  </span>
-                </div>
-                <h3 className="mt-4 font-['Playfair_Display'] text-[21px] font-bold leading-snug text-brand-800">
-                  {mudanca.titulo}
-                </h3>
-                <p className="mt-3 text-[14.5px] leading-relaxed text-slate-700">
-                  {mudanca.resumo}
-                </p>
-                <div className="mt-5 rounded-xl border-l-4 border-l-cyan-500 bg-slate-50 px-5 py-4">
-                  <h4 className="text-[11.5px] font-bold uppercase tracking-[0.16em] text-cyan-700">
-                    Na prática
-                  </h4>
-                  <ul className="mt-2.5 space-y-2">
-                    {mudanca.pratica.map(item => (
-                      <li
-                        key={item}
-                        className="flex gap-2.5 text-[14px] leading-relaxed text-slate-700"
-                      >
-                        <CheckCircle2
-                          size={16}
-                          className="mt-0.5 flex-shrink-0 text-cyan-600"
-                        />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                {mudanca.href ? (
-                  <Link
-                    href={mudanca.href}
-                    className="mt-5 inline-flex items-center gap-2 py-1 text-[13.5px] font-bold text-cyan-700 hover:text-cyan-800"
-                  >
-                    {mudanca.link}
-                    <ArrowRight size={15} />
-                  </Link>
-                ) : (
-                  <a
-                    href={WHATSAPP_SAUDE}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 py-1 text-[13.5px] font-bold text-cyan-700 hover:text-cyan-800"
-                  >
-                    {mudanca.link}
-                    <ArrowRight size={15} />
-                  </a>
-                )}
-              </article>
-            ))}
-          </div>
-          <p className="mt-6 text-[12.5px] leading-relaxed text-slate-500">
-            Referências conferidas em {REVISAO}. A aplicação ao seu caso depende
-            dos períodos trabalhados e da documentação de cada vínculo.
-          </p>
-        </div>
-      </section>
-
-      {/* --------------------------------------------------------- Bloco 5 */}
-      <section className="border-y border-slate-100 bg-slate-50 py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <TituloSecao titulo="Cada vínculo tem a sua análise" />
-          <ul className="mt-9 grid gap-5 lg:grid-cols-2">
-            {SITUACOES.map(situacao => (
-              <li
-                key={situacao.titulo}
-                className="rounded-2xl border border-slate-200 border-l-4 border-l-cyan-500 bg-white p-6"
+                aposentadoria especial
+              </Link>{" "}
+              com 25 anos de exposição a agentes biológicos. Desde a decisão do
+              Supremo em 2026, não se exige idade mínima.
+            </p>
+            <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-slate-200/90">
+              O que decide o pedido não é o nome do cargo nem o adicional de
+              insalubridade no holerite. É o que o PPP e os documentos mostram
+              sobre cada vínculo: o setor, as tarefas e a exposição no dia a
+              dia.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href={WHATSAPP_SAUDE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
               >
-                {situacao.href ? (
-                  <Link
-                    href={situacao.href}
-                    className="font-['Playfair_Display'] text-[18px] font-bold leading-snug text-brand-800 underline decoration-cyan-400 underline-offset-4 hover:text-cyan-700"
-                  >
-                    {situacao.titulo}
-                  </Link>
-                ) : (
-                  <h3 className="font-['Playfair_Display'] text-[18px] font-bold leading-snug text-brand-800">
-                    {situacao.titulo}
-                  </h3>
-                )}
-                <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-700">
-                  {situacao.texto}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* --------------------------------------------------------- Bloco 6 */}
-      <section
-        id="analise"
-        className="relative isolate scroll-mt-24 overflow-hidden bg-brand-950 py-16 text-white md:py-24"
-      >
-        <img
-          src="/images/especial-apoio.webp"
-          alt=""
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-center opacity-25"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950 via-brand-950/95 to-brand-900/80" />
-        <div className="container mx-auto px-4">
-          <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <p className="text-[11.5px] font-bold uppercase tracking-[0.18em] text-cyan-300">
-                Análise do seu caso
-              </p>
-              <h2 className="mt-4 font-['Playfair_Display'] text-3xl font-bold leading-tight md:text-[42px]">
-                Você não trabalhou a vida inteira pra aposentar de qualquer
-                jeito.
-              </h2>
-              <p className="mt-6 max-w-xl text-[16.5px] leading-relaxed text-slate-200/90">
-                Exposição que não aparece no papel costuma custar o benefício.
-                Conte em quais empresas você trabalhou e o que fazia na prática:
-                lemos o seu histórico, apontamos o que sustenta o seu tempo de
-                exposição e o que ainda precisa ser buscado — antes de qualquer
-                pedido.
-              </p>
-              <div className="mt-9 flex flex-wrap gap-4">
-                <a
-                  href={WHATSAPP_SAUDE}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
-                >
-                  <Phone size={17} />
-                  Quero falar sobre o meu caso
-                </a>
-                <Link
-                  href="/seu-caso"
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/10 px-7 py-4 text-[15px] font-bold text-white hover:bg-white/20"
-                >
-                  Descobrir o meu caso
-                </Link>
-              </div>
-              <p className="mt-6 text-[13.5px] leading-relaxed text-slate-300/80">
-                Você não precisa enviar documentos neste primeiro contato.
-                Atendimento em todo o Brasil, sem sair de casa.
-              </p>
+                <Phone size={17} />
+                Quero saber se o meu caso é analisável
+              </a>
+              <Link
+                href="/seu-caso"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/10 px-7 py-4 text-[15px] font-bold text-white hover:bg-white/20"
+              >
+                Descubra o seu caso
+              </Link>
             </div>
-            <ul className="grid gap-4">
-              {ETAPAS_CTA.map((etapa, indice) => (
-                <li
-                  key={etapa.titulo}
-                  className="flex gap-4 rounded-2xl border border-white/15 bg-white/5 p-5"
+            <p className="mt-5 text-[14px] leading-relaxed text-slate-300/80">
+              Você não precisa enviar documentos neste primeiro contato.
+            </p>
+          </div>
+        </section>
+
+        {/* --------------------------------------------------------- Bloco 2 */}
+        <section className="py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <TituloSecao
+              sobretitulo="Quem pode ter direito"
+              titulo="Profissões da saúde que analisamos"
+            />
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {PROFISSOES.map(profissao => (
+                <article
+                  key={profissao.nome}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 border-t-4 border-t-cyan-500 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-lg"
                 >
-                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-cyan-400 text-[15px] font-bold text-brand-950">
-                    {indice + 1}
-                  </span>
-                  <div>
-                    <h3 className="font-['Playfair_Display'] text-[18px] font-bold text-white">
-                      {etapa.titulo}
+                  <div className="relative h-36 overflow-hidden md:h-40">
+                    <img
+                      src={profissao.imagem}
+                      alt={profissao.imagemAlt}
+                      width={880}
+                      height={660}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-950/75 via-brand-900/20 to-transparent" />
+                    <div className="absolute inset-0 bg-brand-950/12" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-5">
+                    <h3 className="font-['Playfair_Display'] text-[18px] font-bold leading-snug text-brand-800">
+                      {profissao.nome}
                     </h3>
-                    <p className="mt-1.5 text-[14.5px] leading-relaxed text-slate-200/85">
-                      {etapa.texto}
+                    <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-700">
+                      {profissao.linha}
                     </p>
                   </div>
+                </article>
+              ))}
+            </div>
+            <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-slate-600">
+              A profissão é o ponto de partida. O direito depende do que você
+              fazia em cada período e de como isso está registrado.
+            </p>
+          </div>
+        </section>
+
+        {/* --------------------------------------------------------- Bloco 3 */}
+        <section className="border-y border-slate-100 bg-slate-50 py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <TituloSecao titulo="O setor pesa tanto quanto a profissão" />
+            <p className="mt-6 max-w-3xl text-[16px] leading-relaxed text-slate-700">
+              O mesmo cargo pode ter exposições bem diferentes conforme o lugar.
+              Por isso pedimos que você conte onde trabalhou e o que fazia na
+              prática.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              {SETORES.map(setor => (
+                <span
+                  key={setor}
+                  className="rounded-full border border-slate-300 bg-white px-4 py-2 text-[13.5px] font-semibold text-slate-700"
+                >
+                  {setor}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* --------------------------------------------------------- Bloco 4 */}
+        <section id="mudancas" className="scroll-mt-24 py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <TituloSecao
+              sobretitulo="Últimas mudanças"
+              titulo="O que mudou no direito à aposentadoria especial"
+              texto="As decisões recentes que alteram a forma de analisar o tempo especial, com o que cada uma significa na prática — e o que continua igual."
+            />
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+              {MUDANCAS.map(mudanca => (
+                <article
+                  key={mudanca.titulo}
+                  className="flex h-full flex-col rounded-2xl border border-slate-200 border-t-4 border-t-cyan-500 bg-white p-7 shadow-sm"
+                >
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="rounded-full bg-cyan-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-cyan-700">
+                      {mudanca.orgao}
+                    </span>
+                    <span className="text-[12.5px] text-slate-500">
+                      {mudanca.data}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-['Playfair_Display'] text-[21px] font-bold leading-snug text-brand-800">
+                    {mudanca.titulo}
+                  </h3>
+                  <p className="mt-3 text-[14.5px] leading-relaxed text-slate-700">
+                    {mudanca.resumo}
+                  </p>
+                  <div className="mt-5 rounded-xl border-l-4 border-l-cyan-500 bg-slate-50 px-5 py-4">
+                    <h4 className="text-[11.5px] font-bold uppercase tracking-[0.16em] text-cyan-700">
+                      Na prática
+                    </h4>
+                    <ul className="mt-2.5 space-y-2">
+                      {mudanca.pratica.map(item => (
+                        <li
+                          key={item}
+                          className="flex gap-2.5 text-[14px] leading-relaxed text-slate-700"
+                        >
+                          <CheckCircle2
+                            size={16}
+                            className="mt-0.5 flex-shrink-0 text-cyan-700"
+                          />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {mudanca.href ? (
+                    <Link
+                      href={mudanca.href}
+                      className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-sm py-2 text-[13.5px] font-bold text-cyan-700 hover:text-cyan-800"
+                    >
+                      {mudanca.link}
+                      <ArrowRight size={15} />
+                    </Link>
+                  ) : (
+                    <a
+                      href={WHATSAPP_SAUDE}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-sm py-2 text-[13.5px] font-bold text-cyan-700 hover:text-cyan-800"
+                    >
+                      {mudanca.link}
+                      <ArrowRight size={15} />
+                    </a>
+                  )}
+                </article>
+              ))}
+            </div>
+            <p className="mt-6 text-[12.5px] leading-relaxed text-slate-500">
+              Referências conferidas em {REVISAO}. A aplicação ao seu caso
+              depende dos períodos trabalhados e da documentação de cada
+              vínculo.
+            </p>
+          </div>
+        </section>
+
+        {/* --------------------------------------------------------- Bloco 5 */}
+        <section className="border-y border-slate-100 bg-slate-50 py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <TituloSecao titulo="Cada vínculo tem a sua análise" />
+            <ul className="mt-9 grid gap-5 lg:grid-cols-2">
+              {SITUACOES.map(situacao => (
+                <li
+                  key={situacao.titulo}
+                  className="rounded-2xl border border-slate-200 border-l-4 border-l-cyan-500 bg-white p-6"
+                >
+                  {situacao.href ? (
+                    <Link
+                      href={situacao.href}
+                      className="inline-flex min-h-11 items-center rounded-sm font-['Playfair_Display'] text-[18px] font-bold leading-snug text-brand-800 underline decoration-cyan-400 underline-offset-4 hover:text-cyan-700"
+                    >
+                      {situacao.titulo}
+                    </Link>
+                  ) : (
+                    <h3 className="font-['Playfair_Display'] text-[18px] font-bold leading-snug text-brand-800">
+                      {situacao.titulo}
+                    </h3>
+                  )}
+                  <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-700">
+                    {situacao.texto}
+                  </p>
                 </li>
               ))}
             </ul>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* --------------------------------------------------------- Bloco 7 */}
-      <section className="bg-slate-50 py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <TituloSecao
-            sobretitulo="Antes de decidir"
-            titulo="Perguntas frequentes de quem trabalha na saúde"
+        {/* --------------------------------------------------------- Bloco 6 */}
+        <section
+          id="analise"
+          className="relative isolate scroll-mt-24 overflow-hidden bg-brand-950 py-16 text-white md:py-24"
+        >
+          <img
+            src="/images/especial-apoio.webp"
+            alt=""
+            width={1500}
+            height={1125}
+            loading="lazy"
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-center opacity-25"
           />
-          <Perguntas itens={PERGUNTAS} />
-        </div>
-      </section>
-
-      {/* --------------------------------------------------------- Bloco 8 */}
-      <section className="relative isolate overflow-hidden bg-brand-950 py-16 text-white md:py-20">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-brand-950 via-brand-900 to-brand-950" />
-        <div className="container mx-auto px-4">
-          <h2 className="max-w-3xl font-['Playfair_Display'] text-3xl font-bold leading-tight md:text-[40px]">
-            Cuidar dos outros não pode custar o seu tempo especial.
-          </h2>
-          <p className="mt-6 max-w-2xl text-[16.5px] leading-relaxed text-slate-200/90">
-            Conte onde você trabalhou e o que fazia. Lemos o seu histórico e
-            dizemos o que sustenta o seu tempo especial e o que ainda falta,
-            antes de qualquer pedido.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <a
-              href={WHATSAPP_SAUDE}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
-            >
-              <Phone size={17} />
-              Quero falar sobre o meu caso
-            </a>
-            <Link
-              href="/blog/agentes-biologicos-na-saude-tempo-especial"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/10 px-7 py-4 text-[15px] font-bold text-white hover:bg-white/20"
-            >
-              Ler o artigo sobre agentes biológicos
-            </Link>
-          </div>
-          <p className="mt-6 text-[13.5px] leading-relaxed text-slate-300/80">
-            Você não precisa enviar documentos neste primeiro contato.
-            Atendimento em Maringá e em todo o Brasil, sem sair de casa.
-          </p>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------ Veja também */}
-      <section className="py-14 md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="rounded-2xl border border-slate-200 bg-white p-6">
-            <h2 className="text-[11.5px] font-bold uppercase tracking-[0.16em] text-cyan-700">
-              Veja também
-            </h2>
-            <div className="mt-4 flex flex-wrap gap-2.5">
-              {TEMAS_RELACIONADOS.map(tema => (
-                <Link
-                  key={tema.href}
-                  href={tema.href}
-                  className="rounded-full border border-slate-300 px-4 py-2 text-[13px] font-semibold text-slate-700 transition-colors hover:border-cyan-400 hover:bg-cyan-50 hover:text-brand-800"
-                >
-                  {tema.nome}
-                </Link>
-              ))}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950 via-brand-950/95 to-brand-900/80" />
+          <div className="container mx-auto px-4">
+            <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+              <div>
+                <p className="text-[11.5px] font-bold uppercase tracking-[0.18em] text-cyan-300">
+                  Análise do seu caso
+                </p>
+                <h2 className="mt-4 font-['Playfair_Display'] text-3xl font-bold leading-tight md:text-[42px]">
+                  Você não trabalhou a vida inteira pra aposentar de qualquer
+                  jeito.
+                </h2>
+                <p className="mt-6 max-w-xl text-[16.5px] leading-relaxed text-slate-200/90">
+                  Exposição que não aparece no papel costuma custar o benefício.
+                  Conte em quais empresas você trabalhou e o que fazia na
+                  prática: lemos o seu histórico, apontamos o que sustenta o seu
+                  tempo de exposição e o que ainda precisa ser buscado — antes
+                  de qualquer pedido.
+                </p>
+                <div className="mt-9 flex flex-wrap gap-4">
+                  <a
+                    href={WHATSAPP_SAUDE}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
+                  >
+                    <Phone size={17} />
+                    Quero falar sobre o meu caso
+                  </a>
+                  <Link
+                    href="/seu-caso"
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/10 px-7 py-4 text-[15px] font-bold text-white hover:bg-white/20"
+                  >
+                    Descobrir o meu caso
+                  </Link>
+                </div>
+                <p className="mt-6 text-[13.5px] leading-relaxed text-slate-300/80">
+                  Você não precisa enviar documentos neste primeiro contato.
+                  Atendimento em todo o Brasil, sem sair de casa.
+                </p>
+              </div>
+              <ul className="grid gap-4">
+                {ETAPAS_CTA.map((etapa, indice) => (
+                  <li
+                    key={etapa.titulo}
+                    className="flex gap-4 rounded-2xl border border-white/15 bg-white/5 p-5"
+                  >
+                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-cyan-400 text-[15px] font-bold text-brand-950">
+                      {indice + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-['Playfair_Display'] text-[18px] font-bold text-white">
+                        {etapa.titulo}
+                      </h3>
+                      <p className="mt-1.5 text-[14.5px] leading-relaxed text-slate-200/85">
+                        {etapa.texto}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* --------------------------------------------------------- Bloco 7 */}
+        <section className="bg-slate-50 py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <TituloSecao
+              sobretitulo="Antes de decidir"
+              titulo="Perguntas frequentes de quem trabalha na saúde"
+            />
+            <Perguntas itens={PERGUNTAS} />
+          </div>
+        </section>
+
+        {/* --------------------------------------------------------- Bloco 8 */}
+        <section className="relative isolate overflow-hidden bg-brand-950 py-16 text-white md:py-20">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-brand-950 via-brand-900 to-brand-950" />
+          <div className="container mx-auto px-4">
+            <h2 className="max-w-3xl font-['Playfair_Display'] text-3xl font-bold leading-tight md:text-[40px]">
+              Cuidar dos outros não pode custar o seu tempo especial.
+            </h2>
+            <p className="mt-6 max-w-2xl text-[16.5px] leading-relaxed text-slate-200/90">
+              Conte onde você trabalhou e o que fazia. Lemos o seu histórico e
+              dizemos o que sustenta o seu tempo especial e o que ainda falta,
+              antes de qualquer pedido.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <a
+                href={WHATSAPP_SAUDE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-7 py-4 text-[15px] font-bold text-brand-950 hover:bg-cyan-300"
+              >
+                <Phone size={17} />
+                Quero falar sobre o meu caso
+              </a>
+              <Link
+                href="/blog/agentes-biologicos-na-saude-tempo-especial"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/10 px-7 py-4 text-[15px] font-bold text-white hover:bg-white/20"
+              >
+                Ler o artigo sobre agentes biológicos
+              </Link>
+            </div>
+            <p className="mt-6 text-[13.5px] leading-relaxed text-slate-300/80">
+              Você não precisa enviar documentos neste primeiro contato.
+              Atendimento em Maringá e em todo o Brasil, sem sair de casa.
+            </p>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------ Veja também */}
+        <section className="py-14 md:py-16">
+          <div className="container mx-auto px-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h2 className="text-[11.5px] font-bold uppercase tracking-[0.16em] text-cyan-700">
+                Veja também
+              </h2>
+              <div className="mt-4 flex flex-wrap gap-2.5">
+                {TEMAS_RELACIONADOS.map(tema => (
+                  <Link
+                    key={tema.href}
+                    href={tema.href}
+                    className="inline-flex min-h-11 items-center rounded-full border border-slate-300 px-4 py-2 text-[13px] font-semibold text-slate-700 transition-colors hover:border-cyan-400 hover:bg-cyan-50 hover:text-brand-800"
+                  >
+                    {tema.nome}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
 
       <SiteFooter mensagem={MENSAGEM_SAUDE} />
       <BotaoWhatsApp mensagem={MENSAGEM_SAUDE} />

@@ -162,3 +162,11 @@
 - [x] Frase final com link no artigo sobre agentes biológicos e cartão discreto na página de aposentadoria especial.
 - [x] Links internos, acordeão, dados estruturados (FAQPage e LegalService com nome e endereço), sitemap e manifesto conferidos.
 - [ ] Publicar somente depois da aprovação do usuário.
+
+## Correções de usabilidade e estabilidade — 05/11/2026
+
+- [x] Corrigir a sobreposição entre WhatsApp flutuante e aviso de cookies, especialmente em 768 px, mantendo Recusar e Aceitar acessíveis por toque, teclado e zoom; manter mensagens de WhatsApp e escolhas de consentimento existentes.
+- [x] Ajustar contraste dos rótulos ciano e do texto dos botões de WhatsApp para leitura acessível, preservando azul profundo, verde de identificação e conteúdo existente.
+- [x] Remover a restrição de zoom em dispositivos móveis; ampliar áreas de toque dos links e controles apontados, com foco visível e nome acessível coerente no WhatsApp.
+- [x] Otimizar carregamento de Playfair Display e Inter e reservar dimensões das imagens para eliminar deslocamentos tardios; buscar CLS zero na rota de saúde e registrar a medição real, sem prometer zero em todos os dispositivos/conexões.
+- [x] Manter conteúdo, rotas de campanha e canonical existentes; regenerar HTML pré-renderizado e deixar publicação automática desativada. O checkpoint final será identificado pelo commit aceito no histórico de versões, sem publicar a correção automaticamente.
