@@ -139,3 +139,18 @@ medição anterior nas mesmas páginas:
 
 SEO técnico: 100 em todas as rotas medidas. Evidências em
 /home/ubuntu/advocacia/auditoria-final-2026-11-06/pos-publicacao/.
+
+## Correção da foto do banner — 06/11/2026 (commit 185299d)
+
+A otimização anterior converteu o retrato do banner de RGBA para RGB e o fundo
+transparente (53% da imagem) passou a aparecer preto. A imagem foi refeita a partir do
+arquivo original, com transparência preservada e duas resoluções:
+
+- /images/advogado-banner.webp — 720x995, RGBA, 151 KB (computador, 2x dos 360 px exibidos)
+- /images/advogado-banner-600.webp — 600x829, RGBA, 108 KB (celular, 2x dos 300 px exibidos)
+
+O banner passou a usar `srcset`/`sizes` e o pré-carregamento da home usa `imagesrcset`, de
+modo que o celular baixa a variante de 600 px. Conferido no ar: variante correta por
+tamanho de tela, alfa preservado e foto integrada ao fundo do banner. Home no celular:
+desempenho 74, LCP 3,8 s, CLS 0 (antes da correção: 76 com a imagem defeituosa e 60 na
+medição original).
