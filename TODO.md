@@ -194,5 +194,6 @@
 - [x] Banner sem nome e dados pessoais, apenas "Atendemos Servidores Públicos e INSS" e "Atendemos em todo o Brasil" em destaque.
 - [x] Mensagem do WhatsApp desta página: "Quero falar com um advogado sobre a aposentadoria do ACS ou ACE.".
 - [x] Mensagem do WhatsApp da página da saúde: "Sou da área da saúde e quero falar com um advogado sobre a minha Aposentadoria Especial.".
+- [x] Acesso "Conheça nosso escritório!" no cabeçalho fixo, com destaque, medido em doze larguras sem sobreposição nem quebra de espaçamento.
 - [x] Publicada em https://www.advocaciasd.com.br/aposentadoria-acs-ace (deploy Vercel confirmado, arquivos e sitemap conferidos).
 - [ ] Decisão do advogado sobre os ajustes jurídicos apontados em docs/revisao-ec140-2026.md (insalubridade na base de cálculo, redução da idade, revisão de aposentados, efetivação de temporários e mandato classista).

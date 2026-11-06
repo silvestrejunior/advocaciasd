@@ -12,7 +12,7 @@
  */
 
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Building2 } from "lucide-react";
 import { Seo, faqJsonLd } from "@/components/site/Seo";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { BotaoWhatsApp as BotaoWhatsAppFlutuante } from "@/components/site/Sections";
@@ -472,10 +472,10 @@ export default function AposentadoriaAcsAce() {
 
       {/* ------------------------------------------------------- cabeçalho */}
       <header className="sticky top-0 z-40 border-b border-black/5 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
+        <div className="mx-auto flex w-full max-w-6xl items-center gap-2 px-4 py-3 sm:gap-3">
           <a
             href="/"
-            className="flex items-center gap-2.5"
+            className="flex min-w-0 items-center gap-2.5"
             aria-label="Página inicial do escritório"
           >
             <img
@@ -483,32 +483,56 @@ export default function AposentadoriaAcsAce() {
               alt={`${SITE.nomeCompleto} — logotipo`}
               width={512}
               height={512}
-              className="h-11 w-11 object-contain"
+              className="h-11 w-11 flex-shrink-0 object-contain"
             />
-            <span className="leading-tight">
+            <span className="hidden flex-shrink-0 whitespace-nowrap leading-tight min-[375px]:block">
               <span
-                className="block font-['Playfair_Display'] text-lg font-bold"
+                className="block font-['Playfair_Display'] text-[15px] font-bold min-[480px]:text-lg"
                 style={{ color: C.chumbo }}
               >
                 {SITE.nome}
               </span>
               <span
-                className="block text-[10px] font-semibold tracking-[0.28em]"
+                className="block text-[9px] font-semibold tracking-[0.24em] min-[480px]:text-[10px] min-[480px]:tracking-[0.28em]"
                 style={{ color: C.medio }}
               >
                 ADVOCACIA
               </span>
             </span>
           </a>
-          <a
-            href={LINK_WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden min-h-11 items-center rounded-lg px-5 py-2.5 text-[16px] font-semibold text-white sm:inline-flex"
-            style={{ backgroundColor: C.verde, fontFamily: "Sora, sans-serif" }}
-          >
-            Falar no WhatsApp
-          </a>
+          <div className="ml-auto flex flex-shrink-0 items-center gap-2 sm:gap-3">
+            <a
+              href="https://www.advocaciasd.com.br/"
+              aria-label="Conheça nosso escritório"
+              className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-lg px-3 text-[13.5px] font-semibold text-white transition-colors hover:opacity-90 sm:px-4 sm:text-[14.5px]"
+              style={{
+                backgroundColor: C.medio,
+                fontFamily: "Sora, sans-serif",
+              }}
+            >
+              <Building2
+                size={17}
+                aria-hidden="true"
+                className="flex-shrink-0"
+              />
+              <span className="hidden md:inline">
+                Conheça nosso escritório!
+              </span>
+              <span className="md:hidden">Escritório</span>
+            </a>
+            <a
+              href={LINK_WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden min-h-11 items-center whitespace-nowrap rounded-lg px-5 py-2.5 text-[16px] font-semibold text-white sm:inline-flex"
+              style={{
+                backgroundColor: C.verde,
+                fontFamily: "Sora, sans-serif",
+              }}
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
         </div>
       </header>
 

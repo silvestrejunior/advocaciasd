@@ -89,3 +89,10 @@ Na página de ACS e ACE saíram o quadro "Idade mínima na regra de transição"
 A mensagem pré-escrita dos botões desta página passou a ser "Quero falar com um advogado sobre a aposentadoria do ACS ou ACE.", inclusive no botão que envia a simulação, que agora começa por essa frase e acrescenta os dados simulados. Na página da aposentadoria especial da saúde a mensagem passou a ser "Sou da área da saúde e quero falar com um advogado sobre a minha Aposentadoria Especial.".
 
 Validação após as correções: TypeScript sem erros, 38 rotas pré-renderizadas, auditoria estática sem falhas (com verificações específicas de que os conteúdos removidos não voltaram e de que todos os links de WhatsApp usam a mensagem combinada) e testes funcionais aprovados em 390 px e 1440 px.
+
+
+## Acesso ao site principal no cabeçalho, 06/11/2026
+
+O cabeçalho da página de ACS e ACE passou a levar também para a página principal do escritório, com o rótulo "Conheça nosso escritório!" destacado em azul institucional ao lado do botão do WhatsApp. O cabeçalho continua fixo no topo e acompanha a rolagem.
+
+Para não sobrepor nem quebrar o espaçamento em telas menores, o rótulo e a assinatura se adaptam: abaixo de 375 px o cabeçalho mostra só o símbolo do logotipo com o rótulo curto "Escritório"; de 375 px a 767 px aparecem a assinatura completa (nome + ADVOCACIA) e o rótulo curto; a partir de 768 px entram o rótulo completo "Conheça nosso escritório!" e o botão do WhatsApp. Todas as transições foram medidas em doze larguras (320, 360, 375, 390, 412, 414, 480, 640, 768, 1024, 1280 e 1440 px): sem rolagem lateral, sem sobreposição entre logotipo, link e WhatsApp, sem texto cortado, cabeçalho em linha única e altura estável, e o link continua visível e clicável com a página rolada.
