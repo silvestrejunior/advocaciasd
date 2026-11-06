@@ -26,12 +26,15 @@
     },
     {
       "path": "/aposentadoria-saude",
-      "title": "Aposentadoria especial na saúde — campanha",
-      "noSitemap": true
+      "title": "Aposentadoria especial na saúde — campanha"
     },
     {
       "path": "/aposentadoria-acs-ace",
       "title": "Aposentadoria ACS e ACE (EC 140/2026)"
+    },
+    {
+      "path": "/como-pedir-aposentadoria",
+      "title": "Como pedir a aposentadoria com segurança"
     },
     {
       "path": "/aposentadoria-negada",

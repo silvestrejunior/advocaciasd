@@ -11,6 +11,7 @@ import Cuidados from "./pages/Cuidados";
 import AposentadoriaEspecial from "./pages/AposentadoriaEspecial";
 import AposentadoriaEspecialSaude from "./pages/AposentadoriaEspecialSaude";
 import AposentadoriaAcsAce from "./pages/AposentadoriaAcsAce";
+import ComoPedirAposentadoria from "./pages/ComoPedirAposentadoria";
 import AposentadoriaNegada from "./pages/AposentadoriaNegada";
 import PericiaNegada from "@/pages/PericiaNegada";
 import TempoRural from "@/pages/TempoRural";
@@ -48,6 +49,10 @@ function Router() {
         component={AposentadoriaEspecialSaude}
       />
       <Route path={"/aposentadoria-acs-ace"} component={AposentadoriaAcsAce} />
+      <Route
+        path={"/como-pedir-aposentadoria"}
+        component={ComoPedirAposentadoria}
+      />
       <Route path={"/aposentadoria-negada"} component={AposentadoriaNegada} />
       <Route path={"/pericia-negada"} component={PericiaNegada} />
       <Route path={"/tempo-rural"} component={TempoRural} />

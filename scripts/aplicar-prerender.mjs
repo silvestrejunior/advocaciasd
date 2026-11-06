@@ -71,6 +71,14 @@ function preparar(html, arquivo) {
         '<link rel="preload" as="font" type="font/woff2" href="/fonts-acs/source-sans-3-latin.woff2" crossorigin>\n</head>'
     );
   }
+  if (arquivo === "como-pedir-aposentadoria.html") {
+    // A assinatura original da marca também usa Playfair; preservar seu preload.
+    html = html.replace(
+      "</head>",
+      '<link rel="preload" as="font" type="font/woff2" href="/fonts-acs/sora-latin.woff2" crossorigin>\n' +
+        '<link rel="preload" as="font" type="font/woff2" href="/fonts-acs/source-sans-3-latin.woff2" crossorigin>\n</head>'
+    );
+  }
   return (
     html
       // remove os marcadores de edição visual da prévia, que não pertencem ao

@@ -49,6 +49,11 @@ const ROTAS_BASE = [
     path: "/aposentadoria-acs-ace",
     title: "Aposentadoria ACS e ACE (EC 140/2026)",
   },
+  {
+    path: "/como-pedir-aposentadoria",
+    title: "Como pedir a aposentadoria com segurança",
+    origemCanonica: "https://advocaciasd.com.br",
+  },
   { path: "/aposentadoria-negada", title: "Aposentadoria negada" },
   { path: "/pericia-negada", title: "Perícia negada" },
   {
@@ -151,12 +156,16 @@ const rotas = [
 
 await writeFile(
   "client/public/manus-routes.json",
-  JSON.stringify({ routes: rotas }, null, 2) + "\n",
+  JSON.stringify(
+    { routes: rotas.map(({ path, title }) => ({ path, title })) },
+    null,
+    2
+  ) + "\n",
   "utf8"
 );
 
-const url = (rota, prioridade, frequencia, lastmod) => `  <url>
-    <loc>${ORIGEM}${rota}</loc>
+const url = (rota, prioridade, frequencia, lastmod, origem = ORIGEM) => `  <url>
+    <loc>${origem}${rota}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${frequencia}</changefreq>
     <priority>${prioridade}</priority>
@@ -180,7 +189,8 @@ ${[
           ? "0.9"
           : "0.8",
         "monthly",
-        hoje
+        hoje,
+        rota.origemCanonica ?? ORIGEM
       )
     ),
   url("/blog", "0.9", "weekly", ultimaAtualizacao),
