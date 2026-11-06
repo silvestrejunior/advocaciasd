@@ -16,6 +16,8 @@ export function BannerPrincipal() {
           src="/images/hero-fachada.webp"
           alt=""
           aria-hidden="true"
+          width={1400}
+          height={788}
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </picture>
@@ -62,9 +64,9 @@ export function BannerPrincipal() {
               <img
                 src="/images/advogado-banner.webp"
                 alt={`${SITE.responsavel}, advogado, em conversa ao microfone`}
-                width={900}
-                height={1244}
                 fetchPriority="high"
+                width={820}
+                height={1133}
                 className="home-banner-foto mx-auto block h-full w-full object-contain object-bottom"
               />
             </div>

@@ -2,7 +2,12 @@ import { Link } from "wouter";
 import { ArrowRight, Phone } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { BotaoWhatsApp, Perguntas, TituloSecao, Trilha } from "@/components/site/Sections";
+import {
+  BotaoWhatsApp,
+  Perguntas,
+  TituloSecao,
+  Trilha,
+} from "@/components/site/Sections";
 import { ChamadaFinal, SeoServico } from "@/components/site/Servico";
 import { breadcrumbJsonLd } from "@/components/site/Seo";
 import {
@@ -60,7 +65,7 @@ function CartaoCuidado({ item }: { item: BeneficioRegime }) {
 function GradeCuidados({ itens }: { itens: BeneficioRegime[] }) {
   return (
     <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {itens.map((item) => (
+      {itens.map(item => (
         <CartaoCuidado key={item.id} item={item} />
       ))}
     </div>
@@ -123,9 +128,9 @@ export default function Cuidados() {
             </h1>
             <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-slate-100/90">
               As regras são conhecimento básico. O que muda o resultado é o
-              detalhe: o período que não aparece no extrato, o documento genérico
-              que a perícia recusa, o mês em que o pedido é feito. Cada benefício
-              abaixo traz o cuidado que costuma decidir o caso.
+              detalhe: o período que não aparece no extrato, o documento
+              genérico que a perícia recusa, o mês em que o pedido é feito. Cada
+              benefício abaixo traz o cuidado que costuma decidir o caso.
             </p>
             <p className="mt-5 text-[14px] leading-relaxed text-slate-300/85">
               {AVISO_DOCUMENTOS}
@@ -160,7 +165,7 @@ export default function Cuidados() {
           className="border-b border-slate-200 bg-slate-50"
         >
           <div className="container mx-auto flex flex-wrap gap-x-6 gap-y-2 px-4 py-4 text-[13.5px] font-semibold text-brand-800">
-            {NAVEGACAO.map((item) => (
+            {NAVEGACAO.map(item => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
@@ -227,6 +232,8 @@ export default function Cuidados() {
             alt=""
             aria-hidden="true"
             loading="lazy"
+            width={900}
+            height={1350}
             className="absolute inset-0 h-full w-full object-cover object-center opacity-25"
           />
           <div
@@ -240,7 +247,7 @@ export default function Cuidados() {
               texto="Antes de discutir regras, estes quatro pontos decidem mais do que qualquer outro detalhe."
             />
             <div className="mt-10 grid gap-5 md:grid-cols-2">
-              {ALERTAS.map((alerta) => (
+              {ALERTAS.map(alerta => (
                 <article
                   key={alerta.id}
                   className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-sm"

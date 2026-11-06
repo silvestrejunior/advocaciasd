@@ -197,3 +197,19 @@
 - [x] Acesso "Conheça nosso escritório!" no cabeçalho fixo, com destaque, medido em doze larguras sem sobreposição nem quebra de espaçamento.
 - [x] Publicada em https://www.advocaciasd.com.br/aposentadoria-acs-ace (deploy Vercel confirmado, arquivos e sitemap conferidos).
 - [ ] Decisão do advogado sobre os ajustes jurídicos apontados em docs/revisao-ec140-2026.md (insalubridade na base de cálculo, redução da idade, revisão de aposentados, efetivação de temporários e mandato classista).
+## Rodada de otimização para busca e desempenho — 06/11/2026
+
+- [x] Bundle inicial reduzido de 246 KB para 193 KB (gzip), sem o aparato de
+      API/autenticação do modelo e sem toast/tooltip que o site não usava.
+- [x] Imagens reotimizadas: 1.676 KB → 890 KB, com logotipos leves de 128 px na
+      interface e largura/altura declaradas em todas as imagens das 38 rotas.
+- [x] CLS da campanha ACS e ACE zerado com `font-display: optional` nas fontes da
+      campanha (medição local com rede e CPU lentas: 0,0000).
+- [x] Contraste do botão verde da campanha em 5,4:1 (WCAG AA) e nome acessível do
+      link da marca alinhado ao texto visível.
+- [x] Landmark <main> nas páginas /servicos, /aposentadoria-especial e /ctc.
+- [x] Dados estruturados: LegalService único em /aposentadoria-especial e author e
+      publisher nos BlogPosting de /blog.
+- [x] Título (59) e descrição (135) da campanha ACS e ACE dentro do limite do Google.
+- [x] Pré-carregamento do retrato do banner na home (maior elemento da primeira tela).
+- [ ] Publicar o checkpoint e repetir a medição de desempenho no domínio oficial.

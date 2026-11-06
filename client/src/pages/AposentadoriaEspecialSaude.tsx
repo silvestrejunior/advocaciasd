@@ -321,9 +321,9 @@ export default function AposentadoriaEspecialSaude() {
           <img
             src="/images/saude-hero.webp"
             alt="Profissional de enfermagem de 55 anos em ambiente hospitalar"
-            width={1920}
-            height={1080}
             fetchPriority="high"
+            width={1400}
+            height={788}
             className="absolute inset-0 -z-10 h-full w-full object-cover object-[72%_center] opacity-60 md:object-center"
           />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950 via-brand-950/92 to-brand-900/55" />
@@ -561,9 +561,9 @@ export default function AposentadoriaEspecialSaude() {
           <img
             src="/images/especial-apoio.webp"
             alt=""
-            width={1500}
-            height={1125}
             loading="lazy"
+            width={1200}
+            height={900}
             className="absolute inset-0 -z-10 h-full w-full object-cover object-center opacity-25"
           />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950 via-brand-950/95 to-brand-900/80" />

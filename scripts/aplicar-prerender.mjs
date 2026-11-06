@@ -52,6 +52,14 @@ function preparar(html, arquivo) {
       '<link rel="preload" as="image" href="/images/saude-hero.webp" fetchpriority="high">\n</head>'
     );
   }
+  // Na home o maior elemento da primeira tela é o retrato do banner: ele é
+  // pré-carregado para começar a baixar junto com o HTML.
+  if (arquivo === "index.html") {
+    html = html.replace(
+      "</head>",
+      '<link rel="preload" as="image" href="/images/advogado-banner.webp" fetchpriority="high">\n</head>'
+    );
+  }
   // A campanha de ACS e ACE tem identidade tipográfica própria: só ela usa
   // Sora e Source Sans 3, então só ela pré-carrega esses arquivos.
   if (arquivo === "aposentadoria-acs-ace.html") {

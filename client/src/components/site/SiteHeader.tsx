@@ -45,10 +45,10 @@ export function SiteHeader({
       <div className="container mx-auto flex items-center gap-3 px-4 py-3 sm:gap-6 lg:py-4">
         <Link href="/" className="flex flex-shrink-0 items-center gap-3">
           <img
-            src={solido ? SITE.logo : SITE.logoClaro}
+            src={solido ? SITE.logoInterface : SITE.logoClaroInterface}
             alt={`${SITE.nomeCompleto} — logotipo`}
-            width={512}
-            height={512}
+            width={128}
+            height={128}
             className="h-11 w-11 object-contain"
           />
           <span className="leading-tight">

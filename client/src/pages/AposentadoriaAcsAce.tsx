@@ -37,15 +37,14 @@ const C = {
   ciano: "#00AEEF",
   fundo: "#F4F7F9",
   escuro: "#22303B",
-  verde: "#1F8F4E",
+  verde: "#177A3F",
 } as const;
 
 /* ------------------------------------------------------------------ SEO */
 
-const TITULO =
-  "Aposentadoria ACS e ACE: novas regras da EC 140/2026 | Maringá-PR";
+const TITULO = "Aposentadoria ACS e ACE: regras da EC 140/2026 | Maringá-PR";
 const DESCRICAO =
-  "Agente comunitário de saúde ou de endemias? Veja as idades da EC 140/2026, simule sua aposentadoria e fale com advogado previdenciário. Atendimento em todo o PR.";
+  "Agente comunitário de saúde ou de endemias? Veja as idades da EC 140/2026, simule sua aposentadoria e fale com advogado previdenciário.";
 
 /* ------------------------------------------------------------- simulador */
 
@@ -476,13 +475,13 @@ export default function AposentadoriaAcsAce() {
           <a
             href="/"
             className="flex min-w-0 items-center gap-2.5"
-            aria-label="Página inicial do escritório"
+            aria-label="Santana Daufenbach Advocacia — página inicial"
           >
             <img
-              src={SITE.logo}
+              src={SITE.logoInterface}
               alt={`${SITE.nomeCompleto} — logotipo`}
-              width={512}
-              height={512}
+              width={128}
+              height={128}
               className="h-11 w-11 flex-shrink-0 object-contain"
             />
             <span className="hidden flex-shrink-0 whitespace-nowrap leading-tight min-[375px]:block">

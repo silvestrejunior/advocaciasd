@@ -96,3 +96,29 @@ Validação após as correções: TypeScript sem erros, 38 rotas pré-renderizad
 O cabeçalho da página de ACS e ACE passou a levar também para a página principal do escritório, com o rótulo "Conheça nosso escritório!" destacado em azul institucional ao lado do botão do WhatsApp. O cabeçalho continua fixo no topo e acompanha a rolagem.
 
 Para não sobrepor nem quebrar o espaçamento em telas menores, o rótulo e a assinatura se adaptam: abaixo de 375 px o cabeçalho mostra só o símbolo do logotipo com o rótulo curto "Escritório"; de 375 px a 767 px aparecem a assinatura completa (nome + ADVOCACIA) e o rótulo curto; a partir de 768 px entram o rótulo completo "Conheça nosso escritório!" e o botão do WhatsApp. Todas as transições foram medidas em doze larguras (320, 360, 375, 390, 412, 414, 480, 640, 768, 1024, 1280 e 1440 px): sem rolagem lateral, sem sobreposição entre logotipo, link e WhatsApp, sem texto cortado, cabeçalho em linha única e altura estável, e o link continua visível e clicável com a página rolada.
+
+## Rodada de otimização — 06/11/2026
+
+Auditoria externa (Lighthouse 13.6.0, 12 execuções em 6 rotas, mobile e desktop),
+auditoria de links (38 rotas, 2.380 referências, 110 URLs) e auditoria de SEO
+técnico (38 rotas). Correções aplicadas e conferidas no build local:
+
+- Bundle inicial: 246 KB → 193 KB gzip (removido o aparato de API/autenticação do
+  modelo e os componentes de toast/tooltip, que o site não usava).
+- Imagens reotimizadas: 1.676 KB → 890 KB (economia de 786 KB); logotipos de
+  interface em WebP de 128 px (53 KB → 3 KB e 28 KB → 1 KB).
+- Largura e altura reais declaradas em todas as imagens das 38 rotas (26 pendências).
+- CLS da rota /aposentadoria-acs-ace: 0,267 → 0,000 (fontes da campanha passaram a
+  usar `font-display: optional`, como as demais fontes do site).
+- Contraste do verde da campanha: #1F8F4E → #177A3F (5,4:1 com texto branco).
+- Nome acessível do link da marca na campanha ajustado ao texto visível.
+- Landmark <main> acrescentado em /servicos, /aposentadoria-especial e /ctc.
+- LegalService de /aposentadoria-especial unificado ao nó do escritório.
+- BlogPosting de /blog com author e publisher.
+- Título e descrição da campanha dentro do limite (59 e 135 caracteres).
+- Pré-carregamento do retrato do banner na home.
+
+Verificação local (build de produção servido localmente): 7 rotas com HTTP 200, um
+único h1, nenhuma imagem quebrada, sem imagem sem alt ou sem dimensões, links do
+WhatsApp com mensagem pré-escrita e acordeão do FAQ abrindo normalmente. Medição com
+rede e CPU lentas (1,6 Mbps, 150 ms, 4x CPU): CLS 0,0000 em /aposentadoria-acs-ace.

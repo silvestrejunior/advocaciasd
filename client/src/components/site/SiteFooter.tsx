@@ -14,10 +14,10 @@ export function SiteFooter({
           <div>
             <div className="flex items-center gap-3">
               <img
-                src={SITE.logoClaro}
+                src={SITE.logoClaroInterface}
                 alt=""
-                width={512}
-                height={512}
+                width={128}
+                height={128}
                 className="h-12 w-12 object-contain"
               />
               <span className="leading-tight">

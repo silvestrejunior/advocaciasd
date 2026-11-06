@@ -26,7 +26,8 @@ import {
   HelpCircle,
 } from "lucide-react";
 
-const LOGO_NEW = "/images/logo-sd.png";
+const LOGO_NEW = "/images/logo-sd-128.webp";
+const LOGO_NEW_TAMANHO = 128;
 const WHATSAPP_NUMBER = "5544998563465";
 const YOUTUBE_VIDEO_ID = "wfPLBr65oik";
 
@@ -1102,6 +1103,8 @@ export default function CTC() {
           <a href="/" className="flex items-center gap-3 flex-shrink-0">
             <img
               src={LOGO_NEW}
+              width={128}
+              height={128}
               alt="Santana Daufenbach Advocacia"
               className="h-12 w-auto"
             />
@@ -1243,844 +1246,850 @@ export default function CTC() {
           </div>
         )}
       </header>
-
-      {/* ===== HERO — PONTO DE PARTIDA ===== */}
-      <section
-        id="inicio"
-        className="relative min-h-screen flex items-center overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(135deg, #0F2A4A 0%, #1E5FA8 55%, #2B8FCC 100%)",
-        }}
-      >
-        {/* Imagem de fundo */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("/images/ctc-hero.webp")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
-        {/* Overlay gradiente sobre a imagem */}
-        <div
-          className="absolute inset-0"
+      <main>
+        {/* ===== HERO — PONTO DE PARTIDA ===== */}
+        <section
+          id="inicio"
+          className="relative min-h-screen flex items-center overflow-hidden"
           style={{
             background:
-              "linear-gradient(135deg, rgba(15,42,74,0.88) 0%, rgba(30,95,168,0.82) 55%, rgba(43,143,204,0.75) 100%)",
+              "linear-gradient(135deg, #0F2A4A 0%, #1E5FA8 55%, #2B8FCC 100%)",
           }}
-        />
-        {/* Corte diagonal inferior */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-24 bg-white"
-          style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 0)" }}
-        />
+        >
+          {/* Imagem de fundo */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("/images/ctc-hero.webp")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+          {/* Overlay gradiente sobre a imagem */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(15,42,74,0.88) 0%, rgba(30,95,168,0.82) 55%, rgba(43,143,204,0.75) 100%)",
+            }}
+          />
+          {/* Corte diagonal inferior */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-24 bg-white"
+            style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 0)" }}
+          />
 
-        <div ref={heroRef} className="container relative z-10 pt-28 pb-40">
-          <div className="max-w-3xl">
-            <div className="fade-in-up">
-              <span className="inline-block bg-cyan-400/20 text-cyan-300 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6 border border-cyan-400/30">
-                Assessoria Especializada
-              </span>
-            </div>
-            <h1
-              className="fade-in-up text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
-              style={{
-                transitionDelay: "0.1s",
-                fontFamily: "'Playfair Display', serif",
-              }}
-            >
-              Certidão de Tempo
-              <span className="block text-cyan-300">de Contribuição</span>
-            </h1>
-            <p
-              className="fade-in-up text-2xl md:text-3xl text-slate-300 mb-6 max-w-2xl leading-relaxed"
-              style={{ transitionDelay: "0.2s" }}
-            >
-              Antes de iniciar a trilha para a averbação do tempo de
-              contribuição, você precisa conhecer o documento mais importante
-              dessa jornada.
-            </p>
-
-            {/* Box explicativo */}
-            <div
-              className="fade-in-up rounded-2xl p-6 mb-8 max-w-2xl"
-              style={{
-                backgroundColor: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.2)",
-                backdropFilter: "blur(10px)",
-                transitionDelay: "0.3s",
-              }}
-            >
-              <p className="text-cyan-300 font-bold text-lg uppercase tracking-wider mb-2">
-                🎯 O que é a Certidão de Tempo de Contribuição?
-              </p>
-              <p className="text-white leading-relaxed text-xl">
-                É o documento que permite{" "}
-                <strong className="text-cyan-200">
-                  somar as contribuições de um regime previdenciário em outro
-                </strong>{" "}
-                — por exemplo, o tempo contribuído para o INSS pode ser averbado
-                no seu cargo público, ou vice-versa.
-              </p>
-              <p className="text-blue-200 mt-3 leading-relaxed text-lg">
-                Em outras palavras: se você trabalhou na iniciativa privada
-                (INSS) e hoje é servidor público, ou o contrário, a CTC é o
-                instrumento que une esses dois mundos e pode{" "}
-                <strong className="text-white">
-                  ampliar significativamente seus direitos de aposentadoria
-                </strong>
-                .
-              </p>
-            </div>
-
-            <div
-              className="fade-in-up flex flex-col sm:flex-row gap-4"
-              style={{ transitionDelay: "0.4s" }}
-            >
-              <button
-                onClick={() => {
-                  scrollTo("trilha");
-                  pushGTMEvent("cta_click_ctc", {
-                    event_category: "Engajamento",
-                    event_label: "Hero - Iniciar a Trilha",
-                    page: "/ctc",
-                  });
-                }}
-                className="flex items-center justify-center gap-2 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-xl"
-                style={{ backgroundColor: "#29ABE2" }}
-              >
-                Iniciar a Trilha
-                <ChevronDown size={20} />
-              </button>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  handleWhatsAppClick("Hero - Falar com Especialista CTC")
-                }
-                className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-xl"
-              >
-                <Phone size={20} />
-                Falar com Especialista
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Seta animada para baixo */}
-        <div className="absolute bottom-32 left-1/2 -translate-x-1/2 text-white opacity-60 animate-bounce">
-          <ArrowDown size={28} />
-        </div>
-      </section>
-
-      {/* ===== TRILHA — JORNADA DO CLIENTE ===== */}
-      <section id="trilha" className="py-24 overflow-hidden trail-bg">
-        <div className="container">
-          {/* Título da seção */}
-          <div className="text-center mb-16">
-            <div
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-4"
-              style={{ backgroundColor: "#E0F0FF", color: "#1E5FA8" }}
-            >
-              <Map size={16} />
-              Sua Jornada Começa Aqui
-            </div>
-            <h2
-              className="text-3xl md:text-5xl font-bold mb-4"
-              style={{
-                color: "#1E5FA8",
-                fontFamily: "'Playfair Display', serif",
-              }}
-            >
-              Agora que você já sabe o que é a CTC...
-            </h2>
-            <p
-              className="text-lg max-w-2xl mx-auto leading-relaxed"
-              style={{ color: "#4A5568" }}
-            >
-              Vamos mostrar o{" "}
-              <strong style={{ color: "#1E5FA8" }}>melhor caminho</strong> para
-              aproveitar a Certidão de Tempo de Contribuição ao máximo. Role a
-              página e acompanhe a jornada!
-            </p>
-          </div>
-
-          {/* ESTRADA ANIMADA — visível em telas grandes */}
-          <div className="hidden lg:block">
-            <AnimatedRoad />
-          </div>
-
-          {/* VERSÃO MOBILE — cards empilhados com linha conectora */}
-          <div className="lg:hidden relative">
-            {/* Linha vertical conectora */}
-            <div
-              className="absolute left-8 top-0 bottom-0 w-1 rounded-full"
-              style={{ backgroundColor: "#29ABE2", opacity: 0.3 }}
-            />
-
-            {[
-              {
-                num: "1",
-                icon: <Compass size={20} />,
-                label: "ETAPA 1 — O MAIS IMPORTANTE",
-                title: "Planejamento Estratégico",
-                color: "#1E5FA8",
-                content: (
-                  <>
-                    <p
-                      className="text-base leading-relaxed mb-3"
-                      style={{ color: "#2D3748" }}
-                    >
-                      Realizamos um{" "}
-                      <strong>
-                        estudo completo da sua situação previdenciária
-                      </strong>
-                      , identificando as melhores possibilidades.
-                    </p>
-                    <ul className="space-y-2">
-                      {[
-                        "Possibilidade de mais de uma aposentadoria",
-                        "Antecipação de regras de aposentadoria",
-                        "Combinações mais vantajosas de tempo",
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle
-                            size={14}
-                            className="flex-shrink-0 mt-0.5"
-                            style={{ color: "#29ABE2" }}
-                          />
-                          <span
-                            className="text-base font-medium"
-                            style={{ color: "#4A5568" }}
-                          >
-                            {item}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div
-                      className="mt-3 p-3 rounded-xl text-sm font-semibold"
-                      style={{ backgroundColor: "#FFF8E1", color: "#B7791F" }}
-                    >
-                      💡 O planejamento é a{" "}
-                      <strong>bússola de toda a jornada</strong>
-                    </div>
-                  </>
-                ),
-              },
-              {
-                num: "2",
-                icon: <FileText size={20} />,
-                label: "ETAPA 2 — ELABORAÇÃO",
-                title: "Requerimentos da CTC",
-                color: "#29ABE2",
-                content: (
-                  <>
-                    <p
-                      className="text-base leading-relaxed mb-3"
-                      style={{ color: "#2D3748" }}
-                    >
-                      Elaboramos os <strong>requerimentos da CTC</strong> com
-                      destinação exata do tempo de contribuição, seguindo o
-                      plano.
-                    </p>
-                    <div className="grid grid-cols-2 gap-2">
-                      {[
-                        { label: "Documentação Completa", icon: "📋" },
-                        { label: "Destinação Precisa", icon: "🎯" },
-                        { label: "Seguindo o Plano", icon: "🗺️" },
-                        { label: "Acompanhamento Total", icon: "👁️" },
-                      ].map((item, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center gap-1 p-2 rounded-lg"
-                          style={{ backgroundColor: "#F0F7FF" }}
-                        >
-                          <span className="text-sm">{item.icon}</span>
-                          <span
-                            className="text-base font-semibold"
-                            style={{ color: "#1E5FA8" }}
-                          >
-                            {item.label}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                ),
-              },
-              {
-                num: "3",
-                icon: <Flag size={20} />,
-                label: "ETAPA 3 — DESTINO FINAL",
-                title: "Averbação do Tempo",
-                color: "#1E5FA8",
-                content: (
-                  <>
-                    <p
-                      className="text-base leading-relaxed mb-3"
-                      style={{ color: "#2D3748" }}
-                    >
-                      Com a CTC em mãos, realizamos os{" "}
-                      <strong>pedidos de averbação</strong> de acordo com o
-                      planejamento inicial.
-                    </p>
-                    <div
-                      className="p-3 rounded-xl border-2"
-                      style={{
-                        backgroundColor: "#EFF6FF",
-                        borderColor: "#1E5FA8",
-                      }}
-                    >
-                      <p
-                        className="font-bold text-base mb-1"
-                        style={{ color: "#1E5FA8" }}
-                      >
-                        🏁 Resultado Final
-                      </p>
-                      <p
-                        className="text-sm leading-relaxed"
-                        style={{ color: "#2D3748" }}
-                      >
-                        Tempo averbado da maneira que você tenha o{" "}
-                        <strong>
-                          melhor direito de aposentadoria possível
-                        </strong>
-                        .
-                      </p>
-                    </div>
-                  </>
-                ),
-              },
-            ].map((step, idx) => (
-              <div key={idx} className="relative pl-20 mb-12">
-                {/* Marcador circular */}
-                <div
-                  className="absolute left-0 w-16 h-16 rounded-full flex items-center justify-center shadow-lg border-4 border-white"
-                  style={{ backgroundColor: step.color, top: "16px" }}
-                >
-                  <div className="text-white">{step.icon}</div>
-                  <div
-                    className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white"
-                    style={{ backgroundColor: "#0F2A4A" }}
-                  >
-                    {step.num}
-                  </div>
-                </div>
-                {/* Card */}
-                <div
-                  className="rounded-2xl p-6 shadow-lg border-t-4 cursor-default"
-                  style={{
-                    backgroundColor: "#FFFFFF",
-                    borderTopColor: step.color,
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  }}
-                  onMouseEnter={e => {
-                    (e.currentTarget as HTMLDivElement).style.transform =
-                      "translateY(-6px) scale(1.02)";
-                    (e.currentTarget as HTMLDivElement).style.boxShadow =
-                      "0 20px 40px rgba(30,95,168,0.22)";
-                  }}
-                  onMouseLeave={e => {
-                    (e.currentTarget as HTMLDivElement).style.transform =
-                      "translateY(0) scale(1)";
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = "";
-                  }}
-                >
-                  <div
-                    className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold mb-2"
-                    style={{ backgroundColor: "#E0F0FF", color: "#1E5FA8" }}
-                  >
-                    {step.label}
-                  </div>
-                  <h3
-                    className="text-xl font-bold mb-3"
-                    style={{
-                      color: "#1E5FA8",
-                      fontFamily: "'Playfair Display', serif",
-                    }}
-                  >
-                    {step.title}
-                  </h3>
-                  {step.content}
-                </div>
+          <div ref={heroRef} className="container relative z-10 pt-28 pb-40">
+            <div className="max-w-3xl">
+              <div className="fade-in-up">
+                <span className="inline-block bg-cyan-400/20 text-cyan-300 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6 border border-cyan-400/30">
+                  Assessoria Especializada
+                </span>
               </div>
-            ))}
-          </div>
-
-          {/* CTA após trilha */}
-          <div className="text-center mt-16">
-            <div
-              className="inline-block rounded-3xl p-8 shadow-xl max-w-2xl"
-              style={{ backgroundColor: "#1E5FA8" }}
-            >
-              <p
-                className="text-2xl font-bold text-white mb-3"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+              <h1
+                className="fade-in-up text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+                style={{
+                  transitionDelay: "0.1s",
+                  fontFamily: "'Playfair Display', serif",
+                }}
               >
-                Pronto para iniciar sua jornada?
+                Certidão de Tempo
+                <span className="block text-cyan-300">de Contribuição</span>
+              </h1>
+              <p
+                className="fade-in-up text-2xl md:text-3xl text-slate-300 mb-6 max-w-2xl leading-relaxed"
+                style={{ transitionDelay: "0.2s" }}
+              >
+                Antes de iniciar a trilha para a averbação do tempo de
+                contribuição, você precisa conhecer o documento mais importante
+                dessa jornada.
               </p>
-              <p className="text-blue-200 mb-6 leading-relaxed">
-                Nossa equipe especializada está pronta para guiar você em cada
-                etapa desta trilha e garantir que você chegue ao melhor destino
-                possível.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    handleWhatsAppClick("CTA Trilha - Iniciar Agora CTC")
-                  }
-                  className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-lg"
-                >
-                  <Phone size={20} />
-                  Iniciar Agora pelo WhatsApp
-                </a>
+
+              {/* Box explicativo */}
+              <div
+                className="fade-in-up rounded-2xl p-6 mb-8 max-w-2xl"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  backdropFilter: "blur(10px)",
+                  transitionDelay: "0.3s",
+                }}
+              >
+                <p className="text-cyan-300 font-bold text-lg uppercase tracking-wider mb-2">
+                  🎯 O que é a Certidão de Tempo de Contribuição?
+                </p>
+                <p className="text-white leading-relaxed text-xl">
+                  É o documento que permite{" "}
+                  <strong className="text-cyan-200">
+                    somar as contribuições de um regime previdenciário em outro
+                  </strong>{" "}
+                  — por exemplo, o tempo contribuído para o INSS pode ser
+                  averbado no seu cargo público, ou vice-versa.
+                </p>
+                <p className="text-blue-200 mt-3 leading-relaxed text-lg">
+                  Em outras palavras: se você trabalhou na iniciativa privada
+                  (INSS) e hoje é servidor público, ou o contrário, a CTC é o
+                  instrumento que une esses dois mundos e pode{" "}
+                  <strong className="text-white">
+                    ampliar significativamente seus direitos de aposentadoria
+                  </strong>
+                  .
+                </p>
+              </div>
+
+              <div
+                className="fade-in-up flex flex-col sm:flex-row gap-4"
+                style={{ transitionDelay: "0.4s" }}
+              >
                 <button
                   onClick={() => {
-                    scrollTo("contato");
+                    scrollTo("trilha");
                     pushGTMEvent("cta_click_ctc", {
                       event_category: "Engajamento",
-                      event_label: "CTA Trilha - Enviar Mensagem",
+                      event_label: "Hero - Iniciar a Trilha",
                       page: "/ctc",
                     });
                   }}
-                  className="flex items-center justify-center gap-2 text-white font-bold px-8 py-4 rounded-xl transition-all border-2 border-white/40 hover:bg-white/10"
+                  className="flex items-center justify-center gap-2 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-xl"
+                  style={{ backgroundColor: "#29ABE2" }}
                 >
-                  <Send size={20} />
-                  Enviar Mensagem
+                  Iniciar a Trilha
+                  <ChevronDown size={20} />
                 </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== VÍDEO DO YOUTUBE ===== */}
-      <section
-        id="video"
-        className="py-20"
-        style={{ backgroundColor: "#FFFFFF" }}
-      >
-        <div ref={videoRef} className="container">
-          <div className="text-center mb-12">
-            <div
-              className="fade-in-up inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-4"
-              style={{ backgroundColor: "#E0F0FF", color: "#1E5FA8" }}
-            >
-              📺 Nosso Canal
-            </div>
-            <h2
-              className="fade-in-up text-3xl md:text-4xl font-bold"
-              style={{
-                color: "#1E5FA8",
-                fontFamily: "'Playfair Display', serif",
-                transitionDelay: "0.1s",
-              }}
-            >
-              Saiba Mais Sobre a Assessoria na CTC
-            </h2>
-            <p
-              className="fade-in-up text-lg mt-3 max-w-xl mx-auto"
-              style={{ color: "#4A5568", transitionDelay: "0.2s" }}
-            >
-              Assista ao nosso vídeo explicativo e entenda todos os detalhes do
-              Serviço de Assessoria na Certidão de Tempo de Contribuição.
-            </p>
-          </div>
-
-          <div
-            className="fade-in-up max-w-3xl mx-auto"
-            style={{ transitionDelay: "0.2s" }}
-          >
-            <div
-              className="relative rounded-2xl overflow-hidden shadow-2xl"
-              style={{ paddingBottom: "56.25%" }}
-            >
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`}
-                title="Certidão de Tempo de Contribuição"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <div className="text-center mt-6">
-              <a
-                href={YOUTUBE_CHANNEL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  pushGTMEvent("cta_click_ctc", {
-                    event_category: "Engajamento",
-                    event_label: "Video - Acessar Canal YouTube",
-                    page: "/ctc",
-                  })
-                }
-                className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl transition-colors"
-              >
-                <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                </svg>
-                Acessar Nosso Canal no YouTube
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== FAQ ===== */}
-      <FAQSection />
-
-      {/* ===== FORMULÁRIO DE CONTATO ===== */}
-      <section
-        id="contato"
-        className="py-20"
-        style={{ backgroundColor: "#F0F7FF" }}
-      >
-        <div ref={contactRef} className="container">
-          <div className="text-center mb-12">
-            <div
-              className="fade-in-up inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-4"
-              style={{ backgroundColor: "#E0F0FF", color: "#1E5FA8" }}
-            >
-              <Mail size={16} />
-              Entre em Contato
-            </div>
-            <h2
-              className="fade-in-up text-3xl md:text-4xl font-bold"
-              style={{
-                color: "#1E5FA8",
-                fontFamily: "'Playfair Display', serif",
-                transitionDelay: "0.1s",
-              }}
-            >
-              Fale com Nossa Equipe
-            </h2>
-            <p
-              className="fade-in-up text-lg mt-3 max-w-xl mx-auto"
-              style={{ color: "#4A5568", transitionDelay: "0.2s" }}
-            >
-              Tire suas dúvidas ou solicite uma avaliação gratuita da sua
-              situação previdenciária.
-            </p>
-          </div>
-
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-            {/* Informações de contato */}
-            <div className="fade-in-up space-y-6">
-              <div
-                className="rounded-2xl p-6 shadow-md"
-                style={{ backgroundColor: "#FFFFFF" }}
-              >
-                <h3
-                  className="text-xl font-bold mb-5"
-                  style={{ color: "#1E5FA8" }}
-                >
-                  Informações de Contato
-                </h3>
-                <div className="space-y-4">
-                  {[
-                    {
-                      icon: <Phone size={20} />,
-                      label: "WhatsApp",
-                      value: "(44) 99856-3465",
-                      href: whatsappUrl,
-                    },
-                    {
-                      icon: <Mail size={20} />,
-                      label: "E-mail",
-                      value: "joao@advocaciasd.com.br",
-                      href: "mailto:joao@advocaciasd.com.br",
-                    },
-                    {
-                      icon: <MapPin size={20} />,
-                      label: "Endereço",
-                      value:
-                        "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2, Novo Centro, Maringá/PR",
-                      href: "#mapa",
-                    },
-                    {
-                      icon: <Clock size={20} />,
-                      label: "Horário",
-                      value: "Seg–Sex: 9h às 17h",
-                      href: null,
-                    },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: "#E0F0FF", color: "#1E5FA8" }}
-                      >
-                        {item.icon}
-                      </div>
-                      <div>
-                        <p
-                          className="text-xs font-bold uppercase tracking-wider"
-                          style={{ color: "#29ABE2" }}
-                        >
-                          {item.label}
-                        </p>
-                        {item.href ? (
-                          <a
-                            href={item.href}
-                            target={
-                              item.href.startsWith("http")
-                                ? "_blank"
-                                : undefined
-                            }
-                            rel="noopener noreferrer"
-                            className="font-semibold hover:underline"
-                            style={{ color: "#2D3748" }}
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <p
-                            className="font-semibold"
-                            style={{ color: "#2D3748" }}
-                          >
-                            {item.value}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div
-                className="rounded-2xl p-6 shadow-md"
-                style={{ backgroundColor: "#1E5FA8" }}
-              >
-                <p className="text-white font-bold text-lg mb-2">
-                  Atendimento Rápido
-                </p>
-                <p className="text-blue-200 text-sm mb-4 leading-relaxed">
-                  Para uma resposta mais ágil, entre em contato diretamente pelo
-                  WhatsApp. Nossa equipe responde em até 2 horas úteis.
-                </p>
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() =>
-                    handleWhatsAppClick(
-                      "Secao Contato - Chamar no WhatsApp CTC"
-                    )
+                    handleWhatsAppClick("Hero - Falar com Especialista CTC")
                   }
-                  className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-xl transition-colors w-full"
+                  className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-xl"
                 >
-                  <Phone size={18} />
-                  Chamar no WhatsApp
+                  <Phone size={20} />
+                  Falar com Especialista
                 </a>
               </div>
             </div>
+          </div>
 
-            {/* Formulário */}
-            <div
-              className="fade-in-up rounded-2xl p-8 shadow-md"
-              style={{ backgroundColor: "#FFFFFF", transitionDelay: "0.15s" }}
-            >
-              <h3
-                className="text-xl font-bold mb-6"
-                style={{ color: "#1E5FA8" }}
-              >
-                Envie sua Mensagem
-              </h3>
-              <form onSubmit={handleFormSubmit} className="space-y-4">
-                <div>
-                  <label
-                    className="block text-sm font-semibold mb-1"
-                    style={{ color: "#2D3748" }}
-                  >
-                    Nome completo *
-                  </label>
-                  <input
-                    type="text"
-                    name="nome"
-                    value={formData.nome}
-                    onChange={handleFormChange}
-                    required
-                    placeholder="Seu nome"
-                    className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors text-gray-800"
-                    style={{ borderColor: "#E2E8F0" }}
-                    onFocus={e => (e.target.style.borderColor = "#29ABE2")}
-                    onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block text-sm font-semibold mb-1"
-                    style={{ color: "#2D3748" }}
-                  >
-                    WhatsApp *
-                  </label>
-                  <input
-                    type="tel"
-                    name="whatsapp"
-                    value={formData.whatsapp}
-                    onChange={handleFormChange}
-                    required
-                    placeholder="(44) 99999-9999"
-                    className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors text-gray-800"
-                    style={{ borderColor: "#E2E8F0" }}
-                    onFocus={e => (e.target.style.borderColor = "#29ABE2")}
-                    onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block text-sm font-semibold mb-1"
-                    style={{ color: "#2D3748" }}
-                  >
-                    E-mail
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleFormChange}
-                    placeholder="seu@email.com"
-                    className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors text-gray-800"
-                    style={{ borderColor: "#E2E8F0" }}
-                    onFocus={e => (e.target.style.borderColor = "#29ABE2")}
-                    onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block text-sm font-semibold mb-1"
-                    style={{ color: "#2D3748" }}
-                  >
-                    Mensagem *
-                  </label>
-                  <textarea
-                    name="mensagem"
-                    value={formData.mensagem}
-                    onChange={handleFormChange}
-                    required
-                    rows={4}
-                    placeholder="Descreva sua situação ou dúvida..."
-                    className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors resize-none text-gray-800"
-                    style={{ borderColor: "#E2E8F0" }}
-                    onFocus={e => (e.target.style.borderColor = "#29ABE2")}
-                    onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2 text-white font-bold py-4 rounded-xl transition-all hover:shadow-lg"
-                  style={{ backgroundColor: "#1E5FA8" }}
-                  onMouseEnter={e =>
-                    (e.currentTarget.style.backgroundColor = "#1A4F8F")
-                  }
-                  onMouseLeave={e =>
-                    (e.currentTarget.style.backgroundColor = "#1E5FA8")
-                  }
-                >
-                  <Send size={18} />
-                  Enviar via WhatsApp
-                </button>
-              </form>
-            </div>
+          {/* Seta animada para baixo */}
+          <div className="absolute bottom-32 left-1/2 -translate-x-1/2 text-white opacity-60 animate-bounce">
+            <ArrowDown size={28} />
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ===== MAPA ===== */}
-      <section
-        id="mapa"
-        className="py-20"
-        style={{ backgroundColor: "#FFFFFF" }}
-      >
-        <div className="container">
-          <div className="text-center mb-10">
-            <h2
-              className="text-3xl md:text-4xl font-bold"
-              style={{
-                color: "#1E5FA8",
-                fontFamily: "'Playfair Display', serif",
-              }}
-            >
-              Nossa Localização
-            </h2>
-            <p className="mt-3 text-lg" style={{ color: "#4A5568" }}>
-              Estamos em Maringá — PR. Venha nos visitar!
-            </p>
-          </div>
-          <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-xl">
-            <iframe
-              title="Localização Santana Daufenbach Advocacia"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.8!2d-51.9390426!3d-23.4175294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd77c609e3a41%3A0x72d87afb95517515!2sSantana+Daufenbach+Advocacia!5e0!3m2!1spt-BR!2sbr!4v1748000000000!5m2!1spt-BR!2sbr"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-          <div className="max-w-5xl mx-auto mt-8 grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <MapPin size={24} />,
-                title: "Endereço",
-                value:
-                  "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2, Novo Centro, Maringá/PR",
-              },
-              {
-                icon: <Phone size={24} />,
-                title: "Telefone / WhatsApp",
-                value: "(44) 99856-3465",
-              },
-              {
-                icon: <Clock size={24} />,
-                title: "Horário de Atendimento",
-                value: "Segunda a Sexta: 9h às 17h",
-              },
-            ].map((item, i) => (
+        {/* ===== TRILHA — JORNADA DO CLIENTE ===== */}
+        <section id="trilha" className="py-24 overflow-hidden trail-bg">
+          <div className="container">
+            {/* Título da seção */}
+            <div className="text-center mb-16">
               <div
-                key={i}
-                className="flex items-start gap-4 p-5 rounded-2xl shadow-sm"
-                style={{ backgroundColor: "#F0F7FF" }}
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-4"
+                style={{ backgroundColor: "#E0F0FF", color: "#1E5FA8" }}
               >
-                <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: "#1E5FA8", color: "white" }}
-                >
-                  {item.icon}
-                </div>
-                <div>
-                  <p
-                    className="text-xs font-bold uppercase tracking-wider mb-1"
-                    style={{ color: "#29ABE2" }}
+                <Map size={16} />
+                Sua Jornada Começa Aqui
+              </div>
+              <h2
+                className="text-3xl md:text-5xl font-bold mb-4"
+                style={{
+                  color: "#1E5FA8",
+                  fontFamily: "'Playfair Display', serif",
+                }}
+              >
+                Agora que você já sabe o que é a CTC...
+              </h2>
+              <p
+                className="text-lg max-w-2xl mx-auto leading-relaxed"
+                style={{ color: "#4A5568" }}
+              >
+                Vamos mostrar o{" "}
+                <strong style={{ color: "#1E5FA8" }}>melhor caminho</strong>{" "}
+                para aproveitar a Certidão de Tempo de Contribuição ao máximo.
+                Role a página e acompanhe a jornada!
+              </p>
+            </div>
+
+            {/* ESTRADA ANIMADA — visível em telas grandes */}
+            <div className="hidden lg:block">
+              <AnimatedRoad />
+            </div>
+
+            {/* VERSÃO MOBILE — cards empilhados com linha conectora */}
+            <div className="lg:hidden relative">
+              {/* Linha vertical conectora */}
+              <div
+                className="absolute left-8 top-0 bottom-0 w-1 rounded-full"
+                style={{ backgroundColor: "#29ABE2", opacity: 0.3 }}
+              />
+
+              {[
+                {
+                  num: "1",
+                  icon: <Compass size={20} />,
+                  label: "ETAPA 1 — O MAIS IMPORTANTE",
+                  title: "Planejamento Estratégico",
+                  color: "#1E5FA8",
+                  content: (
+                    <>
+                      <p
+                        className="text-base leading-relaxed mb-3"
+                        style={{ color: "#2D3748" }}
+                      >
+                        Realizamos um{" "}
+                        <strong>
+                          estudo completo da sua situação previdenciária
+                        </strong>
+                        , identificando as melhores possibilidades.
+                      </p>
+                      <ul className="space-y-2">
+                        {[
+                          "Possibilidade de mais de uma aposentadoria",
+                          "Antecipação de regras de aposentadoria",
+                          "Combinações mais vantajosas de tempo",
+                        ].map((item, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle
+                              size={14}
+                              className="flex-shrink-0 mt-0.5"
+                              style={{ color: "#29ABE2" }}
+                            />
+                            <span
+                              className="text-base font-medium"
+                              style={{ color: "#4A5568" }}
+                            >
+                              {item}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div
+                        className="mt-3 p-3 rounded-xl text-sm font-semibold"
+                        style={{ backgroundColor: "#FFF8E1", color: "#B7791F" }}
+                      >
+                        💡 O planejamento é a{" "}
+                        <strong>bússola de toda a jornada</strong>
+                      </div>
+                    </>
+                  ),
+                },
+                {
+                  num: "2",
+                  icon: <FileText size={20} />,
+                  label: "ETAPA 2 — ELABORAÇÃO",
+                  title: "Requerimentos da CTC",
+                  color: "#29ABE2",
+                  content: (
+                    <>
+                      <p
+                        className="text-base leading-relaxed mb-3"
+                        style={{ color: "#2D3748" }}
+                      >
+                        Elaboramos os <strong>requerimentos da CTC</strong> com
+                        destinação exata do tempo de contribuição, seguindo o
+                        plano.
+                      </p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {[
+                          { label: "Documentação Completa", icon: "📋" },
+                          { label: "Destinação Precisa", icon: "🎯" },
+                          { label: "Seguindo o Plano", icon: "🗺️" },
+                          { label: "Acompanhamento Total", icon: "👁️" },
+                        ].map((item, i) => (
+                          <div
+                            key={i}
+                            className="flex items-center gap-1 p-2 rounded-lg"
+                            style={{ backgroundColor: "#F0F7FF" }}
+                          >
+                            <span className="text-sm">{item.icon}</span>
+                            <span
+                              className="text-base font-semibold"
+                              style={{ color: "#1E5FA8" }}
+                            >
+                              {item.label}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  ),
+                },
+                {
+                  num: "3",
+                  icon: <Flag size={20} />,
+                  label: "ETAPA 3 — DESTINO FINAL",
+                  title: "Averbação do Tempo",
+                  color: "#1E5FA8",
+                  content: (
+                    <>
+                      <p
+                        className="text-base leading-relaxed mb-3"
+                        style={{ color: "#2D3748" }}
+                      >
+                        Com a CTC em mãos, realizamos os{" "}
+                        <strong>pedidos de averbação</strong> de acordo com o
+                        planejamento inicial.
+                      </p>
+                      <div
+                        className="p-3 rounded-xl border-2"
+                        style={{
+                          backgroundColor: "#EFF6FF",
+                          borderColor: "#1E5FA8",
+                        }}
+                      >
+                        <p
+                          className="font-bold text-base mb-1"
+                          style={{ color: "#1E5FA8" }}
+                        >
+                          🏁 Resultado Final
+                        </p>
+                        <p
+                          className="text-sm leading-relaxed"
+                          style={{ color: "#2D3748" }}
+                        >
+                          Tempo averbado da maneira que você tenha o{" "}
+                          <strong>
+                            melhor direito de aposentadoria possível
+                          </strong>
+                          .
+                        </p>
+                      </div>
+                    </>
+                  ),
+                },
+              ].map((step, idx) => (
+                <div key={idx} className="relative pl-20 mb-12">
+                  {/* Marcador circular */}
+                  <div
+                    className="absolute left-0 w-16 h-16 rounded-full flex items-center justify-center shadow-lg border-4 border-white"
+                    style={{ backgroundColor: step.color, top: "16px" }}
                   >
-                    {item.title}
-                  </p>
-                  <p className="font-semibold" style={{ color: "#2D3748" }}>
-                    {item.value}
-                  </p>
+                    <div className="text-white">{step.icon}</div>
+                    <div
+                      className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                      style={{ backgroundColor: "#0F2A4A" }}
+                    >
+                      {step.num}
+                    </div>
+                  </div>
+                  {/* Card */}
+                  <div
+                    className="rounded-2xl p-6 shadow-lg border-t-4 cursor-default"
+                    style={{
+                      backgroundColor: "#FFFFFF",
+                      borderTopColor: step.color,
+                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLDivElement).style.transform =
+                        "translateY(-6px) scale(1.02)";
+                      (e.currentTarget as HTMLDivElement).style.boxShadow =
+                        "0 20px 40px rgba(30,95,168,0.22)";
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLDivElement).style.transform =
+                        "translateY(0) scale(1)";
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = "";
+                    }}
+                  >
+                    <div
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold mb-2"
+                      style={{ backgroundColor: "#E0F0FF", color: "#1E5FA8" }}
+                    >
+                      {step.label}
+                    </div>
+                    <h3
+                      className="text-xl font-bold mb-3"
+                      style={{
+                        color: "#1E5FA8",
+                        fontFamily: "'Playfair Display', serif",
+                      }}
+                    >
+                      {step.title}
+                    </h3>
+                    {step.content}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA após trilha */}
+            <div className="text-center mt-16">
+              <div
+                className="inline-block rounded-3xl p-8 shadow-xl max-w-2xl"
+                style={{ backgroundColor: "#1E5FA8" }}
+              >
+                <p
+                  className="text-2xl font-bold text-white mb-3"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  Pronto para iniciar sua jornada?
+                </p>
+                <p className="text-blue-200 mb-6 leading-relaxed">
+                  Nossa equipe especializada está pronta para guiar você em cada
+                  etapa desta trilha e garantir que você chegue ao melhor
+                  destino possível.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      handleWhatsAppClick("CTA Trilha - Iniciar Agora CTC")
+                    }
+                    className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-lg"
+                  >
+                    <Phone size={20} />
+                    Iniciar Agora pelo WhatsApp
+                  </a>
+                  <button
+                    onClick={() => {
+                      scrollTo("contato");
+                      pushGTMEvent("cta_click_ctc", {
+                        event_category: "Engajamento",
+                        event_label: "CTA Trilha - Enviar Mensagem",
+                        page: "/ctc",
+                      });
+                    }}
+                    className="flex items-center justify-center gap-2 text-white font-bold px-8 py-4 rounded-xl transition-all border-2 border-white/40 hover:bg-white/10"
+                  >
+                    <Send size={20} />
+                    Enviar Mensagem
+                  </button>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ===== FOOTER ===== */}
+        {/* ===== VÍDEO DO YOUTUBE ===== */}
+        <section
+          id="video"
+          className="py-20"
+          style={{ backgroundColor: "#FFFFFF" }}
+        >
+          <div ref={videoRef} className="container">
+            <div className="text-center mb-12">
+              <div
+                className="fade-in-up inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-4"
+                style={{ backgroundColor: "#E0F0FF", color: "#1E5FA8" }}
+              >
+                📺 Nosso Canal
+              </div>
+              <h2
+                className="fade-in-up text-3xl md:text-4xl font-bold"
+                style={{
+                  color: "#1E5FA8",
+                  fontFamily: "'Playfair Display', serif",
+                  transitionDelay: "0.1s",
+                }}
+              >
+                Saiba Mais Sobre a Assessoria na CTC
+              </h2>
+              <p
+                className="fade-in-up text-lg mt-3 max-w-xl mx-auto"
+                style={{ color: "#4A5568", transitionDelay: "0.2s" }}
+              >
+                Assista ao nosso vídeo explicativo e entenda todos os detalhes
+                do Serviço de Assessoria na Certidão de Tempo de Contribuição.
+              </p>
+            </div>
+
+            <div
+              className="fade-in-up max-w-3xl mx-auto"
+              style={{ transitionDelay: "0.2s" }}
+            >
+              <div
+                className="relative rounded-2xl overflow-hidden shadow-2xl"
+                style={{ paddingBottom: "56.25%" }}
+              >
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`}
+                  title="Certidão de Tempo de Contribuição"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="text-center mt-6">
+                <a
+                  href={YOUTUBE_CHANNEL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    pushGTMEvent("cta_click_ctc", {
+                      event_category: "Engajamento",
+                      event_label: "Video - Acessar Canal YouTube",
+                      page: "/ctc",
+                    })
+                  }
+                  className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                  Acessar Nosso Canal no YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== FAQ ===== */}
+        <FAQSection />
+
+        {/* ===== FORMULÁRIO DE CONTATO ===== */}
+        <section
+          id="contato"
+          className="py-20"
+          style={{ backgroundColor: "#F0F7FF" }}
+        >
+          <div ref={contactRef} className="container">
+            <div className="text-center mb-12">
+              <div
+                className="fade-in-up inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-4"
+                style={{ backgroundColor: "#E0F0FF", color: "#1E5FA8" }}
+              >
+                <Mail size={16} />
+                Entre em Contato
+              </div>
+              <h2
+                className="fade-in-up text-3xl md:text-4xl font-bold"
+                style={{
+                  color: "#1E5FA8",
+                  fontFamily: "'Playfair Display', serif",
+                  transitionDelay: "0.1s",
+                }}
+              >
+                Fale com Nossa Equipe
+              </h2>
+              <p
+                className="fade-in-up text-lg mt-3 max-w-xl mx-auto"
+                style={{ color: "#4A5568", transitionDelay: "0.2s" }}
+              >
+                Tire suas dúvidas ou solicite uma avaliação gratuita da sua
+                situação previdenciária.
+              </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+              {/* Informações de contato */}
+              <div className="fade-in-up space-y-6">
+                <div
+                  className="rounded-2xl p-6 shadow-md"
+                  style={{ backgroundColor: "#FFFFFF" }}
+                >
+                  <h3
+                    className="text-xl font-bold mb-5"
+                    style={{ color: "#1E5FA8" }}
+                  >
+                    Informações de Contato
+                  </h3>
+                  <div className="space-y-4">
+                    {[
+                      {
+                        icon: <Phone size={20} />,
+                        label: "WhatsApp",
+                        value: "(44) 99856-3465",
+                        href: whatsappUrl,
+                      },
+                      {
+                        icon: <Mail size={20} />,
+                        label: "E-mail",
+                        value: "joao@advocaciasd.com.br",
+                        href: "mailto:joao@advocaciasd.com.br",
+                      },
+                      {
+                        icon: <MapPin size={20} />,
+                        label: "Endereço",
+                        value:
+                          "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2, Novo Centro, Maringá/PR",
+                        href: "#mapa",
+                      },
+                      {
+                        icon: <Clock size={20} />,
+                        label: "Horário",
+                        value: "Seg–Sex: 9h às 17h",
+                        href: null,
+                      },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-4">
+                        <div
+                          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                          style={{
+                            backgroundColor: "#E0F0FF",
+                            color: "#1E5FA8",
+                          }}
+                        >
+                          {item.icon}
+                        </div>
+                        <div>
+                          <p
+                            className="text-xs font-bold uppercase tracking-wider"
+                            style={{ color: "#29ABE2" }}
+                          >
+                            {item.label}
+                          </p>
+                          {item.href ? (
+                            <a
+                              href={item.href}
+                              target={
+                                item.href.startsWith("http")
+                                  ? "_blank"
+                                  : undefined
+                              }
+                              rel="noopener noreferrer"
+                              className="font-semibold hover:underline"
+                              style={{ color: "#2D3748" }}
+                            >
+                              {item.value}
+                            </a>
+                          ) : (
+                            <p
+                              className="font-semibold"
+                              style={{ color: "#2D3748" }}
+                            >
+                              {item.value}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className="rounded-2xl p-6 shadow-md"
+                  style={{ backgroundColor: "#1E5FA8" }}
+                >
+                  <p className="text-white font-bold text-lg mb-2">
+                    Atendimento Rápido
+                  </p>
+                  <p className="text-blue-200 text-sm mb-4 leading-relaxed">
+                    Para uma resposta mais ágil, entre em contato diretamente
+                    pelo WhatsApp. Nossa equipe responde em até 2 horas úteis.
+                  </p>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      handleWhatsAppClick(
+                        "Secao Contato - Chamar no WhatsApp CTC"
+                      )
+                    }
+                    className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-xl transition-colors w-full"
+                  >
+                    <Phone size={18} />
+                    Chamar no WhatsApp
+                  </a>
+                </div>
+              </div>
+
+              {/* Formulário */}
+              <div
+                className="fade-in-up rounded-2xl p-8 shadow-md"
+                style={{ backgroundColor: "#FFFFFF", transitionDelay: "0.15s" }}
+              >
+                <h3
+                  className="text-xl font-bold mb-6"
+                  style={{ color: "#1E5FA8" }}
+                >
+                  Envie sua Mensagem
+                </h3>
+                <form onSubmit={handleFormSubmit} className="space-y-4">
+                  <div>
+                    <label
+                      className="block text-sm font-semibold mb-1"
+                      style={{ color: "#2D3748" }}
+                    >
+                      Nome completo *
+                    </label>
+                    <input
+                      type="text"
+                      name="nome"
+                      value={formData.nome}
+                      onChange={handleFormChange}
+                      required
+                      placeholder="Seu nome"
+                      className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors text-gray-800"
+                      style={{ borderColor: "#E2E8F0" }}
+                      onFocus={e => (e.target.style.borderColor = "#29ABE2")}
+                      onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className="block text-sm font-semibold mb-1"
+                      style={{ color: "#2D3748" }}
+                    >
+                      WhatsApp *
+                    </label>
+                    <input
+                      type="tel"
+                      name="whatsapp"
+                      value={formData.whatsapp}
+                      onChange={handleFormChange}
+                      required
+                      placeholder="(44) 99999-9999"
+                      className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors text-gray-800"
+                      style={{ borderColor: "#E2E8F0" }}
+                      onFocus={e => (e.target.style.borderColor = "#29ABE2")}
+                      onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className="block text-sm font-semibold mb-1"
+                      style={{ color: "#2D3748" }}
+                    >
+                      E-mail
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleFormChange}
+                      placeholder="seu@email.com"
+                      className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors text-gray-800"
+                      style={{ borderColor: "#E2E8F0" }}
+                      onFocus={e => (e.target.style.borderColor = "#29ABE2")}
+                      onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className="block text-sm font-semibold mb-1"
+                      style={{ color: "#2D3748" }}
+                    >
+                      Mensagem *
+                    </label>
+                    <textarea
+                      name="mensagem"
+                      value={formData.mensagem}
+                      onChange={handleFormChange}
+                      required
+                      rows={4}
+                      placeholder="Descreva sua situação ou dúvida..."
+                      className="w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors resize-none text-gray-800"
+                      style={{ borderColor: "#E2E8F0" }}
+                      onFocus={e => (e.target.style.borderColor = "#29ABE2")}
+                      onBlur={e => (e.target.style.borderColor = "#E2E8F0")}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full flex items-center justify-center gap-2 text-white font-bold py-4 rounded-xl transition-all hover:shadow-lg"
+                    style={{ backgroundColor: "#1E5FA8" }}
+                    onMouseEnter={e =>
+                      (e.currentTarget.style.backgroundColor = "#1A4F8F")
+                    }
+                    onMouseLeave={e =>
+                      (e.currentTarget.style.backgroundColor = "#1E5FA8")
+                    }
+                  >
+                    <Send size={18} />
+                    Enviar via WhatsApp
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== MAPA ===== */}
+        <section
+          id="mapa"
+          className="py-20"
+          style={{ backgroundColor: "#FFFFFF" }}
+        >
+          <div className="container">
+            <div className="text-center mb-10">
+              <h2
+                className="text-3xl md:text-4xl font-bold"
+                style={{
+                  color: "#1E5FA8",
+                  fontFamily: "'Playfair Display', serif",
+                }}
+              >
+                Nossa Localização
+              </h2>
+              <p className="mt-3 text-lg" style={{ color: "#4A5568" }}>
+                Estamos em Maringá — PR. Venha nos visitar!
+              </p>
+            </div>
+            <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+              <iframe
+                title="Localização Santana Daufenbach Advocacia"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.8!2d-51.9390426!3d-23.4175294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd77c609e3a41%3A0x72d87afb95517515!2sSantana+Daufenbach+Advocacia!5e0!3m2!1spt-BR!2sbr!4v1748000000000!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <div className="max-w-5xl mx-auto mt-8 grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: <MapPin size={24} />,
+                  title: "Endereço",
+                  value:
+                    "Av. João Paulino Vieira Filho, 625, sala 708 - Torre 2, Novo Centro, Maringá/PR",
+                },
+                {
+                  icon: <Phone size={24} />,
+                  title: "Telefone / WhatsApp",
+                  value: "(44) 99856-3465",
+                },
+                {
+                  icon: <Clock size={24} />,
+                  title: "Horário de Atendimento",
+                  value: "Segunda a Sexta: 9h às 17h",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-4 p-5 rounded-2xl shadow-sm"
+                  style={{ backgroundColor: "#F0F7FF" }}
+                >
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: "#1E5FA8", color: "white" }}
+                  >
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p
+                      className="text-xs font-bold uppercase tracking-wider mb-1"
+                      style={{ color: "#29ABE2" }}
+                    >
+                      {item.title}
+                    </p>
+                    <p className="font-semibold" style={{ color: "#2D3748" }}>
+                      {item.value}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== FOOTER ===== */}
+      </main>
       <footer className="py-10" style={{ backgroundColor: "#0F172A" }}>
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <img
                 src={LOGO_NEW}
+                width={128}
+                height={128}
                 alt="Santana Daufenbach"
                 className="h-10 w-auto"
               />

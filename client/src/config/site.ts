@@ -49,6 +49,9 @@ export const SITE = {
   // Imagens
   logo: "/images/logo-sd.png",
   logoClaro: "/images/logo-sd-branco.png",
+  // Versões leves usadas na interface (o PNG grande fica no compartilhamento)
+  logoInterface: "/images/logo-sd-128.webp",
+  logoClaroInterface: "/images/logo-sd-branco-128.webp",
 } as const;
 
 /** Mensagens padrão do WhatsApp, separadas por intenção de quem chega. */

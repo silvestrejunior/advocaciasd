@@ -40,6 +40,15 @@ export default function Blog() {
             headline: artigo.titulo,
             url: `${SITE.dominio}/blog/${artigo.slug}`,
             datePublished: artigo.publicado,
+            author: {
+              "@type": "Person",
+              name: SITE.responsavel,
+              jobTitle: "Advogado",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: SITE.nomeCompleto,
+            },
           })),
         }}
       />
@@ -119,6 +128,8 @@ export default function Blog() {
                       {artigo.imagem && (
                         <img
                           src={artigo.imagem}
+                          width={900}
+                          height={506}
                           alt={artigo.titulo}
                           loading="lazy"
                           className="-mx-6 -mt-6 mb-5 h-44 w-[calc(100%+3rem)] rounded-t-2xl object-cover"

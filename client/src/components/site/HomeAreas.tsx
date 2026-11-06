@@ -86,10 +86,10 @@ export function CasosAgora() {
               >
                 <img
                   src={caso.imagem}
+                  width={760}
+                  height={1013}
                   alt=""
                   aria-hidden="true"
-                  width={900}
-                  height={1200}
                   loading="lazy"
                   decoding="async"
                   className="caso-card-foto"

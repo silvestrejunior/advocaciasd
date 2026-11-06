@@ -51,6 +51,8 @@ export default function Home() {
                   src="/images/escritorio-retrato.webp"
                   alt={`${SITE.responsavel}, advogado responsável pelo escritório`}
                   loading="lazy"
+                  width={820}
+                  height={1459}
                   className="aspect-[3/4] w-full rounded-2xl object-cover object-top shadow-lg"
                 />
                 <figcaption className="mt-4 text-[13.5px] leading-relaxed text-slate-600">
@@ -76,6 +78,8 @@ export default function Home() {
                       src="/images/escritorio-sala-reuniao.webp"
                       alt="Sala de reuniões do escritório, com vista para a cidade de Maringá"
                       loading="lazy"
+                      width={1200}
+                      height={800}
                       className="aspect-[4/3] w-full rounded-xl object-cover shadow-sm"
                     />
                     <figcaption className="mt-3 text-[13px] text-slate-600">
@@ -88,6 +92,8 @@ export default function Home() {
                       src="/images/escritorio-mesa.webp"
                       alt="Mesa de trabalho usada na análise dos documentos do caso"
                       loading="lazy"
+                      width={1200}
+                      height={800}
                       className="aspect-[4/3] w-full rounded-xl object-cover shadow-sm"
                     />
                     <figcaption className="mt-3 text-[13px] text-slate-600">
@@ -144,6 +150,8 @@ export default function Home() {
             alt=""
             aria-hidden="true"
             loading="lazy"
+            width={900}
+            height={1350}
             className="absolute inset-0 h-full w-full object-cover object-center opacity-25"
           />
           <div
@@ -191,6 +199,8 @@ export default function Home() {
                   {artigo.imagem && (
                     <img
                       src={artigo.imagem}
+                      width={900}
+                      height={506}
                       alt={artigo.titulo}
                       loading="lazy"
                       className="-mx-6 -mt-6 mb-5 h-44 w-[calc(100%+3rem)] rounded-t-2xl object-cover"
