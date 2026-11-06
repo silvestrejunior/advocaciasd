@@ -215,8 +215,9 @@ export default function ComoPedirAposentadoria() {
               </h1>
               <p className="cp-hero-texto">
                 A regra escolhida, a data do pedido e os períodos reconhecidos
-                pelo INSS definem o valor do seu benefício. Com assessoria, você
-                confere tudo antes de dar entrada e decide com segurança.
+                pelo INSS influenciam o valor do seu benefício. Com assessoria,
+                seu histórico e seus documentos são analisados antes de dar
+                entrada, para você decidir com mais segurança.
               </p>
               <ul className="cp-pontos">
                 {PONTOS.map(ponto => (

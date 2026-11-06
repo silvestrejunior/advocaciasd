@@ -228,3 +228,10 @@
 - [ ] Prévia em390px sem scroll horizontal, link inicial e WhatsApp corretos, caso58/Sim/Não sei e omissões testados, vídeo sem player/requisições atéclique. Não publicar, não enviar nova página à mainGitHubVercel nem chamarPublish; checkpoint no Manus somente se auto_publishfalse for confirmado. Informar lacunas do vídeo/addon sem prometer conclusão automática.
 
 Prévia visual e testes concluídos, vídeo confirmado KNg-vQ7uo3k, data24/03/2025. O último item permanece aberto apenas quanto à prévia interativa/checkpoint remoto: addon Manus ainda em recuperação e auto_publish indisponível. Não publicar nem avançar GitHub/Vercel. Versão preservada no Git local; aprovação da prévia pendente.
+
+## Revisão final e publicação condicionada de `/como-pedir-aposentadoria` — 06/11/2026
+
+- [x] Revisar o texto principal e as chamadas para ação mantendo o H1, os rótulos aprovados, a frase do escritório, as mensagens prontas e a identidade visual. Esclarecer a influência dos fatores na análise e que a seleção prepara uma mensagem, sem enviá-la automaticamente.
+- [ ] Publicar a versão revisada somente quando o addon Manus estiver normalizado, conforme autorização do usuário em 06/11/2026 às 15:11. Essa autorização substitui a etapa anterior de prévia sem publicação, mas não permite antecipar a publicação enquanto a condição não for satisfeita. Preservar histórico e conferir a nova rota no domínio oficial após o deploy.
+
+Estado atual: addon permanece em recuperação. Não há evento nativo disponível para retomada automática; não foi configurado monitoramento e nenhuma publicação antecipada foi executada. Nova autorização registrada para concluir a publicação na retomada assim que a condição for confirmada.

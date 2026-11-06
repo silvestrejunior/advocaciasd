@@ -173,8 +173,9 @@ export default function SelecaoAposentadoria() {
             Enviar pelo WhatsApp
           </button>
           <p className="mt-5 text-[17px] leading-7">
-            Nada é gravado nesta página. Suas respostas vão direto para o
-            WhatsApp do escritório, só se você tocar no botão.
+            Suas respostas não são gravadas nesta página. Ao tocar no botão,
+            você abre o WhatsApp com a mensagem preparada. Você confere e envia
+            a mensagem no próprio WhatsApp.
           </p>
         </div>
       </div>

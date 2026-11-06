@@ -170,3 +170,13 @@ SEO no HTML inicial: título e descrição literais, canonical https://advocacia
 Capturas finais da prévia visual: /home/ubuntu/advocacia/como-pedir-aposentadoria/previa-390.png e previa-1440.png. Evidências adicionais de teste no mesmo diretório.
 
 **Não publicado.** Nenhum push para GitHub/Vercel nem chamada Publish desta campanha. O addon Manus continua recusando operações porque a recuperação do workspace não terminou, portanto não foi possível confirmar auto_publish para salvar um checkpoint remoto com segurança. A versão é preservada no Git local e a prévia visual é entregue em capturas. Prévia interativa e checkpoint registrado no Manus permanecem pendentes da recuperação; não são confundidos com publicação.
+
+## Revisão final de textos e CTAs — 06/11/2026, após aprovação da prévia
+
+A revisão manteve H1, três cuidados, frase do escritório, rótulos Assistir ao vídeo, Falar no WhatsApp, Enviar pelo WhatsApp e Conheça o escritório, além das mensagens pré-escritas e dados oficiais. Não foram introduzidas novas regras jurídicas, promessas de concessão, urgência artificial, preço ou resultado garantido.
+
+O parágrafo do hero agora usa influenciam o valor em vez de definem o valor e explica a análise de histórico/documentos antes do pedido, evitando sugerir uma lista exaustiva de fatores ou conferência absoluta. O aviso da seleção esclarece que as respostas não são gravadas na página e que o clique apenas abre uma mensagem preparada: o próprio visitante confere e envia pelo WhatsApp. A mensagem padrão e o resultado de58/Sim/Não sei permaneceram idênticos. Revisão editorial, não parecer de conformidade jurídica.
+
+21 testes unitários passaram novamente. Verificação pontual no navegador confirmou os3contatos para5544998563465, uma conversão local por clique, ausência de sobreposição com cookies/envio/rodapé e viewport sem bloqueio de zoom. Rastreamento real bloqueado e nenhum envio real. Os controles e o fluxo não mudaram; não houve uma nova auditoria global de todas as páginas.
+
+O cliente autorizou publicar quando o addon Manus estiver normalizado. A consulta atual ainda retornou Addon manus-webdev is not ready: its workspace recovery has not completed. A publicação e os pushes que a disparariam não foram efetuados, respeitando essa condição. O catálogo de Triggers foi consultado de forma focada e depois completo: não há evento de recuperação do addon/WebDev. Não há um endpoint público confirmado para monitorar essa condição; nenhum Trigger, script de monitoramento nem agendamento recorrente foi criado. A autorização foi registrada, mas não existe retomada automática configurada. Será necessária a retomada da tarefa após a recuperação. A revisão permanece no Git local, sem afirmar checkpoint registrado.
