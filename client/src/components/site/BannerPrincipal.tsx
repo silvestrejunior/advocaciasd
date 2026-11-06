@@ -63,10 +63,12 @@ export function BannerPrincipal() {
             <div className="home-banner-retrato relative mx-auto">
               <img
                 src="/images/advogado-banner.webp"
+                srcSet="/images/advogado-banner-600.webp 600w, /images/advogado-banner.webp 720w"
+                sizes="(min-width: 768px) 360px, 300px"
                 alt={`${SITE.responsavel}, advogado, em conversa ao microfone`}
                 fetchPriority="high"
-                width={820}
-                height={1133}
+                width={720}
+                height={995}
                 className="home-banner-foto mx-auto block h-full w-full object-contain object-bottom"
               />
             </div>

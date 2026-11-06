@@ -57,7 +57,7 @@ function preparar(html, arquivo) {
   if (arquivo === "index.html") {
     html = html.replace(
       "</head>",
-      '<link rel="preload" as="image" href="/images/advogado-banner.webp" fetchpriority="high">\n</head>'
+      '<link rel="preload" as="image" href="/images/advogado-banner.webp" imagesrcset="/images/advogado-banner-600.webp 600w, /images/advogado-banner.webp 720w" imagesizes="(min-width: 768px) 360px, 300px" fetchpriority="high">\n</head>'
     );
   }
   // A campanha de ACS e ACE tem identidade tipográfica própria: só ela usa
