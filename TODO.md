@@ -189,5 +189,10 @@
 - [x] Prévia aprovada e canônica ajustada para www a pedido do cliente.
 - [x] Banner centrado com as duas categorias destacadas no H1 no azul institucional, quadro das idades movido para "O que mudou", botão de simulação em destaque pulsante.
 - [x] Botão flutuante de WhatsApp e rodapé no padrão das outras páginas (a barra fixa própria deixou de existir).
+- [x] Quadro "Idade mínima na regra de transição" e trecho riscado da regra antiga removidos da página.
+- [x] Assinatura do escritório no cabeçalho igual à do site (logotipo original com escrita em Playfair, visível no celular).
+- [x] Banner sem nome e dados pessoais, apenas "Atendemos Servidores Públicos e INSS" e "Atendemos em todo o Brasil" em destaque.
+- [x] Mensagem do WhatsApp desta página: "Quero falar com um advogado sobre a aposentadoria do ACS ou ACE.".
+- [x] Mensagem do WhatsApp da página da saúde: "Sou da área da saúde e quero falar com um advogado sobre a minha Aposentadoria Especial.".
 - [x] Publicada em https://www.advocaciasd.com.br/aposentadoria-acs-ace (deploy Vercel confirmado, arquivos e sitemap conferidos).
 - [ ] Decisão do advogado sobre os ajustes jurídicos apontados em docs/revisao-ec140-2026.md (insalubridade na base de cálculo, redução da idade, revisão de aposentados, efetivação de temporários e mandato classista).

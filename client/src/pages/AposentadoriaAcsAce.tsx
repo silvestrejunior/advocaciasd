@@ -22,7 +22,7 @@ import "@/styles/fonts-acs.css";
 /* --------------------------------------------------------------- contato */
 
 const MENSAGEM_PADRAO =
-  "Olá! Sou agente (ACS/ACE) e vi a página sobre a aposentadoria pela EC 140/2026. Gostaria de uma análise do meu caso.";
+  "Quero falar com um advogado sobre a aposentadoria do ACS ou ACE.";
 const LINK_WHATSAPP = whatsapp(MENSAGEM_PADRAO);
 
 const FONTE_TEXTO =
@@ -147,33 +147,6 @@ const VINCULOS: { valor: Vinculo; label: string }[] = [
 
 /* ---------------------------------------------------------- textos fixos */
 
-const IDADES_TRANSICAO = [
-  {
-    periodo: "Até 31/12/2030",
-    mulher: "50 anos",
-    homem: "52 anos",
-    destaque: true,
-  },
-  {
-    periodo: "De 2031 a 2035",
-    mulher: "52 anos",
-    homem: "54 anos",
-    destaque: false,
-  },
-  {
-    periodo: "De 2036 a 2040",
-    mulher: "54 anos",
-    homem: "56 anos",
-    destaque: false,
-  },
-  {
-    periodo: "A partir de 2041",
-    mulher: "57 anos",
-    homem: "60 anos",
-    destaque: false,
-  },
-];
-
 const CAMINHOS = [
   {
     titulo: "Transição por idade",
@@ -290,7 +263,7 @@ const PERGUNTAS = [
   {
     pergunta: "Atendem fora de Maringá?",
     resposta:
-      "Sim. O escritório fica em Maringá e atende agentes de todo o Paraná de forma virtual. A conversa, o envio de documentos e o acompanhamento do pedido são feitos a distância.",
+      "Sim. O escritório fica em Maringá e atende agentes de todo o Brasil de forma virtual. A conversa, o envio de documentos e o acompanhamento do pedido são feitos a distância.",
   },
 ];
 
@@ -429,9 +402,9 @@ export default function AposentadoriaAcsAce() {
         : `aposentadoria em ${primeiroAno}`;
 
   const mensagemSimulacao = [
-    "Olá! Sou agente (ACS/ACE) e fiz a simulação da EC 140 no site.",
-    `${sexo === "mulher" ? "Mulher" : "Homem"}, ${idade} anos, ${exercicio} anos como agente, ${contribuicao} anos de contribuição, ${regimeLabel}, vínculo: ${vinculoLabel}.`,
-    `Resultado: ${resultadoMensagem}. Gostaria de uma análise.`,
+    MENSAGEM_PADRAO,
+    `Simulei no site: ${sexo === "mulher" ? "mulher" : "homem"}, ${idade} anos, ${exercicio} anos como agente, ${contribuicao} anos de contribuição, ${regimeLabel}, vínculo: ${vinculoLabel}.`,
+    `Resultado: ${resultadoMensagem}.`,
   ].join(" ");
 
   useEffect(() => {
@@ -507,26 +480,23 @@ export default function AposentadoriaAcsAce() {
           >
             <img
               src={SITE.logo}
-              alt="Santana Daufenbach Advocacia Previdenciária"
+              alt={`${SITE.nomeCompleto} — logotipo`}
               width={512}
               height={512}
               className="h-11 w-11 object-contain"
             />
-            <span
-              className="hidden sm:block"
-              style={{ fontFamily: "Sora, sans-serif" }}
-            >
+            <span className="leading-tight">
               <span
-                className="block text-[15px] font-semibold leading-tight"
+                className="block font-['Playfair_Display'] text-lg font-bold"
                 style={{ color: C.chumbo }}
               >
-                Santana Daufenbach
+                {SITE.nome}
               </span>
               <span
-                className="block text-[11.5px] font-semibold tracking-[0.14em]"
+                className="block text-[10px] font-semibold tracking-[0.28em]"
                 style={{ color: C.medio }}
               >
-                ADVOCACIA PREVIDENCIÁRIA
+                ADVOCACIA
               </span>
             </span>
           </a>
@@ -564,7 +534,7 @@ export default function AposentadoriaAcsAce() {
               25 anos de atividade até 2030 pode se aposentar aos 50 anos
               (mulher) ou 52 anos (homem). Analisamos o seu tempo de serviço e
               mostramos qual regra se aplica ao seu caso, com atendimento em
-              Maringá e virtual para todo o Paraná.
+              todo o Brasil.
             </p>
             <div className="mt-10 flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
               <a
@@ -586,12 +556,23 @@ export default function AposentadoriaAcsAce() {
                 Quero analisar meu caso
               </BotaoWhatsApp>
             </div>
-            <ul className="mt-10 flex flex-wrap justify-center gap-x-7 gap-y-2 text-[15px] leading-relaxed">
-              <li>Dr. João Luiz Santana Daufenbach · OAB/PR 66.208</li>
-              <li>Mais de 10 anos em Direito Previdenciário</li>
-              <li>Regime próprio do município e INSS</li>
-              <li>Atendimento virtual em todo o Paraná</li>
-            </ul>
+            <div className="mt-10 flex flex-col items-center gap-2 text-[19px] leading-relaxed">
+              <p
+                className="font-semibold"
+                style={{ color: C.chumbo, fontFamily: "Sora, sans-serif" }}
+              >
+                Atendemos{" "}
+                <span style={{ color: C.medio }}>Servidores Públicos</span> e{" "}
+                <span style={{ color: C.medio }}>INSS</span>
+              </p>
+              <p
+                className="font-semibold"
+                style={{ color: C.chumbo, fontFamily: "Sora, sans-serif" }}
+              >
+                Atendemos em{" "}
+                <span style={{ color: C.medio }}>todo o Brasil</span>
+              </p>
+            </div>
           </div>
         </section>
 
@@ -632,84 +613,7 @@ export default function AposentadoriaAcsAce() {
                 </article>
               ))}
             </div>
-            <p className="mt-8 text-[17px]">
-              Antes da EC 140, o agente seguia a regra geral:{" "}
-              <s className="decoration-2">62 anos (mulher) e 65 anos (homem)</s>
-            </p>
-            <FonteTramitacao className="mt-3" />
-
-            <div className="mt-10 max-w-3xl">
-              <div
-                className="h-fit rounded-xl p-6 text-white md:p-7"
-                style={{ backgroundColor: C.escuro }}
-              >
-                <h2
-                  className="text-[21px] font-semibold leading-snug"
-                  style={{ fontFamily: "Sora, sans-serif" }}
-                >
-                  Idade mínima na regra de transição
-                </h2>
-                <p className="mt-2 text-[16px] opacity-90">
-                  Para quem já era ACS ou ACE em 16/10/2026
-                </p>
-                <div className="mt-5 overflow-x-auto">
-                  <table className="w-full min-w-[300px] border-collapse text-left text-[16px]">
-                    <thead>
-                      <tr className="text-[13px] uppercase tracking-wide opacity-75">
-                        <th className="border-b border-white/25 py-2 pr-3 font-semibold">
-                          Requisitos cumpridos
-                        </th>
-                        <th className="border-b border-white/25 py-2 pr-3 font-semibold">
-                          Mulher
-                        </th>
-                        <th className="border-b border-white/25 py-2 font-semibold">
-                          Homem
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {IDADES_TRANSICAO.map(linha => (
-                        <tr
-                          key={linha.periodo}
-                          style={
-                            linha.destaque
-                              ? { backgroundColor: "rgba(0,174,239,0.18)" }
-                              : undefined
-                          }
-                        >
-                          <td
-                            className="border-b border-white/15 py-3 pr-3"
-                            style={
-                              linha.destaque
-                                ? {
-                                    borderLeft: `4px solid ${C.ciano}`,
-                                    paddingLeft: "10px",
-                                  }
-                                : undefined
-                            }
-                          >
-                            {linha.periodo}
-                          </td>
-                          <td className="border-b border-white/15 py-3 pr-3">
-                            {linha.mulher}
-                          </td>
-                          <td className="border-b border-white/15 py-3">
-                            {linha.homem}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <p className="mt-4 text-[17px] leading-relaxed opacity-90">
-                  Exige 25 anos de contribuição e 25 anos de efetivo exercício
-                  como agente. Cada ano a mais, além dos 25, reduz 1 ano da
-                  idade, até o limite de 5 anos. Exemplo: uma ACS com 50 anos de
-                  idade e 25 anos de efetivo exercício em novembro de 2026 já
-                  cumpre os requisitos.
-                </p>
-              </div>
-            </div>
+            <FonteTramitacao className="mt-8" />
           </div>
         </section>
 
@@ -1227,7 +1131,7 @@ export default function AposentadoriaAcsAce() {
             </ol>
             <p className="mt-6 text-[17px] leading-relaxed">
               Todas as etapas podem ser feitas de forma virtual, de qualquer
-              cidade do Paraná.
+              cidade do Brasil.
             </p>
           </div>
         </section>
@@ -1288,8 +1192,8 @@ export default function AposentadoriaAcsAce() {
             <p className="mt-5 max-w-3xl text-[17px] leading-relaxed">
               Mande uma mensagem com sua idade, o tempo como agente e o
               município onde trabalha. A equipe do escritório retorna com os
-              próximos passos. Atendemos em Maringá e de forma virtual em todo o
-              Paraná.
+              próximos passos. Atendemos em todo o Brasil, com a estrutura
+              física em Maringá para quem preferir o atendimento presencial.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-6">
               <BotaoWhatsApp href={LINK_WHATSAPP}>

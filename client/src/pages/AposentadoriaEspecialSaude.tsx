@@ -25,7 +25,7 @@ import { SITE, whatsapp } from "@/config/site";
 
 /** Mensagem única de WhatsApp desta página. */
 const MENSAGEM_SAUDE =
-  "Olá, vim pela página de aposentadoria especial na saúde e gostaria de falar sobre o meu caso.";
+  "Sou da área da saúde e quero falar com um advogado sobre a minha Aposentadoria Especial.";
 const WHATSAPP_SAUDE = whatsapp(MENSAGEM_SAUDE);
 
 const TRILHA = [
