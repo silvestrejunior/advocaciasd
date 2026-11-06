@@ -122,3 +122,20 @@ Verificação local (build de produção servido localmente): 7 rotas com HTTP 2
 único h1, nenhuma imagem quebrada, sem imagem sem alt ou sem dimensões, links do
 WhatsApp com mensagem pré-escrita e acordeão do FAQ abrindo normalmente. Medição com
 rede e CPU lentas (1,6 Mbps, 150 ms, 4x CPU): CLS 0,0000 em /aposentadoria-acs-ace.
+
+## Resultado publicado — 06/11/2026 (commit 5b3a6e2)
+
+Medição no domínio oficial com a versão publicada (Lighthouse 13.6.0), comparada com a
+medição anterior nas mesmas páginas:
+
+| Página | Desempenho celular | Desempenho computador | Acessibilidade | CLS celular |
+|---|---|---|---|---|
+| Início | 60 → 76 | 76 → 89 | 100 | 0 |
+| Aposentadoria especial (saúde) | 76 → 89 | 86 → 97 | 100 | 0 |
+| Aposentadoria ACS e ACE | 65 → 88 | 76 → 95 | 96 → 100 | 0,267 → 0 |
+| Aposentadoria especial | 81 → 87 | 86 → 94 | 98 → 100 | 0 |
+| Serviços | 81 → 85 | 89 → 96 | 98 → 100 | 0 |
+| Seu caso | 84 → 86 | 90 → 99 | 100 | 0 |
+
+SEO técnico: 100 em todas as rotas medidas. Evidências em
+/home/ubuntu/advocacia/auditoria-final-2026-11-06/pos-publicacao/.

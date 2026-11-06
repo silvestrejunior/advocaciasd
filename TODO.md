@@ -212,4 +212,6 @@
       publisher nos BlogPosting de /blog.
 - [x] Título (59) e descrição (135) da campanha ACS e ACE dentro do limite do Google.
 - [x] Pré-carregamento do retrato do banner na home (maior elemento da primeira tela).
-- [ ] Publicar o checkpoint e repetir a medição de desempenho no domínio oficial.
+- [x] Publicado o checkpoint 5b3a6e2 na main (deploy automático na Vercel) e repetida a
+      medição no domínio: desempenho celular 76/89/88/87/85/86 nas seis páginas medidas,
+      acessibilidade e SEO em 100 e CLS zerado.
