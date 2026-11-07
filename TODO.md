@@ -236,4 +236,4 @@ Prévia visual e testes concluídos, vídeo confirmado KNg-vQ7uo3k, data24/03/20
 
 Estado atual: addon permanece em recuperação. Não há evento nativo disponível para retomada automática; não foi configurado monitoramento e nenhuma publicação antecipada foi executada. Nova autorização registrada para concluir a publicação na retomada assim que a condição for confirmada.
 
-Addon normalizado em 07/11/2026 (configuração revisão 7, publicação automática desativada): revisão mobile, auditoria de links das 39 rotas e deploy executados.
+Addon normalizado em 07/11/2026 (configuração revisão 7, publicação automática desativada). Revisão mobile em 8 larguras, auditoria de links das 39 rotas e deploy executados. Publicada em https://www.advocaciasd.com.br/como-pedir-aposentadoria (commit 57456fe), com a hospedagem do projeto na mesma versão.
