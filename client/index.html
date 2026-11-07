@@ -95,10 +95,6 @@
       crossorigin
     />
     <!-- Google tag (gtag.js) — Google Ads AW-17096336975 -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-17096336975"
-    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -117,6 +113,35 @@
       gtag("js", new Date());
 
       gtag("config", "AW-17096336975");
+
+      // A biblioteca da tag é baixada depois da primeira pintura para não
+      // disputar a thread principal com o conteúdo da página. Os eventos
+      // registrados antes disso ficam na fila do dataLayer e são enviados
+      // quando ela carrega, sem perder visualizações nem conversões.
+      (function () {
+        function carregarTagGoogle() {
+          var script = document.createElement("script");
+          script.async = true;
+          script.src =
+            "https://www.googletagmanager.com/gtag/js?id=AW-17096336975";
+          document.head.appendChild(script);
+        }
+        if (document.readyState === "complete") {
+          carregarTagGoogle();
+          return;
+        }
+        window.addEventListener(
+          "load",
+          function () {
+            if ("requestIdleCallback" in window) {
+              requestIdleCallback(carregarTagGoogle, { timeout: 2000 });
+            } else {
+              setTimeout(carregarTagGoogle, 200);
+            }
+          },
+          { once: true }
+        );
+      })();
     </script>
   </head>
 

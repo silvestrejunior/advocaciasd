@@ -473,3 +473,51 @@
     transition: none;
   }
 }
+
+/* Ligações internas: bloco leve que reforça o tema da página. */
+.cp-links {
+  padding: 48px 0;
+  background: #f4f7f9;
+}
+.cp-links-titulo {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(21px, 3.4vw, 26px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #32414e;
+}
+.cp-links-lista {
+  display: grid;
+  gap: 4px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.cp-links-lista a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 10px 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #0066ad;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cp-links-lista a:hover,
+.cp-links-lista a:focus-visible {
+  color: #32414e;
+}
+.cp-links-lista a:focus-visible {
+  outline: 4px solid #00aeef;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+@media (min-width: 768px) {
+  .cp-links-lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 32px;
+  }
+}

@@ -40,7 +40,7 @@ const TIPOS = {
 
 const servidor = createServer(async (req, res) => {
   const caminho = decodeURIComponent(
-    new URL(req.url ?? "/", "http://local").pathname,
+    new URL(req.url ?? "/", "http://local").pathname
   );
   const alvo = path.join(DIST, caminho);
   try {
@@ -58,11 +58,11 @@ const servidor = createServer(async (req, res) => {
 });
 
 const { routes } = JSON.parse(
-  await readFile("client/public/manus-routes.json", "utf8"),
+  await readFile("client/public/manus-routes.json", "utf8")
 );
 
 await mkdir(SAIDA, { recursive: true });
-await new Promise((resolve) => servidor.listen(PORTA, resolve));
+await new Promise(resolve => servidor.listen(PORTA, resolve));
 
 const navegador = await puppeteer.launch({
   executablePath: "/usr/bin/chromium",
@@ -75,7 +75,7 @@ await pagina.setViewport({ width: 1280, height: 900 });
 // abertura enviaria uma visualização real para o Google, sujando as métricas
 // com acessos do próprio build.
 await pagina.setRequestInterception(true);
-pagina.on("request", (requisicao) => {
+pagina.on("request", requisicao => {
   const alvo = requisicao.url();
   if (
     /googletagmanager\.com|google-analytics\.com|doubleclick\.net/.test(alvo)
@@ -92,23 +92,25 @@ for (const rota of routes) {
   await pagina.goto(url, { waitUntil: "networkidle2" });
   // Dá tempo para o componente de SEO aplicar título, canônica e dados
   // estruturados antes de capturamos o HTML.
-  await pagina.evaluate(
-    () => new Promise((resolve) => setTimeout(resolve, 350)),
-  );
+  await pagina.evaluate(() => new Promise(resolve => setTimeout(resolve, 350)));
 
-  const html = await pagina.content();
+  // O carregador adiado da tag do Google insere o script no <head> depois do
+  // evento de load; o snapshot precisa sair sem ele para que a tag continue
+  // sendo baixada só depois da primeira pintura em produção.
+  const html = (await pagina.content()).replace(
+    /<script[^>]*src="https:\/\/www\.googletagmanager\.com\/gtag\/js[^"]*"[^>]*><\/script>/g,
+    ""
+  );
   // O nome do arquivo mantém a estrutura da rota (ex.: blog/algum-artigo.html)
   // para que o build grave cada página no caminho correto.
   const arquivo =
-    rota.path === "/"
-      ? "index.html"
-      : `${rota.path.replace(/^\//, "")}.html`;
+    rota.path === "/" ? "index.html" : `${rota.path.replace(/^\//, "")}.html`;
   await mkdir(path.dirname(path.join(SAIDA, arquivo)), { recursive: true });
   await writeFile(path.join(SAIDA, arquivo), html, "utf8");
 
   const titulo = await pagina.title();
   console.log(
-    `${rota.path.padEnd(34)} -> prerender/${arquivo.padEnd(38)} ${String(html.length).padStart(7)} bytes | ${titulo}`,
+    `${rota.path.padEnd(34)} -> prerender/${arquivo.padEnd(38)} ${String(html.length).padStart(7)} bytes | ${titulo}`
   );
   total += 1;
 }

@@ -194,3 +194,9 @@ Auditoria de links e WhatsApp das39rotas ativas no build local: 39rotas em2xx/3x
 Checkpoint registrado na main canônica e enviado para a main de produção (Vercel), além da publicação na hospedagem do projeto (versão57456fe). A rota respondeu200 já na primeira checagem: título e descrição literais, canônica `https://advocaciasd.com.br/como-pedir-aposentadoria` igual ao sitemap, um único H1, sem iframe antes do clique, sem bloqueio de zoom, capa do vídeo e fontes locais em200, e as páginas `/`, `/aposentadoria-especial-saude` e `/aposentadoria-acs-ace` preservadas em200.
 
 Auditoria de links e WhatsApp no domínio oficial: 39rotas em2xx/3xx, 2408referências, 203links de WhatsApp para5544998563465 e destino do WhatsApp confirmado (`wa.me` → `api.whatsapp.com/send`). A nova rota tem3contatos, todos com a mensagem aprovada, e nenhum problema. Restaram apenas3ocorrências do mesmo destino externo que responde403 a requisições automatizadas por proteção antibot, já verificado em navegador real; não são links quebrados. A checagem inicial do sitemap era falso negativo porque o arquivo usa a forma canônica sem www, e a verificação foi corrigida.
+
+### Otimização de carregamento — 07/11/2026
+
+O filmstrip da medição mobile mostrava o viewport em branco até cerca de6,1s: a montagem do React substituía o HTML pré-renderizado e só reapresentava o conteúdo depois de baixar e executar o pacote único de780KB (199KB comprimidos), que trazia o código das39rotas.
+
+Medidas aplicadas: divisão de código por rota com carregamento sob demanda (pacote inicial de199KB para75KB comprimidos, com pacotes de8a61KB por página), biblioteca da tag do Google baixada só depois do evento de load com os eventos preservados na fila do dataLayer, e remoção da tag injetada do snapshot do pré-render para que ela não volte a bloquear a primeira pintura. As39rotas foram revalidadas: nenhuma perdeu conteúdo, título ou H1.

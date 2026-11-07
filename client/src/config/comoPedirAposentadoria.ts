@@ -5,7 +5,8 @@
 export const PEDIDO_APOSENTADORIA = {
   caminho: "/como-pedir-aposentadoria",
   origemCanonica: "https://advocaciasd.com.br",
-  titulo: "Como pedir a aposentadoria com segurança | Advogado em Maringá-PR",
+  // 51 caracteres: dentro do limite de 30 a 60 recomendado pelo Google.
+  titulo: "Como pedir aposentadoria com segurança | Maringá-PR",
   descricao:
     "Vai pedir sua aposentadoria? Conheça seu direito antes de dar entrada no INSS. Assista ao vídeo e fale com advogado previdenciário em Maringá.",
   nomeEscritorio: "Santana Daufenbach Advocacia Previdenciária",

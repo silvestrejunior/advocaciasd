@@ -66,11 +66,50 @@ const DADOS_ESTRUTURADOS: Record<string, unknown>[] = [
         },
       ]
     : []),
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${URL_PAGINA}#trilha`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Início",
+        item: `${SITE.dominio}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Como pedir aposentadoria",
+        item: URL_PAGINA,
+      },
+    ],
+  },
 ];
 const GEO = { regiao: "BR-PR", cidade: "Maringá" };
 const AREA = [
   { tipo: "City" as const, nome: "Maringá" },
   { tipo: "State" as const, nome: "Paraná" },
+];
+
+/** Ligações internas que reforçam o tema da página para leitores e buscadores. */
+const LEIA_TAMBEM = [
+  {
+    href: "/aposentadoria-especial",
+    texto: "Aposentadoria especial: o que analisar antes de pedir",
+  },
+  {
+    href: "/tempo-rural",
+    texto: "Tempo rural: como organizar as provas",
+  },
+  {
+    href: "/pericia-negada",
+    texto: "Perícia negada: o que fazer primeiro",
+  },
+  {
+    href: "/servicos",
+    texto: "Todos os serviços previdenciários do escritório",
+  },
 ];
 
 function SimboloWhatsApp() {
@@ -252,6 +291,20 @@ export default function ComoPedirAposentadoria() {
           </div>
         </section>
         <SelecaoAposentadoria />
+        <section className="cp-links" aria-labelledby="cp-links-titulo">
+          <div className="cp-content">
+            <h2 id="cp-links-titulo" className="cp-links-titulo">
+              Veja também
+            </h2>
+            <ul className="cp-links-lista">
+              {LEIA_TAMBEM.map(item => (
+                <li key={item.href}>
+                  <a href={item.href}>{item.texto}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
         <section className="cp-frase" aria-labelledby="cp-frase-titulo">
           <div className="cp-content">
             <div className="cp-filete" aria-hidden="true" />
