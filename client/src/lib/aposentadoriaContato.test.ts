@@ -12,73 +12,73 @@ describe("montarMensagemAposentadoria", () => {
       rural: null,
       insalubridade: null,
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos.",
     },
     {
       rural: null,
       insalubridade: "sim",
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, já trabalhei com insalubridade. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, já trabalhei com insalubridade.",
     },
     {
       rural: null,
       insalubridade: "nao",
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, não trabalhei com insalubridade. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, não trabalhei com insalubridade.",
     },
     {
       rural: null,
       insalubridade: "nao-sei",
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, não sei se trabalhei com insalubridade. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, não sei se trabalhei com insalubridade.",
     },
     {
       rural: "sim",
       insalubridade: null,
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, já trabalhei no meio rural. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, já trabalhei no meio rural.",
     },
     {
       rural: "sim",
       insalubridade: "sim",
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, já trabalhei no meio rural e já trabalhei com insalubridade. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, já trabalhei no meio rural e já trabalhei com insalubridade.",
     },
     {
       rural: "sim",
       insalubridade: "nao",
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, já trabalhei no meio rural e não trabalhei com insalubridade. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, já trabalhei no meio rural e não trabalhei com insalubridade.",
     },
     {
       rural: "sim",
       insalubridade: "nao-sei",
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, já trabalhei no meio rural e não sei se trabalhei com insalubridade. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, já trabalhei no meio rural e não sei se trabalhei com insalubridade.",
     },
     {
       rural: "nao",
       insalubridade: null,
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, não trabalhei no meio rural. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, não trabalhei no meio rural.",
     },
     {
       rural: "nao",
       insalubridade: "sim",
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, não trabalhei no meio rural e já trabalhei com insalubridade. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, não trabalhei no meio rural e já trabalhei com insalubridade.",
     },
     {
       rural: "nao",
       insalubridade: "nao",
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, não trabalhei no meio rural e não trabalhei com insalubridade. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, não trabalhei no meio rural e não trabalhei com insalubridade.",
     },
     {
       rural: "nao",
       insalubridade: "nao-sei",
       mensagem:
-        "Olá! Vi a página sobre como pedir a aposentadoria. Tenho 58 anos, não trabalhei no meio rural e não sei se trabalhei com insalubridade. Gostaria de orientação para o meu pedido.",
+        "Quero assessoria para pedir minha aposentadoria. Tenho 58 anos, não trabalhei no meio rural e não sei se trabalhei com insalubridade.",
     },
   ];
 

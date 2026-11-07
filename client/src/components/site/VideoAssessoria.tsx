@@ -5,8 +5,9 @@ export type VideoAssessoriaHandle = { abrir: () => void };
 
 /**
  * Fachada leve de vídeo: a capa é local, nenhuma requisição ao player do
- * YouTube ocorre antes de uma interação. O vídeo é vertical, mas o quadro
- * preserva o formato 16:9 especificado pelo cliente. Sem autoplay.
+ * YouTube ocorre antes de uma interação. Um clique na capa abre o player já
+ * reproduzindo, sem exigir um segundo clique. O vídeo é vertical, mas o quadro
+ * preserva o formato 16:9 especificado pelo cliente.
  */
 export const VideoAssessoria = forwardRef<VideoAssessoriaHandle>(
   function VideoAssessoria(_, ref) {
@@ -33,9 +34,9 @@ export const VideoAssessoria = forwardRef<VideoAssessoriaHandle>(
           {aberto ? (
             <iframe
               ref={player}
-              src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0&playsinline=1`}
+              src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0&playsinline=1&autoplay=1`}
               title={video.titulo}
-              allow="encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
               tabIndex={0}

@@ -78,17 +78,25 @@
   justify-content: center;
   align-items: center;
   min-height: 48px;
-  padding: 8px 15px;
-  border: 1px solid #32414e;
+  padding: 8px 16px;
+  border: 1px solid #0066ad;
   border-radius: 7px;
+  background: #0066ad;
+  box-shadow: 0 3px 10px #0066ad3d;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
-  color: #32414e;
+  color: #fff;
   text-decoration: none;
 }
-.cp-escritorio:hover {
-  background: #f4f7f9;
+.cp-escritorio:hover,
+.cp-escritorio:focus-visible {
+  background: #0077c8;
+  border-color: #0077c8;
+}
+.cp-escritorio:focus-visible {
+  outline: 4px solid #00aeef;
+  outline-offset: 2px;
 }
 .cp-hero {
   padding: 42px 0 48px;
@@ -345,19 +353,7 @@
   z-index: 40;
   bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   right: calc(14px + env(safe-area-inset-right, 0px));
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #1f8f4e;
-  color: #fff;
-  box-shadow: 0 5px 18px #22303b33;
-}
-.cp-whatsapp-fixo svg {
-  width: 29px;
-  height: 29px;
-  fill: currentColor;
+  text-decoration: none;
 }
 @media (min-width: 375px) {
   .cp-navbar-inner {

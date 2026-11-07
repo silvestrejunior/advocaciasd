@@ -7,8 +7,7 @@ export type DadosAposentadoria = {
   insalubridade: RespostaInsalubridade;
 };
 
-const MENSAGEM_INICIAL = "Olá! Vi a página sobre como pedir a aposentadoria.";
-const PEDIDO_ORIENTACAO = "Gostaria de orientação para o meu pedido.";
+const MENSAGEM_INICIAL = "Quero assessoria para pedir minha aposentadoria.";
 
 function idadeValida(idade: string) {
   return /^(?:1[89]|[2-7]\d|80)$/.test(idade);
@@ -44,5 +43,5 @@ export function montarMensagemAposentadoria({
     ? `Tenho ${idade} anos, ${trechos.join(" e ")}.`
     : `Tenho ${idade} anos.`;
 
-  return `${MENSAGEM_INICIAL} ${informacoes} ${PEDIDO_ORIENTACAO}`;
+  return `${MENSAGEM_INICIAL} ${informacoes}`;
 }

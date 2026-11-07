@@ -10,8 +10,7 @@ export const PEDIDO_APOSENTADORIA = {
   descricao:
     "Vai pedir sua aposentadoria? Conheça seu direito antes de dar entrada no INSS. Assista ao vídeo e fale com advogado previdenciário em Maringá.",
   nomeEscritorio: "Santana Daufenbach Advocacia Previdenciária",
-  mensagemPadrao:
-    "Olá! Vi a página sobre como pedir a aposentadoria e gostaria de conversar sobre o meu caso.",
+  mensagemPadrao: "Quero assessoria para pedir minha aposentadoria",
   video: {
     url: "https://www.youtube.com/shorts/KNg-vQ7uo3k",
     id: "KNg-vQ7uo3k",
