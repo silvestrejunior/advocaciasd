@@ -232,6 +232,8 @@ Prévia visual e testes concluídos, vídeo confirmado KNg-vQ7uo3k, data24/03/20
 ## Revisão final e publicação condicionada de `/como-pedir-aposentadoria` — 06/11/2026
 
 - [x] Revisar o texto principal e as chamadas para ação mantendo o H1, os rótulos aprovados, a frase do escritório, as mensagens prontas e a identidade visual. Esclarecer a influência dos fatores na análise e que a seleção prepara uma mensagem, sem enviá-la automaticamente.
-- [ ] Publicar a versão revisada somente quando o addon Manus estiver normalizado, conforme autorização do usuário em 06/11/2026 às 15:11. Essa autorização substitui a etapa anterior de prévia sem publicação, mas não permite antecipar a publicação enquanto a condição não for satisfeita. Preservar histórico e conferir a nova rota no domínio oficial após o deploy.
+- [x] Publicar a versão revisada quando o addon Manus estiver normalizado, conforme autorização do usuário em 06/11/2026 às 15:11. Essa autorização substitui a etapa anterior de prévia sem publicação, mas não permite antecipar a publicação enquanto a condição não for satisfeita. Preservar histórico e conferir a nova rota no domínio oficial após o deploy.
 
 Estado atual: addon permanece em recuperação. Não há evento nativo disponível para retomada automática; não foi configurado monitoramento e nenhuma publicação antecipada foi executada. Nova autorização registrada para concluir a publicação na retomada assim que a condição for confirmada.
+
+Addon normalizado em 07/11/2026 (configuração revisão 7, publicação automática desativada): revisão mobile, auditoria de links das 39 rotas e deploy executados.
