@@ -237,3 +237,20 @@ Prévia visual e testes concluídos, vídeo confirmado KNg-vQ7uo3k, data24/03/20
 Estado atual: addon permanece em recuperação. Não há evento nativo disponível para retomada automática; não foi configurado monitoramento e nenhuma publicação antecipada foi executada. Nova autorização registrada para concluir a publicação na retomada assim que a condição for confirmada.
 
 Addon normalizado em 07/11/2026 (configuração revisão 7, publicação automática desativada). Revisão mobile em 8 larguras, auditoria de links das 39 rotas e deploy executados. Publicada em https://www.advocaciasd.com.br/como-pedir-aposentadoria (commit 57456fe), com a hospedagem do projeto na mesma versão.
+
+## Otimização de desempenho e SEO da campanha (07/11/2026)
+
+- [x] Pacote inicial reduzido de 199 KB para 76 KB comprimidos, com divisão de
+      código por rota e pacotes de 8 a 61 KB por página.
+- [x] Página monta sem tela em branco: o módulo da rota é baixado antes da
+      montagem e a página renderiza de forma síncrona sobre o HTML pré-renderizado.
+- [x] CSS entregue junto do documento (`cssCodeSplit: false`): CLS de 1,0 para 0.
+- [x] Tag do Google baixada depois do evento de load, com os eventos anteriores
+      preservados na fila do dataLayer e o snapshot do pré-render limpo da tag.
+- [x] SEO on-page: título da campanha com 51 caracteres, BreadcrumbList nos dados
+      estruturados e bloco de ligações internas para os temas relacionados.
+- [x] As 39 rotas revalidadas com conteúdo, título, H1 e canônica íntegros.
+- [x] Publicado nos dois endereços (Vercel e hospedagem do projeto) no commit
+      c94bab2.
+- [ ] Monitoramento de posições de palavras-chave: depende de uma fonte de dados
+      (Google Search Console ou conector de SERP). Nenhuma está conectada.

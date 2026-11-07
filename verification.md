@@ -200,3 +200,24 @@ Auditoria de links e WhatsApp no domínio oficial: 39rotas em2xx/3xx, 2408refer�
 O filmstrip da medição mobile mostrava o viewport em branco até cerca de6,1s: a montagem do React substituía o HTML pré-renderizado e só reapresentava o conteúdo depois de baixar e executar o pacote único de780KB (199KB comprimidos), que trazia o código das39rotas.
 
 Medidas aplicadas: divisão de código por rota com carregamento sob demanda (pacote inicial de199KB para75KB comprimidos, com pacotes de8a61KB por página), biblioteca da tag do Google baixada só depois do evento de load com os eventos preservados na fila do dataLayer, e remoção da tag injetada do snapshot do pré-render para que ela não volte a bloquear a primeira pintura. As39rotas foram revalidadas: nenhuma perdeu conteúdo, título ou H1.
+
+### Rodada de desempenho e SEO — 07/11/2026 (commit c94bab2)
+
+Pacote inicial reduzido de 199 KB para 76 KB comprimidos por divisão de código
+por rota; montagem da página sem tela em branco (módulo da rota baixado antes da
+montagem e render síncrono); CSS entregue com o documento para eliminar o
+deslocamento de layout (CLS de 1,0 para 0); tag do Google adiada para depois do
+evento de load, com o snapshot do pré-render limpo da tag; título da campanha
+ajustado para 51 caracteres, BreadcrumbList nos dados estruturados e bloco de
+ligações internas. As 39 rotas foram revalidadas: nenhuma perdeu conteúdo,
+título, H1 ou canônica.
+
+Medições em produção: SEO, acessibilidade e boas práticas em 100 nas duas
+formas; desktop em 95 (LCP 715 ms, TBT 11 ms); mobile em 83 e 86 nas rodadas
+válidas (LCP 1,35 a 1,49 s, TBT 251 a 351 ms) contra 82 antes (LCP 1,23 s,
+TBT 412 ms). Uma rodada mobile atípica marcou 55 (LCP 5,2 s). O filmstrip do
+Lighthouse aparece vazio também na medição de referência, antes das mudanças,
+e por isso não foi usado como evidência. Medição direta no navegador com rede e
+CPU lentas: conteúdo visível aos 800 ms e CLS 0.
+
+Detalhamento em docs/achados-seo-2026-11-07.md.
